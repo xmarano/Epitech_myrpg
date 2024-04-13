@@ -12,9 +12,13 @@
 #ifndef RPG_H
     #define RPG_H
 
+typedef struct Menu {
+    sfText *test;
+} Menu_t;
+
 typedef struct Sprite {
     sfVector2i mouse;
-    sfText *test;
+    Menu_t menu;
 } Sprite_t;
 
 void init_menu(sfRenderWindow *window, Sprite_t *s);
