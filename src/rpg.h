@@ -13,8 +13,11 @@
     #define RPG_H
 
 typedef struct Sprite {
-    sfVector2f pos;
+    sfVector2i mouse;
     sfText *test;
 } Sprite_t;
 
+void init_menu(sfRenderWindow *window, Sprite_t *s);
+void draw_menu(sfRenderWindow *window, Sprite_t *s);
+void destroy_menu(sfRenderWindow *window, Sprite_t *s);
 #endif

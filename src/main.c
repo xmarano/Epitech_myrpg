@@ -6,38 +6,22 @@
 */
 #include "rpg.h"
 
+void event_click(sfRenderWindow *window, sfEvent event, Sprite_t *s)
+{
+    if (event.type == sfEvtClosed)
+        sfRenderWindow_close(window);
+}
+
 void rpg(sfRenderWindow *window, Sprite_t *s)
 {
     sfEvent event;
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
 
-    s->pos = sfRenderWindow_mapPixelToCoords(window, mouse, NULL);
-    my_printf("(x : %d)(y : %d)\n", mouse.x, mouse.y);
+    s->mouse = sfMouse_getPositionRenderWindow(window);
     sfRenderWindow_clear(window, sfBlack);
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed)
-            sfRenderWindow_close(window);
-    }
-    sfRenderWindow_drawText(window, s->test, NULL);
+    while (sfRenderWindow_pollEvent(window, &event))
+        event_click(window, event, s);
+    draw_menu(window, s);
     sfRenderWindow_display(window);
-}
-
-sfText *init_text(char *str, int size, sfVector2f pos)
-{
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/text.ttf");
-
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, size);
-    sfText_setColor(text, sfWhite);
-    sfText_setString(text, str);
-    sfText_setPosition(text, pos);
-    return text;
-}
-
-void text(sfRenderWindow *window, Sprite_t *s)
-{
-    s->test = init_text("MY RPG", 50, (sfVector2f){30, 12});
 }
 
 int main(int argc, char **argv)
@@ -50,9 +34,10 @@ int main(int argc, char **argv)
         return 84;
     window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
-    text(window, &s);
+    init_menu(window, &s);
     while (sfRenderWindow_isOpen(window))
         rpg(window, &s);
+    destroy_menu(window, &s);
     sfRenderWindow_destroy(window);
     return 0;
 }
