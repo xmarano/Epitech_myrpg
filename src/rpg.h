@@ -14,6 +14,7 @@
 
 typedef struct Sprite {
     sfVector2f pos;
+    sfText *test;
 } Sprite_t;
 
 #endif
