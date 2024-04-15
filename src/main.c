@@ -27,6 +27,7 @@ void rpg(Global_t *m)
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     draw_setting(m);
+    draw_inventaire(m);
     sfRenderWindow_display(m->window);
 }
 
