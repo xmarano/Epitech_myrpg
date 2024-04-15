@@ -14,6 +14,7 @@
 
 typedef struct Menu {
     sfText *test;
+    sfSprite *background;
 } Menu_t;
 
 typedef struct Sprite {

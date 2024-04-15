@@ -19,13 +19,25 @@ sfText *init_text(char *str, int size, sfVector2f pos)
     return text;
 }
 
+sfSprite *init_sprite(char *filename, sfVector2f pos)
+{
+    sfTexture *texture = sfTexture_createFromFile(filename, NULL);
+    sfSprite *sprite = sfSprite_create();
+
+    sfSprite_setTexture(sprite, texture, sfTrue);
+    sfSprite_setPosition(sprite, pos);
+    return sprite;
+}
+
 void init_menu(sfRenderWindow *window, Sprite_t *s)
 {
+    s->menu.background = init_sprite("assets/fond.jpg", (sfVector2f){0, 0});
     s->menu.test = init_text("MY RPG", 50, (sfVector2f){50, 25});
 }
 
 void draw_menu(sfRenderWindow *window, Sprite_t *s)
 {
+    sfRenderWindow_drawSprite(window, s->menu.background, NULL);
     sfRenderWindow_drawText(window, s->menu.test, NULL);
 }
 
