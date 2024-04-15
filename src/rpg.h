@@ -5,7 +5,8 @@
 ** rpg.h
 */
 #include "my.h"
-#include "inv.h"
+#include "include/menu.h"
+#include "include/inventory.h"
 #include <SFML/Window.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
@@ -14,15 +15,10 @@
 #ifndef RPG_H
     #define RPG_H
 
-typedef struct Menu {
-    sfText *test;
-    sfSprite *background;
-} Menu_t;
-
 typedef struct Glob {
     sfVector2i mouse;
     sfRenderWindow *window;
-    Menu_t menu;
+    Menu_t menu; /* Leo */
     Perso_t perso; /* Yanis */
 } Global_t;
 

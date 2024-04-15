@@ -2,13 +2,13 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** inv.h
+** inventory.h
 */
 
-#include "my.h"
+#include "../my.h"
 
-#ifndef INV_H
-    #define INV_H
+#ifndef INVENTORY_H
+    #define INVENTORY_H
 
 typedef struct inventaire {
     void *item1;
