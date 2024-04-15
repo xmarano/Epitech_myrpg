@@ -1,0 +1,21 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X                e                     X
+X   XXXXX  XXXXX   XXXXX   XXXXX       X
+X   XXXXX  XXXXX   XXXXX   XXXXX  h  h X
+X   XXOXX  XXXXX   XXXXX   XXAXX       X
+X   h    h  l  l     e                 X
+X   XXXXX  XXXXX   XXXXX   XXXXX       X
+XXXXXXXXX  XXXXX   XXXXX   XXXXXXXXXXXXX
+X m XXSXX  XXXXXhehXXXXX h XXXXX       X
+X          a     e  e        h     a   X
+X   m       a    e  e       h          X
+X   XXXXX  XXXXX   XXXXX   XXXXX e e e X
+X   XXXXX  XXXXX   XXXXX   XXXXX       X
+X   XXXXX  XXXXX   XXXXX   XXXXX l  l  X
+X     l       l      e       e         X
+X   XXXXX  XXXXX   XXXXX   XXXXX       X
+X   XXXXX  XXXXX   XXXXX   XXXXX       X
+X   XXXXX  XXXXX   XXXXX   XXXXX H123  X
+X     X      m      h            4567  X
+X    CX       m     h                  X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
