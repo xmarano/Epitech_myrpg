@@ -9,6 +9,7 @@
     #define RPG_H
 
 #include "my.h"
+#include "include/setting.h"
 #include "include/menu.h"
 #include "include/inventory.h"
 #include <SFML/Window.h>
