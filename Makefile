@@ -44,6 +44,7 @@ endif
 
 $(LIB)	: $(OBJLIB)
 	ar rc libmy.a lib/*.o
+	rm lib/*.o
 
 all	:	$(LIB) $(NAME)
 
