@@ -13,8 +13,11 @@
 sfSprite *set_inv_fond(Global_t *m)
 {
     sfSprite *sprite = sfSprite_create();
-    sfTexture *texture = sfTexture_createFromFile("assets/", NULL);
+    sfVector2f pos = {360, 180};
 
+    m->perso.inv.Inventory = sfTexture_createFromFile("../assets/inv_fond.png", NULL);
+    sfSprite_setTexture(sprite, m->perso.inv.Inventory, sfFalse);
+    sfSprite_setPosition(sprite, pos);
     return sprite;
 }
 

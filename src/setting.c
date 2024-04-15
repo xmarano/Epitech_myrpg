@@ -9,11 +9,5 @@
 
 void init_setting(Global_t *m)
 {
-    s->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    s->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    s->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    m->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    m->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    m->menu.background = init_sprite("assets/setting/background.jpeg", (sfVector2f){0, 0});
-    s->
+    return;
 }

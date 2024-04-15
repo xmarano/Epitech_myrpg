@@ -10,8 +10,10 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
         inventory(m, event);
+        sfRenderWindow_drawSprite(m->window ,m->perso.inv.inventory, NULL);
+    }
     else if (event.type == sfEvtClosed)
         sfRenderWindow_close(m->window);
 }
@@ -31,7 +33,7 @@ void rpg(Global_t *m)
 int main(int argc, char **argv)
 {
     Global_t m;
-    sfVideoMode mode = {1920 / 3, 1080 / 3, 32};
+    sfVideoMode mode = {1920, 1080, 32};
 
     if (argc != 1)
         return 84;
