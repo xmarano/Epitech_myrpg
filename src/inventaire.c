@@ -10,6 +10,16 @@
 #include "menu.h"
 #include "include/inventory.h"
 
+void draw_inventaire(Global_t *m)
+{
+    if (m->perso.is_visible && m->perso.inv.inventory != NULL)
+        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory, NULL);
+    if (m->perso.is_visible2 && m->perso.inv.inventory2 != NULL) {
+        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory2, NULL);
+        sfRenderWindow_drawSprite(m->window, m->perso.stat_w.init.sprite, NULL);
+    }
+}
+
 void what_inv(Global_t *m, sfEvent event)
 {
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso.is_visible && !m->perso.is_visible2) {
@@ -55,11 +65,12 @@ sfSprite *set_inv_fond2(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    sfVector2f pose;
-    sfVector2f scale;
+    sfVector2f pose = {830, 490};
+    sfVector2f scale = {2.2, 2.2};
 
     m->perso.inv.inventory = set_inv_fond(m);
     m->perso.inv.inventory2 = set_inv_fond2(m);
-    m->perso.stat_w.init.sprite = set_weapon(m, "assets/inv/weapons/axe1.png", pose, scale);
+    m->perso.stat_w.init.sprite = set_weapon(m, "assets/inv/weapons/axe3.png", pose, scale);
+    what_inv(m, event);
     return 0;
 }

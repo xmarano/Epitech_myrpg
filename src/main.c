@@ -8,16 +8,6 @@
 #include "include/inventory.h"
 #include "include/menu.h"
 
-void draw_inventaire(Global_t *m)
-{
-    if (m->perso.is_visible && m->perso.inv.inventory != NULL)
-        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory, NULL);
-    if (m->perso.is_visible2 && m->perso.inv.inventory2 != NULL) {
-        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory2, NULL);
-        sfRenderWindow_drawSprite(m->window, m->perso.stat_w.init.sprite, NULL);
-    }
-}
-
 void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtKeyPressed && (event.key.code == sfKeyS ||
