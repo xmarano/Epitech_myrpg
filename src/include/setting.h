@@ -14,13 +14,16 @@
     #define setting_H
 
 typedef struct setting {
-    sfSprite *background;
+    sfSprite *background_s;
     sfSprite *volume_up;
     sfSprite *volume_down;
-    sfSprite *coupe_all;
+    sfSprite *volume;
     sfSprite *credit;
-    sfSprite *histoire;
-    sfSprite *guide;
+    sfSprite *coupe_volume;
+    sfSprite *synopsis;
+    sfSprite *end;
+    sfSprite *size;
+    sfText* text_s;
 } Setting_t;
 
 #endif
