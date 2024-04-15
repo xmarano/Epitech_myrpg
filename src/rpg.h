@@ -29,5 +29,7 @@ void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
 void destroy_menu(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
-
+void init_setting(Global_t *m);
+void draw_setting(Global_t *m);
+sfSprite *init_sprite(char *filename, sfVector2f pos);
 #endif

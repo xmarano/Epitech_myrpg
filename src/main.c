@@ -26,8 +26,7 @@ void rpg(Global_t *m)
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
-    draw_menu(m);
-    draw_inventaire(m);
+    draw_setting(m);
     sfRenderWindow_display(m->window);
 }
 
@@ -40,10 +39,9 @@ int main(int argc, char **argv)
         return 84;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
-    init_menu(&m);
+    init_setting(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m);
-    destroy_menu(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
 }
