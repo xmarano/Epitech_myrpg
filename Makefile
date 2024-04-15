@@ -18,7 +18,6 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	src/*.c		\
 
-
 LIB 	= libmy.a
 
 OBJLIB	=	$(SRCLIB:.c=.o)
