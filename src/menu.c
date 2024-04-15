@@ -9,7 +9,7 @@
 
 void init_menu(Global_t *m)
 {
-    m->menu.background = init_sprite("assets/fond.jpg", (sfVector2f){0, 0});
+    m->menu.background = init_sprite("assets/menu/map_background.png", (sfVector2f){0, 0});
     m->menu.test = init_text("MY RPG", 50, (sfVector2f){50, 25});
 }
 
