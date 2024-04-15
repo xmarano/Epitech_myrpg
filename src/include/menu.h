@@ -5,10 +5,14 @@
 ** menu.h
 */
 
-#include "../my.h"
-
 #ifndef MENU_H
     #define MENU_H
+
+#include "../my.h"
+#include <SFML/Window.h>
+#include <SFML/Graphics.h>
+#include <SFML/Audio.h>
+#include <SFML/Config.h>
 
 typedef struct Menu {
     sfText *test;
