@@ -20,6 +20,8 @@ typedef struct inventaire {
     void *item3;
     void *item4;
     void *item5;
+    sfSprite *inventory;
+    sfTexture *Inventory;
 } inv_t;
 
 typedef struct stats_weapon {
