@@ -8,7 +8,9 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtClosed)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS)
+        inventory(m, event);
+    else if (event.type == sfEvtClosed)
         sfRenderWindow_close(m->window);
 }
 

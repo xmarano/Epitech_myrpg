@@ -22,6 +22,8 @@ typedef struct stats_weapon {
     int attack;
     int accuracy;
     int crit;
+    sfSprite *fond;
+    sfTexture *Fond;
 } stweapon_t;
 
 typedef struct stats_mob {

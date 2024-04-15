@@ -24,6 +24,8 @@ typedef struct Glob {
 
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
+int inventory(Global_t *m, sfEvent event);
 void destroy_menu(Global_t *m);
+int inventory(Global_t *m, sfEvent event);
 
 #endif
