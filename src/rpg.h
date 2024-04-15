@@ -59,7 +59,7 @@ typedef struct Glob {
     sfVector2i mouse;
     sfRenderWindow *window;
     Menu_t menu;
-    Perso_t perso;
+    Perso_t perso; /* Yanis */
 } Global_t;
 
 void init_menu(Global_t *m);
