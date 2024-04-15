@@ -26,16 +26,12 @@ typedef struct inventaire {
     sfTexture *Inventory2;
 } inv_t;
 
-typedef struct weapons_srpite {
-    sfTexture *texture;
-    sfSprite *sprite;
-}set_weapon_t;
-
 typedef struct stats_weapon {
     int attack;
     int accuracy;
     int crit;
-    set_weapon_t init;
+    sfTexture *texture;
+    sfSprite *sprite;
 } stweapon_t;
 
 typedef struct stats_mob {
@@ -43,11 +39,12 @@ typedef struct stats_mob {
     int xp;
     int hp;
     int lck;
+    int skl;
     int def;
     int res;
-    int atk;
+    int str;
     int spd;
-    int mvmt;
+    int mov;
 } stmob_t;
 
 typedef struct Perso {

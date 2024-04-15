@@ -33,7 +33,6 @@ sfSprite *init_sprite(char *filename, sfVector2f pos);
 sfText *init_text(char *str, int size, sfVector2f pos);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
-sfSprite *set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale);
 void draw_inventaire(Global_t *m);
 
 #endif
