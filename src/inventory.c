@@ -12,5 +12,5 @@
 
 int inventory(Global_t *m, sfEvent event)
 {
-
+    return 0;
 }
