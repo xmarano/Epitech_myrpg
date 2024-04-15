@@ -24,6 +24,7 @@ typedef struct setting {
     sfSprite *end;
     sfSprite *size;
     sfText* text_s;
+    int toto;
 } Setting_t;
 
 #endif

@@ -17,16 +17,19 @@ void init_setting(Global_t *m)
     m->setting.end = init_sprite("assets/setting/end.png", (sfVector2f){580, 730});
     m->setting.volume_down = init_sprite("assets/setting/volume_down.png", (sfVector2f){680, 730});
     m->setting.volume_up = init_sprite("assets/setting/volume_up.png", (sfVector2f){780, 730});
+    m->setting.toto = 0;
 }
 
 void draw_setting(Global_t *m)
 {
-    sfRenderWindow_drawSprite(m->window, m->setting.background_s, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.credit, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.synopsis, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.volume_down, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.volume_up, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.volume, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.size, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.end, NULL);
+    if (m->setting.toto % 2 == 1) {
+        sfRenderWindow_drawSprite(m->window, m->setting.background_s, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.credit, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.synopsis, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.volume_down, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.volume_up, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.volume, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.size, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.end, NULL);
+    }
 }
