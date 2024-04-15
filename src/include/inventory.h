@@ -4,12 +4,15 @@
 ** File description:
 ** inventory.h
 */
+#include "../my.h"
+#include "../rpg.h"
+#include <SFML/Window.h>
+#include <SFML/Graphics.h>
+#include <SFML/Audio.h>
+#include <SFML/Config.h>
 
 #ifndef INVENTORY_H
     #define INVENTORY_H
-
-#include "../my.h"
-#include "../rpg.h"
 
 typedef struct inventaire {
     void *item1;
@@ -46,7 +49,5 @@ typedef struct Perso {
     stmob_t stat_p;
     inv_t inv;
 }Perso_t;
-
-int inventory(Global_t *m, sfEvent event);
 
 #endif

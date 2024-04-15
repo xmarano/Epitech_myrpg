@@ -4,7 +4,10 @@
 ** File description:
 ** menu.c
 */
+
 #include "rpg.h"
+#include "include/inventory.h"
+#include "include/menu.h"
 
 sfText *init_text(char *str, int size, sfVector2f pos)
 {

@@ -5,6 +5,7 @@
 ** menu.h
 */
 #include "../my.h"
+#include "../rpg.h"
 #include <SFML/Window.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
