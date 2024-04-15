@@ -4,15 +4,14 @@
 ** File description:
 ** menu.h
 */
-
-#ifndef MENU_H
-    #define MENU_H
-
 #include "../my.h"
 #include <SFML/Window.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <SFML/Config.h>
+
+#ifndef MENU_H
+    #define MENU_H
 
 typedef struct Menu {
     sfText *test;
