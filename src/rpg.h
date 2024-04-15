@@ -12,6 +12,8 @@
 #ifndef RPG_H
     #define RPG_H
 
+
+
 typedef struct Menu {
     sfText *test;
     sfSprite *background;
