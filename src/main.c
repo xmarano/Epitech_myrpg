@@ -10,11 +10,11 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
+    if (event.type == sfEvtKeyPressed && (event.key.code == sfKeyS ||
+    event.key.code == sfKeyLeft || event.key.code == sfKeyRight)) {
         inventory(m, event);
-        sfRenderWindow_drawSprite(m->window ,m->perso.inv.inventory, NULL);
     }
-    else if (event.type == sfEvtClosed)
+    if (event.type == sfEvtClosed)
         sfRenderWindow_close(m->window);
 }
 
@@ -27,6 +27,12 @@ void rpg(Global_t *m)
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     draw_menu(m);
+    if (m->perso.is_visible && m->perso.inv.inventory != NULL)
+        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory, NULL);
+    if (m->perso.is_visible2 && m->perso.inv.inventory2 != NULL) {
+        sfRenderWindow_drawSprite(m->window, m->perso.inv.inventory2, NULL);
+        sfRenderWindow_drawSprite(m->window, m->perso.stat_w.init.sprite, NULL);
+    }
     sfRenderWindow_display(m->window);
 }
 

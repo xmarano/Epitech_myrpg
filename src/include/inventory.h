@@ -22,14 +22,20 @@ typedef struct inventaire {
     void *item5;
     sfSprite *inventory;
     sfTexture *Inventory;
+    sfSprite *inventory2;
+    sfTexture *Inventory2;
 } inv_t;
+
+typedef struct weapons_srpite {
+    sfTexture *texture;
+    sfSprite *sprite;
+}set_weapon_t;
 
 typedef struct stats_weapon {
     int attack;
     int accuracy;
     int crit;
-    sfSprite *fond;
-    sfTexture *Fond;
+    set_weapon_t init;
 } stweapon_t;
 
 typedef struct stats_mob {
@@ -50,6 +56,8 @@ typedef struct Perso {
     stweapon_t stat_w;
     stmob_t stat_p;
     inv_t inv;
+    bool is_visible;
+    bool is_visible2;
 }Perso_t;
 
 #endif
