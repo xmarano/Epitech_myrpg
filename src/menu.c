@@ -29,19 +29,19 @@ sfSprite *init_sprite(char *filename, sfVector2f pos)
     return sprite;
 }
 
-void init_menu(sfRenderWindow *window, Sprite_t *s)
+void init_menu(Global_t *m)
 {
-    s->menu.background = init_sprite("assets/fond.jpg", (sfVector2f){0, 0});
-    s->menu.test = init_text("MY RPG", 50, (sfVector2f){50, 25});
+    m->menu.background = init_sprite("assets/fond.jpg", (sfVector2f){0, 0});
+    m->menu.test = init_text("MY RPG", 50, (sfVector2f){50, 25});
 }
 
-void draw_menu(sfRenderWindow *window, Sprite_t *s)
+void draw_menu(Global_t *m)
 {
-    sfRenderWindow_drawSprite(window, s->menu.background, NULL);
-    sfRenderWindow_drawText(window, s->menu.test, NULL);
+    sfRenderWindow_drawSprite(m->window, m->menu.background, NULL);
+    sfRenderWindow_drawText(m->window, m->menu.test, NULL);
 }
 
-void destroy_menu(sfRenderWindow *window, Sprite_t *s)
+void destroy_menu(Global_t *m)
 {
-    sfText_destroy(s->menu.test);
+    sfText_destroy(m->menu.test);
 }

@@ -17,12 +17,14 @@ typedef struct Menu {
     sfSprite *background;
 } Menu_t;
 
-typedef struct Sprite {
+typedef struct Glob {
     sfVector2i mouse;
+    sfRenderWindow *window;
     Menu_t menu;
-} Sprite_t;
+} Global_t;
 
-void init_menu(sfRenderWindow *window, Sprite_t *s);
-void draw_menu(sfRenderWindow *window, Sprite_t *s);
-void destroy_menu(sfRenderWindow *window, Sprite_t *s);
+void init_menu(Global_t *m);
+void draw_menu(Global_t *m);
+void destroy_menu(Global_t *m);
+
 #endif

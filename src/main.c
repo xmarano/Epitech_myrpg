@@ -6,38 +6,37 @@
 */
 #include "rpg.h"
 
-void event_click(sfRenderWindow *window, sfEvent event, Sprite_t *s)
+void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtClosed)
-        sfRenderWindow_close(window);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
+        sfRenderWindow_close(m->window);
 }
 
-void rpg(sfRenderWindow *window, Sprite_t *s)
+void rpg(Global_t *m)
 {
     sfEvent event;
 
-    s->mouse = sfMouse_getPositionRenderWindow(window);
-    sfRenderWindow_clear(window, sfBlack);
-    while (sfRenderWindow_pollEvent(window, &event))
-        event_click(window, event, s);
-    draw_menu(window, s);
-    sfRenderWindow_display(window);
+    m->mouse = sfMouse_getPositionRenderWindow(m->window);
+    sfRenderWindow_clear(m->window, sfBlack);
+    while (sfRenderWindow_pollEvent(m->window, &event))
+        event_click(event, m);
+    draw_menu(m);
+    sfRenderWindow_display(m->window);
 }
 
 int main(int argc, char **argv)
 {
-    Sprite_t s;
+    Global_t m;
     sfVideoMode mode = {1920 / 3, 1080 / 3, 32};
-    sfRenderWindow *window;
 
     if (argc != 1)
         return 84;
-    window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
-    sfRenderWindow_setFramerateLimit(window, 60);
-    init_menu(window, &s);
-    while (sfRenderWindow_isOpen(window))
-        rpg(window, &s);
-    destroy_menu(window, &s);
-    sfRenderWindow_destroy(window);
+    m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(m.window, 60);
+    init_menu(&m);
+    while (sfRenderWindow_isOpen(m.window))
+        rpg(&m);
+    destroy_menu(&m);
+    sfRenderWindow_destroy(m.window);
     return 0;
 }

@@ -13,8 +13,10 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <math.h>
+
 #ifndef MY_H
     #define MY_H
+
 int my_atoi(char *str);
 int my_put_nbr(int nb);
 void my_putchar(char c);
@@ -25,4 +27,5 @@ int my_put_nbr_recursive(int nb);
 int my_printf(const char *format, ...);
 char *my_strcat(char *dest, char const *src);
 int my_strcmp(char const *s1, char const *s2);
+
 #endif
