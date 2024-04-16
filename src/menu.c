@@ -9,7 +9,7 @@
 
 void init_menu(Global_t *m)
 {
-    sfRenderWindow_setMouseCursorVisible(m->window, sfTrue);
+    sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
     m->menu.wsize = sfRenderWindow_getSize(m->window);
     m->menu.map = init_sprite("assets/menu/map.png", (sfVector2f){0, 0});
     m->menu.cursor = init_sprite("assets/menu/cursor.png", (sfVector2f){0, 0});
@@ -18,15 +18,21 @@ void init_menu(Global_t *m)
 
 void draw_menu(Global_t *m)
 {
+    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
+    sfRenderWindow_drawText(m->window, m->menu.title, NULL);
+}
+
+void draw_mouse(Global_t *m)
+{
     sfVector2f pos_c = {m->mouse.x, m->mouse.y};
 
-    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
     sfSprite_setPosition(m->menu.cursor, pos_c);
-    sfRenderWindow_drawText(m->window, m->menu.title, NULL);
+    sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
 }
 
 void destroy_menu(Global_t *m)
 {
     sfSprite_destroy(m->menu.map);
+    sfSprite_destroy(m->menu.cursor);
     sfText_destroy(m->menu.title);
 }

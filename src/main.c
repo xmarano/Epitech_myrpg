@@ -29,6 +29,7 @@ void rpg(Global_t *m)
     draw_menu(m);
     draw_setting(m);
     draw_inventaire(m);
+    draw_mouse(m);
     sfRenderWindow_display(m->window);
 }
 
