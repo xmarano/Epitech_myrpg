@@ -10,7 +10,23 @@
 #include "menu.h"
 #include "include/inventory.h"
 
-sfSprite *set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
+void move_cursor_up(Global_t *m)
+{
+    sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
+
+    cursor_pos.y -= 1;
+    sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
+}
+
+void move_cursor_down(Global_t *m)
+{
+    sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
+
+    cursor_pos.y += 35;
+    sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
+}
+
+void set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
 {
     m->perso.stat_w.sprite = sfSprite_create();
     m->perso.stat_w.texture = sfTexture_createFromFile(filename, NULL);
@@ -40,6 +56,7 @@ void draw_inventaire(Global_t *m)
         set_weapon(m, "assets/inv/weapons/sword2.png", pose, scale);
         pose.y += 31;
         set_weapon(m, "assets/inv/weapons/sword3.png", pose, scale);
+        sfRenderWindow_drawSprite(m->window, m->perso.inv.cursor, NULL);
     }
     return;
 }
@@ -58,7 +75,25 @@ static int what_inv(Global_t *m, sfEvent event)
         m->perso.is_visible = false;
         m->perso.is_visible2 = false;
     }
-    sfRenderWindow_setMouseCursorVisible(m->window, sfTrue);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
+        move_cursor_up(m);
+    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
+        move_cursor_down(m);
+    }
+    return 0;
+}
+
+sfSprite *set_cursor(Global_t *m)
+{
+    sfSprite *sprite = sfSprite_create();
+    sfVector2f scale = {0.3, 0.3};
+    sfVector2f pos = {958, 480};
+
+    m->perso.inv.Cursor = sfTexture_createFromFile("assets/inv/cursor.png", NULL);
+    sfSprite_setTexture(sprite, m->perso.inv.Cursor, sfFalse);
+    sfSprite_setScale(sprite, scale);
+    sfSprite_setPosition(sprite, pos);
+    return sprite;
 }
 
 sfSprite *set_inv_fond(Global_t *m)
@@ -91,6 +126,7 @@ int inventory(Global_t *m, sfEvent event)
 {
     m->perso.inv.inventory = set_inv_fond(m);
     m->perso.inv.inventory2 = set_inv_fond2(m);
+    m->perso.inv.cursor = set_cursor(m);
     what_inv(m, event);
     return 0;
 }

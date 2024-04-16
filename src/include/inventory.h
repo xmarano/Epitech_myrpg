@@ -24,6 +24,8 @@ typedef struct inventaire {
     sfTexture *Inventory;
     sfSprite *inventory2;
     sfTexture *Inventory2;
+    sfSprite *cursor;
+    sfTexture *Cursor;
 } inv_t;
 
 typedef struct stats_weapon {
