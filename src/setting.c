@@ -37,14 +37,15 @@ void event_setting(sfEvent event, Global_t *m)
     sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
     sfFloatRect textebounds = sfSprite_getGlobalBounds(m->setting.synopsis);
+    sfFloatRect creditBounds = sfSprite_getGlobalBounds(m->setting.credit);
 
     if (event.type == sfEvtMouseButtonPressed) {
-        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y))
             m->displaySizeOptions = !m->displaySizeOptions;
-        }
-        if (sfFloatRect_contains(&textebounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&textebounds, mouse.x, mouse.y))
             m->setting.isSynopsisClicked = !m->setting.isSynopsisClicked;
-        }
+        if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
+            m->setting.creditbool = !m->setting.creditbool;
         modify_size(mouse, m);
     }
 }
@@ -59,6 +60,9 @@ void init_setting2(Global_t *m)
     (sfVector2f){615, 440});
     m->setting.bigz = init_sprite("assets/setting/bigz.png",
     (sfVector2f){615, 520});
+    m->setting.creditbool = false;
+    m->setting.txtcredit = init_sprite("assets/setting/txtcredit.png",
+    (sfVector2f){1000, 200});
 }
 
 void init_setting(Global_t *m)
@@ -80,7 +84,7 @@ void init_setting(Global_t *m)
     init_setting2(m);
     m->setting.toto = 0;
     m->setting.isSynopsisClicked = false;
-    m->setting.test = init_sprite("assets/setting/test.png",
+    m->setting.test = init_sprite("assets/setting/textsynopsis.png",
     (sfVector2f){1000, 200});
 }
 
@@ -100,8 +104,9 @@ void draw_setting(Global_t *m)
             sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
         }
-        if (m->setting.isSynopsisClicked) {
+        if (m->setting.isSynopsisClicked)
             sfRenderWindow_drawSprite(m->window, m->setting.test, NULL);
-        }
+        if (m->setting.creditbool)
+            sfRenderWindow_drawSprite(m->window, m->setting.txtcredit, NULL);
     }
 }

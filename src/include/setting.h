@@ -29,6 +29,8 @@ typedef struct setting {
     int toto;
     sfSprite *test;
     bool isSynopsisClicked;
+    sfSprite *txtcredit;
+    bool creditbool;
 } Setting_t;
 
 #endif
