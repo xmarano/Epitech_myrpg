@@ -14,13 +14,13 @@ void init_menu(Global_t *m)
     m->menu.wsize = sfRenderWindow_getSize(m->window);
     m->menu.map = init_sprite("assets/menu/map.png", (sfVector2f){0, 0});
     m->menu.cursor = init_sprite("assets/menu/cursor.png", (sfVector2f){0, 0});
-    m->menu.title = init_text("MY RPG", 150, (sfVector2f){m->menu.wsize.x / 2, 25});
+    m->menu.title = init_text(m, "MY RPG", 150, 0);
 }
 
 void draw_menu(Global_t *m)
 {
     sfSprite_setScale(m->menu.map, (sfVector2f){2.0f, 2.0f});
-    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
+    //sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
     sfRenderWindow_drawText(m->window, m->menu.title, NULL);
 }
 

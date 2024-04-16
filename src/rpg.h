@@ -33,7 +33,7 @@ void destroy_menu(Global_t *m);
 void init_inventaire(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
 sfSprite *init_sprite(char *filename, sfVector2f pos);
-sfText *init_text(char *str, int size, sfVector2f pos);
+sfText *init_text(Global_t *m, char *str, int size, int pos_y);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
 void draw_inventaire(Global_t *m);

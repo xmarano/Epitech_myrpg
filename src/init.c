@@ -16,15 +16,19 @@ sfSprite *init_sprite(char *filename, sfVector2f pos)
     return sprite;
 }
 
-sfText *init_text(char *str, int size, sfVector2f pos)
+sfText *init_text(Global_t *m, char *str, int size, int pos_y)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
+    sfFloatRect text_pos;
+    float pos_x;
 
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, sfBlack);
     sfText_setString(text, str);
-    sfText_setPosition(text, pos);
+    text_pos = sfText_getLocalBounds(text);
+    pos_x = (m->menu.wsize.x - text_pos.width) / 2;
+    sfText_setPosition(text, (sfVector2f){pos_x, pos_y});
     return text;
 }

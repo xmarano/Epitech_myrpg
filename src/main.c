@@ -35,7 +35,7 @@ void rpg(Global_t *m)
 
     m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
-    sfRenderWindow_clear(m->window, sfBlack);
+    sfRenderWindow_clear(m->window, sfWhite);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     clock(m);

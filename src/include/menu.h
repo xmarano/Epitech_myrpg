@@ -19,6 +19,8 @@ typedef struct Menu {
     sfSprite *map;
     sfSprite *cursor;
     sfText *title;
+    sfFloatRect text;
+    float pos_x;
 } Menu_t;
 
 #endif
