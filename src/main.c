@@ -18,6 +18,17 @@ void event_click(sfEvent event, Global_t *m)
     event_setting(event, m);
 }
 
+void clock(Global_t *m)
+{
+    sfTime time = sfClock_getElapsedTime(m->clock);
+    float seconds;
+
+    seconds = time.microseconds / 1000000.0;
+    if (seconds > 0.1) {
+        sfClock_restart(m->clock);
+    }
+}
+
 void rpg(Global_t *m)
 {
     sfEvent event;
@@ -27,6 +38,7 @@ void rpg(Global_t *m)
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
+    clock(m);
     draw_menu(m);
     draw_setting(m);
     draw_inventaire(m);
