@@ -15,7 +15,7 @@
     #define MENU_H
 
 typedef struct Menu {
-    sfText *test;
+    sfText *title;
     sfSprite *background;
 } Menu_t;
 
