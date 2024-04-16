@@ -5,7 +5,6 @@
 ** rpg.h
 */
 
-
 #ifndef RPG_H
     #define RPG_H
     #include "my.h"
