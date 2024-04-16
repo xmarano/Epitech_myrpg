@@ -10,7 +10,7 @@
 #include "menu.h"
 #include "include/inventory.h"
 
-void move_cursor_up(Global_t *m)
+void move_cursor_up(Global_t *m, int i)
 {
     sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
 
@@ -18,11 +18,11 @@ void move_cursor_up(Global_t *m)
     sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
 }
 
-void move_cursor_down(Global_t *m)
+void move_cursor_down(Global_t *m, int i)
 {
     sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
 
-    cursor_pos.y += 35;
+    cursor_pos.y += 34;
     sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
 }
 
@@ -63,6 +63,8 @@ void draw_inventaire(Global_t *m)
 
 static int what_inv(Global_t *m, sfEvent event)
 {
+    int i = 0;
+
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso.is_visible && !m->perso.is_visible2) {
         m->perso.is_visible = true;
         m->perso.is_visible2 = false;
@@ -76,9 +78,10 @@ static int what_inv(Global_t *m, sfEvent event)
         m->perso.is_visible2 = false;
     }
     if (sfKeyboard_isKeyPressed(sfKeyUp)) {
-        move_cursor_up(m);
-    } else if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-        move_cursor_down(m);
+        move_cursor_up(m, i);
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+        move_cursor_down(m, i);
     }
     return 0;
 }
@@ -124,8 +127,8 @@ sfSprite *set_inv_fond2(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) ||
-    sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyUp) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyS) || (sfKeyboard_isKeyPressed(sfKeyLeft) ||
+    sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyUp) || sfKeyboard_isKeyPressed(sfKeyDown))) {
         m->perso.inv.inventory = set_inv_fond(m);
         m->perso.inv.inventory2 = set_inv_fond2(m);
         m->perso.inv.cursor = set_cursor(m);
