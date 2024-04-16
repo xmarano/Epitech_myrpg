@@ -34,6 +34,7 @@ typedef struct stats_weapon {
     int crit;
     sfTexture *texture;
     sfSprite *sprite;
+    sfRectangleShape *rect;
 } stweapon_t;
 
 typedef struct stats_mob {

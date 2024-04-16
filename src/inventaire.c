@@ -13,29 +13,37 @@
 void move_cursor_up(Global_t *m)
 {
     sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
+    sfVector2f hooved_pos = sfRectangleShape_getPosition(m->perso.stat_w.rect);
 
-    cursor_pos.y -= 1;
+    cursor_pos.y = 133;
+    hooved_pos.y = 122;
     sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
+    sfRectangleShape_setPosition(m->perso.stat_w.rect, hooved_pos);
 }
 
 void move_cursor_down(Global_t *m)
 {
     sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
+    sfVector2f hooved_pos = sfRectangleShape_getPosition(m->perso.stat_w.rect);
 
+    printf("old coor (%f;%f)\n", cursor_pos.x, cursor_pos.y);
     cursor_pos.y += 34;
+    hooved_pos.y += 30;
+    printf("coor (%f;%f)\n", cursor_pos.x, cursor_pos.y);
     sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
+    sfRectangleShape_setPosition(m->perso.stat_w.rect, hooved_pos);
 }
 
 void set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
 {
+    sfSprite_destroy(m->perso.stat_w.sprite);
+    sfTexture_destroy(m->perso.stat_w.texture);
     m->perso.stat_w.sprite = sfSprite_create();
     m->perso.stat_w.texture = sfTexture_createFromFile(filename, NULL);
     sfSprite_setTexture(m->perso.stat_w.sprite, m->perso.stat_w.texture, sfFalse);
     sfSprite_setPosition(m->perso.stat_w.sprite, pose);
     sfSprite_setScale(m->perso.stat_w.sprite, scale);
     sfRenderWindow_drawSprite(m->window, m->perso.stat_w.sprite, NULL);
-    sfSprite_destroy(m->perso.stat_w.sprite);
-    sfTexture_destroy(m->perso.stat_w.texture);
 }
 
 void draw_inventaire(Global_t *m)
@@ -59,6 +67,7 @@ void draw_inventaire(Global_t *m)
         pose.y += 31;
         set_weapon(m, "assets/inv/weapons/sword3.png", pose, scale);
         sfRenderWindow_drawSprite(m->window, m->perso.inv.cursor, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->perso.stat_w.rect, NULL);
     }
     if (!m->perso.is_visible && !m->perso.is_visible2) {
         m->show_mouse = true;
@@ -79,13 +88,21 @@ static int what_inv(Global_t *m, sfEvent event)
         m->perso.is_visible = false;
         m->perso.is_visible2 = false;
     }
-    if (sfKeyboard_isKeyPressed(sfKeyUp)) {
-        move_cursor_up(m);
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-        move_cursor_down(m);
-    }
     return 0;
+}
+
+sfRectangleShape *hooved(Global_t *m)
+{
+    sfVector2f popo = {985, 482};
+    sfVector2f size = {16 * 1.8, 16 * 1.8};
+    sfRectangleShape *rect = sfRectangleShape_create();
+
+    sfRectangleShape_setFillColor(rect, sfTransparent);
+    sfRectangleShape_setPosition(rect, popo);
+    sfRectangleShape_setSize(rect, size);
+    sfRectangleShape_setOutlineColor(rect, sfBlack);
+    sfRectangleShape_setOutlineThickness(rect, 2.1);
+    return rect;
 }
 
 sfSprite *set_cursor(Global_t *m)
@@ -129,13 +146,20 @@ sfSprite *set_inv_fond2(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-
-    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) ||
-        sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyUp) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown) || sfKeyboard_isKeyPressed(sfKeyUp)) {
         m->perso.inv.inventory = set_inv_fond(m);
         m->perso.inv.inventory2 = set_inv_fond2(m);
         m->perso.inv.cursor = set_cursor(m);
+        m->perso.stat_w.rect = hooved(m);
         what_inv(m, event);
+        if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+            printf("DOWN!\n");
+            move_cursor_down(m);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyUp)) {
+            printf("UP!\n");
+            move_cursor_up(m);
+        }
     }
     return 0;
 }

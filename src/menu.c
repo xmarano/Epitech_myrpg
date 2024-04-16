@@ -36,4 +36,5 @@ void destroy_menu(Global_t *m)
     sfSprite_destroy(m->menu.map);
     sfSprite_destroy(m->menu.cursor);
     sfText_destroy(m->menu.title);
+    sfRectangleShape_destroy(m->perso.stat_w.rect);
 }
