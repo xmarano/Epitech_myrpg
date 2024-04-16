@@ -9,61 +9,48 @@
 
 void event_setting(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtMouseButtonPressed) {
-        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
-        sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
-        sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
-        sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
-        sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
+    sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
+    sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
+    sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
+    sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
 
+    if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
             m->displaySizeOptions = !m->displaySizeOptions;
-        }
-        if (m->displaySizeOptions && sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
-        }
-        if (m->displaySizeOptions && sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
-        }
-        if (m->displaySizeOptions && sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
         }
     }
 }
 
-void event_settingcc(sfEvent event, Global_t *m)
+void init_setting2(Global_t *m)
 {
-    if (event.type == sfEvtMouseButtonPressed) {
-        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
-        sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
-        sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
-        sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
-
-        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
-        }
-        else if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
-        }
-        else if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
-        }
-    }
+    m->setting.size = init_sprite("assets/setting/size.png",
+    (sfVector2f){600, 250});
+    m->setting.littlez = init_sprite("assets/setting/littlez.png",
+    (sfVector2f){615, 360});
+    m->setting.mediumz = init_sprite("assets/setting/mediumz.png",
+    (sfVector2f){615, 440});
+    m->setting.bigz = init_sprite("assets/setting/bigz.png",
+    (sfVector2f){615, 520});
 }
 
 void init_setting(Global_t *m)
 {
-    m->setting.background_s = init_sprite("assets/setting/background.png", (sfVector2f){0, 0});
-    m->setting.credit = init_sprite("assets/setting/credit.png", (sfVector2f){200, 600});
-    m->setting.synopsis = init_sprite("assets/setting/synopsis.png", (sfVector2f){200, 250});
-    m->setting.size = init_sprite("assets/setting/size.png", (sfVector2f){600, 250});
-    m->setting.littlez = init_sprite("assets/setting/littlez.png", (sfVector2f){615, 360});
-    m->setting.mediumz = init_sprite("assets/setting/mediumz.png", (sfVector2f){615, 440});
-    m->setting.bigz = init_sprite("assets/setting/bigz.png", (sfVector2f){615, 520});
-    m->setting.volume = init_sprite("assets/setting/volume.png", (sfVector2f){600, 600});
-    m->setting.end = init_sprite("assets/setting/end.png", (sfVector2f){580, 730});
-    m->setting.volume_down = init_sprite("assets/setting/volume_down.png", (sfVector2f){680, 730});
-    m->setting.volume_up = init_sprite("assets/setting/volume_up.png", (sfVector2f){780, 730});
+    m->setting.background_s = init_sprite("assets/setting/background.png",
+    (sfVector2f){0, 0});
+    m->setting.credit = init_sprite("assets/setting/credit.png",
+    (sfVector2f){200, 600});
+    m->setting.synopsis = init_sprite("assets/setting/synopsis.png",
+    (sfVector2f){200, 250});
+    m->setting.volume = init_sprite("assets/setting/volume.png",
+    (sfVector2f){600, 600});
+    m->setting.end = init_sprite("assets/setting/end.png",
+    (sfVector2f){580, 730});
+    m->setting.volume_down = init_sprite("assets/setting/volume_down.png",
+    (sfVector2f){680, 730});
+    m->setting.volume_up = init_sprite("assets/setting/volume_up.png",
+    (sfVector2f){780, 730});
+    init_setting2(m);
     m->setting.toto = 0;
 }
 
