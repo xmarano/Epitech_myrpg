@@ -15,8 +15,10 @@
     #define MENU_H
 
 typedef struct Menu {
+    sfVector2u wsize;
+    sfSprite *map;
+    sfSprite *cursor;
     sfText *title;
-    sfSprite *background;
 } Menu_t;
 
 #endif
