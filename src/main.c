@@ -10,16 +10,11 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtKeyPressed && (event.key.code == sfKeyS
-    || event.key.code == sfKeyLeft ||
-    event.key.code == sfKeyRight || event.key.code == sfKeyUp ||
-    event.key.code == sfKeyDown)) {
-        inventory(m, event);
-    }
     if (event.type == sfEvtClosed)
         sfRenderWindow_close(m->window);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace)
         m->setting.toto++;
+    inventory(m, event);
     event_setting(event, m);
 }
 

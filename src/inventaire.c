@@ -122,11 +122,12 @@ sfSprite *set_inv_fond2(Global_t *m)
     return sprite;
 }
 
-int inventory(Global_t *m, sfEvent event)
+void inventory(Global_t *m, sfEvent event)
 {
-    m->perso.inv.inventory = set_inv_fond(m);
-    m->perso.inv.inventory2 = set_inv_fond2(m);
-    m->perso.inv.cursor = set_cursor(m);
-    what_inv(m, event);
-    return 0;
+    if (sfKeyboard_isKeyPressed(sfKeyS)) {
+        m->perso.inv.inventory = set_inv_fond(m);
+        m->perso.inv.inventory2 = set_inv_fond2(m);
+        m->perso.inv.cursor = set_cursor(m);
+        what_inv(m, event);
+    }
 }
