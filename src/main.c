@@ -17,6 +17,7 @@ void event_click(sfEvent event, Global_t *m)
         sfRenderWindow_close(m->window);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace)
         m->setting.toto++;
+    event_setting(event, m);
 }
 
 void rpg(Global_t *m)

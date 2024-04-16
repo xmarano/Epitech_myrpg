@@ -7,6 +7,26 @@
 #include "rpg.h"
 #include <SFML/Graphics.h>
 
+void event_setting(sfEvent event, Global_t *m)
+{
+    if (event.type == sfEvtMouseButtonPressed) {
+        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
+        sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
+        sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
+        sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
+
+        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
+        }
+        else if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
+        }
+        else if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+        }
+    }
+}
+
 void init_setting(Global_t *m)
 {
     m->setting.background_s = init_sprite("assets/setting/background.png", (sfVector2f){0, 0});

@@ -34,5 +34,6 @@ sfText *init_text(char *str, int size, sfVector2f pos);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
 void draw_inventaire(Global_t *m);
+void event_setting(sfEvent event, Global_t *m);
 
 #endif
