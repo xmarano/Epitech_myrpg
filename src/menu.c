@@ -22,19 +22,18 @@ void draw_menu(Global_t *m)
     sfRenderWindow_drawText(m->window, m->menu.title, NULL);
 }
 
-void draw_mouse(Global_t *m)
-{
-    sfVector2f pos_c = {m->mouse.x, m->mouse.y};
-
-    sfSprite_setPosition(m->menu.cursor, pos_c);
-    if (m->show_mouse == true)
-        sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
-}
-
 void destroy_menu(Global_t *m)
 {
     sfSprite_destroy(m->menu.map);
     sfSprite_destroy(m->menu.cursor);
     sfText_destroy(m->menu.title);
-    sfRectangleShape_destroy(m->perso.stat_w.rect);
+}
+
+void draw_mouse(Global_t *m)
+{
+    sfVector2f pos_c = {m->mouse.x, m->mouse.y};
+
+    sfSprite_setPosition(m->menu.cursor, pos_c);
+    if (m->show_mouse == true && m->mouse.y > 0 && m->mouse.x > - 1)
+        sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
 }
