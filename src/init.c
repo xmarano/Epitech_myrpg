@@ -32,3 +32,15 @@ sfText *init_text(Global_t *m, char *str, int size, int pos_y)
     sfText_setPosition(text, (sfVector2f){pos_x, pos_y});
     return text;
 }
+
+sfRectangleShape *init_button(sfVector2f size, sfVector2f pos)
+{
+    sfRectangleShape *shape = sfRectangleShape_create();
+
+    sfRectangleShape_setSize(shape, size);
+    sfRectangleShape_setFillColor(shape, sfColor_fromRGB(134, 185, 104));
+    sfRectangleShape_setOutlineThickness(shape, 4);
+    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
+    sfRectangleShape_setPosition(shape, pos);
+    return shape;
+}
