@@ -28,8 +28,8 @@ typedef struct inventaire {
     sfTexture *Cursor;
     sfVector2f pos_cursor;
     sfVector2f pos_hooved;
-    int cursor_down;
-    int cursor_up;
+    sfRectangleShape *rect_inv;
+    int cursor_dpl;
 } inv_t;
 
 typedef struct stats_weapon {
@@ -38,7 +38,7 @@ typedef struct stats_weapon {
     int crit;
     sfTexture *texture;
     sfSprite *sprite;
-    sfRectangleShape *rect;
+    sfRectangleShape *rect_weapon;
 } stweapon_t;
 
 typedef struct stats_mob {
