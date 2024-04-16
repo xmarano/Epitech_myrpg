@@ -10,30 +10,6 @@
 #include "menu.h"
 #include "include/inventory.h"
 
-void move_cursor_up(Global_t *m)
-{
-    sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
-    sfVector2f hooved_pos = sfRectangleShape_getPosition(m->perso.stat_w.rect);
-
-    cursor_pos.y = 133;
-    hooved_pos.y = 122;
-    sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
-    sfRectangleShape_setPosition(m->perso.stat_w.rect, hooved_pos);
-}
-
-void move_cursor_down(Global_t *m)
-{
-    sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
-    sfVector2f hooved_pos = sfRectangleShape_getPosition(m->perso.stat_w.rect);
-
-    printf("old coor (%f;%f)\n", cursor_pos.x, cursor_pos.y);
-    cursor_pos.y += 34;
-    hooved_pos.y += 30;
-    printf("coor (%f;%f)\n", cursor_pos.x, cursor_pos.y);
-    sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
-    sfRectangleShape_setPosition(m->perso.stat_w.rect, hooved_pos);
-}
-
 void set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
 {
     sfSprite_destroy(m->perso.stat_w.sprite);
@@ -87,6 +63,8 @@ static int what_inv(Global_t *m, sfEvent event)
     } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
         m->perso.is_visible = false;
         m->perso.is_visible2 = false;
+        m->perso.inv.cursor_up = 0;
+        m->perso.inv.cursor_down = 0;
     }
     return 0;
 }
@@ -144,6 +122,26 @@ sfSprite *set_inv_fond2(Global_t *m)
     return sprite;
 }
 
+void move_cursor_up(Global_t *m)
+{
+    m->perso.inv.pos_cursor.x = 958;
+    m->perso.inv.pos_cursor.y = 480 - m->perso.inv.cursor_up;
+    m->perso.inv.pos_hooved.x = 985;
+    m->perso.inv.pos_hooved.y = 480 - m->perso.inv.cursor_up;
+    sfSprite_setPosition(m->perso.inv.cursor, m->perso.inv.pos_cursor);
+    sfRectangleShape_setPosition(m->perso.stat_w.rect, m->perso.inv.pos_hooved);
+}
+
+void move_cursor_down(Global_t *m)
+{
+    m->perso.inv.pos_cursor.x = 958;
+    m->perso.inv.pos_cursor.y = 480 + m->perso.inv.cursor_down;
+    m->perso.inv.pos_hooved.x = 985;
+    m->perso.inv.pos_hooved.y = 480 + m->perso.inv.cursor_down;
+    sfSprite_setPosition(m->perso.inv.cursor, m->perso.inv.pos_cursor);
+    sfRectangleShape_setPosition(m->perso.stat_w.rect, m->perso.inv.pos_hooved);
+}
+
 int inventory(Global_t *m, sfEvent event)
 {
     if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown) || sfKeyboard_isKeyPressed(sfKeyUp)) {
@@ -153,12 +151,8 @@ int inventory(Global_t *m, sfEvent event)
         m->perso.stat_w.rect = hooved(m);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-            printf("DOWN!\n");
+            m->perso.inv.cursor_down += 34;
             move_cursor_down(m);
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyUp)) {
-            printf("UP!\n");
-            move_cursor_up(m);
         }
     }
     return 0;

@@ -36,7 +36,7 @@ void rpg(Global_t *m)
 
 int main(int argc, char **argv)
 {
-    Global_t m;
+    Global_t m = {0};
     sfVideoMode mode = {1920, 1080, 32};
 
     if (argc != 1)
