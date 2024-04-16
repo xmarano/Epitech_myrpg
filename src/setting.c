@@ -7,26 +7,6 @@
 #include "rpg.h"
 #include <SFML/Graphics.h>
 
-void event_setting(sfEvent event, Global_t *m)
-{
-    if (event.type == sfEvtMouseButtonPressed) {
-        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
-        sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
-        sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
-        sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
-
-        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
-        }
-        else if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
-        }
-        else if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
-        }
-    }
-}
-
 void init_setting(Global_t *m)
 {
     m->setting.background_s = init_sprite("assets/setting/background.png", (sfVector2f){0, 0});
@@ -43,6 +23,13 @@ void init_setting(Global_t *m)
     m->setting.toto = 0;
 }
 
+void draw_size(Global_t *m)
+{
+    sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
+    sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
+    sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
+}
+
 void draw_setting(Global_t *m)
 {
     if (m->setting.toto % 2 == 1) {
@@ -54,8 +41,37 @@ void draw_setting(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->setting.volume, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.size, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.end, NULL);
-        sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
-        sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
-        sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
+    }
+}
+
+void move_size(sfEvent event, Global_t *m)
+{
+    if (event.type == sfEvtMouseButtonPressed) {
+        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
+        sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
+        sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
+        sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
+
+        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
+        }
+        if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
+        }
+        if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
+            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+        }
+    }
+}
+
+void event_setting(sfEvent event, Global_t *m)
+{
+    if (event.type == sfEvtMouseButtonPressed) {
+        sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
+        sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
+
+        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
+            m->setting.toto = (m->setting.toto + 1) % 2;
+        }
     }
 }

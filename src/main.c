@@ -10,7 +10,8 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtKeyPressed && (event.key.code == sfKeyS || event.key.code == sfKeyLeft || event.key.code == sfKeyRight)) {
+    if (event.type == sfEvtKeyPressed && (event.key.code == sfKeyS || event.key.code == sfKeyLeft
+    || event.key.code == sfKeyRight)) {
         inventory(m, event);
     }
     if (event.type == sfEvtClosed)

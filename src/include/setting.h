@@ -10,8 +10,8 @@
 #include <SFML/Audio.h>
 #include <SFML/Config.h>
 
-#ifndef setting_H
-    #define setting_H
+#ifndef SETTING_H
+    #define SETTING_H
 
 typedef struct setting {
     sfSprite *background_s;
@@ -27,7 +27,6 @@ typedef struct setting {
     sfSprite *mediumz;
     sfSprite *bigz;
     sfText* text_s;
-    
     int toto;
 } Setting_t;
 
