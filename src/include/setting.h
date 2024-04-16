@@ -23,7 +23,11 @@ typedef struct setting {
     sfSprite *synopsis;
     sfSprite *end;
     sfSprite *size;
+    sfSprite *littlez;
+    sfSprite *mediumz;
+    sfSprite *bigz;
     sfText* text_s;
+    
     int toto;
 } Setting_t;
 
