@@ -27,6 +27,7 @@ typedef struct setting {
     sfSprite *mediumz;
     sfSprite *bigz;
     int toto;
+    bool displaySizeOptions;
     sfSprite *test;
     bool isSynopsisClicked;
     sfSprite *txtcredit;

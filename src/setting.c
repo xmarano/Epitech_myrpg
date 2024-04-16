@@ -13,7 +13,7 @@ void modify_size(sfVector2i mouse, Global_t *m)
     sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
     sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
 
-    if (m->displaySizeOptions) {
+    if (m->setting.displaySizeOptions) {
         if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
             sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
             m->window);
@@ -41,7 +41,7 @@ void event_setting(sfEvent event, Global_t *m)
 
     if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y))
-            m->displaySizeOptions = !m->displaySizeOptions;
+            m->setting.displaySizeOptions = !m->setting.displaySizeOptions;
         if (sfFloatRect_contains(&textebounds, mouse.x, mouse.y))
             m->setting.isSynopsisClicked = !m->setting.isSynopsisClicked;
         if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
@@ -99,7 +99,7 @@ void draw_setting(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->setting.volume, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.size, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.end, NULL);
-        if (m->displaySizeOptions) {
+        if (m->setting.displaySizeOptions) {
             sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);

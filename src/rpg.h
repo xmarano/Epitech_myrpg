@@ -22,7 +22,6 @@ typedef struct Glob {
     Menu_t menu; /* Leo */
     Perso_t perso; /* Yanis */
     Setting_t setting; /* Tom */
-    bool displaySizeOptions;
     bool show_mouse;
 } Global_t;
 
