@@ -21,13 +21,16 @@ void init_setting(Global_t *m)
     m->setting.volume_down = init_sprite("assets/setting/volume_down.png", (sfVector2f){680, 730});
     m->setting.volume_up = init_sprite("assets/setting/volume_up.png", (sfVector2f){780, 730});
     m->setting.toto = 0;
+    m->setting.draw_size_sprites = 0;
 }
 
 void draw_size(Global_t *m)
 {
-    sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
-    sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
+    if (m->setting.draw_size_sprites) {
+        sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
+    }
 }
 
 void draw_setting(Global_t *m)
@@ -71,7 +74,7 @@ void event_setting(sfEvent event, Global_t *m)
         sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
 
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
-            m->setting.toto = (m->setting.toto + 1) % 2;
+            m->setting.draw_size_sprites = !m->setting.draw_size_sprites;
         }
     }
 }

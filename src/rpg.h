@@ -4,6 +4,10 @@
 ** File description:
 ** rpg.h
 */
+
+
+#ifndef RPG_H
+    #define RPG_H
 #include "my.h"
 #include "include/setting.h"
 #include "include/menu.h"
@@ -12,9 +16,6 @@
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <SFML/Config.h>
-
-#ifndef RPG_H
-    #define RPG_H
 
 typedef struct Glob {
     sfVector2i mouse;
