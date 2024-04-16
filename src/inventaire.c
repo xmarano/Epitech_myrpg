@@ -14,7 +14,7 @@ void move_cursor_up(Global_t *m)
 {
     sfVector2f cursor_pos = sfSprite_getPosition(m->perso.inv.cursor);
 
-    cursor_pos.y -= 10;
+    cursor_pos.y -= 1;
     sfSprite_setPosition(m->perso.inv.cursor, cursor_pos);
 }
 
