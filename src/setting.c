@@ -7,18 +7,39 @@
 #include "rpg.h"
 #include <SFML/Graphics.h>
 
+void modify_size(sfVector2i mouse, Global_t *m)
+{
+    sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
+    sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
+    sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
+
+    if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
+        sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+    }
+    if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
+        sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+    }
+    if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
+        sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+    }
+}
+
 void event_setting(sfEvent event, Global_t *m)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
-    sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
-    sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
-    sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
 
     if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
             m->displaySizeOptions = !m->displaySizeOptions;
         }
+        modify_size(mouse, m);
     }
 }
 
