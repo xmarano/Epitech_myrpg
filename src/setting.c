@@ -88,6 +88,14 @@ void init_setting(Global_t *m)
     (sfVector2f){1000, 200});
 }
 
+void init_inventaire(Global_t *m)
+{
+    m->perso.inv.pos_cursor.x = 1010;
+    m->perso.inv.pos_hooved.x = 1050;
+    m->perso.inv.pos_cursor.y = 503;
+    m->perso.inv.pos_hooved.y = 503;
+}
+
 void draw_setting(Global_t *m)
 {
     if (m->setting.toto % 2 == 1) {

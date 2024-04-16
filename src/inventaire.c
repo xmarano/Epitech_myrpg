@@ -122,36 +122,14 @@ sfSprite *set_inv_fond2(Global_t *m)
     return sprite;
 }
 
-void move_cursor_up(Global_t *m)
-{
-    if (m->perso.inv.pos_hooved.y <= 367) {
-        m->perso.inv.pos_hooved.y = 367;
-        m->perso.inv.pos_cursor.y = 367;
-        return;
-    }
-    m->perso.inv.pos_cursor.x = 1010;
-    m->perso.inv.pos_cursor.y = 503 - m->perso.inv.cursor_dpl;
-    m->perso.inv.pos_hooved.x = 1050;
-    m->perso.inv.pos_hooved.y = 503 - m->perso.inv.cursor_dpl;
-    sfSprite_setPosition(m->perso.inv.cursor, m->perso.inv.pos_cursor);
-    sfRectangleShape_setPosition(m->perso.stat_w.rect_weapon, m->perso.inv.pos_hooved);
-}
-
 void move_cursor_down(Global_t *m)
 {
     int max = 503 + (34 * 4);
 
-    if (m->perso.inv.pos_hooved.y >= 639) {
-        m->perso.inv.pos_hooved.y = 639;
-        m->perso.inv.pos_cursor.y = 639;
-        return;
-    }
     m->perso.inv.pos_cursor.x = 1010;
     m->perso.inv.pos_cursor.y = 503 + m->perso.inv.cursor_dpl;
     m->perso.inv.pos_hooved.x = 1050;
     m->perso.inv.pos_hooved.y = 503 + m->perso.inv.cursor_dpl;
-    sfSprite_setPosition(m->perso.inv.cursor, m->perso.inv.pos_cursor);
-    sfRectangleShape_setPosition(m->perso.stat_w.rect_weapon, m->perso.inv.pos_hooved);
 }
 
 int inventory(Global_t *m, sfEvent event)
@@ -164,13 +142,16 @@ int inventory(Global_t *m, sfEvent event)
         m->perso.inv.rect_inv = hooved(m, (sfVector2f){700, 380}, (sfVector2f){700, 453}, 6.0);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-            m->perso.inv.cursor_dpl += 34;
-            move_cursor_down(m);
+            if (m->perso.inv.pos_hooved.y < 639) {
+                m->perso.inv.pos_cursor.y += 34;
+                m->perso.inv.pos_hooved.y += 34;
+            } else {
+                m->perso.inv.pos_cursor.y = 503;
+                m->perso.inv.pos_hooved.y = 503;
+            }
+            sfSprite_setPosition(m->perso.inv.cursor, m->perso.inv.pos_cursor);
+            sfRectangleShape_setPosition(m->perso.stat_w.rect_weapon, m->perso.inv.pos_hooved);
             printf("pose cursor = (%f;%f)\n", m->perso.inv.pos_cursor.x, m->perso.inv.pos_cursor.y);
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyUp)) {
-            m->perso.inv.cursor_dpl -= 34;
-            move_cursor_up(m);
         }
     }
     return 0;

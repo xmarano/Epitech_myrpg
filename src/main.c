@@ -57,6 +57,7 @@ int main(int argc, char **argv)
     sfRenderWindow_setFramerateLimit(m.window, 60);
     init_menu(&m);
     init_setting(&m);
+    init_inventaire(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m);
     destroy_menu(&m);
