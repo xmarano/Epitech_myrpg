@@ -15,29 +15,35 @@ void modify_size(sfVector2i mouse, Global_t *m)
 
     if (m->displaySizeOptions) {
         if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+            m->window);
             sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
         }
         if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+            m->window);
             sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
         }
         if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+            m->window);
             sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
         }
     }
 }
 
-
 void event_setting(sfEvent event, Global_t *m)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
+    sfFloatRect textebounds = sfSprite_getGlobalBounds(m->setting.synopsis);
 
     if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
             m->displaySizeOptions = !m->displaySizeOptions;
+        }
+        if (sfFloatRect_contains(&textebounds, mouse.x, mouse.y)) {
+            m->setting.isSynopsisClicked = !m->setting.isSynopsisClicked;
         }
         modify_size(mouse, m);
     }
@@ -73,6 +79,9 @@ void init_setting(Global_t *m)
     (sfVector2f){780, 730});
     init_setting2(m);
     m->setting.toto = 0;
+    m->setting.isSynopsisClicked = false;
+    m->setting.test = init_sprite("assets/setting/test.png",
+    (sfVector2f){1000, 200});
 }
 
 void draw_setting(Global_t *m)
@@ -90,6 +99,9 @@ void draw_setting(Global_t *m)
             sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.bigz, NULL);
+        }
+        if (m->setting.isSynopsisClicked) {
+            sfRenderWindow_drawSprite(m->window, m->setting.test, NULL);
         }
     }
 }
