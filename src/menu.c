@@ -19,6 +19,7 @@ void init_menu(Global_t *m)
 
 void draw_menu(Global_t *m)
 {
+    sfSprite_setScale(m->menu.map, (sfVector2f){2.0f, 2.0f});
     sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
     sfRenderWindow_drawText(m->window, m->menu.title, NULL);
 }
