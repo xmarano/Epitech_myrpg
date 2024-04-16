@@ -27,7 +27,8 @@ void draw_mouse(Global_t *m)
     sfVector2f pos_c = {m->mouse.x, m->mouse.y};
 
     sfSprite_setPosition(m->menu.cursor, pos_c);
-    sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
+    if (m->show_mouse == true)
+        sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
 }
 
 void destroy_menu(Global_t *m)

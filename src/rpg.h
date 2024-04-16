@@ -23,6 +23,7 @@ typedef struct Glob {
     Perso_t perso; /* Yanis */
     Setting_t setting; /* Tom */
     bool displaySizeOptions;
+    bool show_mouse;
 } Global_t;
 
 void draw_mouse(Global_t *m);
