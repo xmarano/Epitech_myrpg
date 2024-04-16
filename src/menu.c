@@ -9,7 +9,7 @@
 
 void init_menu(Global_t *m)
 {
-    sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
+    sfRenderWindow_setMouseCursorVisible(m->window, sfTrue);
     m->menu.wsize = sfRenderWindow_getSize(m->window);
     m->menu.map = init_sprite("assets/menu/map.png", (sfVector2f){0, 0});
     m->menu.cursor = init_sprite("assets/menu/cursor.png", (sfVector2f){0, 0});
