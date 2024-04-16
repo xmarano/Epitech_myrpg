@@ -66,18 +66,18 @@ static int what_inv(Global_t *m, sfEvent event)
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso.is_visible && !m->perso.is_visible2) {
         m->perso.is_visible = true;
         m->perso.is_visible2 = false;
-    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight && m->perso.is_visible && !m->perso.is_visible2) {
+    } else if (sfKeyboard_isKeyPressed(sfKeyRight) && m->perso.is_visible && !m->perso.is_visible2) {
         m->perso.is_visible2 = true;
-    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft && m->perso.is_visible2) {
+    } else if (sfKeyboard_isKeyPressed(sfKeyLeft) && m->perso.is_visible2) {
         m->perso.is_visible = true;
         m->perso.is_visible2 = false;
     } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
         m->perso.is_visible = false;
         m->perso.is_visible2 = false;
     }
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
+    if (sfKeyboard_isKeyPressed(sfKeyUp)) {
         move_cursor_up(m);
-    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
+    } else if (sfKeyboard_isKeyPressed(sfKeyDown)) {
         move_cursor_down(m);
     }
     return 0;
@@ -122,12 +122,14 @@ sfSprite *set_inv_fond2(Global_t *m)
     return sprite;
 }
 
-void inventory(Global_t *m, sfEvent event)
+int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyS)) {
+    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) ||
+    sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyUp) || sfKeyboard_isKeyPressed(sfKeyDown)) {
         m->perso.inv.inventory = set_inv_fond(m);
         m->perso.inv.inventory2 = set_inv_fond2(m);
         m->perso.inv.cursor = set_cursor(m);
         what_inv(m, event);
     }
+    return 0;
 }
