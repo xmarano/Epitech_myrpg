@@ -19,11 +19,11 @@ sfSprite *init_sprite(char *filename, sfVector2f pos)
 sfText *init_text(char *str, int size, sfVector2f pos)
 {
     sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/text.ttf");
+    sfFont *font = sfFont_createFromFile("assets/font.ttf");
 
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, size);
-    sfText_setColor(text, sfWhite);
+    sfText_setColor(text, sfBlack);
     sfText_setString(text, str);
     sfText_setPosition(text, pos);
     return text;
