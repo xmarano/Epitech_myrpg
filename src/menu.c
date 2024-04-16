@@ -11,8 +11,10 @@ void init_menu(Global_t *m)
 {
     sfVector2u wsize = sfRenderWindow_getSize(m->window);
 
-    m->menu.background = init_sprite("assets/menu/map_background.png", (sfVector2f){0, 0});
-    m->menu.title = init_text("MY RPG", 150, (sfVector2f){(float)(wsize.x / 2), 25});
+    m->menu.background = init_sprite("assets/menu/map_background.png",
+    (sfVector2f){0, 0});
+    m->menu.title = init_text("MY RPG", 150,
+    (sfVector2f){(float)(wsize.x / 2), 25});
 }
 
 void draw_menu(Global_t *m)
