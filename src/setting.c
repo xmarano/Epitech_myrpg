@@ -13,22 +13,22 @@ void modify_size(sfVector2i mouse, Global_t *m)
     sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
     sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
 
-    if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-        sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-        m->window);
-    }
-    if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-        sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-        m->window);
-    }
-    if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-        sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-        m->window);
+    if (m->displaySizeOptions) {
+        if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+        }
+        if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
+        }
+        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
+            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
+        }
     }
 }
+
 
 void event_setting(sfEvent event, Global_t *m)
 {
