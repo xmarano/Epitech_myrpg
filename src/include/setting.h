@@ -28,7 +28,6 @@ typedef struct setting {
     sfSprite *bigz;
     sfText* text_s;
     int toto;
-    int draw_size_sprites;
 } Setting_t;
 
 #endif

@@ -23,6 +23,7 @@ typedef struct Glob {
     Menu_t menu; /* Leo */
     Perso_t perso; /* Yanis */
     Setting_t setting; /* Tom */
+    bool displaySizeOptions;
 } Global_t;
 
 void init_menu(Global_t *m);
