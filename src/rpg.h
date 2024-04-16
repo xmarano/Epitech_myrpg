@@ -25,6 +25,7 @@ typedef struct Glob {
     bool displaySizeOptions;
 } Global_t;
 
+void draw_mouse(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
 void destroy_menu(Global_t *m);

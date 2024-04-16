@@ -18,12 +18,16 @@ void init_menu(Global_t *m)
 
 void draw_menu(Global_t *m)
 {
+    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
+    sfRenderWindow_drawText(m->window, m->menu.title, NULL);
+}
+
+void draw_mouse(Global_t *m)
+{
     sfVector2f pos_c = {m->mouse.x, m->mouse.y};
 
     sfSprite_setPosition(m->menu.cursor, pos_c);
-    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
     sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.title, NULL);
 }
 
 void destroy_menu(Global_t *m)
