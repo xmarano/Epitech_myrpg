@@ -23,7 +23,7 @@ typedef struct Glob {
     sfClock *clock;
     Menu_t menu; /* Leo */
     Perso_t perso[5]; /* Yanis */
-    Weapons_t weapons[15]; /* Yanis */
+    Weapons_t weapons[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
 } Global_t;

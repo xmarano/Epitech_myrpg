@@ -12,6 +12,14 @@
     #define MAX_WEAPONS 15
     #define MAX_NAME_LENGTH 50
 
+enum WEAPONS {
+    ROY_SWORD = 0,
+    INFENIUM_BOOK = 1,
+    PATECARBO_BOW = 2,
+    XMARANO_SPEAR = 3,
+    RACAILLOU_AXE = 4,
+};
+
 typedef struct stats_weapon {
     char name[MAX_NAME_LENGTH];
     int attack;

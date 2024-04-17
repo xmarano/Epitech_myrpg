@@ -6,6 +6,7 @@
 */
 #include "../my.h"
 #include "../rpg.h"
+#include "weapons.h"
 #include <SFML/Window.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
@@ -49,10 +50,11 @@ typedef struct stats_char {
 } stchar_t;
 
 typedef struct Perso {
-    char *name_perso;
-    char *type;
-    stchar_t stat_p;
-    inv_t inv;
+    char *name_perso; // nom du perso
+    char *type; // type du perso
+    Weapons_t current_weapon[20]; //arme actuelle
+    stchar_t stat_p; //stat du perso
+    inv_t inv; //inventaire du perso
     bool is_visible;
     bool is_visible2;
 }Perso_t;

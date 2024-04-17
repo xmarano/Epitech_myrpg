@@ -1,4 +1,9 @@
-Common_axe 10 75 1 0 300
+Roy_sword 4 80 1 0 0
+Infenium_book 8 70 2 0 0
+Patecarbo_bow 4 75 2 0 0
+Xmarano_spear 5 85 1 0 0
+Racaillou_axe 7 80 1 0 0
+Common_axe 10 75 1 0 350
 Rare_axe 12 70 1 12 4000
 Legendary_axe 16 95 1 20 14000
 Common_sword 5 85 1 0 460
