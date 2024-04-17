@@ -33,14 +33,18 @@ sfText *init_text(Global_t *m, char *str, int size, int pos_y)
     return text;
 }
 
-sfRectangleShape *init_button(sfVector2f size, sfVector2f pos)
+sfRectangleShape *init_button(Global_t *m, sfVector2f size, int pos_y)
 {
     sfRectangleShape *shape = sfRectangleShape_create();
+    sfFloatRect rect_pos;
+    float pos_x;
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(134, 185, 104));
-    sfRectangleShape_setOutlineThickness(shape, 4);
+    sfRectangleShape_setOutlineThickness(shape, 6);
     sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
-    sfRectangleShape_setPosition(shape, pos);
+    rect_pos = sfRectangleShape_getLocalBounds(shape);
+    pos_x = (m->menu.wsize.x - rect_pos.width) / 2;
+    sfRectangleShape_setPosition(shape, (sfVector2f){pos_x + 5, pos_y});
     return shape;
 }

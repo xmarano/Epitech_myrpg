@@ -28,7 +28,6 @@ typedef struct Menu {
     sfRectangleShape *button3;
     sfRectangleShape *button4;
     sfFloatRect text;
-    float pos_x;
 } Menu_t;
 
 #endif
