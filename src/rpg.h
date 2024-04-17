@@ -9,6 +9,7 @@
     #define RPG_H
     #include "my.h"
     #include "include/setting.h"
+    #include "include/weapons.h"
     #include "include/menu.h"
     #include "include/inventory.h"
     #include <SFML/Window.h>
@@ -21,12 +22,14 @@ typedef struct Glob {
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
-    Perso_t perso; /* Yanis */
+    Perso_t perso[5]; /* Yanis */
+    Weapons_t weapons[15]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
 } Global_t;
 
 void draw_mouse(Global_t *m);
+int import_weapons_stats(Global_t *m);
 int setup_stat(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);

@@ -89,26 +89,10 @@ static void init_Roy(Perso_t *perso, char *name)
 
 int setup_stat(Global_t *m)
 {
-    Perso_t persos[5];
-
-    init_Roy(&persos[0], "ROY");
-    init_Infenium(&persos[1], "Infenieum");
-    init_Xmarano(&persos[2], "Xmarano");
-    init_PateCarbo(&persos[3], "PateCarbo");
-    init_Racaillou(&persos[4], "Racaillou");
-    for (int i = 0; i < 5; i++) {
-        printf("Nom du personnage : %s\n", persos[i].name_perso);
-        printf("Type du personnage : %s\n", persos[i].type);
-        printf("Level : %d\n", persos[i].stat_p.level);
-        printf("XP : %d\n", persos[i].stat_p.xp);
-        printf("HP : %d\n", persos[i].stat_p.hp);
-        printf("Lck : %d\n", persos[i].stat_p.lck);
-        printf("Skl : %d\n", persos[i].stat_p.skl);
-        printf("Def : %d\n", persos[i].stat_p.def);
-        printf("Res : %d\n", persos[i].stat_p.res);
-        printf("Str : %d\n", persos[i].stat_p.str);
-        printf("Spd : %d\n", persos[i].stat_p.spd);
-        printf("Mov : %d\n", persos[i].stat_p.mov);
-    }
+    init_Roy(&m->perso[0], "ROY");
+    init_Infenium(&m->perso[1], "Infenieum");
+    init_Xmarano(&m->perso[2], "Xmarano");
+    init_PateCarbo(&m->perso[3], "PateCarbo");
+    init_Racaillou(&m->perso[4], "Racaillou");
     return 0;
 }

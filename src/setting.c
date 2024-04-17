@@ -90,10 +90,10 @@ void init_setting(Global_t *m)
 
 void init_inventaire(Global_t *m)
 {
-    m->perso.inv.inv_sprite.pos_cursor.x = 1010;
-    m->perso.inv.inv_sprite.pos_hooved.x = 1050;
-    m->perso.inv.inv_sprite.pos_cursor.y = 503;
-    m->perso.inv.inv_sprite.pos_hooved.y = 503;
+    m->perso->inv.inv_sprite.pos_cursor.x = 1010;
+    m->perso->inv.inv_sprite.pos_hooved.x = 1050;
+    m->perso->inv.inv_sprite.pos_cursor.y = 503;
+    m->perso->inv.inv_sprite.pos_hooved.y = 503;
 }
 
 void draw_setting(Global_t *m)

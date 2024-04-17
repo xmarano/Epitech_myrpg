@@ -10,16 +10,16 @@
 #include "menu.h"
 #include "include/inventory.h"
 
-void set_weapon(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
+void set_weapon_sprite(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
 {
-    sfSprite_destroy(m->perso.stat_w.sprite);
-    sfTexture_destroy(m->perso.stat_w.texture);
-    m->perso.stat_w.sprite = sfSprite_create();
-    m->perso.stat_w.texture = sfTexture_createFromFile(filename, NULL);
-    sfSprite_setTexture(m->perso.stat_w.sprite, m->perso.stat_w.texture, sfFalse);
-    sfSprite_setPosition(m->perso.stat_w.sprite, pose);
-    sfSprite_setScale(m->perso.stat_w.sprite, scale);
-    sfRenderWindow_drawSprite(m->window, m->perso.stat_w.sprite, NULL);
+    sfSprite_destroy(m->weapons->sprite);
+    sfTexture_destroy(m->weapons->texture);
+    m->weapons->sprite = sfSprite_create();
+    m->weapons->texture = sfTexture_createFromFile(filename, NULL);
+    sfSprite_setTexture(m->weapons->sprite, m->weapons->texture, sfFalse);
+    sfSprite_setPosition(m->weapons->sprite, pose);
+    sfSprite_setScale(m->weapons->sprite, scale);
+    sfRenderWindow_drawSprite(m->window, m->weapons->sprite, NULL);
 }
 
 void draw_inventaire(Global_t *m)
@@ -27,65 +27,43 @@ void draw_inventaire(Global_t *m)
     sfVector2f pose = {1050, 503};
     sfVector2f scale = {1.8, 1.8};
 
-    if (m->perso.is_visible && m->perso.inv.inv_sprite.inventory != NULL) {
+    if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
-        sfRenderWindow_drawSprite(m->window, m->perso.inv.inv_sprite.inventory, NULL);
-        sfRenderWindow_drawRectangleShape(m->window, m->perso.inv.inv_sprite.rect_inv, NULL);
+        sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
     }
-    if (m->perso.is_visible2 && m->perso.inv.inv_sprite.inventory2 != NULL) {
-        sfRenderWindow_drawSprite(m->window, m->perso.inv.inv_sprite.inventory2, NULL);
-        // set_weapon(m, "assets/inv/weapons/axe3.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/spear2.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/spear3.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/sword2.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/sword3.png", pose, scale);
-        // pose.x = 1225;
-        // pose.y = 503;                                                            Stuff depend de la classe !
-        // set_weapon(m, "assets/inv/weapons/bow1.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/bow2.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/bow3.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/book1.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/book2.png", pose, scale);
-        // pose.y += 34;
-        // set_weapon(m, "assets/inv/weapons/book3.png", pose, scale);
-        // pose.y += 34;
-        sfRenderWindow_drawSprite(m->window, m->perso.inv.inv_sprite.cursor, NULL);
-        sfRenderWindow_drawRectangleShape(m->window, m->perso.stat_w.rect_weapon, NULL);
-        sfRenderWindow_drawRectangleShape(m->window, m->perso.inv.inv_sprite.rect_inv, NULL);
+    if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
+        sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory2, NULL);
+        // draw sprite here
+        sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->weapons->rect_weapon, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
     }
-    if (!m->perso.is_visible && !m->perso.is_visible2) {
+    if (!m->perso->is_visible && !m->perso->is_visible2) {
         m->show_mouse = true;
     }
 }
 
 static int what_inv(Global_t *m, sfEvent event)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso.is_visible && !m->perso.is_visible2) {
-        m->perso.is_visible = true;
-        m->perso.is_visible2 = false;
-    } else if (sfKeyboard_isKeyPressed(sfKeyRight) && m->perso.is_visible && !m->perso.is_visible2) {
-        m->perso.is_visible2 = true;
-    } else if (sfKeyboard_isKeyPressed(sfKeyLeft) && m->perso.is_visible2) {
-        m->perso.is_visible = true;
-        m->perso.is_visible2 = false;
-        m->perso.inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
-        m->perso.inv.inv_sprite.pos_hooved = (sfVector2f){1050, 503};
-    } else if (sfKeyboard_isKeyPressed(sfKeyRight) && !m->perso.is_visible && m->perso.is_visible2) {
-        m->perso.is_visible2 = false;
-        m->perso.is_visible = true;
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso->is_visible && !m->perso->is_visible2) {
+        m->perso->is_visible = true;
+        m->perso->is_visible2 = false;
+    } else if (sfKeyboard_isKeyPressed(sfKeyRight) && m->perso->is_visible && !m->perso->is_visible2) {
+        m->perso->is_visible2 = true;
+    } else if (sfKeyboard_isKeyPressed(sfKeyLeft) && m->perso->is_visible2) {
+        m->perso->is_visible = true;
+        m->perso->is_visible2 = false;
+        m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
+        m->perso->inv.inv_sprite.pos_hooved = (sfVector2f){1050, 503};
+    } else if (sfKeyboard_isKeyPressed(sfKeyRight) && !m->perso->is_visible && m->perso->is_visible2) {
+        m->perso->is_visible2 = false;
+        m->perso->is_visible = true;
     } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
-        m->perso.is_visible = false;
-        m->perso.is_visible2 = false;
-        m->perso.inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
-        m->perso.inv.inv_sprite.pos_hooved = (sfVector2f){1050, 503};
+        m->perso->is_visible = false;
+        m->perso->is_visible2 = false;
+        m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
+        m->perso->inv.inv_sprite.pos_hooved = (sfVector2f){1050, 503};
     }
     return 0;
 }
@@ -108,8 +86,8 @@ sfSprite *set_cursor(Global_t *m)
     sfVector2f scale = {0.3, 0.3};
     sfVector2f pos = {1010, 503};
 
-    m->perso.inv.inv_sprite.Cursor = sfTexture_createFromFile("assets/inv/cursor.png", NULL);
-    sfSprite_setTexture(sprite, m->perso.inv.inv_sprite.Cursor, sfFalse);
+    m->perso->inv.inv_sprite.Cursor = sfTexture_createFromFile("assets/inv/cursor.png", NULL);
+    sfSprite_setTexture(sprite, m->perso->inv.inv_sprite.Cursor, sfFalse);
     sfSprite_setScale(sprite, scale);
     sfSprite_setPosition(sprite, pos);
     return sprite;
@@ -121,8 +99,8 @@ sfSprite *set_inv_fond(Global_t *m)
     sfVector2f pos = {700, 380};
     sfVector2f scale = {2.9, 2.9};
 
-    m->perso.inv.inv_sprite.Inventory = sfTexture_createFromFile("assets/inv/inv_fond.png", NULL);
-    sfSprite_setTexture(sprite, m->perso.inv.inv_sprite.Inventory, sfFalse);
+    m->perso->inv.inv_sprite.Inventory = sfTexture_createFromFile("assets/inv/inv_fond.png", NULL);
+    sfSprite_setTexture(sprite, m->perso->inv.inv_sprite.Inventory, sfFalse);
     sfSprite_setPosition(sprite, pos);
     sfSprite_setScale(sprite, scale);
     return sprite;
@@ -134,8 +112,8 @@ sfSprite *set_inv_fond2(Global_t *m)
     sfVector2f pos = {992, 380};
     sfVector2f scale = {2.9, 2.9};
 
-    m->perso.inv.inv_sprite.Inventory2 = sfTexture_createFromFile("assets/inv/inv_fond2.png", NULL);
-    sfSprite_setTexture(sprite, m->perso.inv.inv_sprite.Inventory2, sfFalse);
+    m->perso->inv.inv_sprite.Inventory2 = sfTexture_createFromFile("assets/inv/inv_fond2.png", NULL);
+    sfSprite_setTexture(sprite, m->perso->inv.inv_sprite.Inventory2, sfFalse);
     sfSprite_setPosition(sprite, pos);
     sfSprite_setScale(sprite, scale);
     return sprite;
@@ -144,22 +122,22 @@ sfSprite *set_inv_fond2(Global_t *m)
 int inventory(Global_t *m, sfEvent event)
 {
     if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
-        m->perso.inv.inv_sprite.inventory = set_inv_fond(m);
-        m->perso.inv.inv_sprite.inventory2 = set_inv_fond2(m);
-        m->perso.inv.inv_sprite.cursor = set_cursor(m);
-        m->perso.stat_w.rect_weapon = hooved(m, (sfVector2f){1050, 503}, (sfVector2f){16 * 1.8, 16 * 1.8}, 2.1);
-        m->perso.inv.inv_sprite.rect_inv = hooved(m, (sfVector2f){700, 380}, (sfVector2f){683, 450}, 6.0);
+        m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
+        m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
+        m->perso->inv.inv_sprite.cursor = set_cursor(m);
+        m->weapons->rect_weapon = hooved(m, (sfVector2f){1050, 503}, (sfVector2f){16 * 1.8, 16 * 1.8}, 2.1);
+        m->perso->inv.inv_sprite.rect_inv = hooved(m, (sfVector2f){700, 380}, (sfVector2f){683, 450}, 6.0);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-            if (m->perso.inv.inv_sprite.pos_hooved.y < 639) {
-                m->perso.inv.inv_sprite.pos_cursor.y += 34;
-                m->perso.inv.inv_sprite.pos_hooved.y += 34;
+            if (m->perso->inv.inv_sprite.pos_hooved.y < 639) {
+                m->perso->inv.inv_sprite.pos_cursor.y += 34;
+                m->perso->inv.inv_sprite.pos_hooved.y += 34;
             } else {
-                m->perso.inv.inv_sprite.pos_cursor.y = 503;
-                m->perso.inv.inv_sprite.pos_hooved.y = 503;
+                m->perso->inv.inv_sprite.pos_cursor.y = 503;
+                m->perso->inv.inv_sprite.pos_hooved.y = 503;
             }
-            sfSprite_setPosition(m->perso.inv.inv_sprite.cursor, m->perso.inv.inv_sprite.pos_cursor);
-            sfRectangleShape_setPosition(m->perso.stat_w.rect_weapon, m->perso.inv.inv_sprite.pos_hooved);
+            sfSprite_setPosition(m->perso->inv.inv_sprite.cursor, m->perso->inv.inv_sprite.pos_cursor);
+            sfRectangleShape_setPosition(m->weapons->rect_weapon, m->perso->inv.inv_sprite.pos_hooved);
         }
     }
     return 0;

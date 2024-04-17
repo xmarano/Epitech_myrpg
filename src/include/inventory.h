@@ -35,18 +35,6 @@ typedef struct inventaire {
     inv2_sprite_t inv_sprite;
 } inv_t;
 
-typedef struct stats_weapon {
-    char *name;
-    int attack;
-    int accuracy;
-    int crit;
-    int cost;
-    int rng;
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfRectangleShape *rect_weapon;
-} stweapon_t;
-
 typedef struct stats_char {
     int level;
     int xp;
@@ -63,7 +51,6 @@ typedef struct stats_char {
 typedef struct Perso {
     char *name_perso;
     char *type;
-    stweapon_t stat_w;
     stchar_t stat_p;
     inv_t inv;
     bool is_visible;

@@ -1,0 +1,15 @@
+Common_axe 10 75 1 0 300
+Rare_axe 12 70 1 12 4000
+Legendary_axe 16 95 1 20 14000
+Common_sword 5 85 1 0 460
+Rare_sword 7 90 1 5 3333
+Legendary_sword 10 90 1 25 15000
+Common_spear 8 65 1 0 360
+Rare_spear 8 80 1 5 2250
+Legendary_spear 11 80 1 25 14000
+Common_bow 3 75 2 0 540
+Rare_bow 7 80 2 10 1600
+Legendary_bow 12 95 2 30 15000
+Fire_book 8 60 2 0 500
+Thunder_book 15 60 2 0 4500
+Freeze_book 17 80 2 0 10000
