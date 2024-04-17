@@ -14,12 +14,7 @@
 #ifndef INVENTORY_H
     #define INVENTORY_H
 
-typedef struct inventaire {
-    void *item1;
-    void *item2;
-    void *item3;
-    void *item4;
-    void *item5;
+typedef struct inv2_sprite {
     sfSprite *inventory;
     sfTexture *Inventory;
     sfSprite *inventory2;
@@ -29,19 +24,30 @@ typedef struct inventaire {
     sfVector2f pos_cursor;
     sfVector2f pos_hooved;
     sfRectangleShape *rect_inv;
-    int cursor_dpl;
+}inv2_sprite_t;
+
+typedef struct inventaire {
+    void *item1;
+    void *item2;
+    void *item3;
+    void *item4;
+    void *item5;
+    inv2_sprite_t inv_sprite;
 } inv_t;
 
 typedef struct stats_weapon {
+    char *name;
     int attack;
     int accuracy;
     int crit;
+    int cost;
+    int rng;
     sfTexture *texture;
     sfSprite *sprite;
     sfRectangleShape *rect_weapon;
 } stweapon_t;
 
-typedef struct stats_mob {
+typedef struct stats_char {
     int level;
     int xp;
     int hp;
@@ -52,13 +58,13 @@ typedef struct stats_mob {
     int str;
     int spd;
     int mov;
-} stmob_t;
+} stchar_t;
 
 typedef struct Perso {
-    char *name;
-    char *type_weapon;
+    char *name_perso;
+    int exp;
     stweapon_t stat_w;
-    stmob_t stat_p;
+    stchar_t stat_p;
     inv_t inv;
     bool is_visible;
     bool is_visible2;
