@@ -22,6 +22,7 @@ enum WEAPONS {
 
 typedef struct stats_weapon {
     char name[MAX_NAME_LENGTH];
+    char weapon_type[MAX_NAME_LENGTH];
     int attack;
     int accuracy;
     int rng;
