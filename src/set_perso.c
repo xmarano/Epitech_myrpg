@@ -7,29 +7,98 @@
 
 #include "include/inventory.h"
 
-void init_Roy(Perso_t *stat, char *name)
+static void init_Racaillou(Perso_t *perso, char *name)
 {
-    stat->name_perso = name;
-    stat->stat_p.level = 1;
-    stat->stat_p.xp = 0;
-    stat->stat_p.hp = 16;
-    stat->stat_p.lck = 4;
-    // perso->stat_p.skl = ;
-    // perso->stat_p.def = def;
-    // perso->stat_p.res = res;
-    // perso->stat_p.str = str;
-    // perso->stat_p.spd = spd;
-    // perso->stat_p.mov = mov;
+    perso->name_perso = name;
+    perso->type = "Mage";
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
+    perso->stat_p.hp = 15;
+    perso->stat_p.lck = 7;
+    perso->stat_p.skl = 5;
+    perso->stat_p.def = 2;
+    perso->stat_p.res = 8;
+    perso->stat_p.str = 7;
+    perso->stat_p.spd = 7;
+    perso->stat_p.mov = 5;
+}
+
+static void init_Xmarano(Perso_t *perso, char *name)
+{
+    perso->name_perso = name;
+    perso->type = "Knight";
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
+    perso->stat_p.hp = 20;
+    perso->stat_p.lck = 2;
+    perso->stat_p.skl = 4;
+    perso->stat_p.def = 11;
+    perso->stat_p.res = 0;
+    perso->stat_p.str = 7;
+    perso->stat_p.spd = 3;
+    perso->stat_p.mov = 4;
+}
+
+static void init_PateCarbo(Perso_t *perso, char *name)
+{
+    perso->name_perso = name;
+    perso->type = "Archer";
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
+    perso->stat_p.hp = 18;
+    perso->stat_p.lck = 3;
+    perso->stat_p.skl = 4;
+    perso->stat_p.def = 4;
+    perso->stat_p.res = 0;
+    perso->stat_p.str = 4;
+    perso->stat_p.spd = 3;
+    perso->stat_p.mov = 5;
+}
+
+static void init_Infenium(Perso_t *perso, char *name)
+{
+    perso->name_perso = name;
+    perso->type = "Paladin";
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
+    perso->stat_p.hp = 22;
+    perso->stat_p.lck = 10;
+    perso->stat_p.skl = 14;
+    perso->stat_p.def = 9;
+    perso->stat_p.res = 8;
+    perso->stat_p.str = 9;
+    perso->stat_p.spd = 11;
+    perso->stat_p.mov = 8;
+}
+
+static void init_Roy(Perso_t *perso, char *name)
+{
+    perso->name_perso = name;
+    perso->type = "Lord";
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
+    perso->stat_p.hp = 18;
+    perso->stat_p.lck = 7;
+    perso->stat_p.skl = 5;
+    perso->stat_p.def = 5;
+    perso->stat_p.res = 0;
+    perso->stat_p.str = 5;
+    perso->stat_p.spd = 7;
+    perso->stat_p.mov = 5;
 }
 
 int setup_stat(Global_t *m)
 {
-    Perso_t persos[2];
+    Perso_t persos[5];
 
-    init_Roy(&persos[0], "Xmarano");
-    //init_stats(&persos[1], "Infenieum");
-    for (int i = 0; i < 2; i++) {
+    init_Roy(&persos[0], "ROY");
+    init_Infenium(&persos[1], "Infenieum");
+    init_Xmarano(&persos[2], "Xmarano");
+    init_PateCarbo(&persos[3], "PateCarbo");
+    init_Racaillou(&persos[4], "Racaillou");
+    for (int i = 0; i < 5; i++) {
         printf("Nom du personnage : %s\n", persos[i].name_perso);
+        printf("Type du personnage : %s\n", persos[i].type);
         printf("Level : %d\n", persos[i].stat_p.level);
         printf("XP : %d\n", persos[i].stat_p.xp);
         printf("HP : %d\n", persos[i].stat_p.hp);
@@ -40,7 +109,6 @@ int setup_stat(Global_t *m)
         printf("Str : %d\n", persos[i].stat_p.str);
         printf("Spd : %d\n", persos[i].stat_p.spd);
         printf("Mov : %d\n", persos[i].stat_p.mov);
-        printf("\n");
     }
     return 0;
 }
