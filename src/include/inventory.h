@@ -62,7 +62,6 @@ typedef struct stats_char {
 
 typedef struct Perso {
     char *name_perso;
-    int exp;
     stweapon_t stat_w;
     stchar_t stat_p;
     inv_t inv;
