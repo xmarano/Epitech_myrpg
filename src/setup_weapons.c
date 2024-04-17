@@ -21,9 +21,9 @@ int import_weapons_stats(Global_t *m)
         }
     }
     fclose(file);
-    // for (int i = 0; i < 20; i++) {
-    //     printf("Arme %d : %s - Type : %s - Attaque : %d - Précision : %d - Portée : %d - Critique : %d - Coût : %d\n",
-    //     i + 1, m->weapons[i].name, m->weapons[i].weapon_type, m->weapons[i].attack, m->weapons[i].accuracy, m->weapons[i].rng, m->weapons[i].crit, m->weapons[i].cost);
-    // }
+    for (int i = 0; i < 20; i++) {
+        printf("Arme %d : %s - Type : %s - Attaque : %d - Précision : %d - Portée : %d - Critique : %d - Coût : %d\n",
+        i + 1, m->weapons[i].name, m->weapons[i].weapon_type, m->weapons[i].attack, m->weapons[i].accuracy, m->weapons[i].rng, m->weapons[i].crit, m->weapons[i].cost);
+    }
     return 0;
 }

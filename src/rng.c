@@ -14,10 +14,10 @@ int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def)
             return 1;
     }
     if (strcmp(weapon_atk->name, "axe") == 0) {
-        if (strcmp(weapon_def->name, "spire") == 0)
+        if (strcmp(weapon_def->name, "spear") == 0)
             return 1;
     }
-    if (strcmp(weapon_atk->name, "spire") == 0) {
+    if (strcmp(weapon_atk->name, "spear") == 0) {
         if (strcmp(weapon_def->name, "sword") == 0)
             return 1;
     }
