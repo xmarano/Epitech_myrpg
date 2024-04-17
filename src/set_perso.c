@@ -7,26 +7,27 @@
 
 #include "include/inventory.h"
 
-void init_Roy(Perso_t *stat) {
-    perso->name_perso = "ROY";
-    perso->stat_p.level = 1;
-    perso->stat_p.xp = 0;
-    perso->stat_p.hp = 16;
-    perso->stat_p.lck = 4;
-    perso->stat_p.skl = ;
-    perso->stat_p.def = def;
-    perso->stat_p.res = res;
-    perso->stat_p.str = str;
-    perso->stat_p.spd = spd;
-    perso->stat_p.mov = mov;
+void init_Roy(Perso_t *stat, char *name)
+{
+    stat->name_perso = name;
+    stat->stat_p.level = 1;
+    stat->stat_p.xp = 0;
+    stat->stat_p.hp = 16;
+    stat->stat_p.lck = 4;
+    // perso->stat_p.skl = ;
+    // perso->stat_p.def = def;
+    // perso->stat_p.res = res;
+    // perso->stat_p.str = str;
+    // perso->stat_p.spd = spd;
+    // perso->stat_p.mov = mov;
 }
 
 int setup_stat(Global_t *m)
 {
     Perso_t persos[2];
 
-    init_stats(&persos[0], "Xmarano");
-    init_stats(&persos[1], "Infenieum");
+    init_Roy(&persos[0], "Xmarano");
+    //init_stats(&persos[1], "Infenieum");
     for (int i = 0; i < 2; i++) {
         printf("Nom du personnage : %s\n", persos[i].name_perso);
         printf("Level : %d\n", persos[i].stat_p.level);

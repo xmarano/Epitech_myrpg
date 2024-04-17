@@ -55,6 +55,7 @@ int main(int argc, char **argv)
         return 84;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
+    setup_stat(&m);
     init_menu(&m);
     init_setting(&m);
     init_inventaire(&m);
