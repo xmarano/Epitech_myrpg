@@ -27,6 +27,10 @@ typedef struct Menu {
     sfRectangleShape *button2;
     sfRectangleShape *button3;
     sfRectangleShape *button4;
+    sfFloatRect gb_b1;
+    sfFloatRect gb_b2;
+    sfFloatRect gb_b3;
+    sfFloatRect gb_b4;
     sfFloatRect text;
 } Menu_t;
 

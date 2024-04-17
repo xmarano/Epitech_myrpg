@@ -48,3 +48,12 @@ sfRectangleShape *init_button(Global_t *m, sfVector2f size, int pos_y)
     sfRectangleShape_setPosition(shape, (sfVector2f){pos_x + 5, pos_y});
     return shape;
 }
+
+void hover(Global_t *m, sfRectangleShape *shape, sfFloatRect *rect)
+{
+    //sfColor_fromRGB(134, 185, 104)
+    if (sfFloatRect_contains(rect, m->mouse.x, m->mouse.y))
+        sfRectangleShape_setFillColor(shape, sfRed);
+    else
+        sfRectangleShape_setFillColor(shape, sfBlue);
+}
