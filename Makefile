@@ -18,7 +18,7 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	src/*.c		\
 
-LIB 	= libmy.a
+LIB 	= 	libmy.a
 
 OBJLIB	=	$(SRCLIB:.c=.o)
 
@@ -28,11 +28,11 @@ NAME	=	my_rpg
 
 UNAME	:=	$(shell uname -s)
 
-1 = -I/opt/homebrew/Cellar/csfml/2.5.2_1/include/
+1	= 	-I/opt/homebrew/Cellar/csfml/2.5.2_1/include/
 
-2 = -L/opt/homebrew/Cellar/csfml/2.5.2_1/lib
+2 	= 	-L/opt/homebrew/Cellar/csfml/2.5.2_1/lib
 
-$(NAME)	: $(LIB) $(OBJNAME)
+$(NAME)	:	$(LIB) $(OBJNAME)
 
 ifeq ($(UNAME),Linux)
 	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(CFLAGS)
@@ -40,7 +40,7 @@ else ifeq ($(UNAME),Darwin)
 	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(1) $(2) -g3
 endif
 
-$(LIB)	: $(OBJLIB)
+$(LIB)	:	$(OBJLIB)
 	ar rc libmy.a lib/*.o
 	rm lib/*.o
 
