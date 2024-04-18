@@ -12,10 +12,9 @@ void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace)
-        m->setting.toto++;
     inventory(m, event);
-    event_setting(event, m);
+    if (m->current == 13)
+        event_setting(event, m);
 }
 
 void clock(Global_t *m)
