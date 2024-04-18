@@ -57,8 +57,8 @@ typedef struct Perso {
     inv_t inv; //inventaire du perso
     bool is_visible;
     bool is_visible2;
-    char *texture_link_dialogue; //texture dialogue
-    char *texture_link_batle; // texture combat
+    char texture_link_dialogue[100]; //texture dialogue
+    char texture_link_batle[100]; // texture combat
 }Perso_t;
 
 #endif

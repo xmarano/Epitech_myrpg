@@ -12,6 +12,8 @@ static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Mage";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Racaillou_axe.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Racaillou_dialogue.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 15;
@@ -29,6 +31,8 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Knight";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Xmarano_spear.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Xmarano_dialogue.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 20;
@@ -46,6 +50,8 @@ static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Archer";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Patecarbo_bow.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Patecarbo_dialogue.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -63,6 +69,8 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Paladin";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenieum_book.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Infenieum_dialogue.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 22;
@@ -81,6 +89,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Lord";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Roy_dialogue.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -104,6 +113,8 @@ int setup_stat(Global_t *m)
         printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
         printf("Nom : %s\n", m->perso[i].name_perso);
         printf("Type : %s\n", m->perso[i].type);
+        printf("Link texture_dialogue : %s\n", m->perso->texture_link_dialogue);
+        //printf("Link texture_battle : %s\n", );
         printf("Level : %d\n", m->perso[i].stat_p.level);
         printf("XP : %d\n", m->perso[i].stat_p.xp);
         printf("HP : %d\n", m->perso[i].stat_p.hp);
