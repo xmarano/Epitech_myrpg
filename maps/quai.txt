@@ -1,0 +1,22 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X   X  XLLX                  F X
+X   X  XLLX       DDD          X
+X   X  XXXXXXXX            XXWWX
+XWWWX              III         X
+X   XXX     F      III   XXXWXXX
+X                              X
+X   FF      F    XXXWXXXXWWWWXXX
+XXX  F                         X
+XSSS        F      F XXXXXXXAAAX
+XSSS        XXX      XXXXXXXAAAX
+X   X                          X
+XXXWDW    XXWWXXXXXXXXX      X X
+X                       XXXWWX X
+X FF      XXXXXX             XXX
+XXXXXXX   XUUUXX   XXX         X
+XLLLXXX   XUUUXX       XXXWXXXXX
+XLLLXXX   X                    X
+XLLLXXX   XXXXXXXX        XXXXXX
+XLLLXXX              LLL       X
+XLLLXXX     XXXX     LLLLXXXX  X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
