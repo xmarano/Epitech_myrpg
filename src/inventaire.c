@@ -32,7 +32,7 @@ void draw_inventaire(Global_t *m)
     if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory2, NULL);
         // draw sprite here
-        set_sprite(m, m->perso[RACAILLOU].texture_link_dialogue, RACAILLOU); // -> Modiefier l'index pour afficher le perso deisré !
+        set_sprite(m, m->perso[INFENIUM].texture_link_dialogue,INFENIUM); // -> Modiefier l'index pour afficher le perso deisré !
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->weapons->rect_weapon, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
