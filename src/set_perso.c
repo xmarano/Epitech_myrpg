@@ -12,9 +12,6 @@ static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Mage";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    perso->texture_link_dialogue = "";
-    perso->texture_link_batle = "";
-    perso->texture_link_map = "";
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 15;
@@ -32,9 +29,6 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Knight";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    perso->texture_link_dialogue = "";
-    perso->texture_link_batle = "";
-    perso->texture_link_map = "";
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 20;
@@ -52,9 +46,6 @@ static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Archer";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    perso->texture_link_dialogue = "";
-    perso->texture_link_batle = "";
-    perso->texture_link_map = "";
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -72,9 +63,6 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Paladin";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    perso->texture_link_dialogue = "";
-    perso->texture_link_batle = "";
-    perso->texture_link_map = "";
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 22;
@@ -92,9 +80,6 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Lord";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    perso->texture_link_dialogue = "";
-    perso->texture_link_batle = "";
-    perso->texture_link_map = "";
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
