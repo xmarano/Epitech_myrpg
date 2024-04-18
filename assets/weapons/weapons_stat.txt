@@ -16,5 +16,11 @@ Common_bow bow 3 75 2 0 540 assets/weapons/bow1.png
 Rare_bow bow 7 80 2 10 1600 assets/weapons/bow2.png
 Legendary_bow bow 12 95 2 30 15000 assets/weapons/bow3.png
 Fire_book book 8 60 2 0 500 assets/weapons/Fire_book.png
-Thunder_book book 15 60 2 0 4500 assets/weapons/Thunder_book.png
+Thunder_book book 15 60 2 0 5500 assets/weapons/Thunder_book.png
 Freeze_book book 17 80 2 0 10000 assets/weapons/Freeze_book.png
+Boss1_sword sword 5 75 1 10 0 assets/weapons/Boss1_sword.png
+Boss2_stick stick 7 80 2 0 0 assets/weapons/Boss2_stick.png
+Boss3_bow bow 10 80 2 10 0 assets/weapons/Boss3_bow.png
+Boss4_spear spear 10 80 1 25 0 assets/weapons/Boss4_spear.png
+Boss5_sword sword 12 85 1 20 0 assets/weapons/Boss5_sword.png
+Boss6_book book 14 70 2 10 0 assets/weapons/Boss6_book.png
