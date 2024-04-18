@@ -1,15 +1,15 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XN  NX                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
-X                              X
+XN  NX                  H      X
+X    X                         X
+X    X                         X
+X    X       H         X       X
+X    X             H   X       X
+XX  XX   XXXXXXXXXXXXXXXXX     X
+X    X   X    FF       FXX    HX
+X    X   XFF        FF  XXX    X
+X    X   X  XXXXXXXXXXX XXX   XX
+X    X   XFFXXXXXXXXXXX XXX    X
+X    X                              X
 X                              X
 X                              X
 X                              X
