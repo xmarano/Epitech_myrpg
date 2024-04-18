@@ -75,7 +75,7 @@ typedef struct Glob {
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
-    Hub_t hub;
+    Hub_t hub; /* leo & tom*/
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;

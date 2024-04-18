@@ -25,6 +25,7 @@ typedef struct inv2_sprite {
     sfVector2f pos_cursor;
     sfVector2f pos_hooved;
     sfRectangleShape *rect_inv;
+    sfRectangleShape *hooved_weapon;
 }inv2_sprite_t;
 
 typedef struct inventaire {

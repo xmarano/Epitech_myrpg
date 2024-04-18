@@ -8,7 +8,7 @@
 #include "include/perso.h"
 #include "rpg.h"
 
-void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -29,7 +29,7 @@ void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -50,7 +50,7 @@ void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -71,7 +71,7 @@ void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -92,7 +92,7 @@ void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -113,7 +113,7 @@ void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -134,7 +134,7 @@ void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -155,7 +155,7 @@ void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 0;
 }
 
-void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "BOSS";
@@ -186,6 +186,7 @@ int set_boss(Global_t *m)
     init_boss6(&m->perso[BOSS6], "BOSS6", m->weapons[BOSS6_BOOK]);
     init_boss7(&m->perso[BOSS7], "BOSS7", m->weapons[BOSS7_AXE]);
     init_boss8(&m->perso[BOSS8], "BOSS8", m->weapons[BOSS8_SWORD]);
+    return 0;
     // for (int i = 0; i < 13; i++) {
     //     printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
     //     printf("Nom : %s\n", m->perso[i].name_perso);
