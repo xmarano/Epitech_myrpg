@@ -12,6 +12,7 @@
     #include "include/setting.h"
     #include "include/weapons.h"
     #include "include/menu.h"
+    #include "include/worlds.h"
     #include "include/perso.h"
     #include <SFML/Window.h>
     #include <SFML/Graphics.h>
@@ -74,8 +75,12 @@ typedef struct Glob {
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
-    sfSprite *sprite_perso_hub;
-    sfTexture *texture_perso_hub;
+    Hub_t hub;
+    Zone1_t zone1;
+    Zone2_t zone2;
+    Zone3_t zone3;
+    //next
+    Zone8_t zone8;
 } Global_t;
 
 void draw_mouse(Global_t *m);
