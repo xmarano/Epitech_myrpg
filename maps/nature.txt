@@ -1,6 +1,21 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X                              X
-X                              X
-X                              X
-X                              X
+XLLLLLL        LLLL S     FFFFFX
+XLLLLL         LLLL  F  B   FF X
+XLLLL       FF LLLL    B  B F  X
+XFLLLFF B   FF  LLL    F    F  X
+X   FM  F FFF    LL      F M  IX
+X   MMMM               MMM F   X
+X   MMMM   M          MMMM     X
+X  M FMF FMF       MMMMMMM    FX
+XFF FM    MFMFI MMMMMMMMMM B   X
+XFFMMMMMMMMM FF MMMMMMMMMM     X
+XFMMMMMMMMMMMMF IF MMMMMMFI    X
+XB MMMMMMMMMMMFF     F   FI    X
+X   MMMMMMMMMF   UUU       F   X
+X   MMMMMMMMF    UUU       FF  X
+X    MMMF FFFMMBFUUU           X
+X MM MFMM                 CCC  X
+XMFF         UUUFF  B B   CCC BX
+XFFF  F      UUU    F     CCC  X
+XFFFFF  F    UUU        F      X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
