@@ -116,6 +116,7 @@ int setup_stat(Global_t *m)
         printf("\nStatistiques de l'arme de %s :\n", m->perso[i].name_perso);
         printf("Nom : %s\n", m->perso[i].current_weapon->name);
         printf("Type : %s\n", m->perso[i].current_weapon->weapon_type);
+        printf("lien texture : %s\n", m->perso[i].current_weapon->link_texture);
         printf("Attaque : %d\n", m->perso[i].current_weapon->attack);
         printf("Précision : %d\n", m->perso[i].current_weapon->accuracy);
         printf("Portée : %d\n", m->perso[i].current_weapon->rng);
