@@ -15,14 +15,6 @@ static void check_globalbounds(Global_t *m)
     m->menu.gb_b4 = sfRectangleShape_getGlobalBounds(m->menu.button4);
 }
 
-static void check_hover(Global_t *m)
-{
-    hover(m, m->menu.button1, &m->menu.gb_b1);
-    hover(m, m->menu.button2, &m->menu.gb_b2);
-    hover(m, m->menu.button3, &m->menu.gb_b3);
-    hover(m, m->menu.button4, &m->menu.gb_b4);
-}
-
 void init_menu(Global_t *m)
 {
     sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
@@ -40,11 +32,19 @@ void init_menu(Global_t *m)
     m->menu.button3 = init_button(m, (sfVector2f){270, 83}, 695);
     m->menu.button4 = init_button(m, (sfVector2f){190, 58}, 795);
     check_globalbounds(m);
-    check_hover(m);
+}
+
+static void check_hover(Global_t *m)
+{
+    hover(m, m->menu.button1, &m->menu.gb_b1);
+    hover(m, m->menu.button2, &m->menu.gb_b2);
+    hover(m, m->menu.button3, &m->menu.gb_b3);
+    hover(m, m->menu.button4, &m->menu.gb_b4);
 }
 
 void draw_menu(Global_t *m)
 {
+    check_hover(m);
     sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
     sfRenderWindow_drawRectangleShape(m->window, m->menu.button1, NULL);
     sfRenderWindow_drawRectangleShape(m->window, m->menu.button2, NULL);
