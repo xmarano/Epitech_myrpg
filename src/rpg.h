@@ -18,7 +18,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
-    #define SPEED 4
+    #define SPEED 1.25
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
 

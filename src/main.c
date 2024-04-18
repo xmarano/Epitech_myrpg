@@ -100,16 +100,19 @@ int main(int argc, char **argv)
     init_menu(&m);
     init_setting(&m);
     init_inventaire(&m);
-    sfIntRect rect = {0, 520 + 65 * 2, 65, 65};
-    sfSprite *sprite_perso = sfSprite_create();
-    sfTexture *texture_perso = sfTexture_createFromFile(m.perso[BOSS6].texture_link_battle, NULL);
-    sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
-    sfSprite_setTextureRect(sprite_perso, rect);
-    while (sfRenderWindow_isOpen(m.window)) {
+    //------------------------------------------------------------------------------------------------
+    sfIntRect rect = {0, 520 + 65 * 2, 65, 65};                                                   //  |
+    sfSprite *sprite_perso = sfSprite_create();                                                   //  |
+    sfTexture *texture_perso = sfTexture_createFromFile(m.perso[BOSS6].texture_link_battle, NULL);//  |
+    sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);                                     //  |
+    sfSprite_setTextureRect(sprite_perso, rect);                                                  //  |
+    //------------------------------------------------------------------------------------------------
+    while (sfRenderWindow_isOpen(m.window))
         rpg(&m, sprite_perso, &rect);
-    }
-    sfSprite_destroy(sprite_perso);
-    sfTexture_destroy(texture_perso);
+    //-----------------------------------
+    sfSprite_destroy(sprite_perso);  //  |
+    sfTexture_destroy(texture_perso);//  |
+    //-----------------------------------
     destroy_menu(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
