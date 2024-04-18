@@ -8,6 +8,50 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
+#define SPEED 4
+#define FRAME_WIDTH 65
+#define FRAME_HEIGHT 65
+
+void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
+    sfVector2f movement = {0, 0};
+    int tic = 0;
+
+    if (sfKeyboard_isKeyPressed(sfKeyZ)) {
+        movement.y -= SPEED;
+        rect->top = 520;
+        tic = 1;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyS)) {
+        movement.y += SPEED;
+        rect->top = 520 + 65 * 2;
+        tic = 1;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyQ)) {
+        movement.x -= SPEED;
+        rect->top = 520 + 65;
+        tic = 1;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyD)) {
+        movement.x += SPEED;
+        rect->top = 520 + 65 * 3;
+        tic = 1;
+    }
+    sfTime time = sfClock_getElapsedTime(m->clock);
+    float seconds;
+
+    seconds = time.microseconds / 1000000.0;
+    if (seconds > 0.09) {
+        if (rect->left < (64 * 8) && tic == 1)
+            rect->left += 64;
+        else
+            rect->left = 0;
+        sfClock_restart(m->clock);
+    }
+    sfSprite_move(character, movement);
+    sfSprite_setTextureRect(character, *rect);
+    sfRenderWindow_drawSprite(m->window, character, NULL);
+}
+
 void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtClosed || m->current == -1)
@@ -28,7 +72,7 @@ void clock(Global_t *m)
     }
 }
 
-void rpg(Global_t *m)
+void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
 {
     sfEvent event;
 
@@ -37,11 +81,12 @@ void rpg(Global_t *m)
     sfRenderWindow_clear(m->window, sfWhite);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
-    clock(m);
+    //clock(m);
     draw_menu(m);
     draw_setting(m);
-    draw_inventaire(m);
+    //draw_inventaire(m);
     draw_mouse(m);
+    moveCharacter(m, sprite_perso, rect);
     sfRenderWindow_display(m->window);
 }
 
@@ -59,8 +104,16 @@ int main(int argc, char **argv)
     init_menu(&m);
     init_setting(&m);
     init_inventaire(&m);
-    while (sfRenderWindow_isOpen(m.window))
-        rpg(&m);
+    sfIntRect rect = {0, 520 + 65 * 2, 65, 65};
+    sfSprite *sprite_perso = sfSprite_create();
+    sfTexture *texture_perso = sfTexture_createFromFile("assets/perso/battle/hero/Roy_armed.png", NULL);
+    sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
+    sfSprite_setTextureRect(sprite_perso, rect);
+    while (sfRenderWindow_isOpen(m.window)) {
+        rpg(&m, sprite_perso, &rect);
+    }
+    sfSprite_destroy(sprite_perso);
+    sfTexture_destroy(texture_perso);
     destroy_menu(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
