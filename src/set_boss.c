@@ -186,32 +186,32 @@ int set_boss(Global_t *m)
     init_boss6(&m->perso[BOSS6], "BOSS6", m->weapons[BOSS6_BOOK]);
     init_boss7(&m->perso[BOSS7], "BOSS7", m->weapons[BOSS7_AXE]);
     init_boss8(&m->perso[BOSS8], "BOSS8", m->weapons[BOSS8_SWORD]);
-    for (int i = 0; i < 13; i++) {
-        printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
-        printf("Nom : %s\n", m->perso[i].name_perso);
-        printf("Type : %s\n", m->perso[i].type);
-        printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
-        printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
-        printf("Level : %d\n", m->perso[i].stat_p.level);
-        printf("XP : %d\n", m->perso[i].stat_p.xp);
-        printf("HP actuelle: %d\n", m->perso[i].stat_p.current_hp);
-        printf("HP Max: %d\n", m->perso[i].stat_p.max_hp);
-        printf("Lck : %d\n", m->perso[i].stat_p.lck);
-        printf("Skl : %d\n", m->perso[i].stat_p.skl);
-        printf("Def : %d\n", m->perso[i].stat_p.def);
-        printf("Res : %d\n", m->perso[i].stat_p.res);
-        printf("Str : %d\n", m->perso[i].stat_p.str);
-        printf("Spd : %d\n", m->perso[i].stat_p.spd);
-        printf("Mov : %d\n", m->perso[i].stat_p.mov);
-        printf("Statistiques de l'arme de %s :\n", m->perso[i].name_perso);
-        printf("Nom : %s\n", m->perso[i].current_weapon->name);
-        printf("Type : %s\n", m->perso[i].current_weapon->weapon_type);
-        printf("lien texture : %s\n", m->perso[i].current_weapon->link_texture);
-        printf("Attaque : %d\n", m->perso[i].current_weapon->attack);
-        printf("Précision : %d\n", m->perso[i].current_weapon->accuracy);
-        printf("Portée : %d\n", m->perso[i].current_weapon->rng);
-        printf("Critique : %d\n", m->perso[i].current_weapon->crit);
-        printf("Coût : %d\n", m->perso[i].current_weapon->cost);
-    }
+    // for (int i = 0; i < 13; i++) {
+    //     printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
+    //     printf("Nom : %s\n", m->perso[i].name_perso);
+    //     printf("Type : %s\n", m->perso[i].type);
+    //     printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
+    //     printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
+    //     printf("Level : %d\n", m->perso[i].stat_p.level);
+    //     printf("XP : %d\n", m->perso[i].stat_p.xp);
+    //     printf("HP actuelle: %d\n", m->perso[i].stat_p.current_hp);
+    //     printf("HP Max: %d\n", m->perso[i].stat_p.max_hp);
+    //     printf("Lck : %d\n", m->perso[i].stat_p.lck);
+    //     printf("Skl : %d\n", m->perso[i].stat_p.skl);
+    //     printf("Def : %d\n", m->perso[i].stat_p.def);
+    //     printf("Res : %d\n", m->perso[i].stat_p.res);
+    //     printf("Str : %d\n", m->perso[i].stat_p.str);
+    //     printf("Spd : %d\n", m->perso[i].stat_p.spd);
+    //     printf("Mov : %d\n", m->perso[i].stat_p.mov);
+    //     printf("Statistiques de l'arme de %s :\n", m->perso[i].name_perso);
+    //     printf("Nom : %s\n", m->perso[i].current_weapon->name);
+    //     printf("Type : %s\n", m->perso[i].current_weapon->weapon_type);
+    //     printf("lien texture : %s\n", m->perso[i].current_weapon->link_texture);
+    //     printf("Attaque : %d\n", m->perso[i].current_weapon->attack);
+    //     printf("Précision : %d\n", m->perso[i].current_weapon->accuracy);
+    //     printf("Portée : %d\n", m->perso[i].current_weapon->rng);
+    //     printf("Critique : %d\n", m->perso[i].current_weapon->crit);
+    //     printf("Coût : %d\n", m->perso[i].current_weapon->cost);
+    // }
     return 0;
 }

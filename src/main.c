@@ -8,10 +8,6 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
-#define SPEED 4
-#define FRAME_WIDTH 65
-#define FRAME_HEIGHT 65
-
 void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
     sfVector2f movement = {0, 0};
     int tic = 0;
@@ -72,7 +68,7 @@ void clock(Global_t *m)
     }
 }
 
-void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
+void rpg(Global_t *m, sfIntRect *rect)
 {
     sfEvent event;
 
@@ -81,12 +77,12 @@ void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
     sfRenderWindow_clear(m->window, sfWhite);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
-    //clock(m);
+    clock(m);
     draw_menu(m);
     draw_setting(m);
-    //draw_inventaire(m);
+    draw_inventaire(m);
     draw_mouse(m);
-    moveCharacter(m, sprite_perso, rect);
+    moveCharacter(m, m->sprite_perso_hub, rect);
     sfRenderWindow_display(m->window);
 }
 
@@ -105,15 +101,15 @@ int main(int argc, char **argv)
     init_setting(&m);
     init_inventaire(&m);
     sfIntRect rect = {0, 520 + 65 * 2, 65, 65};
-    sfSprite *sprite_perso = sfSprite_create();
-    sfTexture *texture_perso = sfTexture_createFromFile("assets/perso/battle/hero/Roy_armed.png", NULL);
-    sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
-    sfSprite_setTextureRect(sprite_perso, rect);
+    m.sprite_perso_hub = sfSprite_create();
+    m.texture_perso_hub = sfTexture_createFromFile(m.perso[ROY].texture_link_battle, NULL);
+    sfSprite_setTexture(m.sprite_perso_hub, m.texture_perso_hub, sfTrue);
+    sfSprite_setTextureRect(m.sprite_perso_hub, rect);
     while (sfRenderWindow_isOpen(m.window)) {
-        rpg(&m, sprite_perso, &rect);
+        rpg(&m, &rect);
     }
-    sfSprite_destroy(sprite_perso);
-    sfTexture_destroy(texture_perso);
+    sfSprite_destroy(m.sprite_perso_hub);
+    sfTexture_destroy(m.texture_perso_hub);
     destroy_menu(&m);
     sfRenderWindow_destroy(m.window);
     return 0;

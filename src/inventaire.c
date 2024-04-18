@@ -44,7 +44,7 @@ void draw_inventaire(Global_t *m)
 
 static int what_inv(Global_t *m, sfEvent event)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS && !m->perso->is_visible && !m->perso->is_visible2) {
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyE && !m->perso->is_visible && !m->perso->is_visible2) {
         m->perso->is_visible = true;
         m->perso->is_visible2 = false;
     } else if (sfKeyboard_isKeyPressed(sfKeyRight) && m->perso->is_visible && !m->perso->is_visible2) {
@@ -57,7 +57,7 @@ static int what_inv(Global_t *m, sfEvent event)
     } else if (sfKeyboard_isKeyPressed(sfKeyRight) && !m->perso->is_visible && m->perso->is_visible2) {
         m->perso->is_visible2 = false;
         m->perso->is_visible = true;
-    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) {
+    } else if (event.type == sfEvtKeyPressed && event.key.code == sfKeyE) {
         m->perso->is_visible = false;
         m->perso->is_visible2 = false;
         m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
@@ -119,7 +119,7 @@ sfSprite *set_inv_fond2(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
         m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
         m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
         m->perso->inv.inv_sprite.cursor = set_cursor(m);

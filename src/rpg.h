@@ -17,6 +17,9 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
+    #define SPEED 4
+    #define FRAME_WIDTH 65
+    #define FRAME_HEIGHT 65
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
@@ -71,6 +74,8 @@ typedef struct Glob {
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
+    sfSprite *sprite_perso_hub;
+    sfTexture *texture_perso_hub;
 } Global_t;
 
 void draw_mouse(Global_t *m);
