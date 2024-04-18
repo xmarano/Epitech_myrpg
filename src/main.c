@@ -5,7 +5,7 @@
 ** main.c
 */
 #include "rpg.h"
-#include "include/inventory.h"
+#include "include/perso.h"
 #include "include/menu.h"
 
 void event_click(sfEvent event, Global_t *m)

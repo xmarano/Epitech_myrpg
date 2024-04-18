@@ -6,7 +6,7 @@
 */
 
 #include "rpg.h"
-#include "include/inventory.h"
+#include "include/npc.h"
 
 int import_weapons_stats(Global_t *m)
 {

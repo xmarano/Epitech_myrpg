@@ -8,7 +8,7 @@
 #include "my.h"
 #include "rpg.h"
 #include "menu.h"
-#include "include/inventory.h"
+#include "include/perso.h"
 
 void set_weapon_sprite(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
 {

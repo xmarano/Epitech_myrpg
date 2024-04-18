@@ -5,7 +5,7 @@
 ** set_perso.c
 */
 
-#include "include/inventory.h"
+#include "include/perso.h"
 
 static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
 {
