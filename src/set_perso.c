@@ -5,7 +5,7 @@
 ** set_perso.c
 */
 
-#include "include/inventory.h"
+#include "include/perso.h"
 
 static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
 {
@@ -14,6 +14,7 @@ static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Racaillou_axe.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Racaillou_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Racaillou_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 15;
@@ -33,6 +34,7 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Xmarano_spear.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Xmarano_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Xmarano_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 20;
@@ -52,6 +54,7 @@ static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Patecarbo_bow.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Patecarbo_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Patecarbo_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -71,7 +74,7 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenieum_book.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Infenieum_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/Infenieum_battle.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Infenieum_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 22;
@@ -91,7 +94,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Roy_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Roy_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -116,7 +119,7 @@ int setup_stat(Global_t *m)
         printf("Nom : %s\n", m->perso[i].name_perso);
         printf("Type : %s\n", m->perso[i].type);
         printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
-        ///printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
+        printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
         printf("Level : %d\n", m->perso[i].stat_p.level);
         printf("XP : %d\n", m->perso[i].stat_p.xp);
         printf("HP : %d\n", m->perso[i].stat_p.hp);

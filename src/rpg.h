@@ -8,10 +8,11 @@
 #ifndef RPG_H
     #define RPG_H
     #include "my.h"
+    #include "include/npc.h"
     #include "include/setting.h"
     #include "include/weapons.h"
     #include "include/menu.h"
-    #include "include/inventory.h"
+    #include "include/perso.h"
     #include <SFML/Window.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
@@ -24,6 +25,7 @@ typedef struct Glob {
     Menu_t menu; /* Leo */
     Perso_t perso[5]; /* Yanis */
     Weapons_t weapons[20]; /* Yanis */
+    Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
 } Global_t;
