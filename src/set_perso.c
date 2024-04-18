@@ -90,6 +90,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Roy_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
@@ -113,8 +114,8 @@ int setup_stat(Global_t *m)
         printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
         printf("Nom : %s\n", m->perso[i].name_perso);
         printf("Type : %s\n", m->perso[i].type);
-        printf("Link texture_dialogue : %s\n", m->perso->texture_link_dialogue);
-        //printf("Link texture_battle : %s\n", );
+        printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
+        ///printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
         printf("Level : %d\n", m->perso[i].stat_p.level);
         printf("XP : %d\n", m->perso[i].stat_p.xp);
         printf("HP : %d\n", m->perso[i].stat_p.hp);
