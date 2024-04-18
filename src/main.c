@@ -10,7 +10,7 @@
 
 void event_click(sfEvent event, Global_t *m)
 {
-    if (event.type == sfEvtClosed)
+    if (event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace)
         m->setting.toto++;

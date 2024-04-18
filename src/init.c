@@ -56,3 +56,10 @@ void hover(Global_t *m, sfRectangleShape *shape, sfFloatRect *rect)
     else
         sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
 }
+
+void click(Global_t *m, sfFloatRect *rect, int current)
+{
+    if (sfFloatRect_contains(rect, m->mouse.x, m->mouse.y))
+        if (sfMouse_isButtonPressed(sfMouseLeft))
+            m->current = current;
+}
