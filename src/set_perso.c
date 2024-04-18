@@ -80,6 +80,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Lord";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 18;
