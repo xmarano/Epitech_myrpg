@@ -39,7 +39,8 @@ typedef struct inventaire {
 typedef struct stats_char {
     int level;
     int xp;
-    int hp;
+    int current_hp;
+    int max_hp;
     int lck;
     int skl;
     int def;

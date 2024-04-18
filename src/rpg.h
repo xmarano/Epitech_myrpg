@@ -24,6 +24,14 @@ enum WHO_IS_HE {
     PATECARBO_BOW, PATECARBO = 2,
     XMARANO_SPEAR, XMARANO = 3,
     RACAILLOU_AXE, RACAILLOU = 4,
+    BOSS1 = 5,
+    BOSS2 = 6,
+    BOSS3 = 7,
+    BOSS4 = 8,
+    BOSS5 = 9,
+    BOSS6 = 10,
+    BOSS7 = 11,
+    BOSS8 = 12,
 };
 
 enum WHAT_WEAPONS {
@@ -42,6 +50,14 @@ enum WHAT_WEAPONS {
     FIRE_BOOK = 17,
     THUNDER_BOOK = 18,
     FREEZE_BOOK = 19,
+    BOSS1_SWORD = 20,
+    BOSS2_STICK = 21,
+    BOSS3_BOW = 22,
+    BOSS4_SPEAR = 23,
+    BOSS5_SWORD = 24,
+    BOSS6_BOOK = 25,
+    BOSS7_AXE = 26,
+    BOSS8_SWORD = 27,
 };
 
 typedef struct Glob {
@@ -50,7 +66,7 @@ typedef struct Glob {
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
-    Perso_t perso[5]; /* Yanis */
+    Perso_t perso[13]; /* Yanis */
     Weapons_t weapons[28]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
@@ -74,5 +90,7 @@ void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
 void draw_inventaire(Global_t *m);
 void event_setting(sfEvent event, Global_t *m);
+int set_boss(Global_t *m);
+int set_enemy(Global_t *m);
 
 #endif
