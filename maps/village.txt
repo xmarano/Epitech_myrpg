@@ -1,0 +1,22 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X   LLLLLL  LL   LLLLLLLLLL    X
+X   LLLLLLLLLL    LLLLLLLLLL   X
+X    LLLLLLLLL    LLLLLLLLLL   X
+X     LLLLLLLL    LLLLLLLLLL   X
+X      LL LLLL    LLLLLLLLLL LLX
+X   MMM    LLL     LLLLLLLLL LLX
+X  MMMMM    LL     LLLLL LL   LX
+X  MMMMM      VVV  LLL         X
+X   MMM       VVV LLL          X
+X             VVV LLL      MMMMX
+X      M    B    MLLL      MMMMX
+X       B  LLL B           MMMMX
+X          LLL     A     CCC   X
+X     M  LLLL            CCC   X
+X       LLLLL B          CCC   X
+X      LLLLL      VVV        LLX
+X    M LLL   B  M VVV   LLLLLLLX
+X     M    FF     VVV  LLLLLLLLX
+XL  M      FFF        LLLLLLLLLX
+X L  M             LLLLLLLLLLLLX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
