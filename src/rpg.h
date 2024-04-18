@@ -45,6 +45,7 @@ enum WHAT_WEAPONS {
 };
 
 typedef struct Glob {
+    int current;
     sfVector2i mouse;
     sfRenderWindow *window;
     sfClock *clock;

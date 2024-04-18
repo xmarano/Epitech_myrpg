@@ -44,17 +44,19 @@ static void check_hover(Global_t *m)
 
 void draw_menu(Global_t *m)
 {
-    check_hover(m);
-    sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->menu.button1, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->menu.button2, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->menu.button3, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->menu.button4, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.title, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.new_game, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.continuer, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.settings, NULL);
-    sfRenderWindow_drawText(m->window, m->menu.exit, NULL);
+    if (m->current == 0) {
+        check_hover(m);
+        sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->menu.button1, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->menu.button2, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->menu.button3, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->menu.button4, NULL);
+        sfRenderWindow_drawText(m->window, m->menu.title, NULL);
+        sfRenderWindow_drawText(m->window, m->menu.new_game, NULL);
+        sfRenderWindow_drawText(m->window, m->menu.continuer, NULL);
+        sfRenderWindow_drawText(m->window, m->menu.settings, NULL);
+        sfRenderWindow_drawText(m->window, m->menu.exit, NULL);
+    }
 }
 
 void destroy_menu(Global_t *m)
