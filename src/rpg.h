@@ -18,6 +18,32 @@
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
 
+enum WHO_IS_HE {
+    ROY_SWORD, ROY = 0,
+    INFENIUM_BOOK, INFENIUM = 1,
+    PATECARBO_BOW, PATECARBO = 2,
+    XMARANO_SPEAR, XMARANO = 3,
+    RACAILLOU_AXE, RACAILLOU = 4,
+};
+
+enum WHAT_WEAPONS {
+    COMMON_AXE = 5,
+    RARE_AXE= 6,
+    LEGENDARY_AXE = 7,
+    COMMON_SWORD = 8,
+    RARE_SWORD = 9,
+    LEGENDARY_SWORD = 10,
+    COMMON_SPEAR = 11,
+    RARE_SPEAR = 12,
+    LEGENDARY_SPEAR = 13,
+    COMMON_BOW = 14,
+    RARE_BOW = 15,
+    LEGENDARY_BOW = 16,
+    FIRE_BOOK = 17,
+    THUNDER_BOOK = 18,
+    FREEZE_BOOK = 19
+};
+
 typedef struct Glob {
     sfVector2i mouse;
     sfRenderWindow *window;

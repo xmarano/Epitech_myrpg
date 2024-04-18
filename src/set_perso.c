@@ -72,9 +72,9 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Paladin";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenieum_book.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Infenieum_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/Infenieum_armed.png");
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenium_book.png");
+    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Infenium_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Infenium_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 22;
@@ -114,31 +114,32 @@ int setup_stat(Global_t *m)
     init_patecarbo(&m->perso[3], "PateCarbo", m->weapons[PATECARBO_BOW]);
     init_xmarano(&m->perso[2], "Xmarano", m->weapons[XMARANO_SPEAR]);
     init_racaillou(&m->perso[4], "Racaillou", m->weapons[RACAILLOU_AXE]);
-    for (int i = 0; i < 5; i++) {
-        printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
-        printf("Nom : %s\n", m->perso[i].name_perso);
-        printf("Type : %s\n", m->perso[i].type);
-        printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
-        printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
-        printf("Level : %d\n", m->perso[i].stat_p.level);
-        printf("XP : %d\n", m->perso[i].stat_p.xp);
-        printf("HP : %d\n", m->perso[i].stat_p.hp);
-        printf("Lck : %d\n", m->perso[i].stat_p.lck);
-        printf("Skl : %d\n", m->perso[i].stat_p.skl);
-        printf("Def : %d\n", m->perso[i].stat_p.def);
-        printf("Res : %d\n", m->perso[i].stat_p.res);
-        printf("Str : %d\n", m->perso[i].stat_p.str);
-        printf("Spd : %d\n", m->perso[i].stat_p.spd);
-        printf("Mov : %d\n", m->perso[i].stat_p.mov);
-        printf("\nStatistiques de l'arme de %s :\n", m->perso[i].name_perso);
-        printf("Nom : %s\n", m->perso[i].current_weapon->name);
-        printf("Type : %s\n", m->perso[i].current_weapon->weapon_type);
-        printf("lien texture : %s\n", m->perso[i].current_weapon->link_texture);
-        printf("Attaque : %d\n", m->perso[i].current_weapon->attack);
-        printf("Précision : %d\n", m->perso[i].current_weapon->accuracy);
-        printf("Portée : %d\n", m->perso[i].current_weapon->rng);
-        printf("Critique : %d\n", m->perso[i].current_weapon->crit);
-        printf("Coût : %d\n", m->perso[i].current_weapon->cost);
-    }
+    //for (int i = 0; i < 5; i++) {
+    //     printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
+    //     printf("Nom : %s\n", m->perso[i].name_perso);
+    //     printf("Type : %s\n", m->perso[i].type);
+    //     printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
+    //     printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
+    //     printf("Level : %d\n", m->perso[i].stat_p.level);
+    //     printf("XP : %d\n", m->perso[i].stat_p.xp);
+    //     printf("HP : %d\n", m->perso[i].stat_p.hp);
+    //     printf("Lck : %d\n", m->perso[i].stat_p.lck);
+    //     printf("Skl : %d\n", m->perso[i].stat_p.skl);
+    //     printf("Def : %d\n", m->perso[i].stat_p.def);
+    //     printf("Res : %d\n", m->perso[i].stat_p.res);
+    //     printf("Str : %d\n", m->perso[i].stat_p.str);
+    //     printf("Spd : %d\n", m->perso[i].stat_p.spd);
+    //     printf("Mov : %d\n", m->perso[i].stat_p.mov);
+    //     printf("\nStatistiques de l'arme de %s :\n", m->perso[i].name_perso);
+    //     printf("Nom : %s\n", m->perso[i].current_weapon->name);
+    //     printf("Type : %s\n", m->perso[i].current_weapon->weapon_type);
+    //     printf("lien texture : %s\n", m->perso[i].current_weapon->link_texture);
+    //     printf("Attaque : %d\n", m->perso[i].current_weapon->attack);
+    //     printf("Précision : %d\n", m->perso[i].current_weapon->accuracy);
+    //     printf("Portée : %d\n", m->perso[i].current_weapon->rng);
+    //     printf("Critique : %d\n", m->perso[i].current_weapon->crit);
+    //     printf("Coût : %d\n", m->perso[i].current_weapon->cost);
+    // }
+    //printf("lien dialogue_texture : %s\n", m->perso[INFENIUM].texture_link_dialogue);
     return 0;
 }

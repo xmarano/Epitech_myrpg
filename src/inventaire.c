@@ -10,23 +10,20 @@
 #include "menu.h"
 #include "include/perso.h"
 
-void set_weapon_sprite(Global_t *m, char *filename, sfVector2f pose, sfVector2f scale)
+void set_sprite(Global_t *m, char *filename, int who)
 {
-    sfSprite_destroy(m->weapons->sprite);
-    sfTexture_destroy(m->weapons->texture);
-    m->weapons->sprite = sfSprite_create();
-    m->weapons->texture = sfTexture_createFromFile(filename, NULL);
-    sfSprite_setTexture(m->weapons->sprite, m->weapons->texture, sfFalse);
-    sfSprite_setPosition(m->weapons->sprite, pose);
-    sfSprite_setScale(m->weapons->sprite, scale);
-    sfRenderWindow_drawSprite(m->window, m->weapons->sprite, NULL);
+    sfSprite_destroy(m->perso[who].dialogue_sprite);
+    sfTexture_destroy(m->perso[who].dialogue_texture);
+    m->perso[who].dialogue_sprite = sfSprite_create();
+    m->perso[who].dialogue_texture = sfTexture_createFromFile(filename, NULL);
+    sfSprite_setTexture(m->perso[who].dialogue_sprite, m->perso[who].dialogue_texture, sfFalse);
+    sfSprite_setPosition(m->perso[who].dialogue_sprite, (sfVector2f) {1050, 503});
+    sfSprite_setScale(m->perso[who].dialogue_sprite, (sfVector2f) {1.8, 1.8});
+    sfRenderWindow_drawSprite(m->window, m->perso[who].dialogue_sprite, NULL);
 }
 
 void draw_inventaire(Global_t *m)
 {
-    sfVector2f pose = {1050, 503};
-    sfVector2f scale = {1.8, 1.8};
-
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
@@ -35,6 +32,7 @@ void draw_inventaire(Global_t *m)
     if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory2, NULL);
         // draw sprite here
+        set_sprite(m, m->perso[RACAILLOU].texture_link_dialogue, RACAILLOU); // -> Modiefier l'index pour afficher le perso deisré !
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->weapons->rect_weapon, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);

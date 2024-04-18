@@ -59,6 +59,8 @@ typedef struct Perso {
     bool is_visible2;
     char texture_link_dialogue[100]; //texture dialogue
     char texture_link_battle[100]; // texture combat
+    sfSprite *dialogue_sprite;
+    sfTexture *dialogue_texture;
 }Perso_t;
 
 #endif
