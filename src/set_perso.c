@@ -71,6 +71,7 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenieum_book.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/Infenieum_dialogue.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/Infenieum_without.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.hp = 22;
