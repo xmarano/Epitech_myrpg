@@ -28,7 +28,7 @@ enum WHO_IS_HE {
 
 enum WHAT_WEAPONS {
     COMMON_AXE = 5,
-    RARE_AXE= 6,
+    RARE_AXE = 6,
     LEGENDARY_AXE = 7,
     COMMON_SWORD = 8,
     RARE_SWORD = 9,
@@ -41,7 +41,7 @@ enum WHAT_WEAPONS {
     LEGENDARY_BOW = 16,
     FIRE_BOOK = 17,
     THUNDER_BOOK = 18,
-    FREEZE_BOOK = 19
+    FREEZE_BOOK = 19,
 };
 
 typedef struct Glob {
@@ -51,7 +51,7 @@ typedef struct Glob {
     sfClock *clock;
     Menu_t menu; /* Leo */
     Perso_t perso[5]; /* Yanis */
-    Weapons_t weapons[20]; /* Yanis */
+    Weapons_t weapons[28]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
