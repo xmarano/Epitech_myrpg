@@ -192,7 +192,7 @@ static sfSprite *set_inv_fond2(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if ((sfKeyboard_isKeyPressed(sfKeyE) && (m->current == 11)) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
         m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
         m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
         m->perso->inv.inv_sprite.cursor = set_cursor(m);
