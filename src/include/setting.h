@@ -31,6 +31,8 @@ typedef struct setting {
     bool isSynopsisClicked;
     sfSprite *txtcredit;
     bool creditbool;
+    bool back;
+    sfSprite *retourm;
 } Setting_t;
 
 #endif
