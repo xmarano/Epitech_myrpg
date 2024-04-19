@@ -5,8 +5,8 @@
 ** setup_weapons.c
 */
 
-#include "rpg.h"
-#include "include/npc.h"
+#include "../rpg.h"
+#include "../include/npc.h"
 
 int import_weapons_stats(Global_t *m)
 {

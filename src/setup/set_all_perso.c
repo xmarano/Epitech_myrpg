@@ -5,8 +5,8 @@
 ** set_perso.c
 */
 
-#include "include/perso.h"
-#include "rpg.h"
+#include "../include/perso.h"
+#include "../rpg.h"
 
 static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
 {
