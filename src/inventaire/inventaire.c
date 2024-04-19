@@ -20,7 +20,6 @@ static void inventaire2(Global_t *m)
     sfRenderWindow_drawSprite(w, m->perso->inv.inv_sprite.cursor, NULL);
     sfRenderWindow_drawRectangleShape(w, hoo, NULL);
     sfRenderWindow_drawRectangleShape(w, inv_rect, NULL);
-    // destroy
 }
 
 static void inventaire1(Global_t *m)
@@ -55,8 +54,8 @@ static void reset(Global_t *m)
 {
     m->perso->is_visible = false;
     m->perso->is_visible2 = false;
-    m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){1010, 503};
-    m->perso->inv.inv_sprite.pos_hooved = (sfVector2f){1050, 503};
+    m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){910, 423};
+    m->perso->inv.inv_sprite.pos_hooved = (sfVector2f){950, 423};
     sfRectangleShape_destroy(m->perso->inv.inv_sprite.hooved_weapon);
     sfSprite_destroy(m->perso->inv.inv_sprite.cursor);
     sfRectangleShape_destroy(m->perso->inv.inv_sprite.rect_inv);
@@ -102,12 +101,12 @@ static void moove_cursor_weapons(Global_t *m)
     sfRectangleShape *rect = m->perso->inv.inv_sprite.hooved_weapon;
     sfSprite *cursor = m->perso->inv.inv_sprite.cursor;
 
-    if (m->perso->inv.inv_sprite.pos_hooved.y < 639) {
+    if (m->perso->inv.inv_sprite.pos_hooved.y < 559) {
         m->perso->inv.inv_sprite.pos_cursor.y += 34;
         m->perso->inv.inv_sprite.pos_hooved.y += 34;
     } else {
-        m->perso->inv.inv_sprite.pos_cursor.y = 503;
-        m->perso->inv.inv_sprite.pos_hooved.y = 503;
+        m->perso->inv.inv_sprite.pos_cursor.y = 423;
+        m->perso->inv.inv_sprite.pos_hooved.y = 423;
     }
     sfSprite_setPosition(cursor, m->perso->inv.inv_sprite.pos_cursor);
     sfRectangleShape_setPosition(rect, m->perso->inv.inv_sprite.pos_hooved);
@@ -115,12 +114,12 @@ static void moove_cursor_weapons(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    sfVector2f p_ho_w = {1050, 503};
+    sfVector2f p_ho_w = {950, 423};
     sfVector2f s_ho_w = {16 * 1.8, 16 * 1.8};
-    sfVector2f p_rct_inv = {700, 380};
+    sfVector2f p_rct_inv = {600, 300};
     sfVector2f s_rct_inv = {683, 450};
 
-    if ((sfKeyboard_isKeyPressed(sfKeyE) && (m->current == 11))
+    if ((sfKeyboard_isKeyPressed(sfKeyE) && (m->current != 10))
     || sfKeyboard_isKeyPressed(sfKeyLeft) ||
     sfKeyboard_isKeyPressed(sfKeyRight)
     || sfKeyboard_isKeyPressed(sfKeyDown)) {

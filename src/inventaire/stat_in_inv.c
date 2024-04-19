@@ -25,7 +25,7 @@ static void draw_stats_text(Global_t *m, int who, sfFont *font, sfText *text)
     sprintf(all + strlen(all), "%d%s%d\n\n", mag, TABS_5, def);
     sprintf(all + strlen(all), "%d%s%d\n\n", skill, TABS_5, res);
     sprintf(all + strlen(all), "%d%s%s", speed, TABS_5, con);
-    sfText_setPosition(text, (sfVector2f){1070, 448});
+    sfText_setPosition(text, (sfVector2f){970, 448 - 80});
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 35);
     sfText_setColor(text, sfBlack);
@@ -54,9 +54,9 @@ void set_text_lvl_xd(Global_t *m, int who)
     sprintf(str, "%d\t%d", level, xp);
     if (strlen(str) <= 4) {
         sprintf(str, "%d\t  %d", level, xp);
-        sfText_setPosition(text, (sfVector2f){780, 720});
+        sfText_setPosition(text, (sfVector2f){680, 720 - 80});
     } else
-        sfText_setPosition(text, (sfVector2f){774, 720});
+        sfText_setPosition(text, (sfVector2f){674, 720 - 80});
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 40);
     sfText_setColor(text, sfBlue);
@@ -75,7 +75,7 @@ void set_sprite_mini(Global_t *m, int who)
 
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
     sfSprite_setTextureRect(sprite_perso, current_hero_head);
-    sfSprite_setPosition(sprite_perso, (sfVector2f){913, 715});
+    sfSprite_setPosition(sprite_perso, (sfVector2f){813, 715 - 80});
     sfSprite_setScale(sprite_perso, (sfVector2f){1.3, 1.3});
     sfRenderWindow_drawSprite(m->window, sprite_perso, NULL);
     sfSprite_destroy(sprite_perso);
@@ -95,7 +95,7 @@ void set_text_health(Global_t *m, int who)
     sfText_setCharacterSize(text, 35);
     sfText_setColor(text, sfRed);
     sfText_setString(text, str);
-    sfText_setPosition(text, (sfVector2f){783, 775});
+    sfText_setPosition(text, (sfVector2f){683, 775 - 80});
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
     sfText_destroy(text);
@@ -110,7 +110,7 @@ static void set_sprite_head(Global_t *m, int who)
 
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
     sfSprite_setTextureRect(sprite_perso, current_hero_head);
-    sfSprite_setPosition(sprite_perso, (sfVector2f){730, 425});
+    sfSprite_setPosition(sprite_perso, (sfVector2f){630, 425 - 80});
     sfSprite_setScale(sprite_perso, (sfVector2f){2.5, 2.5});
     sfRenderWindow_drawSprite(m->window, sprite_perso, NULL);
     sfSprite_destroy(sprite_perso);
@@ -131,7 +131,7 @@ void set_sprite_head_name(Global_t *m, int who)
         sfText_setString(text, dest);
     } else
         sfText_setString(text, m->perso[who].name_perso);
-    sfText_setPosition(text, (sfVector2f){770, 620});
+    sfText_setPosition(text, (sfVector2f){670, 620 - 80});
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
     sfText_destroy(text);
