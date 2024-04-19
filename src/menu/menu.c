@@ -38,7 +38,19 @@ void init_menu(Global_t *m)
 static void check_hover(Global_t *m)
 {
     hover(m, m->menu.button1, &m->menu.gb_b1);
-    click(m, &m->menu.gb_b1, 11);
+    if (sfFloatRect_contains(&m->menu.gb_b1, m->mouse.x, m->mouse.y)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->current = 11;
+            //destroy_menu(m);
+            //init_select_perso(m);
+        }
+    }
+    /*
+    prochaine étape :
+    - supprimer la fonction click et tout écrire en brut ici
+    - completer init_selec_perso et les autres fonctions
+    - décaler la map test dans le port 12 'continue'
+    */
     hover(m, m->menu.button2, &m->menu.gb_b2);
     click(m, &m->menu.gb_b2, 12);
     hover(m, m->menu.button3, &m->menu.gb_b3);
