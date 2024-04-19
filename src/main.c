@@ -65,6 +65,7 @@ int main(int argc, char **argv)
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_menu(&m);
+    destroy_hub(&h);
     sfRenderWindow_destroy(m.window);
     return 0;
 }

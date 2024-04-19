@@ -74,3 +74,12 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
 }
+
+void destroy_hub(hub_t *h)
+{
+    sfImage_destroy(h->hitbox);
+    sfSprite_destroy(h->sprite_hub);
+    sfSprite_destroy(h->sprite_perso);
+    sfTexture_destroy(h->texture_hub);
+    sfTexture_destroy(h->texture_perso);
+}

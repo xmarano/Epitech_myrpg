@@ -119,5 +119,6 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon);
 void init_hub (hub_t *h, Global_t *m);
 void draw_hub(Global_t *m, hub_t *h);
 void moveCharacter(Global_t *m, hub_t *hub);
+void destroy_hub(hub_t *h);
 
 #endif
