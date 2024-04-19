@@ -21,6 +21,7 @@ static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 15;
     perso->stat_p.max_hp = 15;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
     perso->stat_p.def = 2;
     perso->stat_p.res = 8;
@@ -42,6 +43,7 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 20;
     perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 2;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 4;
     perso->stat_p.def = 11;
     perso->stat_p.res = 0;
@@ -64,6 +66,7 @@ static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.max_hp = 18;
     perso->stat_p.lck = 3;
     perso->stat_p.skl = 4;
+    perso->stat_p.mag = 1;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
     perso->stat_p.str = 4;
@@ -85,9 +88,10 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.max_hp = 22;
     perso->stat_p.lck = 10;
     perso->stat_p.skl = 14;
+    perso->stat_p.mag = 9;
     perso->stat_p.def = 9;
     perso->stat_p.res = 8;
-    perso->stat_p.str = 9;
+    perso->stat_p.str = 1;
     perso->stat_p.spd = 11;
     perso->stat_p.mov = 8;
 }
@@ -105,6 +109,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 18;
     perso->stat_p.max_hp = 18;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
     perso->stat_p.def = 5;
     perso->stat_p.res = 0;

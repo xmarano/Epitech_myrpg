@@ -43,6 +43,7 @@ typedef struct stats_char {
     int current_hp;
     int max_hp;
     int lck;
+    int mag;
     int skl;
     int def;
     int res;

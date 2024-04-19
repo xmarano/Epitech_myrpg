@@ -20,6 +20,7 @@ static void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 60;
     perso->stat_p.max_hp = 60;
+    perso->stat_p.mag = 1;
     perso->stat_p.lck = 21;
     perso->stat_p.skl = 10;
     perso->stat_p.def = 20;
@@ -40,6 +41,7 @@ static void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.level = 18;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 56;
+    perso->stat_p.mag = 1;
     perso->stat_p.max_hp = 56;
     perso->stat_p.lck = 19;
     perso->stat_p.skl = 9;
@@ -55,7 +57,7 @@ static void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss6_spear.png");
+    strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss6_book.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss6_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss6_armed.png");
     perso->stat_p.level = 16;
@@ -63,10 +65,11 @@ static void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 50;
     perso->stat_p.max_hp = 50;
     perso->stat_p.lck = 16;
+    perso->stat_p.mag = 13;
     perso->stat_p.skl = 6;
     perso->stat_p.def = 16;
     perso->stat_p.res = 16;
-    perso->stat_p.str = 5;
+    perso->stat_p.str = 0;
     perso->stat_p.spd = 11;
     perso->stat_p.mov = 0;
 }
@@ -84,6 +87,7 @@ static void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 41;
     perso->stat_p.max_hp = 41;
     perso->stat_p.lck = 12;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 6;
     perso->stat_p.def = 13;
     perso->stat_p.res = 13;
@@ -105,6 +109,7 @@ static void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 35;
     perso->stat_p.max_hp = 35;
     perso->stat_p.lck = 10;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 6;
     perso->stat_p.def = 10;
     perso->stat_p.res = 9;
@@ -127,6 +132,7 @@ static void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.max_hp = 29;
     perso->stat_p.lck = 9;
     perso->stat_p.skl = 5;
+    perso->stat_p.mag = 1;
     perso->stat_p.def = 8;
     perso->stat_p.res = 9;
     perso->stat_p.str = 7;
@@ -149,6 +155,7 @@ static void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.lck = 8;
     perso->stat_p.skl = 4;
     perso->stat_p.def = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.res = 7;
     perso->stat_p.str = 5;
     perso->stat_p.spd = 10;
@@ -169,6 +176,7 @@ static void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 7;
     perso->stat_p.skl = 3;
+    perso->stat_p.mag = 1;
     perso->stat_p.def = 6;
     perso->stat_p.res = 6;
     perso->stat_p.str = 4;

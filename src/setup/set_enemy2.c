@@ -21,10 +21,11 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 25;
     perso->stat_p.max_hp = 25;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 13;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 2;
-    perso->stat_p.str = 13;
+    perso->stat_p.str = 2;
     perso->stat_p.spd = 8;
     perso->stat_p.mov = 5;
 }
@@ -42,6 +43,7 @@ void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 31;
     perso->stat_p.max_hp = 31;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 2;
@@ -62,6 +64,7 @@ void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 27;
     perso->stat_p.max_hp = 27;
+    perso->stat_p.mag = 1;
     perso->stat_p.lck = 7;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
@@ -84,6 +87,7 @@ void init_enemy1_axe(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 20;
     perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 6;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
     perso->stat_p.def = 2;
     perso->stat_p.res = 0;

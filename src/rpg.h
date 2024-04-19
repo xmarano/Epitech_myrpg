@@ -21,6 +21,8 @@
     #define SPEED 3
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
+    #define TABS_6 "\t\t\t\t\t\t"
+    #define TABS_5 "\t\t\t\t\t"
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,

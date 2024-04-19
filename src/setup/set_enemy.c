@@ -21,6 +21,7 @@ static void init_enemy3_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 30;
     perso->stat_p.max_hp = 30;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 6;
     perso->stat_p.res = 2;
@@ -42,6 +43,7 @@ static void init_enemy2_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 22;
     perso->stat_p.max_hp = 22;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
@@ -63,6 +65,7 @@ static void init_enemy1_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 15;
     perso->stat_p.max_hp = 15;
     perso->stat_p.lck = 6;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
     perso->stat_p.def = 2;
     perso->stat_p.res = 0;
@@ -84,6 +87,7 @@ static void init_enemy3_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 30;
     perso->stat_p.max_hp = 30;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 6;
     perso->stat_p.res = 2;
@@ -105,6 +109,7 @@ static void init_enemy2_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 22;
     perso->stat_p.max_hp = 22;
     perso->stat_p.lck = 7;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
@@ -126,6 +131,7 @@ static void init_enemy1_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 15;
     perso->stat_p.max_hp = 15;
     perso->stat_p.lck = 6;
+    perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
     perso->stat_p.def = 2;
     perso->stat_p.res = 0;

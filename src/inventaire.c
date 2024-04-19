@@ -10,6 +10,34 @@
 #include "menu.h"
 #include "include/perso.h"
 
+void set_others_stats(Global_t *m, int who)
+{
+    sfText *text = sfText_create();
+    sfFont *font = sfFont_createFromFile("assets/font.ttf");
+    int str = m->perso[who].stat_p.str;
+    int mag = m->perso[who].stat_p.mag;
+    int skill = m->perso[who].stat_p.skl;
+    int luck = m->perso[who].stat_p.lck;
+    int def = m->perso[who].stat_p.def;
+    int res = m->perso[who].stat_p.res;
+    int speed = m->perso[who].stat_p.spd;
+    char *con = "-----";
+    char all[200];
+
+    sprintf(all, "%d%s%d\n\n", str, TABS_6, luck);
+    sprintf(all + strlen(all), "%d%s%d\n\n", mag, TABS_5, def);
+    sprintf(all + strlen(all), "%d%s%d\n\n", skill, TABS_5, res);
+    sprintf(all + strlen(all), "%d%s%s", speed, TABS_5, con);
+    sfText_setPosition(text, (sfVector2f){1070, 448});
+    sfText_setFont(text, font);
+    sfText_setCharacterSize(text, 35);
+    sfText_setColor(text, sfBlack);
+    sfText_setString(text, all);
+    sfRenderWindow_drawText(m->window, text, NULL);
+    sfFont_destroy(font);
+    sfText_destroy(text);
+}
+
 void set_text_lvl_xd(Global_t *m, int who)
 {
     sfText *text = sfText_create();
@@ -45,6 +73,8 @@ void set_sprite_mini(Global_t *m, int who)
     sfSprite_setPosition(sprite_perso, (sfVector2f){913, 715});
     sfSprite_setScale(sprite_perso, (sfVector2f){1.3, 1.3});
     sfRenderWindow_drawSprite(m->window, sprite_perso, NULL);
+    sfSprite_destroy(sprite_perso);
+    sfTexture_destroy(texture_perso);
 }
 
 void set_text_health(Global_t *m, int who)
@@ -93,11 +123,13 @@ void set_sprite_head_name(Global_t *m, int who)
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
     sfText_destroy(text);
+    sfSprite_destroy(sprite_perso);
+    sfTexture_destroy(texture_perso);
 }
 
 void draw_inventaire(Global_t *m)
 {
-    m->perso->current_perso = XMARANO; // valeur a chager pour swap de perso
+    m->perso->current_perso = ROY; // valeur a chager pour swap de perso
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
@@ -105,6 +137,7 @@ void draw_inventaire(Global_t *m)
         set_text_lvl_xd(m, m->perso->current_perso);
         set_sprite_mini(m, m->perso->current_perso);
         set_text_health(m, m->perso->current_perso);
+        set_others_stats(m, m->perso->current_perso);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
     }
     if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
@@ -115,6 +148,13 @@ void draw_inventaire(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.hooved_weapon, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
+        // destroy
+        sfRectangleShape_destroy(m->perso->inv.inv_sprite.hooved_weapon);
+        sfSprite_destroy(m->perso->inv.inv_sprite.cursor);
+        sfRectangleShape_destroy(m->perso->inv.inv_sprite.rect_inv);
+        sfSprite_destroy(m->perso->inv.inv_sprite.inventory);
+        sfSprite_destroy(m->perso->inv.inv_sprite.inventory2);
+
     }
     if (!m->perso->is_visible && !m->perso->is_visible2) {
         m->show_mouse = true;
