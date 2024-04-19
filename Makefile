@@ -17,8 +17,8 @@ SRCLIB	=	lib/my_atoi.c 		\
 			lib/my_putchar.c 	\
 
 SRCNAME	=	src/*.c	\
-			src/setup/*.c	\
 			src/menu/*.c	\
+			src/setup/*.c	\
 			src/inventaire/*.c	\
 
 LIB 	= 	libmy.a
