@@ -18,17 +18,20 @@ void init_hub (hub_t *h, Global_t *m)
     h->texture_perso = sfTexture_createFromFile(m->perso[ROY].texture_battle, NULL);
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
+    h->view = sfView_createFromRect((sfFloatRect){100, 100, 200, 200});
 
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
-    sfSprite_setScale(h->sprite_hub, (sfVector2f){2.5, 2.5});
+    //sfSprite_setScale(h->sprite_hub, (sfVector2f){2.5, 2.5});
     sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){800, 500}) ;
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){200, 200});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.4, 0.4});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
 {
     m->current = 11;
+    sfRenderWindow_setView(m->window, h->view);
     sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
     moveCharacter(m, h);
 }
@@ -68,9 +71,11 @@ void moveCharacter(Global_t *m, hub_t *hub) {
         sfClock_restart(m->clock);
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
-    hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x) / 2.5, (hub->pos_sprite.y + hub->movement.y) / 2.5);
+    hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 10), (hub->pos_sprite.y + hub->movement.y + 10));
     if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1920 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
         sfSprite_move(hub->sprite_perso, hub->movement);
+        sfVector2f test = sfView_getCenter(hub->view);
+        sfView_move(hub->view, hub->movement);
     }
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);

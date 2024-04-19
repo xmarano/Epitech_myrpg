@@ -18,7 +18,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
-    #define SPEED 3
+    #define SPEED 2
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
