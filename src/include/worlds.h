@@ -20,6 +20,7 @@ typedef struct hub {
     sfImage *hitbox;
     sfVector2f pos_sprite;
     sfColor color;
+    sfView *view;
 } hub_t;
 
 typedef struct Zone1
