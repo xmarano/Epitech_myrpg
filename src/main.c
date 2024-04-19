@@ -8,6 +8,18 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
+void draw_hub(Global_t *m)
+{
+    sfTexture *texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
+    sfSprite *sprite_hub = sfSprite_create();
+
+    sfSprite_setTexture(sprite_hub, texture_hub, sfFalse);
+    sfSprite_setScale(sprite_hub, (sfVector2f){2.5, 2.5});
+    sfRenderWindow_drawSprite(m->window, sprite_hub, NULL);
+    sfTexture_destroy(texture_hub);
+    sfSprite_destroy(sprite_hub);
+}
+
 void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
     sfVector2f movement = {0, 0};
     int tic = 0;
@@ -45,7 +57,7 @@ void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
     }
     sfImage *hitbox = sfImage_createFromFile("maps/hub_detour.png");
     sfVector2f pos_sprite = sfSprite_getPosition(character);
-    sfColor color = sfImage_getPixel(hitbox, pos_sprite.x + movement.x, pos_sprite.y + movement.y);
+    sfColor color = sfImage_getPixel(hitbox, (pos_sprite.x + movement.x) / 2.5, (pos_sprite.y + movement.y) / 2.5);
     if (color.r != 255 && pos_sprite.x + movement.x > 0 && pos_sprite.x + movement.x < 1920 && pos_sprite.y + movement.y > 0 && pos_sprite.y + movement.y < 1080) {
         sfSprite_move(character, movement);
     }
@@ -88,6 +100,7 @@ void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
     draw_setting(m);
     draw_inventaire(m);
     draw_mouse(m);
+    draw_hub(m);
     moveCharacter(m, sprite_perso, rect);
     sfRenderWindow_display(m->window);
 }
@@ -111,7 +124,8 @@ int main(int argc, char **argv)
     sfSprite *sprite_perso = sfSprite_create();                                                   //  |
     sfTexture *texture_perso = sfTexture_createFromFile(m.perso[XMARANO].texture_battle, NULL);//  |
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);                                     //  |
-    sfSprite_setTextureRect(sprite_perso, rect);                                                  //  |
+    sfSprite_setTextureRect(sprite_perso, rect);
+    sfSprite_setPosition(sprite_perso, (sfVector2f){800, 500}) ;                                                //  |
     //------------------------------------------------------------------------------------------------
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, sprite_perso, &rect);
