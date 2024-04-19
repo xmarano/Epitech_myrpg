@@ -36,6 +36,16 @@ enum WHO_IS_HE {
     BOSS6 = 10,
     BOSS7 = 11,
     BOSS8 = 12,
+    ENEMY1_SWORD = 13,
+    ENEMY2_SWORD = 14,
+    ENEMY3_SWORD = 15,
+    ENEMY1_SPEAR = 16,
+    ENEMY2_SPEAR = 17,
+    ENEMY3_SPEAR = 18,
+    ENEMY1_AXE = 19,
+    ENEMY2_AXE = 20,
+    ENEMY3_AXE = 21,
+    ENEMY_MAGE = 22,
 };
 
 enum WHAT_WEAPONS {
@@ -70,7 +80,7 @@ typedef struct Glob {
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
-    Perso_t perso[13]; /* Yanis */
+    Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[28]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
