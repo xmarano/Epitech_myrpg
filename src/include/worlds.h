@@ -9,10 +9,18 @@
     #define WORLDS_H
     #include "../rpg.h"
 
-typedef struct Hub
-{
-    /* data */
-}Hub_t;
+typedef struct hub {
+    sfIntRect rect;
+    sfSprite *sprite_perso;
+    sfTexture *texture_perso;
+    sfTexture *texture_hub;
+    sfSprite *sprite_hub;
+    sfVector2f movement;
+    sfTime time;
+    sfImage *hitbox;
+    sfVector2f pos_sprite;
+    sfColor color;
+} hub_t;
 
 typedef struct Zone1
 {

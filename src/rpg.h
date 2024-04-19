@@ -18,7 +18,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
-    #define SPEED 1.25
+    #define SPEED 3
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
 
@@ -85,7 +85,7 @@ typedef struct Glob {
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
-    Hub_t hub; /* leo & tom*/
+    hub_t hub; /* leo & tom*/
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;
@@ -116,5 +116,8 @@ void init_enemy1_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon);
+void init_hub (hub_t *h, Global_t *m);
+void draw_hub(Global_t *m, hub_t *h);
+void moveCharacter(Global_t *m, hub_t *hub);
 
 #endif

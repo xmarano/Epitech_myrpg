@@ -8,64 +8,6 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
-void draw_hub(Global_t *m)
-{
-    sfTexture *texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
-    sfSprite *sprite_hub = sfSprite_create();
-
-    sfSprite_setTexture(sprite_hub, texture_hub, sfFalse);
-    sfSprite_setScale(sprite_hub, (sfVector2f){2.5, 2.5});
-    sfRenderWindow_drawSprite(m->window, sprite_hub, NULL);
-    sfTexture_destroy(texture_hub);
-    sfSprite_destroy(sprite_hub);
-}
-
-void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
-    sfVector2f movement = {0, 0};
-    int tic = 0;
-
-    if (sfKeyboard_isKeyPressed(sfKeyZ)) {
-        movement.y -= SPEED;
-        rect->top = 520;
-        tic = 1;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyS)) {
-        movement.y += SPEED;
-        rect->top = 520 + 65 * 2;
-        tic = 1;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyQ)) {
-        movement.x -= SPEED;
-        rect->top = 520 + 65;
-        tic = 1;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyD)) {
-        movement.x += SPEED;
-        rect->top = 520 + 65 * 3;
-        tic = 1;
-    }
-    sfTime time = sfClock_getElapsedTime(m->clock);
-    float seconds;
-
-    seconds = time.microseconds / 1000000.0;
-    if (seconds > 0.09) {
-        if (rect->left < (64 * 8) && tic == 1)
-            rect->left += 64;
-        else
-            rect->left = 0;
-        sfClock_restart(m->clock);
-    }
-    sfImage *hitbox = sfImage_createFromFile("maps/hub_detour.png");
-    sfVector2f pos_sprite = sfSprite_getPosition(character);
-    sfColor color = sfImage_getPixel(hitbox, (pos_sprite.x + movement.x) / 2.5, (pos_sprite.y + movement.y) / 2.5);
-    if (color.r != 255 && pos_sprite.x + movement.x > 0 && pos_sprite.x + movement.x < 1920 && pos_sprite.y + movement.y > 0 && pos_sprite.y + movement.y < 1080) {
-        sfSprite_move(character, movement);
-    }
-    sfImage_destroy(hitbox);
-    sfSprite_setTextureRect(character, *rect);
-    sfRenderWindow_drawSprite(m->window, character, NULL);
-}
-
 void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtClosed || m->current == -1)
@@ -86,7 +28,7 @@ void clock(Global_t *m)
     }
 }
 
-void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
+void rpg(Global_t *m, hub_t *h)
 {
     sfEvent event;
 
@@ -100,14 +42,14 @@ void rpg(Global_t *m, sfSprite *sprite_perso, sfIntRect *rect)
     draw_setting(m);
     draw_inventaire(m);
     draw_mouse(m);
-    draw_hub(m);
-    moveCharacter(m, sprite_perso, rect);
+    draw_hub(m, h);
     sfRenderWindow_display(m->window);
 }
 
 int main(int argc, char **argv)
 {
     Global_t m = {0};
+    hub_t h = {0};
     sfVideoMode mode = {1920, 1080, 32};
 
     if (argc != 1)
@@ -119,20 +61,9 @@ int main(int argc, char **argv)
     init_menu(&m);
     init_setting(&m);
     init_inventaire(&m);
-    //------------------------------------------------------------------------------------------------
-    sfIntRect rect = {0, 520 + 65 * 2, 65, 65};                                                   //  |
-    sfSprite *sprite_perso = sfSprite_create();                                                   //  |
-    sfTexture *texture_perso = sfTexture_createFromFile(m.perso[XMARANO].texture_battle, NULL);//  |
-    sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);                                     //  |
-    sfSprite_setTextureRect(sprite_perso, rect);
-    sfSprite_setPosition(sprite_perso, (sfVector2f){800, 500}) ;                                                //  |
-    //------------------------------------------------------------------------------------------------
+    init_hub(&h, &m);
     while (sfRenderWindow_isOpen(m.window))
-        rpg(&m, sprite_perso, &rect);
-    //-----------------------------------
-    sfSprite_destroy(sprite_perso);  //  |
-    sfTexture_destroy(texture_perso);//  |
-    //-----------------------------------
+        rpg(&m, &h);
     destroy_menu(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
