@@ -4,7 +4,7 @@
 ** File description:
 ** init.c
 */
-#include "rpg.h"
+#include "../rpg.h"
 
 sfSprite *init_sprite(char *filename, sfVector2f pos)
 {
