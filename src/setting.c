@@ -82,7 +82,6 @@ void init_setting(Global_t *m)
     m->setting.volume_up = init_sprite("assets/setting/volume_up.png",
     (sfVector2f){780, 730});
     init_setting2(m);
-    m->setting.toto = 0;
     m->setting.isSynopsisClicked = false;
     m->setting.test = init_sprite("assets/setting/textsynopsis.png",
     (sfVector2f){1000, 200});
@@ -98,7 +97,7 @@ void init_inventaire(Global_t *m)
 
 void draw_setting(Global_t *m)
 {
-    if (m->setting.toto % 2 == 1) {
+    if (m->current == 13) {
         sfRenderWindow_drawSprite(m->window, m->setting.background_s, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.credit, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.synopsis, NULL);

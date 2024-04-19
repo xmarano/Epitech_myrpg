@@ -37,9 +37,13 @@ void init_menu(Global_t *m)
 static void check_hover(Global_t *m)
 {
     hover(m, m->menu.button1, &m->menu.gb_b1);
+    click(m, &m->menu.gb_b1, 11);
     hover(m, m->menu.button2, &m->menu.gb_b2);
+    click(m, &m->menu.gb_b2, 12);
     hover(m, m->menu.button3, &m->menu.gb_b3);
+    click(m, &m->menu.gb_b3, 13);
     hover(m, m->menu.button4, &m->menu.gb_b4);
+    click(m, &m->menu.gb_b4, -1);
 }
 
 void draw_menu(Global_t *m)

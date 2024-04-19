@@ -23,7 +23,6 @@ typedef struct stats_weapon {
     int cost;
     sfTexture *texture;
     sfSprite *sprite;
-    sfRectangleShape *rect_weapon;
 } Weapons_t;
 
 #endif

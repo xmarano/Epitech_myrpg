@@ -74,7 +74,7 @@ void level_up(stchar_t *stats)
         if (rng % 3 == 0)
             stats->def += 1;
         if (rng % 4 == 0)
-            stats->hp += 1;
+            stats->max_hp += 1;
         if (rng % 5 == 0)
             stats->lck += 1;
         if (rng % 6 == 0)
