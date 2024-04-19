@@ -103,7 +103,7 @@ int main(int argc, char **argv)
     //------------------------------------------------------------------------------------------------
     sfIntRect rect = {0, 520 + 65 * 2, 65, 65};                                                   //  |
     sfSprite *sprite_perso = sfSprite_create();                                                   //  |
-    sfTexture *texture_perso = sfTexture_createFromFile(m.perso[ROY].texture_link_battle, NULL);//  |
+    sfTexture *texture_perso = sfTexture_createFromFile(m.perso[XMARANO].texture_link_battle, NULL);//  |
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);                                     //  |
     sfSprite_setTextureRect(sprite_perso, rect);                                                  //  |
     //------------------------------------------------------------------------------------------------
