@@ -41,6 +41,8 @@ void rpg(Global_t *m, hub_t *h)
     draw_menu(m);
     draw_setting(m);
     draw_inventaire(m);
+    if (m->current == 11) /*temporaire*/
+        draw_hub(m, h);
     draw_mouse(m);
     sfRenderWindow_display(m->window);
 }
@@ -60,9 +62,11 @@ int main(int argc, char **argv)
     init_menu(&m);
     init_setting(&m);
     init_inventaire(&m);
+    init_hub(&h, &m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_menu(&m);
+    destroy_hub(&h);
     destroy_setting(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
