@@ -37,11 +37,9 @@ void rpg(Global_t *m, hub_t *h)
     sfRenderWindow_clear(m->window, sfWhite);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
-    //clock(m);
     draw_menu(m);
     draw_setting(m);
-    if (m->current == 11) /*temporaire*/
-        draw_hub(m, h);
+    draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
     sfRenderWindow_display(m->window);
@@ -65,8 +63,9 @@ int main(int argc, char **argv)
     init_hub(&h, &m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
-    destroy_menu(&m);
     destroy_hub(&h);
+    sfClock_destroy(m.clock);
+    sfSprite_destroy(m.menu.cursor);
     sfRenderWindow_destroy(m.window);
     return 0;
 }

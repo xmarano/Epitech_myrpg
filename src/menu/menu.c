@@ -18,6 +18,7 @@ static void check_globalbounds(Global_t *m)
 void init_menu(Global_t *m)
 {
     sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
+    m->current = 10;
     m->clock = sfClock_create();
     m->menu.wsize = sfRenderWindow_getSize(m->window);
     m->menu.map = init_sprite("assets/menu/menu.jpg", (sfVector2f){0, 0});
@@ -48,7 +49,7 @@ static void check_hover(Global_t *m)
 
 void draw_menu(Global_t *m)
 {
-    if (m->current == 0) {
+    if (m->current == 10) {
         check_hover(m);
         sfRenderWindow_drawSprite(m->window, m->menu.map, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->menu.button1, NULL);
@@ -65,9 +66,7 @@ void draw_menu(Global_t *m)
 
 void destroy_menu(Global_t *m)
 {
-    sfClock_destroy(m->clock);
     sfSprite_destroy(m->menu.map);
-    sfSprite_destroy(m->menu.cursor);
     sfText_destroy(m->menu.title);
     sfText_destroy(m->menu.new_game);
     sfText_destroy(m->menu.continuer);

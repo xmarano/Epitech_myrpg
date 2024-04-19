@@ -123,5 +123,14 @@ void init_hub (hub_t *h, Global_t *m);
 void draw_hub(Global_t *m, hub_t *h);
 void moveCharacter(Global_t *m, hub_t *hub);
 void destroy_hub(hub_t *h);
+void set_sprite_head_name(Global_t *m, int who);
+void set_text_health(Global_t *m, int who);
+void set_sprite_mini(Global_t *m, int who);
+void set_text_lvl_xd(Global_t *m, int who);
+void set_others_stats(Global_t *m, int who);
+sfSprite *set_inv_fond(Global_t *m);
+sfSprite *set_inv_fond2(Global_t *m);
+sfSprite *set_cursor(Global_t *m);
+sfRectangleShape *hoov(Global_t *m, sfVector2f popo, sfVector2f size, float f);
 
 #endif
