@@ -14,8 +14,8 @@ static void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss8_sword.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss8_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss8_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss8_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss8_armed.png");
     perso->stat_p.level = 20;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 60;
@@ -35,8 +35,8 @@ static void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss7_axe.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss4_d7alogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss7_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss4_d7alogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss7_armed.png");
     perso->stat_p.level = 18;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 56;
@@ -56,8 +56,8 @@ static void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss6_spear.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss6_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss6_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss6_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss6_armed.png");
     perso->stat_p.level = 16;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 50;
@@ -77,8 +77,8 @@ static void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss5_sword.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss5_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss5_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss5_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss5_armed.png");
     perso->stat_p.level = 13;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 41;
@@ -98,8 +98,8 @@ static void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss4_spear.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss4_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss4_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss4_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss4_armed.png");
     perso->stat_p.level = 11;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 35;
@@ -119,8 +119,8 @@ static void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss3_bow.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss3_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss3_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss3_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss3_armed.png");
     perso->stat_p.level = 8;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 29;
@@ -140,8 +140,8 @@ static void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss2_stick.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss2_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss2_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss2_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss2_armed.png");
     perso->stat_p.level = 5;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 23;
@@ -161,8 +161,8 @@ static void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Boss";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss1_sword.png");
-    strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/boss/Boss1_dialogue.png");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/boss/Boss1_armed.png");
+    strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss1_dialogue.png");
+    strcpy(perso->texture_battle, "assets/perso/battle/boss/Boss1_armed.png");
     perso->stat_p.level = 2;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 20;

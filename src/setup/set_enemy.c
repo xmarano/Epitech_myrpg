@@ -14,8 +14,8 @@ static void init_enemy3_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear3.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy3_spear.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy3_spear.png");
     perso->stat_p.level = 7;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 30;
@@ -35,8 +35,8 @@ static void init_enemy2_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear2.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy2_spear.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy2_spear.png");
     perso->stat_p.level = 3;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 22;
@@ -56,8 +56,8 @@ static void init_enemy1_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear1.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy1_spear.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy1_spear.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 15;
@@ -77,8 +77,8 @@ static void init_enemy3_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword3.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy3_sword.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy3_sword.png");
     perso->stat_p.level = 7;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 30;
@@ -98,8 +98,8 @@ static void init_enemy2_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword2.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy2_sword.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy2_sword.png");
     perso->stat_p.level = 3;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 22;
@@ -119,8 +119,8 @@ static void init_enemy1_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword1.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy1_sword.png");
+    strcpy(perso->texture_dialogue, "NULL");
+    strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy1_sword.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 15;
@@ -150,8 +150,8 @@ int set_enemy(Global_t *m)
     //     printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
     //     printf("Nom : %s\n", m->perso[i].name_perso);
     //     printf("Type : %s\n", m->perso[i].type);
-    //     printf("Link texture_dialogue : %s\n", m->perso[i].texture_link_dialogue);
-    //     printf("Link texture_battle : %s\n", m->perso[i].texture_link_battle);
+    //     printf("Link texture_dialogue : %s\n", m->perso[i].texture_dialogue);
+    //     printf("Link texture_battle : %s\n", m->perso[i].texture_battle);
     //     printf("Level : %d\n", m->perso[i].stat_p.level);
     //     printf("XP : %d\n", m->perso[i].stat_p.xp);
     //     printf("HP actuelle: %d\n", m->perso[i].stat_p.current_hp);
