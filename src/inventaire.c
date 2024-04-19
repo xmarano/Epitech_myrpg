@@ -10,20 +10,24 @@
 #include "menu.h"
 #include "include/perso.h"
 
-void set_sprite(Global_t *m, char *filename, int who)
-{
-    sfSprite_destroy(m->perso[who].dialogue_sprite);
-    sfTexture_destroy(m->perso[who].dialogue_texture);
-    m->perso[who].dialogue_sprite = sfSprite_create();
-    m->perso[who].dialogue_texture = sfTexture_createFromFile(filename, NULL);
-    sfSprite_setTexture(m->perso[who].dialogue_sprite, m->perso[who].dialogue_texture, sfFalse);
-    sfSprite_setPosition(m->perso[who].dialogue_sprite, (sfVector2f) {700, 380});
-    sfSprite_setScale(m->perso[who].dialogue_sprite, (sfVector2f) {1.8, 1.8});
-    sfRenderWindow_drawSprite(m->window, m->perso[who].dialogue_sprite, NULL);
-}
+// void set_sprite(Global_t *m, char *filename, int who)
+// {
+//     sfSprite_destroy(m->perso[who].dialogue_sprite);
+//     sfTexture_destroy(m->perso[who].dialogue_texture);
+//     m->perso[who].dialogue_sprite = sfSprite_create();
+//     m->perso[who].dialogue_texture = sfTexture_createFromFile(filename, NULL);
+//     sfSprite_setTexture(m->perso[who].dialogue_sprite, m->perso[who].dialogue_texture, sfFalse);
+//     sfSprite_setPosition(m->perso[who].dialogue_sprite, (sfVector2f) {700, 380});
+//     sfSprite_setScale(m->perso[who].dialogue_sprite, (sfVector2f) {1.8, 1.8});
+//     sfRenderWindow_drawSprite(m->window, m->perso[who].dialogue_sprite, NULL);
+// }
 
 void draw_inventaire(Global_t *m)
 {
+    sfIntRect current_hero_head = {0, 0, 96, 80};
+    sfSprite *sprite_perso = sfSprite_create();
+    sfTexture *texture_perso = sfTexture_createFromFile(m->perso[ROY].texture_dialogue, NULL);
+
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
@@ -32,7 +36,11 @@ void draw_inventaire(Global_t *m)
     if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory2, NULL);
         // draw sprite here
-        //set_sprite(m, m->perso[INFENIUM].texture_link_dialogue,INFENIUM); // -> Modiefier l'index pour afficher le perso deisré !
+        sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);                                     //  |
+        sfSprite_setTextureRect(sprite_perso, current_hero_head);
+        sfSprite_setPosition(sprite_perso, (sfVector2f){700, 300});
+        sfRenderWindow_drawSprite(m->window, sprite_perso, NULL);
+        // end here
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.hooved_weapon, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.rect_inv, NULL);
