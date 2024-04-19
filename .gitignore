@@ -1,9 +1,9 @@
 #*
-a.out
-*~
-.DS_Store
-.vscode
 #*#
+*~
+a.out
+.vscode
+.DS_Store
 my_rpg.dSYM
 my_rpg
 libmy.a
