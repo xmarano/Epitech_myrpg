@@ -18,6 +18,7 @@ SRCLIB	=	lib/my_atoi.c 		\
 
 SRCNAME	=	src/*.c	\
 			src/setup/*.c	\
+			src/menu/*.c	\
 
 LIB 	= 	libmy.a
 
