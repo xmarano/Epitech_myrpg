@@ -57,7 +57,7 @@ typedef struct Perso {
     char *name_perso; // nom du perso
     char *type; // type du perso
     Weapons_t current_weapon[20]; //arme actuelle
-    Weapons_t inv_weapon[4]; // armes en stoque
+    Weapons_t inv_weapon[4]; // armes dans l'inventaire
     int num_weapons_in_inv;
     stchar_t stat_p; //stat du perso
     inv_t inv; //inventaire du perso

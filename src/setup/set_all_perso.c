@@ -108,7 +108,7 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 8;
 }
 
-static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_roy(Perso_t *perso, char *name, Weapons_t weapon, Weapons_t weapon2)
 {
     perso->name_perso = name;
     perso->type = "Lord";
@@ -116,11 +116,11 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
-    // memcpy(&perso->inv_weapon[SLOT1], weapon[INFENIUM_BOOK], sizeof(Weapons_t)); //ajouter une armes dans un inventaire /!\ [ne par retirer du mode commentaire]
-    // m->perso[]m->current_perso->num_weapons_in_inv += 1; /!\ [ne par retirer du mode commentaire]
+    perso->num_weapons_in_inv = 0;
+    //!\ [ne par retirer du mode commentaire] memcpy(&perso->inv_weapon[0], &weapon2, sizeof(Weapons_t));
+    //!\ [ne par retirer du mode commentaire] perso->num_weapons_in_inv += 1;
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png");
-    perso->num_weapons_in_inv = 0;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;
@@ -137,7 +137,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
 
 int setup_stat(Global_t *m)
 {
-    init_roy(&m->perso[ROY], "ROY", m->weapons[ROY_SWORD]);
+    init_roy(&m->perso[ROY], "ROY", m->weapons[ROY_SWORD], m->weapons[RARE_SWORD]);
     init_infenium(&m->perso[INFENIUM], "Infenieum", m->weapons[INFENIUM_BOOK]);
     init_patecarbo(&m->perso[PATECARBO], "PateCarbo", m->weapons[PATECARBO_BOW]);
     init_xmarano(&m->perso[XMARANO], "Xmarano", m->weapons[XMARANO_SPEAR]);

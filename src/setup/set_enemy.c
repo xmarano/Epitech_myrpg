@@ -179,6 +179,20 @@ int set_enemy(Global_t *m)
         printf("Portée : %d\n", m->perso[i].current_weapon->rng);
         printf("Critique : %d\n", m->perso[i].current_weapon->crit);
         printf("Coût : %d\n", m->perso[i].current_weapon->cost);
+        printf("\nInventaire des armes de %s :\n", m->perso[i].name_perso);
+        if (m->perso[i].num_weapons_in_inv == 0)
+            printf(ANSI_COLOR_RED "L'inventaire d'armes de %s est vide !\n" ANSI_COLOR_RESET, m->perso[i].name_perso);
+        for (int j = 0; j < m->perso[i].num_weapons_in_inv; j++) {
+            printf("Arme %d :\n", j + 1);
+            printf("Nom : %s\n", m->perso[i].inv_weapon[j].name);
+            printf("Type : %s\n", m->perso[i].inv_weapon[j].weapon_type);
+            printf("Lien texture : %s\n", m->perso[i].inv_weapon[j].link_texture);
+            printf("Attaque : %d\n", m->perso[i].inv_weapon[j].attack);
+            printf("Précision : %d\n", m->perso[i].inv_weapon[j].accuracy);
+            printf("Portée : %d\n", m->perso[i].inv_weapon[j].rng);
+            printf("Critique : %d\n", m->perso[i].inv_weapon[j].crit);
+            printf("Coût : %d\n", m->perso[i].inv_weapon[j].cost);
+        }
     }
     return 0;
 }
