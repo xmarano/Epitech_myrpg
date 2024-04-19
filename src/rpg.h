@@ -108,6 +108,7 @@ void hover(Global_t *m, sfRectangleShape *shape, sfFloatRect *rect);
 void click(Global_t *m, sfFloatRect *rect, int current);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
+void destroy_setting(Global_t *m);
 void draw_inventaire(Global_t *m);
 void event_setting(sfEvent event, Global_t *m);
 int set_boss(Global_t *m);
