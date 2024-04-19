@@ -72,6 +72,7 @@ void event_setting(sfEvent event, Global_t *m)
             m->setting.creditbool = !m->setting.creditbool;
         if (sfFloatRect_contains(&back, mouse.x, mouse.y)) {
             m->current = 0;
+            destroy_setting(&m);
         }
         modify_size(mouse, m);
     }
