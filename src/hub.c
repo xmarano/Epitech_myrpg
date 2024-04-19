@@ -30,10 +30,11 @@ void init_hub (hub_t *h, Global_t *m)
 
 void draw_hub(Global_t *m, hub_t *h)
 {
-    m->current = 11;
-    sfRenderWindow_setView(m->window, h->view);
-    sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
-    moveCharacter(m, h);
+    if (m->current = 11) {
+        sfRenderWindow_setView(m->window, h->view);
+        sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
+        moveCharacter(m, h);
+    }
 }
 
 void moveCharacter(Global_t *m, hub_t *hub) {
