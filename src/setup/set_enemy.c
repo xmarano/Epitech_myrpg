@@ -8,91 +8,6 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-static void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
-{
-    perso->name_perso = name;
-    perso->type = "Enemy";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/Thunder_book.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy_mage.png");
-    perso->stat_p.level = 7;
-    perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 25;
-    perso->stat_p.max_hp = 25;
-    perso->stat_p.lck = 7;
-    perso->stat_p.skl = 7;
-    perso->stat_p.def = 4;
-    perso->stat_p.res = 2;
-    perso->stat_p.str = 13;
-    perso->stat_p.spd = 8;
-    perso->stat_p.mov = 5;
-}
-
-static void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
-{
-    perso->name_perso = name;
-    perso->type = "Enemy";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/axe3.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy3_axe.png");
-    perso->stat_p.level = 7;
-    perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 31;
-    perso->stat_p.max_hp = 31;
-    perso->stat_p.lck = 7;
-    perso->stat_p.skl = 7;
-    perso->stat_p.def = 4;
-    perso->stat_p.res = 2;
-    perso->stat_p.str = 13;
-    perso->stat_p.spd = 8;
-    perso->stat_p.mov = 5;
-}
-
-static void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon)
-{
-    perso->name_perso = name;
-    perso->type = "Enemy";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/axe2.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy2_axe.png");
-    perso->stat_p.level = 3;
-    perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 27;
-    perso->stat_p.max_hp = 27;
-    perso->stat_p.lck = 7;
-    perso->stat_p.skl = 7;
-    perso->stat_p.def = 4;
-    perso->stat_p.res = 2;
-    perso->stat_p.str = 8;
-    perso->stat_p.spd = 5;
-    perso->stat_p.mov = 5;
-}
-
-static void init_enemy1_axe(Perso_t *perso, char *name, Weapons_t weapon)
-{
-    perso->name_perso = name;
-    perso->type = "Enemy";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/axe1.png");
-    strcpy(perso->texture_link_dialogue, "NULL");
-    strcpy(perso->texture_link_battle, "assets/perso/battle/enemy/enemy1_axe.png");
-    perso->stat_p.level = 1;
-    perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 20;
-    perso->stat_p.max_hp = 20;
-    perso->stat_p.lck = 6;
-    perso->stat_p.skl = 5;
-    perso->stat_p.def = 2;
-    perso->stat_p.res = 0;
-    perso->stat_p.str = 6;
-    perso->stat_p.spd = 6;
-    perso->stat_p.mov = 5;
-}
-
-
 static void init_enemy3_spear(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
@@ -155,7 +70,6 @@ static void init_enemy1_spear(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.spd = 6;
     perso->stat_p.mov = 5;
 }
-
 
 static void init_enemy3_sword(Perso_t *perso, char *name, Weapons_t weapon)
 {

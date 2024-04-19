@@ -19,9 +19,9 @@ int import_weapons_stats(Global_t *m)
             fclose(file);
             return 84;
         }
-        printf("Lecture réussie pour l'arme %d: Nom: %s, Type: %s, Attaque: %d, Précision: %d, Portée: %d, Critique: %d, Coût: %d, Texture: %s\n", i + 1,
-        m->weapons[i].name, m->weapons[i].weapon_type, m->weapons[i].attack, m->weapons[i].accuracy,
-        m->weapons[i].rng, m->weapons[i].crit, m->weapons[i].cost, m->weapons[i].link_texture);
+        // printf("Lecture réussie pour l'arme %d: Nom: %s, Type: %s, Attaque: %d, Précision: %d, Portée: %d, Critique: %d, Coût: %d, Texture: %s\n", i + 1,
+        // m->weapons[i].name, m->weapons[i].weapon_type, m->weapons[i].attack, m->weapons[i].accuracy,
+        // m->weapons[i].rng, m->weapons[i].crit, m->weapons[i].cost, m->weapons[i].link_texture);
     }
     fclose(file);
     return 0;

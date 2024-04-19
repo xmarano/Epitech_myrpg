@@ -112,5 +112,9 @@ void draw_inventaire(Global_t *m);
 void event_setting(sfEvent event, Global_t *m);
 int set_boss(Global_t *m);
 int set_enemy(Global_t *m);
+void init_enemy1_axe(Perso_t *perso, char *name, Weapons_t weapon);
+void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon);
+void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon);
+void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon);
 
 #endif
