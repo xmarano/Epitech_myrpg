@@ -67,7 +67,6 @@ int main(int argc, char **argv)
         rpg(&m, &h);
     destroy_menu(&m);
     destroy_hub(&h);
-    destroy_setting(&m);
     sfRenderWindow_destroy(m.window);
     return 0;
 }
