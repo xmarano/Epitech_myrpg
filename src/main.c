@@ -43,7 +43,13 @@ void moveCharacter(Global_t *m, sfSprite *character, sfIntRect *rect) {
             rect->left = 0;
         sfClock_restart(m->clock);
     }
-    sfSprite_move(character, movement);
+    sfImage *hitbox = sfImage_createFromFile("maps/hub_detour.png");
+    sfVector2f pos_sprite = sfSprite_getPosition(character);
+    sfColor color = sfImage_getPixel(hitbox, pos_sprite.x + movement.x, pos_sprite.y + movement.y);
+    if (color.r != 255 && pos_sprite.x + movement.x > 0 && pos_sprite.x + movement.x < 1920 && pos_sprite.y + movement.y > 0 && pos_sprite.y + movement.y < 1080) {
+        sfSprite_move(character, movement);
+    }
+    sfImage_destroy(hitbox);
     sfSprite_setTextureRect(character, *rect);
     sfRenderWindow_drawSprite(m->window, character, NULL);
 }
