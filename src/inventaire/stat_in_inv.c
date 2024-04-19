@@ -9,10 +9,8 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-void set_others_stats(Global_t *m, int who)
+static void draw_stats_text(Global_t *m, int who, sfFont *font, sfText *text)
 {
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/font.ttf");
     int str = m->perso[who].stat_p.str;
     int mag = m->perso[who].stat_p.mag;
     int skill = m->perso[who].stat_p.skl;
@@ -33,6 +31,14 @@ void set_others_stats(Global_t *m, int who)
     sfText_setColor(text, sfBlack);
     sfText_setString(text, all);
     sfRenderWindow_drawText(m->window, text, NULL);
+}
+
+void set_others_stats(Global_t *m, int who)
+{
+    sfText *text = sfText_create();
+    sfFont *font = sfFont_createFromFile("assets/font.ttf");
+
+    draw_stats_text(m, who, font, text);
     sfFont_destroy(font);
     sfText_destroy(text);
 }
@@ -95,21 +101,28 @@ void set_text_health(Global_t *m, int who)
     sfText_destroy(text);
 }
 
-void set_sprite_head_name(Global_t *m, int who)
+static void set_sprite_head(Global_t *m, int who)
 {
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/font.ttf");
     sfIntRect current_hero_head = {0, 0, 96, 80};
     sfSprite *sprite_perso = sfSprite_create();
     char *filename = m->perso[who].texture_dialogue;
     sfTexture *texture_perso = sfTexture_createFromFile(filename, NULL);
-    char dest[20];
 
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
     sfSprite_setTextureRect(sprite_perso, current_hero_head);
     sfSprite_setPosition(sprite_perso, (sfVector2f){730, 425});
     sfSprite_setScale(sprite_perso, (sfVector2f){2.5, 2.5});
     sfRenderWindow_drawSprite(m->window, sprite_perso, NULL);
+    sfSprite_destroy(sprite_perso);
+    sfTexture_destroy(texture_perso);
+}
+
+void set_sprite_head_name(Global_t *m, int who)
+{
+    sfText *text = sfText_create();
+    sfFont *font = sfFont_createFromFile("assets/font.ttf");
+    char dest[20];
+
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 40);
     sfText_setColor(text, sfBlack);
@@ -122,6 +135,5 @@ void set_sprite_head_name(Global_t *m, int who)
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
     sfText_destroy(text);
-    sfSprite_destroy(sprite_perso);
-    sfTexture_destroy(texture_perso);
+    set_sprite_head(m, who);
 }

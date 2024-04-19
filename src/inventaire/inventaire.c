@@ -40,7 +40,6 @@ static void inventaire1(Global_t *m)
 
 void draw_inventaire(Global_t *m)
 {
-    m->perso->current_perso = ROY; // valeur a chager pour swap de perso
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         inventaire1(m);
     }
