@@ -38,6 +38,7 @@ void event_setting(sfEvent event, Global_t *m)
     sfFloatRect sizeBounds = sfSprite_getGlobalBounds(m->setting.size);
     sfFloatRect textebounds = sfSprite_getGlobalBounds(m->setting.synopsis);
     sfFloatRect creditBounds = sfSprite_getGlobalBounds(m->setting.credit);
+    sfFloatRect back = sfSprite_getGlobalBounds(m->setting.retourm);
 
     if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y))
@@ -46,6 +47,8 @@ void event_setting(sfEvent event, Global_t *m)
             m->setting.isSynopsisClicked = !m->setting.isSynopsisClicked;
         if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
             m->setting.creditbool = !m->setting.creditbool;
+        if (sfFloatRect_contains(&back, mouse.x, mouse.y))
+            m->current = 0;
         modify_size(mouse, m);
     }
 }
@@ -63,6 +66,8 @@ void init_setting2(Global_t *m)
     m->setting.creditbool = false;
     m->setting.txtcredit = init_sprite("assets/setting/txtcredit.png",
     (sfVector2f){1000, 200});
+    m->setting.retourm = init_sprite("assets/setting/retourn.png",
+    (sfVector2f){20, 20});
 }
 
 void init_setting(Global_t *m)
@@ -106,6 +111,7 @@ void draw_setting(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->setting.volume, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.size, NULL);
         sfRenderWindow_drawSprite(m->window, m->setting.end, NULL);
+        sfRenderWindow_drawSprite(m->window, m->setting.retourm, NULL);
         if (m->setting.displaySizeOptions) {
             sfRenderWindow_drawSprite(m->window, m->setting.littlez, NULL);
             sfRenderWindow_drawSprite(m->window, m->setting.mediumz, NULL);
