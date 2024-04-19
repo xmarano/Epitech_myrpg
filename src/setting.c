@@ -32,6 +32,24 @@ void modify_size(sfVector2i mouse, Global_t *m)
     }
 }
 
+void destroy_setting(Global_t *m)
+{
+    sfSprite_destroy(m->setting.background_s);
+    sfSprite_destroy(m->setting.credit);
+    sfSprite_destroy(m->setting.synopsis);
+    sfSprite_destroy(m->setting.volume_down);
+    sfSprite_destroy(m->setting.volume_up);
+    sfSprite_destroy(m->setting.volume);
+    sfSprite_destroy(m->setting.size);
+    sfSprite_destroy(m->setting.end);
+    sfSprite_destroy(m->setting.retourm);
+    sfSprite_destroy(m->setting.littlez);
+    sfSprite_destroy(m->setting.mediumz);
+    sfSprite_destroy(m->setting.bigz);
+    sfSprite_destroy(m->setting.test);
+    sfSprite_destroy(m->setting.txtcredit);
+}
+
 void event_setting(sfEvent event, Global_t *m)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(m->window);
@@ -47,8 +65,9 @@ void event_setting(sfEvent event, Global_t *m)
             m->setting.isSynopsisClicked = !m->setting.isSynopsisClicked;
         if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
             m->setting.creditbool = !m->setting.creditbool;
-        if (sfFloatRect_contains(&back, mouse.x, mouse.y))
+        if (sfFloatRect_contains(&back, mouse.x, mouse.y)) {
             m->current = 0;
+        }
         modify_size(mouse, m);
     }
 }
