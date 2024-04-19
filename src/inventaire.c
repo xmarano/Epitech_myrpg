@@ -19,11 +19,15 @@ void set_text_lvl_xd(Global_t *m, int who)
     char str[20];
 
     sprintf(str, "%d\t%d", level, xp);
+    if (strlen(str) <= 4) {
+        sprintf(str, "%d\t  %d", level, xp);
+        sfText_setPosition(text, (sfVector2f){780, 720});
+    } else
+        sfText_setPosition(text, (sfVector2f){774, 720});
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 40);
     sfText_setColor(text, sfBlue);
     sfText_setString(text, str);
-    sfText_setPosition(text, (sfVector2f){778, 720});
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
     sfText_destroy(text);
@@ -49,7 +53,7 @@ void set_text_health(Global_t *m, int who)
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
     int current_hp = m->perso[who].stat_p.current_hp;
     int max_hp = m->perso[who].stat_p.max_hp;
-    char str[20];
+    char str[30];
 
     sprintf(str, "%d\t%d", current_hp, max_hp);
     sfText_setFont(text, font);
@@ -70,6 +74,7 @@ void set_sprite_head_name(Global_t *m, int who)
     sfSprite *sprite_perso = sfSprite_create();
     char *filename = m->perso[who].texture_dialogue;
     sfTexture *texture_perso = sfTexture_createFromFile(filename, NULL);
+    char dest[20];
 
     sfSprite_setTexture(sprite_perso, texture_perso, sfTrue);
     sfSprite_setTextureRect(sprite_perso, current_hero_head);
@@ -79,7 +84,11 @@ void set_sprite_head_name(Global_t *m, int who)
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 40);
     sfText_setColor(text, sfBlack);
-    sfText_setString(text, m->perso[who].name_perso);
+    if (strlen(m->perso[who].name_perso) <= 5) {
+        sprintf(dest, "\t%s", m->perso[who].name_perso);
+        sfText_setString(text, dest);
+    } else
+        sfText_setString(text, m->perso[who].name_perso);
     sfText_setPosition(text, (sfVector2f){770, 620});
     sfRenderWindow_drawText(m->window, text, NULL);
     sfFont_destroy(font);
@@ -88,7 +97,7 @@ void set_sprite_head_name(Global_t *m, int who)
 
 void draw_inventaire(Global_t *m)
 {
-    m->perso->current_perso = ROY; // valeur a chager pour swap de perso
+    m->perso->current_perso = XMARANO; // valeur a chager pour swap de perso
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
@@ -101,6 +110,7 @@ void draw_inventaire(Global_t *m)
     if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory2, NULL);
         // draw sprite here
+        //set_stats;
         // set_stat_text(m, PATECARBO);
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.cursor, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->perso->inv.inv_sprite.hooved_weapon, NULL);

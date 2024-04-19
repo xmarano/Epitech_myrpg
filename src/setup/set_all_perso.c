@@ -37,8 +37,8 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Xmarano_spear.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Xmarano_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Xmarano_armed.png");
-    perso->stat_p.level = 10;
-    perso->stat_p.xp = 40;
+    perso->stat_p.level = 1;
+    perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 20;
     perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 2;
