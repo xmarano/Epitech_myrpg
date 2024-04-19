@@ -7,28 +7,33 @@
 #include "rpg.h"
 #include <SFML/Graphics.h>
 
-void modify_size(sfVector2i mouse, Global_t *m)
+static void diff_size(sfVector2i mouse, Global_t *m)
 {
     sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
     sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
     sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
 
+    if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+        sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+    }
+    if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+        sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
+    }
+    if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+        m->window);
+        sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
+    }
+}
+
+static void modify_size(sfVector2i mouse, Global_t *m)
+{
     if (m->setting.displaySizeOptions) {
-        if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-            m->window);
-            sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
-        }
-        if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-            m->window);
-            sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
-        }
-        if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-            sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-            m->window);
-            sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
-        }
+        diff_size(mouse, m);
     }
 }
 
@@ -72,7 +77,7 @@ void event_setting(sfEvent event, Global_t *m)
     }
 }
 
-void init_setting2(Global_t *m)
+static void init_setting2(Global_t *m)
 {
     m->setting.size = init_sprite("assets/setting/size.png",
     (sfVector2f){600, 250});
