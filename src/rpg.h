@@ -51,6 +51,11 @@ enum WHO_IS_HE {
 };
 
 enum WHAT_WEAPONS {
+    SLOT1 = 0,
+    SLOT2 = 1,
+    SLOT3 = 2,
+    SLOT4 = 3,
+    SLOT5 = 4,
     COMMON_AXE = 5,
     RARE_AXE = 6,
     LEGENDARY_AXE = 7,
