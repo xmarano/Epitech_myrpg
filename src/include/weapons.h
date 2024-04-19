@@ -9,7 +9,7 @@
     #define WEAPONS_H
 
 #include "../rpg.h"
-    #define MAX_WEAPONS 15
+    #define MAX_WEAPONS 20
     #define MAX_NAME_LENGTH 50
 
 typedef struct stats_weapon {

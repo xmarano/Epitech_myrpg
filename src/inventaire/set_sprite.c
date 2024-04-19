@@ -26,7 +26,7 @@ sfSprite *set_cursor(Global_t *m)
 {
     sfSprite *sprite = sfSprite_create();
     sfVector2f scale = {0.3, 0.3};
-    sfVector2f pos = {910, 503 - 80};
+    sfVector2f pos = {940, 443};
     sfTexture *Cursor = m->perso->inv.inv_sprite.Cursor;
 
     Cursor = sfTexture_createFromFile("assets/inv/cursor.png", NULL);
@@ -40,7 +40,7 @@ sfSprite *set_inv_fond(Global_t *m)
 {
     sfSprite *sprite = sfSprite_create();
     sfVector2f pos = {600, 300};
-    sfVector2f scale = {2.9, 2.9};
+    sfVector2f scale = {3.2, 3.2};
     sfTexture *Inv = m->perso->inv.inv_sprite.Inventory;
 
     Inv = sfTexture_createFromFile("assets/inv/inv_fond.png", NULL);
@@ -53,8 +53,8 @@ sfSprite *set_inv_fond(Global_t *m)
 sfSprite *set_inv_fond2(Global_t *m)
 {
     sfSprite *sprite = sfSprite_create();
-    sfVector2f pos = {892, 300};
-    sfVector2f scale = {2.9, 2.9};
+    sfVector2f pos = {922, 300};
+    sfVector2f scale = {3.2, 3.2};
     sfTexture *Inv2 = m->perso->inv.inv_sprite.Inventory2;
 
     Inv2 = sfTexture_createFromFile("assets/inv/inv_fond2.png", NULL);

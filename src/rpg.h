@@ -25,11 +25,11 @@
     #define TABS_5 "\t\t\t\t\t"
 
 enum WHO_IS_HE {
-    ROY_SWORD, ROY = 0,
-    INFENIUM_BOOK, INFENIUM = 1,
-    PATECARBO_BOW, PATECARBO = 2,
-    XMARANO_SPEAR, XMARANO = 3,
-    RACAILLOU_AXE, RACAILLOU = 4,
+    ROY_SWORD, ROY, SLOT1 = 0,
+    INFENIUM_BOOK, INFENIUM, SLOT2 = 1,
+    PATECARBO_BOW, PATECARBO, SLOT3 = 2,
+    XMARANO_SPEAR, XMARANO, SLOT4 = 3,
+    RACAILLOU_AXE, RACAILLOU, SLOT5 = 4,
     BOSS1 = 5,
     BOSS2 = 6,
     BOSS3 = 7,
@@ -132,5 +132,6 @@ sfSprite *set_inv_fond(Global_t *m);
 sfSprite *set_inv_fond2(Global_t *m);
 sfSprite *set_cursor(Global_t *m);
 sfRectangleShape *hoov(Global_t *m, sfVector2f popo, sfVector2f size, float f);
+void weapons_inv_stat(Global_t *m);
 
 #endif
