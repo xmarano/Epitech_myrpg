@@ -88,7 +88,7 @@ void set_sprite_head_name(Global_t *m, int who)
 
 void draw_inventaire(Global_t *m)
 {
-    m->perso->current_perso = XMARANO; // valeur a chager pour swap de perso
+    m->perso->current_perso = ROY; // valeur a chager pour swap de perso
     if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
         m->show_mouse = false;
         sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.inventory, NULL);
