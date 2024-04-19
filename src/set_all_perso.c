@@ -99,7 +99,7 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon)
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     strcpy(perso->texture_link_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
-    strcpy(perso->texture_link_hub, "assets/perso/battle/hero/Roy_not_armed.png");
+    strcpy(perso->texture_link_battle, "assets/perso/battle/hero/Roy_armed.png");
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;
@@ -121,5 +121,6 @@ int setup_stat(Global_t *m)
     init_xmarano(&m->perso[XMARANO], "Xmarano", m->weapons[XMARANO_SPEAR]);
     init_racaillou(&m->perso[RACAILLOU], "Racaillou", m->weapons[RACAILLOU_AXE]);
     set_boss(m);
+    set_enemy(m);
     return 0;
 }
