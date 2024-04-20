@@ -152,7 +152,7 @@ int set_enemy(Global_t *m)
     init_enemy2_axe(&m->perso[ENEMY2_AXE], "Enemy2_axe", m->weapons[RARE_AXE]);
     init_enemy3_axe(&m->perso[ENEMY3_AXE], "Enemy3_axe", m->weapons[LEGENDARY_AXE]);
     init_enemy_mage(&m->perso[ENEMY_MAGE], "Enemy_mage", m->weapons[THUNDER_BOOK]);
-    for (int i = 0; i < 23; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("\nStatistiques de %s :\n", m->perso[i].name_perso);
         printf("Nom : %s\n", m->perso[i].name_perso);
         printf("Type : %s\n", m->perso[i].type);

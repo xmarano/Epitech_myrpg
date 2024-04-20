@@ -8,17 +8,18 @@
 #include "../include/perso.h"
 #include "../rpg.h"
 
-static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_raca(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
     perso->type = "Mage";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    memcpy(perso->current_weapon, &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Racaillou_axe.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Racaillou_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Racaillou_armed.png");
-    perso->num_weapons_in_inv = 0;
+    perso->num_weapons_in_inv = 1;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 15;
@@ -33,17 +34,18 @@ static void init_racaillou(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 5;
 }
 
-static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
+static void initxmarano(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
     perso->type = "Knight";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    memcpy(perso->current_weapon, &weapon[XMARANO_SPEAR], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Xmarano_spear.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Xmarano_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Xmarano_armed.png");
-    perso->num_weapons_in_inv = 0;
+    perso->num_weapons_in_inv = 1;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 20;
@@ -58,17 +60,18 @@ static void init_xmarano(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 4;
 }
 
-static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
+static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
     perso->type = "Archer";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    memcpy(perso->current_weapon, &weapon[PATECARBO_BOW], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Patecarbo_bow.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Patecarbo_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Patecarbo_armed.png");
-    perso->num_weapons_in_inv = 0;
+    perso->num_weapons_in_inv = 1;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;
@@ -83,17 +86,18 @@ static void init_patecarbo(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 5;
 }
 
-static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
+static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
     perso->type = "Paladin";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    memcpy(perso->current_weapon, &weapon[INFENIUM_BOOK], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Infenium_book.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Infenium_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Infenium_armed.png");
-    perso->num_weapons_in_inv = 0;
+    perso->num_weapons_in_inv = 1;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 22;
@@ -108,19 +112,22 @@ static void init_infenium(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.mov = 8;
 }
 
-static void init_roy(Perso_t *perso, char *name, Weapons_t weapon, Weapons_t weapon2)
+static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
     perso->type = "Lord";
-    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
+    memcpy(perso->current_weapon, &weapon[ROY_SWORD], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
-    perso->num_weapons_in_inv = 0;
-    //!\ [ne par retirer du mode commentaire] memcpy(&perso->inv_weapon[0], &weapon2, sizeof(Weapons_t));
-    //!\ [ne par retirer du mode commentaire] perso->num_weapons_in_inv += 1;
+    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[SLOT2], &weapon[COMMON_BOW], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[SLOT3], &weapon[RARE_SPEAR], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[SLOT4], &weapon[LEGENDARY_SPEAR], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[SLOT5], &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png");
+    perso->num_weapons_in_inv = 5;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;
@@ -137,11 +144,12 @@ static void init_roy(Perso_t *perso, char *name, Weapons_t weapon, Weapons_t wea
 
 int setup_stat(Global_t *m)
 {
-    init_roy(&m->perso[ROY], "ROY", m->weapons[ROY_SWORD], m->weapons[RARE_SWORD]);
-    init_infenium(&m->perso[INFENIUM], "Infenieum", m->weapons[INFENIUM_BOOK]);
-    init_patecarbo(&m->perso[PATECARBO], "PateCarbo", m->weapons[PATECARBO_BOW]);
-    init_xmarano(&m->perso[XMARANO], "Xmarano", m->weapons[XMARANO_SPEAR]);
-    init_racaillou(&m->perso[RACAILLOU], "Racaillou", m->weapons[RACAILLOU_AXE]);
+
+    initroy(&m->perso[ROY], "ROY", m->weapons);
+    initinfenium(&m->perso[INFENIUM], "Infenium", m->weapons);
+    init_pate(&m->perso[PATECARBO], "PateCarbo", m->weapons);
+    initxmarano(&m->perso[XMARANO], "Xmarano", m->weapons);
+    init_raca(&m->perso[RACAILLOU], "Racaillou", m->weapons);
     set_boss(m);
     set_enemy(m);
     return 0;

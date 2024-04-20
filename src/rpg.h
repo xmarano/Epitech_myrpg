@@ -51,7 +51,7 @@ enum WHO_IS_HE {
 };
 
 enum WHAT_WEAPONS {
-    SLOT1 = 0,
+    HEAL = 0, //Slot1
     SLOT2 = 1,
     SLOT3 = 2,
     SLOT4 = 3,
@@ -79,6 +79,7 @@ enum WHAT_WEAPONS {
     BOSS6_BOOK = 25,
     BOSS7_AXE = 26,
     BOSS8_SWORD = 27,
+    HEAL_STICK = 28,
 };
 
 typedef struct Glob {
@@ -87,9 +88,8 @@ typedef struct Glob {
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
-    Select_t select; /* Leo */
     Perso_t perso[23]; /* Yanis */
-    Weapons_t weapons[28]; /* Yanis */
+    Weapons_t weapons[29]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
@@ -106,11 +106,6 @@ int import_weapons_stats(Global_t *m);
 int setup_stat(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
-
-void init_select_perso(Global_t *m);
-void draw_select_perso(Global_t *m);
-void destroy_select_perso(Global_t *m);
-
 void destroy_menu(Global_t *m);
 void init_inventaire(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
