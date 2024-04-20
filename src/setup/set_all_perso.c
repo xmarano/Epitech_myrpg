@@ -121,13 +121,12 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
     for (int i = 0; i < 4; i++)
         memset(&perso->inv_weapon[i], 0, sizeof(Weapons_t));
     memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[SLOT2], &weapon[COMMON_BOW], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[SLOT3], &weapon[RARE_SPEAR], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[SLOT4], &weapon[LEGENDARY_SPEAR], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[SLOT5], &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
+    // memcpy(&perso->inv_weapon[SLOT2], &weapon[COMMON_BOW], sizeof(Weapons_t));
+    // memcpy(&perso->inv_weapon[SLOT3], &weapon[RARE_SPEAR], sizeof(Weapons_t)); ex ajouter une arme dans inv
+    // memcpy(&perso->inv_weapon[SLOT4], &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png");
-    perso->num_weapons_in_inv = 5;
+    perso->num_weapons_in_inv = 1;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;

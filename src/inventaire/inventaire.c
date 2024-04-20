@@ -16,7 +16,6 @@ static void inventaire2(Global_t *m)
     sfRectangleShape *inv_rect = m->perso->inv.inv_sprite.rect_inv;
 
     sfRenderWindow_drawSprite(w, m->perso->inv.inv_sprite.inventory2, NULL);
-    // set_stat_text(m, PATECARBO);
     weapons_inv_stat(m);
     sfRenderWindow_drawSprite(w, m->perso->inv.inv_sprite.cursor, NULL);
     sfRenderWindow_drawRectangleShape(w, hoo, NULL);
@@ -55,8 +54,10 @@ static void reset(Global_t *m)
 {
     m->perso->is_visible = false;
     m->perso->is_visible2 = false;
-    m->perso->inv.inv_sprite.pos_cursor = (sfVector2f){940, 433};
-    m->perso->inv.inv_sprite.pos_hooved = (sfVector2f){980, 433};
+    m->perso->inv.inv_sprite.pos_cursor.x = 940;
+    m->perso->inv.inv_sprite.pos_hooved.x = 980;
+    m->perso->inv.inv_sprite.pos_cursor.y = 443;
+    m->perso->inv.inv_sprite.pos_hooved.y = 443;
     sfRectangleShape_destroy(m->perso->inv.inv_sprite.hooved_weapon);
     sfSprite_destroy(m->perso->inv.inv_sprite.cursor);
     sfRectangleShape_destroy(m->perso->inv.inv_sprite.rect_inv);
