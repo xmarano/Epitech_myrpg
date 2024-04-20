@@ -198,5 +198,4 @@ void weapons_inv_stat(Global_t *m)
     empty_sprite_pose.y = 557;
     err_text.y = 546;
     weapons_inv_stat2(m, empty_sprite_pose, err_text);
-    return;
 }
