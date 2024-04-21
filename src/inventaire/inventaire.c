@@ -126,7 +126,7 @@ static void keydown(Global_t *m)
 int inventory(Global_t *m, sfEvent event)
 {
     sfVector2f p_ho_w = {980, 443};
-    sfVector2f s_ho_w = {300, 16 * 1.8};
+    sfVector2f s_ho_w = {330, 16 * 1.8};
     sfVector2f p_rct_inv = {600, 300};
     sfVector2f s_rct_inv = {755, 500};
 
