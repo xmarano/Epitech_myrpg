@@ -53,6 +53,7 @@ typedef struct stats_char {
 } stchar_t;
 
 typedef struct Perso {
+    int what_weapons_stat;
     int current_perso; //perso designer
     char *name_perso; // nom du perso
     char *type; // type du perso

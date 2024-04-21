@@ -145,5 +145,10 @@ sfSprite *set_inv_fond2(Global_t *m);
 sfSprite *set_cursor(Global_t *m);
 sfRectangleShape *hoov(Global_t *m, sfVector2f popo, sfVector2f size, float f);
 void weapons_inv_stat(Global_t *m);
+void print_weapon4_stat(Global_t *m, int who);
+void print_weapon3_stat(Global_t *m, int who);
+void print_weapon2_stat(Global_t *m, int who);
+void print_heal_stat(Global_t *m, int who);
+void print_current_stat(Global_t *m, int who);
 
 #endif

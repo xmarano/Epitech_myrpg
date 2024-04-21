@@ -54,6 +54,7 @@ static void reset(Global_t *m)
 {
     m->perso->is_visible = false;
     m->perso->is_visible2 = false;
+    m->perso->what_weapons_stat = 0;
     m->perso->inv.inv_sprite.pos_cursor.x = 940;
     m->perso->inv.inv_sprite.pos_hooved.x = 980;
     m->perso->inv.inv_sprite.pos_cursor.y = 443;
@@ -114,6 +115,14 @@ static void moove_cursor_weapons(Global_t *m)
     sfRectangleShape_setPosition(rect, m->perso->inv.inv_sprite.pos_hooved);
 }
 
+static void keydown(Global_t *m)
+{
+    moove_cursor_weapons(m);
+    m->perso->what_weapons_stat += 1;
+        if (m->perso->what_weapons_stat >= 5)
+    m->perso->what_weapons_stat = 0;
+}
+
 int inventory(Global_t *m, sfEvent event)
 {
     sfVector2f p_ho_w = {980, 443};
@@ -131,8 +140,9 @@ int inventory(Global_t *m, sfEvent event)
         m->perso->inv.inv_sprite.hooved_weapon = hoov(m, p_ho_w, s_ho_w, 2);
         m->perso->inv.inv_sprite.rect_inv = hoov(m, p_rct_inv, s_rct_inv, 7);
         what_inv(m, event);
-        if (sfKeyboard_isKeyPressed(sfKeyDown))
-            moove_cursor_weapons(m);
+        if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+            keydown(m);
+        }
     }
     return 0;
 }

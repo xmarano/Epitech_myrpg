@@ -40,27 +40,6 @@ static void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt)
     destroyer(text, font, weapon, Weapon);
 }
 
-static void weapon_slot5(Global_t *m, int who)
-{
-    sfSprite *weapon = sfSprite_create();
-    char *filename = m->perso[who].inv_weapon[SLOT5].link_texture;
-    sfTexture *Weapon = sfTexture_createFromFile(filename, NULL);
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/font.ttf");
-
-    sfSprite_setTexture(weapon, Weapon, sfTrue);
-    sfSprite_setPosition(weapon, (sfVector2f){980, 633});
-    sfSprite_setScale(weapon, (sfVector2f){1.9, 1.9});
-    sfRenderWindow_drawSprite(m->window, weapon, NULL);
-    sfText_setString(text, m->perso[who].inv_weapon[SLOT5].name);
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 36);
-    sfText_setFillColor(text, sfBlack);
-    sfText_setPosition(text, (sfVector2f){1050, 626});
-    sfRenderWindow_drawText(m->window, text, NULL);
-    destroyer(text, font, weapon, Weapon);
-}
-
 static void weapon_slot4(Global_t *m, int who)
 {
     sfSprite *weapon = sfSprite_create();
@@ -79,6 +58,8 @@ static void weapon_slot4(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1050, 586});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (m->perso->what_weapons_stat == 4)
+        print_weapon4_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
@@ -100,6 +81,8 @@ static void weapon_slot3(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1050, 546});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (m->perso->what_weapons_stat == 3)
+        print_weapon3_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
@@ -121,6 +104,8 @@ static void weapon_slot2(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1050, 506});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (m->perso->what_weapons_stat == 2)
+        print_weapon2_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
@@ -142,6 +127,8 @@ static void heal_stick(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1050, 470});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (m->perso->what_weapons_stat == 1)
+        print_heal_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
@@ -163,6 +150,8 @@ static void current_weapon(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1050, 430});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (m->perso->what_weapons_stat == 0)
+        print_current_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
