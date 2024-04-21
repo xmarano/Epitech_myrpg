@@ -48,6 +48,7 @@ static void check_hover(Global_t *m)
     /*
     prochaine étape :
     ❌ supprimer la fonction click et tout écrire en brut ici
+    ❌ destroy des menus
     ✅ completer init_selec_perso et les autres fonctions
     ✅ décaler la map test dans le port 12 'continue'
     */
