@@ -42,7 +42,7 @@ static void check_hover(Global_t *m)
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             m->current = 11;
             //destroy_menu(m);
-            //init_select_perso(m);
+            init_select_perso(m);
         }
     }
     /*

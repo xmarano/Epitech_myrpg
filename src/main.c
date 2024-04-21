@@ -38,6 +38,7 @@ void rpg(Global_t *m, hub_t *h)
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     draw_menu(m);
+    draw_select_perso(m);
     draw_setting(m);
     draw_hub(m, h);
     draw_inventaire(m);
@@ -67,6 +68,7 @@ int main(int argc, char **argv)
     destroy_hub(&h);
     sfClock_destroy(m.clock);
     sfSprite_destroy(m.menu.cursor);
+    destroy_select_perso(&m); // temporairement ici
     sfRenderWindow_destroy(m.window);
     return 0;
 }
