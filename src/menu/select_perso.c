@@ -25,6 +25,13 @@ void init_select_perso(Global_t *m)
     m->select.button3 = init_button(m, (sfVector2f){200, 75}, 400);
     m->select.button4 = init_button(m, (sfVector2f){200, 75}, 500);
     m->select.button5 = init_button(m, (sfVector2f){200, 75}, 600);
+    //------------------------------------------------------------|
+    m->select.player1 = init_text(m, "ROY", 35, 200);//-----------|
+    m->select.player2 = init_text(m, "XMARANO", 35, 300);//-------|
+    m->select.player3 = init_text(m, "PATE", 35, 400);//----------|  /*  temporaire  */
+    m->select.player4 = init_text(m, "INFEEE", 35, 500);//--------|
+    m->select.player5 = init_text(m, "CAILLOU", 35, 600);//-------|
+    //------------------------------------------------------------|
     check_globalbounds(m);
 }
 
@@ -87,6 +94,13 @@ void draw_select_perso(Global_t *m)
         sfRenderWindow_drawRectangleShape(m->window, m->select.button3, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.button4, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.button5, NULL);
+        //-----------------------------------------------------------------------|
+        sfRenderWindow_drawText(m->window, m->select.player1, NULL);//-----------|
+        sfRenderWindow_drawText(m->window, m->select.player2, NULL);//-----------|
+        sfRenderWindow_drawText(m->window, m->select.player3, NULL);//-----------|   /*  temporaire  */
+        sfRenderWindow_drawText(m->window, m->select.player4, NULL);//-----------|
+        sfRenderWindow_drawText(m->window, m->select.player5, NULL);//-----------|
+        //-----------------------------------------------------------------------|
     }
 }
 

@@ -48,6 +48,13 @@ typedef struct Select {
     sfFloatRect gb_b3;
     sfFloatRect gb_b4;
     sfFloatRect gb_b5;
+    //---------------------|
+    sfText *player1;//-----|
+    sfText *player2;//-----|
+    sfText *player3;//-----|  /*  temporaire  */
+    sfText *player4;//-----|
+    sfText *player5;//-----|
+    //---------------------|
 } Select_t;
 
 #endif
