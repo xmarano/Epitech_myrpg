@@ -53,7 +53,7 @@ sfSprite *set_inv_fond(Global_t *m)
 sfSprite *set_inv_fond2(Global_t *m)
 {
     sfSprite *sprite = sfSprite_create();
-    sfVector2f pos = {922, 300};
+    sfVector2f pos = {920, 300};
     sfVector2f scale = {3.2, 3.2};
     sfTexture *Inv2 = m->perso->inv.inv_sprite.Inventory2;
 
