@@ -40,7 +40,7 @@ sfRectangleShape *init_button(Global_t *m, sfVector2f size, int pos_y)
     float pos_x;
 
     sfRectangleShape_setSize(shape, size);
-    sfRectangleShape_setFillColor(shape, sfColor_fromRGB(134, 185, 104));
+    sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
     sfRectangleShape_setOutlineThickness(shape, 6);
     sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
     rect_pos = sfRectangleShape_getLocalBounds(shape);

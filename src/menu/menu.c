@@ -47,9 +47,9 @@ static void check_hover(Global_t *m)
     }
     /*
     prochaine étape :
-    - supprimer la fonction click et tout écrire en brut ici
-    - completer init_selec_perso et les autres fonctions
-    - décaler la map test dans le port 12 'continue'
+    ❌ supprimer la fonction click et tout écrire en brut ici
+    ✅ completer init_selec_perso et les autres fonctions
+    ✅ décaler la map test dans le port 12 'continue'
     */
     hover(m, m->menu.button2, &m->menu.gb_b2);
     click(m, &m->menu.gb_b2, 12);
