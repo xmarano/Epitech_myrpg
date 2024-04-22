@@ -6,11 +6,12 @@
 */
 #include "rpg.h"
 #include <SFML/Graphics.h>
-/*static void diff_size(sfVector2i mouse, Global_t *m)
+
+static void diff_size(sfVector2i mouse, Global_t *m)
 {
-    sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
-    sfFloatRect mediumzBounds = sfSprite_getGlobalBounds(m->setting.mediumz);
-    sfFloatRect littlezBounds = sfSprite_getGlobalBounds(m->setting.littlez);
+    sfFloatRect bigzBounds = sfRectangleShape_getGlobalBounds(m->setting.bigz);
+    sfFloatRect mediumzBounds = sfRectangleShape_getGlobalBounds(m->setting.mediumz);
+    sfFloatRect littlezBounds = sfRectangleShape_getGlobalBounds(m->setting.littlez);
 
     if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
         sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
@@ -34,7 +35,7 @@ static void modify_size(sfVector2i mouse, Global_t *m)
     if (m->setting.displaySizeOptions) {
         diff_size(mouse, m);
     }
-}*/
+}
 
 sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position)
 {
@@ -84,6 +85,7 @@ void event_setting(sfEvent event, Global_t *m)
         if (sfFloatRect_contains(&retour, mouse.x, mouse.y)) {
             m->current = 10;
         }
+        modify_size(mouse, m);
     }
 }
 
