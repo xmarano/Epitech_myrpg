@@ -6,7 +6,6 @@
 */
 #include "rpg.h"
 #include <SFML/Graphics.h>
-
 /*static void diff_size(sfVector2i mouse, Global_t *m)
 {
     sfFloatRect bigzBounds = sfSprite_getGlobalBounds(m->setting.bigz);
@@ -67,6 +66,7 @@ void event_setting(sfEvent event, Global_t *m)
     sfFloatRect volumebounds = sfRectangleShape_getGlobalBounds(m->setting.buttonvolum);
     sfFloatRect creditBounds = sfRectangleShape_getGlobalBounds(m->setting.buttoncred);
     sfFloatRect retour = sfRectangleShape_getGlobalBounds(m->setting.buttonretour);
+    sfFloatRect bigsynop = sfRectangleShape_getGlobalBounds(m->setting.buttonsynop);
 
     if (event.type == sfEvtMouseButtonPressed) {
         if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
@@ -78,15 +78,22 @@ void event_setting(sfEvent event, Global_t *m)
         if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y)) {
             m->setting.creditbool = !m->setting.creditbool;
         }
+        if (sfFloatRect_contains(&bigsynop, mouse.x, mouse.y)) {
+            m->setting.synopbool = !m->setting.synopbool;
+        }
         if (sfFloatRect_contains(&retour, mouse.x, mouse.y)) {
             m->current = 10;
         }
     }
 }
 
+const char* set_synopara() {
+    const char *names = "The story takes place in \nthe kingdom of Elae, where we\nfollow agroup of heroes serving\nKing Edgarwho has been\nwatching over the kingdom\nfor many years.Following a\nsurprise attack from the\nneighboring kingdom of Aixus, our\nheroes set off on an adventure\nseeking vengeance against\nthe kingdom responsible for\nthis massacre.You will\nfollow the adventures of our\ngroup of heroes and the challenges\nthat await them in this\nadventure full of twists\nand turns!";
+    return names;
+}
+
 const char* set_creditpara() {
-    const char *names = "CLERC Tom\nGREGORI Leo\nPrevost Yanis
-    \nColombani-gailleur Anthony";
+    const char *names = "CLERC Tom\nGREGORI Leo\nPrevost Yanis \nColombani-gailleur Anthony";
     return names;
 }
 
@@ -118,6 +125,9 @@ void init_setting(Global_t *m)
     const char* creditpara = set_creditpara();
     m->setting.creditpara = init_text2(m->setting.font, creditpara, 50, (sfVector2f){1100, 300});
     m->setting.creditrect = init_button2(m, (sfVector2f){400, 100}, (sfVector2f){570, 260});
+
+    const char* synoppara = set_synopara();
+    m->setting.synopsypara = init_text2(m->setting.font, synoppara, 50, (sfVector2f){950, 200});
 }
 
 void draw_setting(Global_t *m)
@@ -149,5 +159,7 @@ void draw_setting(Global_t *m)
         }
         if (m->setting.creditbool)
             sfRenderWindow_drawText(m->window, m->setting.creditpara, NULL);
+        if (m->setting.synopbool)
+            sfRenderWindow_drawText(m->window, m->setting.synopsypara, NULL);
     }
 }

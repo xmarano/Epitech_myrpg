@@ -54,6 +54,7 @@ typedef struct setting {
     bool volumeclicked;
     bool creditbool;
     bool back;
+    bool synopbool; 
 
     sfVector2i mouse;
     sfFloatRect creditBounds;
