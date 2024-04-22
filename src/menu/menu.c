@@ -55,7 +55,13 @@ static void check_hover(Global_t *m)
     hover(m, m->menu.button2, &m->menu.gb_b2);
     click(m, &m->menu.gb_b2, 12);
     hover(m, m->menu.button3, &m->menu.gb_b3);
-    click(m, &m->menu.gb_b3, 13);
+    if (sfFloatRect_contains(&m->menu.gb_b3, m->mouse.x, m->mouse.y)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->current = 13;
+            //destroy_menu(m);
+            init_setting(m);
+        }
+    }
     hover(m, m->menu.button4, &m->menu.gb_b4);
     click(m, &m->menu.gb_b4, -1);
 }

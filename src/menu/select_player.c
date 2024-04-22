@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** B-MUL-200-MAR-2-1-myrpg-yanis.prevost
 ** File description:
-** select_perso.c
+** select_player.c
 */
 #include "../rpg.h"
 #include "../include/menu.h"
@@ -14,17 +14,21 @@ static void check_globalbounds(Global_t *m)
     m->select.gb_b3 = sfRectangleShape_getGlobalBounds(m->select.button3);
     m->select.gb_b4 = sfRectangleShape_getGlobalBounds(m->select.button4);
     m->select.gb_b5 = sfRectangleShape_getGlobalBounds(m->select.button5);
+    m->select.gb_valid = sfRectangleShape_getGlobalBounds(m->select.valid);
+    m->select.gb_exit = sfRectangleShape_getGlobalBounds(m->select.exit);
 }
 
 void init_select_perso(Global_t *m)
 {
     m->select.fond = init_sprite("assets/menu/menu.jpg", (sfVector2f){0, 0});
-    m->select.title = init_text(m, "SELECTIONNEZ UN PERSONNAGE", 100, 0);
+    m->select.title = init_text(m, "SELECT  A  PLAYER", 100, 0);
     m->select.button1 = init_button(m, (sfVector2f){200, 75}, 200);
     m->select.button2 = init_button(m, (sfVector2f){200, 75}, 300);
     m->select.button3 = init_button(m, (sfVector2f){200, 75}, 400);
     m->select.button4 = init_button(m, (sfVector2f){200, 75}, 500);
     m->select.button5 = init_button(m, (sfVector2f){200, 75}, 600);
+    m->select.valid = init_button(m, (sfVector2f){300, 100}, 750);
+    m->select.exit = init_button(m, (sfVector2f){100, 50}, 10);
     //------------------------------------------------------------|
     m->select.player1 = init_text(m, "ROY", 35, 200);//-----------|
     m->select.player2 = init_text(m, "XMARANO", 35, 300);//-------|
@@ -42,7 +46,12 @@ static void check_hover(Global_t *m)
     if (sfFloatRect_contains(&m->select.gb_b1, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             m->perso->current_perso = ROY;
-            m->current = 12;
+            m->select.selected = 1;
+            //m->current = 12;
+            if (m->select.selected == 1)
+                sfRectangleShape_setOutlineColor(m->select.button1, sfWhite);
+            else
+                sfRectangleShape_setOutlineColor(m->select.button1, sfColor_fromRGB(22, 40, 12));
         }
     }
 
@@ -81,6 +90,21 @@ static void check_hover(Global_t *m)
             m->current = 12;
         }
     }
+
+    /*  Validate  */
+    hover(m, m->select.valid, &m->select.gb_valid);
+    //if (sfFloatRect_contains(&m->select.gb_valid, m->mouse.x, m->mouse.y)) {
+    //    if (sfMouse_isButtonPressed(sfMouseLeft)) {
+    //        m->perso->current_perso = RACAILLOU;
+    //        m->current = 12;
+    //    }
+    //}
+
+    /*  Exit  */
+    hover(m, m->select.exit, &m->select.gb_exit);
+    if (sfFloatRect_contains(&m->select.gb_exit, m->mouse.x, m->mouse.y))
+        if (sfMouse_isButtonPressed(sfMouseLeft))
+            m->current = 10;
 }
 
 void draw_select_perso(Global_t *m)
@@ -94,6 +118,8 @@ void draw_select_perso(Global_t *m)
         sfRenderWindow_drawRectangleShape(m->window, m->select.button3, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.button4, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.button5, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->select.valid, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->select.exit, NULL);
         //-----------------------------------------------------------------------|
         sfRenderWindow_drawText(m->window, m->select.player1, NULL);//-----------|
         sfRenderWindow_drawText(m->window, m->select.player2, NULL);//-----------|
@@ -108,4 +134,5 @@ void destroy_select_perso(Global_t *m)
 {
     sfSprite_destroy(m->select.fond);
     sfText_destroy(m->select.title);
+    /* ajouter les sprite et text destroy */
 }

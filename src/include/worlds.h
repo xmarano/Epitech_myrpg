@@ -21,6 +21,7 @@ typedef struct hub {
     sfVector2f pos_sprite;
     sfColor color;
     sfView *view;
+    sfView *normal_view;
 } hub_t;
 
 typedef struct Zone1

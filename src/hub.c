@@ -16,6 +16,7 @@ void init_hub (hub_t *h, Global_t *m)
     h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->view = sfView_createFromRect((sfFloatRect){100, 100, 200, 200});
+    h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
@@ -26,7 +27,7 @@ void init_hub (hub_t *h, Global_t *m)
 
 void draw_hub(Global_t *m, hub_t *h)
 {
-    if (m->current == 12) {
+    if (m->current == 12) { /* temporaire normalement m->current == 0*/
         if (m->perso->is_visible) {
             if (sfView_getSize(h->view).x < 1920 || sfView_getSize(h->view).y < 1080) {
                 sfView_zoom(h->view, 1.01f);
