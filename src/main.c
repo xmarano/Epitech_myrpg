@@ -12,7 +12,8 @@ void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    inventory(m, event);
+    if ((m->current == 12))
+        inventory(m, event);
     if (m->current == 13)
         event_setting(event, m);
 }
@@ -54,14 +55,15 @@ int main(int argc, char **argv)
 
     if (argc != 1)
         return 84;
-    //m.perso->current_perso = ROY; // valeur a chager pour swap de perso
+    m.perso->is_visible == false;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
     import_weapons_stats(&m);
     setup_stat(&m);
     init_menu(&m);
-    init_inventaire(&m);
     init_hub(&h, &m);
+    init_setting(&m);
+    init_inventaire(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_hub(&h);

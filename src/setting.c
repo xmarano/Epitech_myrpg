@@ -117,14 +117,6 @@ void init_setting(Global_t *m)
     (sfVector2f){1000, 200});
 }
 
-void init_inventaire(Global_t *m)
-{
-    m->perso->inv.inv_sprite.pos_cursor.x = 940;
-    m->perso->inv.inv_sprite.pos_hooved.x = 980;
-    m->perso->inv.inv_sprite.pos_cursor.y = 443;
-    m->perso->inv.inv_sprite.pos_hooved.y = 443;
-}
-
 void draw_setting(Global_t *m)
 {
     if (m->current == 13) {
