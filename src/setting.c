@@ -49,7 +49,7 @@ sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position
     return shape;
 }
 
-sfText *init_text2(sfFont *font, char *str, int size, sfVector2f position)
+sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f position)
 {
     sfText *text = sfText_create();
     sfText_setFont(text, font);

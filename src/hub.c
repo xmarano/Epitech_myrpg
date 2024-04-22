@@ -11,37 +11,40 @@
 
 void init_hub (hub_t *h, Global_t *m)
 {
-    h->view = sfView_createFromRect((sfFloatRect){810, 390, 300, 300});
+    h->view = sfView_createFromRect((sfFloatRect){0, 0, 1080, 1080});
     h->rect = (sfIntRect){0, 520 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/hub_detour.png", NULL);
+    h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){960, 540});
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){540, 540});
     sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.5});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
 {
-if (m->current == 12) { /* temporaire normalement m->current == 0*/
-    if (m->perso->is_visible) {
-        if (sfView_getSize(h->view).x < 1920 || sfView_getSize(h->view).y < 1080) {
-            sfView_zoom(h->view, 1.05f); // Réduire le coefficient de zoom
+    if (m->current == 12) { /* temporaire normalement m->current == 0*/
+        if (m->perso->is_visible) {
+            if (sfView_getSize(h->view).x < 1920 || sfView_getSize(h->view).y < 1080) {
+                sfView_zoom(h->view, 1.05f);
+            }
+            sfRenderWindow_setView(m->window, h->normal_view);
+        } else if (!m->perso->is_visible) {
+            sfSprite_setScale(m->menu.cursor , (sfVector2f){0.4, 0.4});
+            if (sfView_getSize(h->view).x > 840 || sfView_getSize(h->view).y > 390) {
+                sfView_zoom(h->view, 0.95f);
+            }
+            sfRenderWindow_setView(m->window, h->view);
         }
-        sfRenderWindow_setView(m->window, h->normal_view);
-    } else if (m->perso->is_visible == false) {
-        sfSprite_setScale(m->menu.cursor , (sfVector2f){0.2, 0.2});
-        sfRenderWindow_setView(m->window, h->view);
-    }
-    h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
-    sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
-    sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
-    if (!m->perso->is_visible)
-        moveCharacter(m, h);
+        h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
+        sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
+        sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
+        if (!m->perso->is_visible)
+            moveCharacter(m, h);
     }
 }
 

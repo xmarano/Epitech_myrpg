@@ -63,3 +63,13 @@ sfSprite *set_inv_fond2(Global_t *m)
     sfSprite_setScale(sprite, scale);
     return sprite;
 }
+
+sfSprite *set_back_screen(Global_t *m)
+{
+    sfSprite *sprite = sfSprite_create();
+    sfTexture *Fond = m->perso->inv.inv_sprite.Fond;
+
+    Fond = sfTexture_createFromFile("assets/inv/fond_inv.png", NULL);
+    sfSprite_setTexture(sprite, Fond, sfFalse);
+    return sprite;
+}

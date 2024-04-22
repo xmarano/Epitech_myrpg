@@ -150,5 +150,6 @@ void print_weapon3_stat(Global_t *m, int who);
 void print_weapon2_stat(Global_t *m, int who);
 void print_heal_stat(Global_t *m, int who);
 void print_current_stat(Global_t *m, int who);
+sfSprite *set_back_screen(Global_t *m);
 
 #endif

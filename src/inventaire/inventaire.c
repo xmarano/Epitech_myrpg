@@ -28,6 +28,7 @@ static void inventaire1(Global_t *m)
     sfRectangleShape *rect_inv = m->perso->inv.inv_sprite.rect_inv;
 
     m->show_mouse = false;
+    sfRenderWindow_drawSprite(m->window, m->perso->inv.inv_sprite.fond, NULL);
     sfRenderWindow_drawSprite(m->window, inv1, NULL);
     set_sprite_head_name(m, m->perso->current_perso);
     set_text_lvl_xd(m, m->perso->current_perso);
@@ -141,6 +142,7 @@ int inventory(Global_t *m, sfEvent event)
     sfVector2f s_rct_inv = {755, 500};
 
     if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+        m->perso->inv.inv_sprite.fond = set_back_screen(m);
         m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
         m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
         m->perso->inv.inv_sprite.cursor = set_cursor(m);
