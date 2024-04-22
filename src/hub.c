@@ -27,7 +27,7 @@ void init_hub (hub_t *h, Global_t *m)
 
 void draw_hub(Global_t *m, hub_t *h)
 {
-    if (m->current == 12) {
+    if (m->current == 12) { /* temporaire normalement m->current == 0*/
         //sfRenderWindow_setView(m->window, h->view);
         h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
         sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
