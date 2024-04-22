@@ -88,7 +88,7 @@ void event_setting(sfEvent event, Global_t *m)
 }
 
 const char* set_synopara() {
-    const char *names = "The story takes place in \nthe kingdom of Elae, where we\nfollow agroup of heroes serving\nKing Edgarwho has been\nwatching over the kingdom\nfor many years.Following a\nsurprise attack from the\nneighboring kingdom of Aixus, our\nheroes set off on an adventure\nseeking vengeance against\nthe kingdom responsible for\nthis massacre.You will\nfollow the adventures of our\ngroup of heroes and the challenges\nthat await them in this\nadventure full of twists\nand turns!";
+    const char *names = "The story takes place in \nthe kingdom of Elae, where we\nfollow agroup of heroes serving\nKing Edgarwho has been\nwatching over the kingdom\nfor many years.Following a\nsurprise attack from the\nneighboring kingdom of Aixus, \nour heroes set off on an\n adventure seeking vengeance\n against the kingdom\n responsible for this \n massacre.You will\nfollow the adventures of our\ngroup of heroes and the challenges\nthat await them in this\nadventure full of twists\nand turns!";
     return names;
 }
 
@@ -121,13 +121,6 @@ void init_setting(Global_t *m)
     m->setting.volumeb = init_text2(m->setting.font, "dicrease volume", 50, (sfVector2f){590, 690});
     m->setting.volumeh = init_text2(m->setting.font, "increase volume", 50, (sfVector2f){590, 750});
     m->setting.cvolume = init_text2(m->setting.font, "volume cut", 50, (sfVector2f){590, 810});
-    
-    const char* creditpara = set_creditpara();
-    m->setting.creditpara = init_text2(m->setting.font, creditpara, 50, (sfVector2f){1100, 300});
-    m->setting.creditrect = init_button2(m, (sfVector2f){400, 100}, (sfVector2f){570, 260});
-
-    const char* synoppara = set_synopara();
-    m->setting.synopsypara = init_text2(m->setting.font, synoppara, 50, (sfVector2f){950, 200});
 }
 
 void draw_setting(Global_t *m)
@@ -157,9 +150,19 @@ void draw_setting(Global_t *m)
             sfRenderWindow_drawText(m->window, m->setting.volumeh, NULL);
             sfRenderWindow_drawText(m->window, m->setting.cvolume, NULL);
         }
-        if (m->setting.creditbool)
+        if (m->setting.creditbool) {
+            m->setting.covercredit = init_button2(m, (sfVector2f){600, 200}, (sfVector2f){1100, 300});
+            sfRenderWindow_drawRectangleShape(m->window, m->setting.covercredit, NULL);
+            const char* creditpara = set_creditpara();
+            m->setting.creditpara = init_text2(m->setting.font, creditpara, 50, (sfVector2f){1120, 310});
             sfRenderWindow_drawText(m->window, m->setting.creditpara, NULL);
-        if (m->setting.synopbool)
+        }
+        if (m->setting.synopbool){
+            m->setting.coversynop = init_button2(m, (sfVector2f){7600, 720}, (sfVector2f){1000, 200});
+            sfRenderWindow_drawRectangleShape(m->window, m->setting.coversynop, NULL);
+            const char* synopsypara =  set_synopara();
+            m->setting.synopsypara = init_text2(m->setting.font, synopsypara, 50, (sfVector2f){1020, 210});
             sfRenderWindow_drawText(m->window, m->setting.synopsypara, NULL);
+        }
     }
 }

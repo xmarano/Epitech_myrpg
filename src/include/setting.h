@@ -50,6 +50,9 @@ typedef struct setting {
     sfRectangleShape *buttonwindow;
     sfRectangleShape *buttonsett;
 
+    sfRectangleShape *coversynop;
+    sfRectangleShape *covercredit;
+
     bool displaySizeOptions;
     bool volumeclicked;
     bool creditbool;
