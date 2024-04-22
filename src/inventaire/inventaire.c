@@ -130,7 +130,7 @@ int inventory(Global_t *m, sfEvent event)
     sfVector2f p_rct_inv = {600, 300};
     sfVector2f s_rct_inv = {755, 500};
 
-    if ((sfKeyboard_isKeyPressed(sfKeyE))
+    if ((sfKeyboard_isKeyPressed(sfKeyE) && (m->current == 12)) // a retirer
     || sfKeyboard_isKeyPressed(sfKeyLeft) ||
     sfKeyboard_isKeyPressed(sfKeyRight)
     || sfKeyboard_isKeyPressed(sfKeyDown)) {

@@ -54,13 +54,12 @@ int main(int argc, char **argv)
 
     if (argc != 1)
         return 84;
-    m.perso->current_perso = ROY; // valeur a chager pour swap de perso
+    //m.perso->current_perso = ROY; // valeur a chager pour swap de perso
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
     import_weapons_stats(&m);
     setup_stat(&m);
     init_menu(&m);
-    init_setting(&m);
     init_inventaire(&m);
     init_hub(&h, &m);
     while (sfRenderWindow_isOpen(m.window))
