@@ -62,7 +62,6 @@ int main(int argc, char **argv)
     setup_stat(&m);
     init_menu(&m);
     init_hub(&h, &m);
-    init_setting(&m);
     init_inventaire(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
