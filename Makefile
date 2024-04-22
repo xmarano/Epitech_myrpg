@@ -38,7 +38,7 @@ UNAME	:=	$(shell uname -s)
 $(NAME)	:	$(LIB) $(OBJNAME)
 
 ifeq ($(UNAME),Linux)
-	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(CFLAGS)
+	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(CFLAGS) -g3
 else ifeq ($(UNAME),Darwin)
 	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(1) $(2) -g3
 endif

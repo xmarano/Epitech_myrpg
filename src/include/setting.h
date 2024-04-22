@@ -14,25 +14,50 @@
     #define SETTING_H
 
 typedef struct setting {
-    sfSprite *background_s;
-    sfSprite *volume_up;
-    sfSprite *volume_down;
-    sfSprite *volume;
-    sfSprite *credit;
-    sfSprite *coupe_volume;
-    sfSprite *synopsis;
-    sfSprite *end;
-    sfSprite *size;
-    sfSprite *littlez;
-    sfSprite *mediumz;
-    sfSprite *bigz;
+    sfFont *font;
+    sfVector2u window_size;
+    sfText *background_s;
+    sfText *titre;
+    sfText *credit;
+    sfText *synopsis;
+
+    sfText *volumetxt;
+    sfText *volumehaut;
+    sfText *volumebas;
+    sfText *volumecoupe;
+
+    sfText *retour;
+
+    sfText *sizewindows;
+    sfText *littlez;
+    sfText *mediumz;
+    sfText *bigz;
+    sfText *test;
+    sfText *txtcredit;
+
+    sfText *volumeb;
+    sfText *volumeh;
+    sfText *cvolume;
+
+    sfText *creditpara;
+    sfRectangleShape *creditrect;
+    sfText *synopsypara;
+
+    sfRectangleShape *buttonsynop;
+    sfRectangleShape *buttoncred;
+    sfRectangleShape *buttonvolum;
+    sfRectangleShape *buttonretour;
+    sfRectangleShape *buttonwindow;
+    sfRectangleShape *buttonsett;
+
     bool displaySizeOptions;
-    sfSprite *test;
-    bool isSynopsisClicked;
-    sfSprite *txtcredit;
+    bool volumeclicked;
     bool creditbool;
     bool back;
-    sfSprite *retourm;
+
+    sfVector2i mouse;
+    sfFloatRect creditBounds;
 } Setting_t;
+
 
 #endif
