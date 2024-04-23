@@ -22,7 +22,7 @@ void init_hub (hub_t *h, Global_t *m)
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
     sfSprite_setPosition(h->sprite_perso, (sfVector2f){460, 530});
-    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.5});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.8});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
