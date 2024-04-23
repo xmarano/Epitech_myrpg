@@ -7,11 +7,88 @@
 #include "rpg.h"
 #include <SFML/Graphics.h>
 
-static void diff_size(sfVector2i mouse, Global_t *m)
+void hover_rectangle(Global_t *m, sfRectangleShape *shape) {
+    sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
+    sfFloatRect bounds = sfRectangleShape_getGlobalBounds(shape);
+    if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
+        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(255, 255, 255)); // Set outline color to white
+        sfRectangleShape_setOutlineThickness(shape, 5); // Set outline thickness
+    } else {
+        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(0, 0, 0)); // Set outline color to black
+        sfRectangleShape_setOutlineThickness(shape, 0); // Remove outline
+    }
+}
+
+
+void hover_text(Global_t *m, sfText *text) {
+    sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
+    sfFloatRect bounds = sfText_getGlobalBounds(text);
+    if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
+        sfText_setOutlineColor(text, sfColor_fromRGB(255, 255, 255)); // Set outline color to white
+        sfText_setOutlineThickness(text, 5); // Set outline thickness
+    } else {
+        sfText_setOutlineColor(text, sfColor_fromRGB(0, 0, 0)); // Set outline color to black
+        sfText_setOutlineThickness(text, 0); // Remove outline
+    }
+}
+
+static void check_the_hover(Global_t *m)
 {
-    sfFloatRect bigzBounds = sfRectangleShape_getGlobalBounds(m->setting.bigz);
-    sfFloatRect mediumzBounds = sfRectangleShape_getGlobalBounds(m->setting.mediumz);
-    sfFloatRect littlezBounds = sfRectangleShape_getGlobalBounds(m->setting.littlez);
+    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL) 
+        hover_rectangle(m, m->setting.buttonretour);
+    if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
+        hover_rectangle(m, m->setting.buttoncred);
+    if (m->setting.buttonsynop != NULL && &m->setting.se_3 != NULL)
+        hover_rectangle(m, m->setting.buttonsynop);
+    if (m->setting.buttonvolum != NULL && &m->setting.se_4 != NULL)
+        hover_rectangle(m, m->setting.buttonvolum);
+    if (m->setting.buttonwindow != NULL && &m->setting.se_5 != NULL)
+        hover_rectangle(m, m->setting.buttonwindow);
+    if (m->setting.littlez != NULL && &m->setting.se_6 != NULL)
+        hover_text(m, m->setting.littlez);
+    if (m->setting.mediumz != NULL && &m->setting.se_7 != NULL)
+        hover_text(m, m->setting.mediumz);
+    if (m->setting.bigz != NULL && &m->setting.se_8 != NULL)
+        hover_text(m, m->setting.bigz);
+    if (m->setting.volumeb != NULL && &m->setting.se_9 != NULL)
+        hover_text(m, m->setting.volumeb);
+    if (m->setting.volumeh != NULL && &m->setting.se_10 != NULL)
+        hover_text(m, m->setting.volumeh);
+    if (m->setting.cvolume != NULL && &m->setting.se_11 != NULL)
+        hover_text(m, m->setting.cvolume);
+}
+
+static void check_globalbounds2(Global_t *m)
+{
+    if (m->setting.buttonretour != NULL)
+        m->setting.se_1 = sfRectangleShape_getGlobalBounds(m->setting.buttonretour);
+    if (m->setting.buttoncred != NULL)
+        m->setting.se_2 = sfRectangleShape_getGlobalBounds(m->setting.buttoncred);
+    if (m->setting.buttonsynop != NULL)
+        m->setting.se_3 = sfRectangleShape_getGlobalBounds(m->setting.buttonsynop);
+    if (m->setting.buttonvolum != NULL)
+        m->setting.se_4 = sfRectangleShape_getGlobalBounds(m->setting.buttonvolum);
+    if (m->setting.buttonwindow != NULL)
+        m->setting.se_5 = sfRectangleShape_getGlobalBounds(m->setting.buttonwindow);
+    if (m->setting.littlez != NULL)
+        m->setting.se_6 = sfText_getGlobalBounds(m->setting.littlez);
+    if (m->setting.mediumz != NULL)
+        m->setting.se_7 = sfText_getGlobalBounds(m->setting.mediumz);
+    if (m->setting.bigz != NULL)
+        m->setting.se_8 = sfText_getGlobalBounds(m->setting.bigz);
+    if (m->setting.volumeb != NULL)
+        m->setting.se_9 = sfText_getGlobalBounds(m->setting.volumeb);
+    if (m->setting.volumeh != NULL)
+        m->setting.se_10 = sfText_getGlobalBounds(m->setting.volumeh);
+    if (m->setting.cvolume != NULL)
+        m->setting.se_11 = sfText_getGlobalBounds(m->setting.cvolume);
+}
+
+void diff_size(sfVector2i mouse, Global_t *m)
+{
+    sfFloatRect bigzBounds = sfText_getGlobalBounds(m->setting.bigz);
+    sfFloatRect mediumzBounds = sfText_getGlobalBounds(m->setting.mediumz);
+    sfFloatRect littlezBounds = sfText_getGlobalBounds(m->setting.littlez);
 
     if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
         sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
@@ -123,11 +200,13 @@ void init_setting(Global_t *m)
     m->setting.volumeb = init_text2(m->setting.font, "dicrease volume", 50, (sfVector2f){590, 690});
     m->setting.volumeh = init_text2(m->setting.font, "increase volume", 50, (sfVector2f){590, 750});
     m->setting.cvolume = init_text2(m->setting.font, "volume cut", 50, (sfVector2f){590, 810});
+    check_globalbounds2(m);
 }
 
 void draw_setting(Global_t *m)
 {
     if (m->current == 13) {
+        check_the_hover(m);
         sfRenderWindow_drawSprite(m->window, m->setting.background_s, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->setting.buttonsynop, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->setting.buttoncred, NULL);
