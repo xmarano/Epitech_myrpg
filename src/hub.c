@@ -14,7 +14,7 @@ void init_hub (hub_t *h, Global_t *m)
     h->view = sfView_createFromRect((sfFloatRect){0, 0, 1080, 1080});
     h->rect = (sfIntRect){0, 520 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/hub_detour.png", NULL);
+    h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
