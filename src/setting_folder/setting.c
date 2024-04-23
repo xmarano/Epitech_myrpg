@@ -37,7 +37,7 @@ static void modify_size(sfVector2i mouse, Global_t *m)
     }
 }
 
-sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position)
+sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos)
 {
     sfRectangleShape *shape = sfRectangleShape_create();
 
@@ -45,18 +45,19 @@ sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
     sfRectangleShape_setOutlineThickness(shape, 6);
     sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
-    sfRectangleShape_setPosition(shape, position);
+    sfRectangleShape_setPosition(shape, pos);
     return shape;
 }
 
-sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f position)
+sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos)
 {
     sfText *text = sfText_create();
+
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, sfBlack);
     sfText_setString(text, str);
-    sfText_setPosition(text, position);
+    sfText_setPosition(text, pos);
     return text;
 }
 
@@ -70,31 +71,28 @@ void event_setting(sfEvent event, Global_t *m)
     sfFloatRect bigsynop = sfRectangleShape_getGlobalBounds(m->setting.buttonsynop);
 
     if (event.type == sfEvtMouseButtonPressed) {
-        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y))
             m->setting.displaySizeOptions = !m->setting.displaySizeOptions;
-        }
-        if (sfFloatRect_contains(&volumebounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&volumebounds, mouse.x, mouse.y))
             m->setting.volumeclicked = !m->setting.volumeclicked;
-        }
-        if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
             m->setting.creditbool = !m->setting.creditbool;
-        }
-        if (sfFloatRect_contains(&bigsynop, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&bigsynop, mouse.x, mouse.y))
             m->setting.synopbool = !m->setting.synopbool;
-        }
-        if (sfFloatRect_contains(&retour, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&retour, mouse.x, mouse.y))
             m->current = 10;
-        }
         modify_size(mouse, m);
     }
 }
 
-const char* set_synopara() {
+const char *set_synopara()
+{
     const char *names = "The story takes place in \nthe kingdom of Elae, where we\nfollow agroup of heroes serving\nKing Edgarwho has been\nwatching over the kingdom\nfor many years.Following a\nsurprise attack from the\nneighboring kingdom of Aixus, \nour heroes set off on an\n adventure seeking vengeance\n against the kingdom\n responsible for this \n massacre.You will\nfollow the adventures of our\ngroup of heroes and the challenges\nthat await them in this\nadventure full of twists\nand turns!";
     return names;
 }
 
-const char* set_creditpara() {
+const char *set_creditpara()
+{
     const char *names = "CLERC Tom\nGREGORI Leo\nPrevost Yanis \nColombani-gailleur Anthony";
     return names;
 }
