@@ -53,11 +53,11 @@ void synopsis_bool(Global_t *m)
 
     if (m->setting.synopbool){
         m->setting.coversynop = init_button2(m,
-        (sfVector2f){7600, 660}, (sfVector2f){1000, 200});
+        (sfVector2f){760, 660}, (sfVector2f){900, 200});
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.coversynop, NULL);
         m->setting.synopsypara = init_text2(m->setting.font,
-        synopsypara, 50, (sfVector2f){1020, 210});
+        synopsypara, 50, (sfVector2f){910, 210});
         sfRenderWindow_drawText(m->window,
         m->setting.synopsypara, NULL);
     }
@@ -69,11 +69,11 @@ void verif_other(Global_t *m)
 
     if (m->setting.creditbool) {
         m->setting.covercredit = init_button2(m,
-        (sfVector2f){600, 240}, (sfVector2f){1100, 300});
+        (sfVector2f){600, 240}, (sfVector2f){900, 340});
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.covercredit, NULL);
         m->setting.creditpara = init_text2(m->setting.font,
-        creditpara, 50, (sfVector2f){1120, 310});
+        creditpara, 50, (sfVector2f){910, 350});
         sfRenderWindow_drawText(m->window,
         m->setting.creditpara, NULL);
     }

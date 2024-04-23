@@ -72,9 +72,9 @@ void init_setting(Global_t *m)
     m->setting.background_s = init_sprite("assets/setting/background.png"
     , (sfVector2f){0, 0});
     m->setting.retour = init_text2(m->setting.font,
-    "retour", 50, (sfVector2f){40, 40});
+    "retour", 50, (sfVector2f){50, 25});
     m->setting.buttonretour = init_button2(m,
-    (sfVector2f){190, 58}, (sfVector2f){10, 50});
+    (sfVector2f){170, 60}, (sfVector2f){30, 30});
     m->setting.titre = init_text2(m->setting.font,
     "Settings", 100, (sfVector2f){300, 0});
     m->setting.buttonsett = init_button2(m,
