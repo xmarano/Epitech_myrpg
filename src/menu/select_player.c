@@ -113,71 +113,112 @@ void init_select_perso(Global_t *m)
 static void check_hover(Global_t *m)
 {
     /*  ROY  */
-    // TOUT METTRE DANS LA FONCTION HOVER ? ET DONC LA RENOMER HOVER_&_CLICK
     hover(m, m->select.button1, &m->select.gb_b1);
     if (sfFloatRect_contains(&m->select.gb_b1, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfRectangleShape_setOutlineColor(m->select.button1, sfWhite);
+            m->select.p1_select = 1;
+            sfRectangleShape_setFillColor(m->select.button1, sfColor_fromRGB(153, 112, 29));
             m->perso->current_perso = ROY;
-            sfRenderWindow_drawSprite(m->window, m->select.p1_d, NULL);
-            sfRenderWindow_drawSprite(m->window, m->select.p1_w, NULL);
         }
     }
-    //sfRectangleShape_setOutlineColor(m->select.button1, sfColor_fromRGB(22, 40, 12));
+    if (m->select.p1_select == 1) {
+        sfRenderWindow_drawSprite(m->window, m->select.p1_w, NULL);
+        sfRenderWindow_drawSprite(m->window, m->select.p1_d, NULL);
+        m->select.p2_select = 0;
+        m->select.p3_select = 0;
+        m->select.p4_select = 0;
+        m->select.p5_select = 0;
+    }
 
     /*  XMARANO  */
     hover(m, m->select.button2, &m->select.gb_b2);
     if (sfFloatRect_contains(&m->select.gb_b2, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->select.p2_select = 1;
+            sfRectangleShape_setFillColor(m->select.button2, sfColor_fromRGB(153, 112, 29));
             m->perso->current_perso = XMARANO;
-            sfRenderWindow_drawSprite(m->window, m->select.p2_d, NULL);
-            sfRenderWindow_drawSprite(m->window, m->select.p2_w, NULL);
         }
+    }
+    if (m->select.p2_select == 1) {
+        sfRenderWindow_drawSprite(m->window, m->select.p2_w, NULL);
+        sfRenderWindow_drawSprite(m->window, m->select.p2_d, NULL);
+        m->select.p1_select = 0;
+        m->select.p3_select = 0;
+        m->select.p4_select = 0;
+        m->select.p5_select = 0;
     }
 
     /*  PATECARBO  */
     hover(m, m->select.button3, &m->select.gb_b3);
     if (sfFloatRect_contains(&m->select.gb_b3, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->select.p3_select = 1;
+            sfRectangleShape_setFillColor(m->select.button3, sfColor_fromRGB(153, 112, 29));
             m->perso->current_perso = PATECARBO;
-            sfRenderWindow_drawSprite(m->window, m->select.p3_d, NULL);
-            sfRenderWindow_drawSprite(m->window, m->select.p3_w, NULL);
         }
+    }
+    if (m->select.p3_select == 1) {
+        sfRenderWindow_drawSprite(m->window, m->select.p3_w, NULL);
+        sfRenderWindow_drawSprite(m->window, m->select.p3_d, NULL);
+        m->select.p1_select = 0;
+        m->select.p2_select = 0;
+        m->select.p4_select = 0;
+        m->select.p5_select = 0;
     }
 
     /*  INFENIUM  */
     hover(m, m->select.button4, &m->select.gb_b4);
     if (sfFloatRect_contains(&m->select.gb_b4, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->select.p4_select = 1;
+            sfRectangleShape_setFillColor(m->select.button4, sfColor_fromRGB(153, 112, 29));
             m->perso->current_perso = INFENIUM;
-            sfRenderWindow_drawSprite(m->window, m->select.p4_d, NULL);
-            sfRenderWindow_drawSprite(m->window, m->select.p4_w, NULL);
         }
+    }
+    if (m->select.p4_select == 1) {
+        sfRenderWindow_drawSprite(m->window, m->select.p4_w, NULL);
+        sfRenderWindow_drawSprite(m->window, m->select.p4_d, NULL);
+        m->select.p1_select = 0;
+        m->select.p2_select = 0;
+        m->select.p3_select = 0;
+        m->select.p5_select = 0;
     }
 
     /*  RACAILLOU  */
     hover(m, m->select.button5, &m->select.gb_b5);
     if (sfFloatRect_contains(&m->select.gb_b5, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->select.p5_select = 1;
+            sfRectangleShape_setFillColor(m->select.button5, sfColor_fromRGB(153, 112, 29));
             m->perso->current_perso = RACAILLOU;
-            sfRenderWindow_drawSprite(m->window, m->select.p5_d, NULL);
-            sfRenderWindow_drawSprite(m->window, m->select.p5_w, NULL);
         }
+    }
+    if (m->select.p5_select == 1) {
+        sfRenderWindow_drawSprite(m->window, m->select.p5_w, NULL);
+        sfRenderWindow_drawSprite(m->window, m->select.p5_d, NULL);
+        m->select.p1_select = 0;
+        m->select.p2_select = 0;
+        m->select.p3_select = 0;
+        m->select.p4_select = 0;
     }
 
     /*  PLAY  */
     hover(m, m->select.play, &m->select.gb_play);
     if (sfFloatRect_contains(&m->select.gb_play, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            //destroy_select_perso(m);
             m->current = 12;
         }
     }
 
     /*  Back  */
     hover(m, m->select.back, &m->select.gb_back);
-    if (sfFloatRect_contains(&m->select.gb_back, m->mouse.x, m->mouse.y))
-        if (sfMouse_isButtonPressed(sfMouseLeft))
+    if (sfFloatRect_contains(&m->select.gb_back, m->mouse.x, m->mouse.y)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            //destroy_select_perso(m);
             m->current = 10;
+        }
+    }
 }
 
 void draw_select_perso(Global_t *m)
