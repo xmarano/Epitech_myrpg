@@ -37,7 +37,7 @@ static void modify_size(sfVector2i mouse, Global_t *m)
     }
 }
 
-sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position)
+sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos)
 {
     sfRectangleShape *shape = sfRectangleShape_create();
 
@@ -45,18 +45,19 @@ sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f position
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
     sfRectangleShape_setOutlineThickness(shape, 6);
     sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
-    sfRectangleShape_setPosition(shape, position);
+    sfRectangleShape_setPosition(shape, pos);
     return shape;
 }
 
-sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f position)
+sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos)
 {
     sfText *text = sfText_create();
+
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, sfBlack);
     sfText_setString(text, str);
-    sfText_setPosition(text, position);
+    sfText_setPosition(text, pos);
     return text;
 }
 
@@ -70,46 +71,34 @@ void event_setting(sfEvent event, Global_t *m)
     sfFloatRect bigsynop = sfRectangleShape_getGlobalBounds(m->setting.buttonsynop);
 
     if (event.type == sfEvtMouseButtonPressed) {
-        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&sizeBounds, mouse.x, mouse.y))
             m->setting.displaySizeOptions = !m->setting.displaySizeOptions;
-        }
-        if (sfFloatRect_contains(&volumebounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&volumebounds, mouse.x, mouse.y))
             m->setting.volumeclicked = !m->setting.volumeclicked;
-        }
-        if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&creditBounds, mouse.x, mouse.y))
             m->setting.creditbool = !m->setting.creditbool;
-        }
-        if (sfFloatRect_contains(&bigsynop, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&bigsynop, mouse.x, mouse.y))
             m->setting.synopbool = !m->setting.synopbool;
-        }
-        if (sfFloatRect_contains(&retour, mouse.x, mouse.y)) {
+        if (sfFloatRect_contains(&retour, mouse.x, mouse.y))
             m->current = 10;
-        }
         modify_size(mouse, m);
     }
 }
 
-const char* set_synopara() {
+const char *set_synopara()
+{
     const char *names = "The story takes place in \nthe kingdom of Elae, where we\nfollow agroup of heroes serving\nKing Edgarwho has been\nwatching over the kingdom\nfor many years.Following a\nsurprise attack from the\nneighboring kingdom of Aixus, \nour heroes set off on an\n adventure seeking vengeance\n against the kingdom\n responsible for this \n massacre.You will\nfollow the adventures of our\ngroup of heroes and the challenges\nthat await them in this\nadventure full of twists\nand turns!";
     return names;
 }
 
-const char* set_creditpara() {
+const char *set_creditpara()
+{
     const char *names = "CLERC Tom\nGREGORI Leo\nPrevost Yanis \nColombani-gailleur Anthony";
     return names;
 }
 
-void init_setting(Global_t *m)
+void init_setting2(Global_t *m)
 {
-    m->setting.font = sfFont_createFromFile("assets/font.ttf");
-    m->setting.window_size = sfRenderWindow_getSize(m->window);
-    m->setting.background_s = init_sprite("assets/setting/background.png", (sfVector2f){0, 0});
-    m->setting.retour = init_text2(m->setting.font, "retour", 50, (sfVector2f){40, 40});
-    m->setting.buttonretour = init_button2(m, (sfVector2f){190, 58}, (sfVector2f){10, 50});
-    m->setting.titre = init_text2(m->setting.font, "Settings", 100, (sfVector2f){300, 0});
-    m->setting.buttonsett = init_button2(m, (sfVector2f){360, 100}, (sfVector2f){290, 20});
-    m->setting.credit = init_text2(m->setting.font, "credit", 50, (sfVector2f){160, 600});
-    m->setting.buttoncred = init_button2(m, (sfVector2f){140, 58}, (sfVector2f){150, 610});
     m->setting.synopsis = init_text2(m->setting.font, "synopsis", 50, (sfVector2f){160, 250});
     m->setting.buttonsynop = init_button2(m, (sfVector2f){200, 58}, (sfVector2f){150, 260});
     m->setting.volumetxt = init_text2(m->setting.font, "volume", 50, (sfVector2f){594, 600});
@@ -123,7 +112,49 @@ void init_setting(Global_t *m)
     m->setting.volumeb = init_text2(m->setting.font, "dicrease volume", 50, (sfVector2f){590, 690});
     m->setting.volumeh = init_text2(m->setting.font, "increase volume", 50, (sfVector2f){590, 750});
     m->setting.cvolume = init_text2(m->setting.font, "volume cut", 50, (sfVector2f){590, 810});
+}
+
+void init_setting(Global_t *m)
+{
+    m->setting.font = sfFont_createFromFile("assets/font.ttf");
+    m->setting.window_size = sfRenderWindow_getSize(m->window);
+    m->setting.background_s = init_sprite("assets/setting/background.png", (sfVector2f){0, 0});
+    m->setting.retour = init_text2(m->setting.font, "retour", 50, (sfVector2f){40, 40});
+    m->setting.buttonretour = init_button2(m, (sfVector2f){190, 58}, (sfVector2f){10, 50});
+    m->setting.titre = init_text2(m->setting.font, "Settings", 100, (sfVector2f){300, 0});
+    m->setting.buttonsett = init_button2(m, (sfVector2f){360, 100}, (sfVector2f){290, 20});
+    m->setting.credit = init_text2(m->setting.font, "credit", 50, (sfVector2f){160, 600});
+    m->setting.buttoncred = init_button2(m, (sfVector2f){140, 58}, (sfVector2f){150, 610});
+    init_setting2(m);
     check_globalbounds2(m);
+}
+
+void verif_thing(Global_t *m)
+{
+    if (m->setting.displaySizeOptions) {
+        sfRenderWindow_drawText(m->window, m->setting.littlez, NULL);
+        sfRenderWindow_drawText(m->window, m->setting.mediumz, NULL);
+        sfRenderWindow_drawText(m->window, m->setting.bigz, NULL);
+    }
+    if (m->setting.volumeclicked) {
+        sfRenderWindow_drawText(m->window, m->setting.volumeb, NULL);
+        sfRenderWindow_drawText(m->window, m->setting.volumeh, NULL);
+        sfRenderWindow_drawText(m->window, m->setting.cvolume, NULL);
+    }
+    if (m->setting.creditbool) {
+        m->setting.covercredit = init_button2(m, (sfVector2f){600, 200}, (sfVector2f){1100, 300});
+        sfRenderWindow_drawRectangleShape(m->window, m->setting.covercredit, NULL);
+        const char* creditpara = set_creditpara();
+        m->setting.creditpara = init_text2(m->setting.font, creditpara, 50, (sfVector2f){1120, 310});
+        sfRenderWindow_drawText(m->window, m->setting.creditpara, NULL);
+    }
+    if (m->setting.synopbool){
+        m->setting.coversynop = init_button2(m, (sfVector2f){7600, 720}, (sfVector2f){1000, 200});
+        sfRenderWindow_drawRectangleShape(m->window, m->setting.coversynop, NULL);
+        const char* synopsypara =  set_synopara();
+        m->setting.synopsypara = init_text2(m->setting.font, synopsypara, 50, (sfVector2f){1020, 210});
+        sfRenderWindow_drawText(m->window, m->setting.synopsypara, NULL);
+    }
 }
 
 void draw_setting(Global_t *m)
@@ -144,29 +175,6 @@ void draw_setting(Global_t *m)
         sfRenderWindow_drawText(m->window, m->setting.volumetxt, NULL);
         sfRenderWindow_drawText(m->window, m->setting.retour, NULL);
         sfRenderWindow_drawText(m->window, m->setting.sizewindows, NULL);
-        if (m->setting.displaySizeOptions) {
-            sfRenderWindow_drawText(m->window, m->setting.littlez, NULL);
-            sfRenderWindow_drawText(m->window, m->setting.mediumz, NULL);
-            sfRenderWindow_drawText(m->window, m->setting.bigz, NULL);
-        }
-        if (m->setting.volumeclicked) {
-            sfRenderWindow_drawText(m->window, m->setting.volumeb, NULL);
-            sfRenderWindow_drawText(m->window, m->setting.volumeh, NULL);
-            sfRenderWindow_drawText(m->window, m->setting.cvolume, NULL);
-        }
-        if (m->setting.creditbool) {
-            m->setting.covercredit = init_button2(m, (sfVector2f){600, 200}, (sfVector2f){1100, 300});
-            sfRenderWindow_drawRectangleShape(m->window, m->setting.covercredit, NULL);
-            const char* creditpara = set_creditpara();
-            m->setting.creditpara = init_text2(m->setting.font, creditpara, 50, (sfVector2f){1120, 310});
-            sfRenderWindow_drawText(m->window, m->setting.creditpara, NULL);
-        }
-        if (m->setting.synopbool){
-            m->setting.coversynop = init_button2(m, (sfVector2f){7600, 720}, (sfVector2f){1000, 200});
-            sfRenderWindow_drawRectangleShape(m->window, m->setting.coversynop, NULL);
-            const char* synopsypara =  set_synopara();
-            m->setting.synopsypara = init_text2(m->setting.font, synopsypara, 50, (sfVector2f){1020, 210});
-            sfRenderWindow_drawText(m->window, m->setting.synopsypara, NULL);
-        }
+        verif_thing(m);
     }
 }

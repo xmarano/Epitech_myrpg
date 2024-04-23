@@ -115,6 +115,7 @@ void draw_select_perso(Global_t *m);
 void destroy_select_perso(Global_t *m);
 
 void init_inventaire(Global_t *m);
+void init_pose(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
 sfSprite *init_sprite(char *filename, sfVector2f pos);
 sfText *init_text(Global_t *m, char *str, int size, int pos_y);
@@ -155,4 +156,8 @@ sfSprite *set_back_screen(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
 void check_globalbounds2(Global_t *m);
 void check_the_hover2(Global_t *m);
+sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
+sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
+void destroy_inventaire(Global_t *m);
+
 #endif

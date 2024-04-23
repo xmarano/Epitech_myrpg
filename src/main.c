@@ -61,11 +61,13 @@ int main(int argc, char **argv)
     import_weapons_stats(&m);
     setup_stat(&m);
     init_menu(&m);
+    init_pose(&m);
     init_hub(&h, &m);
     init_inventaire(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_hub(&h);
+    destroy_inventaire(&m);
     sfClock_destroy(m.clock);
     sfSprite_destroy(m.menu.cursor);
     destroy_select_perso(&m); // temporairement ici
