@@ -20,6 +20,7 @@ SRCNAME	=	src/*.c	\
 			src/menu/*.c	\
 			src/setup/*.c	\
 			src/inventaire/*.c	\
+			src/setting_folder/*.c	\
 
 LIB 	= 	libmy.a
 
