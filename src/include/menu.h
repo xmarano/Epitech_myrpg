@@ -68,7 +68,11 @@ typedef struct Select {
     sfFloatRect gb_back;
     sfText *play_txt;
     sfText *back_txt;
-    sfText *select;
+    sfText *select1;
+    sfText *select2;
+    sfText *select3;
+    sfText *select4;
+    sfText *select5;
     int p1_select;
     int p2_select;
     int p3_select;

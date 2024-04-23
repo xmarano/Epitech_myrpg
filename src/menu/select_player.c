@@ -17,7 +17,7 @@ static sfRectangleShape *init_button_select(Global_t *m, sfVector2f size, sfVect
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
     sfRectangleShape_setOutlineThickness(shape, 6);
-    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
+    sfRectangleShape_setOutlineColor(shape, sfBlack);
     rect_pos = sfRectangleShape_getLocalBounds(shape);
     pos_y = (m->menu.wsize.y - rect_pos.height) / 2;
     pos_x = (m->menu.wsize.x - rect_pos.width) / 2;
@@ -82,15 +82,15 @@ void init_select_perso(Global_t *m)
 {
     m->select.fond = init_sprite("assets/menu/menu.jpg", (sfVector2f){0, 0});
     m->select.p1 = init_sprite_select(m, "assets/menu/roy.png", (sfVector2f){-510, -150});
-    m->select.p2 = init_sprite_select(m, "assets/menu/xmarano.png", (sfVector2f){-260, -150});
-    m->select.p3 = init_sprite_select(m, "assets/menu/patecarbo.png", (sfVector2f){-10, -150});
-    m->select.p4 = init_sprite_select(m, "assets/menu/infenium.png", (sfVector2f){240, -150});
-    m->select.p5 = init_sprite_select(m, "assets/menu/racaillou.png", (sfVector2f){490, -150});
-    m->select.p1_w = init_sprite_select(m, "assets/menu/roy_w.png", (sfVector2f){-510, -150});//
-    m->select.p2_w = init_sprite_select(m, "assets/menu/xmarano_w.png", (sfVector2f){-260, -150});
-    m->select.p3_w = init_sprite_select(m, "assets/menu/patecarbo_w.png", (sfVector2f){-10, -150});
-    m->select.p4_w = init_sprite_select(m, "assets/menu/infenium_w.png", (sfVector2f){240, -150});
-    m->select.p5_w = init_sprite_select(m, "assets/menu/racaillou_w.png", (sfVector2f){490, -150});//
+    m->select.p2 = init_sprite_select(m, "assets/menu/xmarano.png", (sfVector2f){-260, -145});
+    m->select.p3 = init_sprite_select(m, "assets/menu/patecarbo.png", (sfVector2f){-10, -145});
+    m->select.p4 = init_sprite_select(m, "assets/menu/infenium.png", (sfVector2f){245, -160});
+    m->select.p5 = init_sprite_select(m, "assets/menu/racaillou.png", (sfVector2f){520, -145});
+    m->select.p1_w = init_sprite_select(m, "assets/menu/roy_w.png", (sfVector2f){-510, -150});
+    m->select.p2_w = init_sprite_select(m, "assets/menu/xmarano_w.png", (sfVector2f){-260, -145});
+    m->select.p3_w = init_sprite_select(m, "assets/menu/patecarbo_w.png", (sfVector2f){-10, -145});
+    m->select.p4_w = init_sprite_select(m, "assets/menu/infenium_w.png", (sfVector2f){245, -160});
+    m->select.p5_w = init_sprite_select(m, "assets/menu/racaillou_w.png", (sfVector2f){520, -145});
     m->select.p1_d = init_sprite_select(m, "assets/menu/roy_d.png", (sfVector2f){0, 225});
     m->select.p2_d = init_sprite_select(m, "assets/menu/xmarano_d.png", (sfVector2f){0, 225});
     m->select.p3_d = init_sprite_select(m, "assets/menu/patecarbo_d.png", (sfVector2f){0, 225});
@@ -103,10 +103,14 @@ void init_select_perso(Global_t *m)
     m->select.button4 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){250, 25});
     m->select.button5 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){500, 25});
     m->select.back = init_button_select(m, (sfVector2f){100, 50}, (sfVector2f){-625, -325});
-    m->select.play = init_button_select(m, (sfVector2f){125, 75}, (sfVector2f){550, 325});
+    m->select.play = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){550, 325});
     m->select.back_txt = init_text_select(m, "back", 50, (sfVector2f){-630, -353});
     m->select.play_txt = init_text_select(m, "play", 70, (sfVector2f){543, 290});
-    m->select.select = init_text_select(m, "select", 70, (sfVector2f){-5, -10});
+    m->select.select1 = init_text_select(m, "select", 70, (sfVector2f){-505, -10});
+    m->select.select2 = init_text_select(m, "select", 70, (sfVector2f){-255, -10});
+    m->select.select3 = init_text_select(m, "select", 70, (sfVector2f){-5, -10});
+    m->select.select4 = init_text_select(m, "select", 70, (sfVector2f){245, -10});
+    m->select.select5 = init_text_select(m, "select", 70, (sfVector2f){495, -10});
     check_globalbounds(m);
 }
 
@@ -239,7 +243,11 @@ void draw_select_perso(Global_t *m)
         sfRenderWindow_drawRectangleShape(m->window, m->select.button5, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.back, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.play, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select, NULL);
+        sfRenderWindow_drawText(m->window, m->select.select1, NULL);
+        sfRenderWindow_drawText(m->window, m->select.select2, NULL);
+        sfRenderWindow_drawText(m->window, m->select.select3, NULL);
+        sfRenderWindow_drawText(m->window, m->select.select4, NULL);
+        sfRenderWindow_drawText(m->window, m->select.select5, NULL);
         sfRenderWindow_drawText(m->window, m->select.back_txt, NULL);
         sfRenderWindow_drawText(m->window, m->select.play_txt, NULL);
     }
