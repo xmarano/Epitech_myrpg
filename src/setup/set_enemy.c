@@ -12,6 +12,7 @@ static void init_enemy3_spear(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear3.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -34,6 +35,7 @@ static void init_enemy2_spear(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear2.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -56,6 +58,7 @@ static void init_enemy1_spear(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/spear1.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -78,6 +81,7 @@ static void init_enemy3_sword(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword3.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -100,6 +104,7 @@ static void init_enemy2_sword(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword2.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -122,6 +127,7 @@ static void init_enemy1_sword(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/sword1.png");
     strcpy(perso->texture_dialogue, "NULL");

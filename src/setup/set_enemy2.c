@@ -12,6 +12,7 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Thunder_book.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -34,6 +35,7 @@ void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/axe3.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -56,6 +58,7 @@ void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/axe2.png");
     strcpy(perso->texture_dialogue, "NULL");
@@ -78,6 +81,7 @@ void init_enemy1_axe(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Enemy";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/axe1.png");
     strcpy(perso->texture_dialogue, "NULL");

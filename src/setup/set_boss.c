@@ -12,6 +12,7 @@ static void init_boss8(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss8_sword.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss8_dialogue.png");
@@ -34,6 +35,7 @@ static void init_boss7(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss7_axe.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss4_d7alogue.png");
@@ -56,6 +58,7 @@ static void init_boss6(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss6_book.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss6_dialogue.png");
@@ -78,6 +81,7 @@ static void init_boss5(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss5_sword.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss5_dialogue.png");
@@ -100,6 +104,7 @@ static void init_boss4(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss4_spear.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss4_dialogue.png");
@@ -122,6 +127,7 @@ static void init_boss3(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss3_bow.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss3_dialogue.png");
@@ -144,6 +150,7 @@ static void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss2_stick.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss2_dialogue.png");
@@ -166,6 +173,7 @@ static void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
 {
     perso->name_perso = name;
     perso->type = "Boss";
+    perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Boss1_sword.png");
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/boss/Boss1_dialogue.png");

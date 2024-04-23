@@ -16,6 +16,7 @@ static void inventaire2(Global_t *m)
     sfRectangleShape *inv_rect = m->perso->inv.inv_sprite.rect_inv;
 
     sfRenderWindow_drawSprite(w, m->perso->inv.inv_sprite.inventory2, NULL);
+    equiped_weapon(m, m->perso->current_perso);
     weapons_inv_stat(m);
     sfRenderWindow_drawSprite(w, m->perso->inv.inv_sprite.cursor, NULL);
     sfRenderWindow_drawRectangleShape(w, hoo, NULL);
@@ -130,8 +131,8 @@ static void keydown(Global_t *m)
 {
     moove_cursor_weapons(m);
     m->perso->what_weapons_stat += 1;
-        if (m->perso->what_weapons_stat >= 5)
-    m->perso->what_weapons_stat = 0;
+    if (m->perso->what_weapons_stat >= 5)
+        m->perso->what_weapons_stat = 0;
 }
 
 int inventory(Global_t *m, sfEvent event)

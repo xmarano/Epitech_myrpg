@@ -97,10 +97,10 @@ void print_current_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
-    int rng = m->perso[who].current_weapon->rng;
-    int atk = m->perso[who].current_weapon->attack;
-    int crit = m->perso[who].current_weapon->crit;
-    int accuracy = m->perso[who].current_weapon->accuracy;
+    int rng = m->perso[who].inv_weapon[SLOT1].rng;
+    int atk = m->perso[who].inv_weapon[SLOT1].attack;
+    int crit = m->perso[who].inv_weapon[SLOT1].crit;
+    int accuracy = m->perso[who].inv_weapon[SLOT1].accuracy;
     char str[100];
 
     sprintf(str, "%s%d\n\n", TABS_5, rng);

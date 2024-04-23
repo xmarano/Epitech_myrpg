@@ -51,11 +51,12 @@ enum WHO_IS_HE {
 };
 
 enum WHAT_WEAPONS {
-    HEAL = 0, //Slot1
-    SLOT2 = 1,
-    SLOT3 = 2,
-    SLOT4 = 3,
-    SLOT5 = 4,
+    SLOT1 = 0,
+    HEAL = 1,
+    SLOT2 = 2,
+    SLOT3 = 3,
+    SLOT4 = 4,
+    SLOT5 = 5,
     COMMON_AXE = 5,
     RARE_AXE = 6,
     LEGENDARY_AXE = 7,
@@ -151,9 +152,5 @@ void print_weapon2_stat(Global_t *m, int who);
 void print_heal_stat(Global_t *m, int who);
 void print_current_stat(Global_t *m, int who);
 sfSprite *set_back_screen(Global_t *m);
-void hover_rectangle(Global_t *m, sfRectangleShape *shape);
-void hover_text(Global_t *m, sfText *text);
-void check_the_hover2(Global_t *m);
-void check_globalbounds2(Global_t *m);
-
+void equiped_weapon(Global_t *m, int who);
 #endif

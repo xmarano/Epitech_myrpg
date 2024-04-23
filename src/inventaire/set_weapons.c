@@ -135,7 +135,7 @@ static void heal_stick(Global_t *m, int who)
 static void current_weapon(Global_t *m, int who)
 {
     sfSprite *weapon = sfSprite_create();
-    char *filename = m->perso[who].current_weapon->link_texture;
+    char *filename = m->perso[who].inv_weapon[SLOT1].link_texture;
     sfTexture *Weapon = sfTexture_createFromFile(filename, NULL);
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -144,7 +144,7 @@ static void current_weapon(Global_t *m, int who)
     sfSprite_setPosition(weapon, (sfVector2f){980, 443});
     sfSprite_setScale(weapon, (sfVector2f){1.9, 1.9});
     sfRenderWindow_drawSprite(m->window, weapon, NULL);
-    sfText_setString(text, m->perso[who].current_weapon->name);
+    sfText_setString(text, m->perso[who].inv_weapon[SLOT1].name);
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 36);
     sfText_setFillColor(text, sfBlack);
@@ -160,13 +160,13 @@ void weapons_inv_stat2(Global_t *m, sfVector2f
 {
     int who = m->perso->current_perso;
 
-    if (m->perso[who].num_weapons_in_inv >= 3)
+    if (m->perso[who].num_weapons_in_inv >= 4)
         weapon_slot3(m, who);
     else
         empty_slot(m, empty_sprite_pose, err_text);
     empty_sprite_pose.y = 595;
     err_text.y = 582;
-    if (m->perso[who].num_weapons_in_inv >= 4)
+    if (m->perso[who].num_weapons_in_inv >= 5)
         weapon_slot4(m, who);
     else
         empty_slot(m, empty_sprite_pose, err_text);
@@ -180,7 +180,7 @@ void weapons_inv_stat(Global_t *m)
 
     current_weapon(m, who);
     heal_stick(m, who);
-    if (m->perso[who].num_weapons_in_inv >= 2)
+    if (m->perso[who].num_weapons_in_inv >= 3)
         weapon_slot2(m, who);
     else
         empty_slot(m, empty_sprite_pose, err_text);
