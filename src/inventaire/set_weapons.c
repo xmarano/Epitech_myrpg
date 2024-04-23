@@ -123,7 +123,7 @@ static void weapon_slot2(Global_t *m, int who)
     sfText_setPosition(text, (sfVector2f){1050, 506});
     sfRenderWindow_drawText(m->window, text, NULL);
     if (m->perso->what_weapons_stat == 2)
-        print_weapon2_stat(m, who);
+        print_heal_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
@@ -169,7 +169,7 @@ static void current_weapon(Global_t *m, int who)
     sfText_setPosition(text, (sfVector2f){1050, 430});
     sfRenderWindow_drawText(m->window, text, NULL);
     if (m->perso->what_weapons_stat == 0)
-        print_current_stat(m, who);
+        print_weapon1_stat(m, who);
     destroyer(text, font, weapon, Weapon);
 }
 
