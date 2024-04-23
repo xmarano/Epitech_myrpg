@@ -153,4 +153,6 @@ void print_heal_stat(Global_t *m, int who);
 void print_current_stat(Global_t *m, int who);
 sfSprite *set_back_screen(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
+void check_globalbounds2(Global_t *m);
+void check_the_hover2(Global_t *m);
 #endif
