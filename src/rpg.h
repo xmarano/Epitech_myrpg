@@ -159,5 +159,18 @@ void check_the_hover2(Global_t *m);
 sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
 sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
 void destroy_inventaire(Global_t *m);
+sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos);
+sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);
+void init_setting3(Global_t *m);
+void init_setting2(Global_t *m);
+void init_setting(Global_t *m);
+void diff_size(sfVector2i mouse, Global_t *m);
+void modify_size(sfVector2i mouse, Global_t *m);
+void other_option(sfVector2i mouse, Global_t *m);
+void event_setting(sfEvent event, Global_t *m);
+void verif_other(Global_t *m);
+void verif_thing(Global_t *m);
+void synopsis_bool(Global_t *m);
+void destroy_all(Global_t *m);
 
 #endif

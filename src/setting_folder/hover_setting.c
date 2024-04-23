@@ -37,18 +37,8 @@ void hover_text(Global_t *m, sfText *text)
     }
 }
 
-static void check_hover_text(Global_t *m)
+static void hover_txt(Global_t *m)
 {
-    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL)
-        hover_rectangle(m, m->setting.buttonretour);
-    if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
-        hover_rectangle(m, m->setting.buttoncred);
-    if (m->setting.buttonsynop != NULL && &m->setting.se_3 != NULL)
-        hover_rectangle(m, m->setting.buttonsynop);
-    if (m->setting.buttonvolum != NULL && &m->setting.se_4 != NULL)
-        hover_rectangle(m, m->setting.buttonvolum);
-    if (m->setting.buttonwindow != NULL && &m->setting.se_5 != NULL)
-        hover_rectangle(m, m->setting.buttonwindow);
     if (m->setting.littlez != NULL && &m->setting.se_6 != NULL)
         hover_text(m, m->setting.littlez);
     if (m->setting.mediumz != NULL && &m->setting.se_7 != NULL)
@@ -61,6 +51,21 @@ static void check_hover_text(Global_t *m)
         hover_text(m, m->setting.volumeh);
     if (m->setting.cvolume != NULL && &m->setting.se_11 != NULL)
         hover_text(m, m->setting.cvolume);
+}
+
+static void check_hover_text(Global_t *m)
+{
+    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL)
+        hover_rectangle(m, m->setting.buttonretour);
+    if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
+        hover_rectangle(m, m->setting.buttoncred);
+    if (m->setting.buttonsynop != NULL && &m->setting.se_3 != NULL)
+        hover_rectangle(m, m->setting.buttonsynop);
+    if (m->setting.buttonvolum != NULL && &m->setting.se_4 != NULL)
+        hover_rectangle(m, m->setting.buttonvolum);
+    if (m->setting.buttonwindow != NULL && &m->setting.se_5 != NULL)
+        hover_rectangle(m, m->setting.buttonwindow);
+    hover_txt(m);
 }
 
 void check_the_hover2(Global_t *m)
