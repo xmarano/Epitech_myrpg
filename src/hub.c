@@ -34,7 +34,7 @@ void draw_hub(Global_t *m, hub_t *h)
             }
             sfRenderWindow_setView(m->window, h->normal_view);
         } else if (!m->perso->is_visible) {
-            sfSprite_setScale(m->menu.cursor , (sfVector2f){0.4, 0.4});
+            sfSprite_setScale(m->menu.cursor , (sfVector2f){0.0, 0.0});
             if (sfView_getSize(h->view).x > 860 || sfView_getSize(h->view).y > 800) {
                 sfView_zoom(h->view, 0.95f);
             }

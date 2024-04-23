@@ -9,7 +9,7 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-void print_weapon4_stat(Global_t *m, int who)
+void print_weapon5_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -30,7 +30,7 @@ void print_weapon4_stat(Global_t *m, int who)
     sfRenderWindow_drawText(m->window, text, NULL);
 }
 
-void print_weapon3_stat(Global_t *m, int who)
+void print_weapon4_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -51,7 +51,7 @@ void print_weapon3_stat(Global_t *m, int who)
     sfRenderWindow_drawText(m->window, text, NULL);
 }
 
-void print_weapon2_stat(Global_t *m, int who)
+void print_weapon3_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -93,7 +93,7 @@ void print_heal_stat(Global_t *m, int who)
     sfRenderWindow_drawText(m->window, text, NULL);
 }
 
-void print_current_stat(Global_t *m, int who)
+void print_weapon1_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
