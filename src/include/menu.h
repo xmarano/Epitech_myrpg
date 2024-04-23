@@ -37,30 +37,38 @@ typedef struct Menu {
 typedef struct Select {
     sfSprite *fond;
     sfText *title;
+    sfSprite *p1;
+    sfSprite *p2;
+    sfSprite *p3;
+    sfSprite *p4;
+    sfSprite *p5;
+    sfSprite *p1_w;
+    sfSprite *p2_w;
+    sfSprite *p3_w;
+    sfSprite *p4_w;
+    sfSprite *p5_w;
+    sfSprite *p1_d;
+    sfSprite *p2_d;
+    sfSprite *p3_d;
+    sfSprite *p4_d;
+    sfSprite *p5_d;
     sfRectangleShape *button1;
     sfRectangleShape *button2;
     sfRectangleShape *button3;
     sfRectangleShape *button4;
     sfRectangleShape *button5;
-    sfRectangleShape *valid;
-    sfRectangleShape *exit;
+    sfRectangleShape *play;
+    sfRectangleShape *back;
     sfFloatRect gb_b1;
     sfFloatRect gb_b2;
     sfFloatRect gb_b3;
     sfFloatRect gb_b4;
     sfFloatRect gb_b5;
-    sfFloatRect gb_valid;
-    sfFloatRect gb_exit;
-    //---------------------|
-    sfText *player1;//-----|
-    sfText *player2;//-----|
-    sfText *player3;//-----|  /*  temporaire  */
-    sfText *player4;//-----|
-    sfText *player5;//-----|
-    //---------------------|
-    sfText *valid_txt;
-    sfText *exit_txt;
-    int selected;
+    sfFloatRect gb_play;
+    sfFloatRect gb_back;
+    sfText *play_txt;
+    sfText *back_txt;
+    sfText *select;
 } Select_t;
 
 #endif
