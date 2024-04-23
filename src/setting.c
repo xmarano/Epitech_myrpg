@@ -11,11 +11,11 @@ void hover_rectangle(Global_t *m, sfRectangleShape *shape) {
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect bounds = sfRectangleShape_getGlobalBounds(shape);
     if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
-        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(255, 255, 255)); // Set outline color to white
-        sfRectangleShape_setOutlineThickness(shape, 5); // Set outline thickness
+        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(255, 255, 255));
+        sfRectangleShape_setOutlineThickness(shape, 5);
     } else {
-        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(0, 0, 0)); // Set outline color to black
-        sfRectangleShape_setOutlineThickness(shape, 0); // Remove outline
+        sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(0, 0, 0));
+        sfRectangleShape_setOutlineThickness(shape, 0);
     }
 }
 
@@ -24,11 +24,11 @@ void hover_text(Global_t *m, sfText *text) {
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect bounds = sfText_getGlobalBounds(text);
     if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
-        sfText_setOutlineColor(text, sfColor_fromRGB(255, 255, 255)); // Set outline color to white
-        sfText_setOutlineThickness(text, 5); // Set outline thickness
+        sfText_setOutlineColor(text, sfColor_fromRGB(255, 255, 255));
+        sfText_setOutlineThickness(text, 5);
     } else {
-        sfText_setOutlineColor(text, sfColor_fromRGB(0, 0, 0)); // Set outline color to black
-        sfText_setOutlineThickness(text, 0); // Remove outline
+        sfText_setOutlineColor(text, sfColor_fromRGB(0, 0, 0));
+        sfText_setOutlineThickness(text, 0);
     }
 }
 
