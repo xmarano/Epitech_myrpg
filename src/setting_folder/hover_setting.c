@@ -35,7 +35,7 @@ void hover_text(Global_t *m, sfText *text)
 
 void check_the_hover2(Global_t *m)
 {
-    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL) 
+    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL)
         hover_rectangle(m, m->setting.buttonretour);
     if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
         hover_rectangle(m, m->setting.buttoncred);

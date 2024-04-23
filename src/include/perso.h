@@ -71,6 +71,7 @@ typedef struct Perso {
     sfSprite *dialogue_sprite;
     sfTexture *dialogue_texture;
     bool is_hero;
+    // ajout ici struct
 }Perso_t;
 
 #endif
