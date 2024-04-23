@@ -116,10 +116,11 @@ static void moove_cursor_weapons(Global_t *m)
 
 static void keydown(Global_t *m)
 {
-    moove_cursor_weapons(m);
     m->perso->what_weapons_stat += 1;
-    if (m->perso->what_weapons_stat >= 5)
-        m->perso->what_weapons_stat = 0;
+    moove_cursor_weapons(m);
+    //printf("%d\n", m->perso->what_weapons_stat);
+        if (m->perso->what_weapons_stat >= 5)
+    m->perso->what_weapons_stat = 0;
 }
 
 static void print_sprite(Global_t *m)
@@ -141,10 +142,7 @@ static void print_sprite(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft)
-    || sfKeyboard_isKeyPressed(sfKeyRight) ||
-    sfKeyboard_isKeyPressed(sfKeyDown) ||
-    sfKeyboard_isKeyPressed(sfKeyEnter)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
         print_sprite(m);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown))

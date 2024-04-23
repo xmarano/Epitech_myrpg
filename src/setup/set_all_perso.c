@@ -82,7 +82,7 @@ static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
     perso->stat_p.str = 4;
-    perso->stat_p.spd = 3;
+    perso->stat_p.spd = 4;
     perso->stat_p.mov = 5;
 }
 

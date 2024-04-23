@@ -56,7 +56,6 @@ enum WHAT_WEAPONS {
     SLOT2 = 2,
     SLOT3 = 3,
     SLOT4 = 4,
-    SLOT5 = 5,
     COMMON_AXE = 5,
     RARE_AXE = 6,
     LEGENDARY_AXE = 7,
