@@ -11,7 +11,7 @@
 
 void init_hub (hub_t *h, Global_t *m)
 {
-    h->view = sfView_createFromRect((sfFloatRect){0, 0, 1080, 1080});
+    h->view = sfView_createFromRect((sfFloatRect){0, 0, 960, 1080});
     h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
     h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
@@ -21,8 +21,8 @@ void init_hub (hub_t *h, Global_t *m)
     h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){540, 540});
-    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.5});
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){460, 530});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.7});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
@@ -35,7 +35,7 @@ void draw_hub(Global_t *m, hub_t *h)
             sfRenderWindow_setView(m->window, h->normal_view);
         } else if (!m->perso->is_visible) {
             sfSprite_setScale(m->menu.cursor , (sfVector2f){0.4, 0.4});
-            if (sfView_getSize(h->view).x > 840 || sfView_getSize(h->view).y > 390) {
+            if (sfView_getSize(h->view).x > 860 || sfView_getSize(h->view).y > 800) {
                 sfView_zoom(h->view, 0.95f);
             }
             sfRenderWindow_setView(m->window, h->view);
@@ -90,7 +90,7 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 10), (hub->pos_sprite.y + hub->movement.y + 10));
     if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1080 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
         sfSprite_move(hub->sprite_perso, hub->movement);
-        sfVector2f test = sfView_getCenter(hub->view);
+        //sfVector2f test = sfView_getCenter(hub->view);
         sfView_move(hub->view, hub->movement);
     }
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
