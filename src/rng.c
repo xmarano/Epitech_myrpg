@@ -26,12 +26,12 @@ int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def)
     return 0;
 }
 
-int is_hit(stchar_t *attack, stchar_t *defense, Weapons_t *weapon_atk, Weapons_t *weapon_def)
+int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t *weapon_atk, Weapons_t *weapon_def)
 {
     int nb1 = rand() % 100;
     int nb2 = rand() % 100;
-    int accuracy = weapon_atk->accuracy + attack->skl * 2 + attack->lck * 2 + is_weapon_advantage(weapon_atk, weapon_def) * 10;
-    int avoid = defense->spd * 2 + defense->lck;
+    int accuracy = weapon_atk->accuracy + attack->stat_p.skl * 2 + attack->stat_p.lck * 2 + is_weapon_advantage(weapon_atk, weapon_def) * 10;
+    int avoid = defense->stat_p.spd * 2 + defense->stat_p.lck + defense->current_case->esq_bonus;
 
     accuracy = accuracy - avoid;
     printf("numbers: %i accuracy: %i\n", ((nb1 + nb2) / 2), accuracy);
@@ -84,6 +84,23 @@ void level_up(stchar_t *stats)
     }
 }
 
+int damage_physical(Perso_t *attacker, Perso_t *defender)
+{
+    int crit = critical_hit(&attacker->stat_p, &defender->stat_p, attacker->current_weapon);
+    int atk = attacker->stat_p.skl + is_weapon_advantage(attacker->current_weapon, defender->current_weapon);
+    int def = defender->stat_p.def + defender->current_case->def_bonus;
+
+    return (atk - def) * crit;
+}
+
+int damage_magical(Perso_t *attacker, Perso_t *defender)
+{
+    int crit = critical_hit(&attacker->stat_p, &defender->stat_p, attacker->current_weapon);
+    int atk = attacker->stat_p.mag + is_weapon_advantage(attacker->current_weapon, defender->current_weapon);
+    int def = defender->stat_p.res + defender->current_case->def_bonus;
+
+    return (atk - def) * crit;
+}
 /*int main(void)
 {
     int test = 0;

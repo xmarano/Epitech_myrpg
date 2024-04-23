@@ -54,6 +54,14 @@ typedef struct stats_char {
     int mov;
 } stchar_t;
 
+typedef struct case_struct {
+    char *name;
+    int def_bonus;
+    int esq_bonus;
+    sfBool is_accessible;
+    int move_penalty;
+} case_t;
+
 typedef struct Perso {
     int what_weapons_stat;
     int current_perso; //perso designer
@@ -71,7 +79,7 @@ typedef struct Perso {
     sfSprite *dialogue_sprite;
     sfTexture *dialogue_texture;
     bool is_hero;
-    // ajout ici struct
+    case_t *current_case;
 }Perso_t;
 
 #endif
