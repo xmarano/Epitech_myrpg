@@ -1,4 +1,5 @@
 CLERC Tom
 GREGORI Leo
-Prevost Yanis
-Colombani-gailleur Anthony
+PREVOST Yanis
+COLOMBANI-GAILLEUR
+Anthony
