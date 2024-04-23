@@ -16,7 +16,7 @@
 typedef struct setting {
     sfFont *font;
     sfVector2u window_size;
-    sfText *background_s;
+    sfSprite *background_s;
     sfText *titre;
     sfText *credit;
     sfText *synopsis;

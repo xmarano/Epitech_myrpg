@@ -20,8 +20,8 @@ void hover_rectangle(Global_t *m, sfRectangleShape *shape)
     }
 }
 
-
-void hover_text(Global_t *m, sfText *text) {
+void hover_text(Global_t *m, sfText *text)
+{
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect bounds = sfText_getGlobalBounds(text);
     if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
