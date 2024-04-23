@@ -23,12 +23,10 @@ void init_hub (hub_t *h, Global_t *m)
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
     sfSprite_setPosition(h->sprite_perso, (sfVector2f){540, 540});
     sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.5});
-    h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
 }
 
 void draw_hub(Global_t *m, hub_t *h)
 {
-
     if (m->current == 12) { /* temporaire normalement m->current == 0*/
         if (m->perso->is_visible) {
             if (sfView_getSize(h->view).x < 1920 || sfView_getSize(h->view).y < 1080) {
@@ -42,7 +40,11 @@ void draw_hub(Global_t *m, hub_t *h)
             }
             sfRenderWindow_setView(m->window, h->view);
         }
-        // il faut modifier la texture ici.
+        if (h->texture_perso != NULL) {
+            sfTexture_destroy(h->texture_perso);
+            h->texture_perso = NULL;
+        }
+        h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
         sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
         sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
         if (!m->perso->is_visible)
@@ -86,7 +88,7 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 10), (hub->pos_sprite.y + hub->movement.y + 10));
-    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1920 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
+    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1080 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
         sfSprite_move(hub->sprite_perso, hub->movement);
         sfVector2f test = sfView_getCenter(hub->view);
         sfView_move(hub->view, hub->movement);

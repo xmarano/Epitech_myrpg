@@ -39,7 +39,6 @@ void hover_text(Global_t *m, sfText *text)
 
 static void check_hover_text(Global_t *m)
 {
-<<<<<<< HEAD
     if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL)
         hover_rectangle(m, m->setting.buttonretour);
     if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
@@ -50,8 +49,6 @@ static void check_hover_text(Global_t *m)
         hover_rectangle(m, m->setting.buttonvolum);
     if (m->setting.buttonwindow != NULL && &m->setting.se_5 != NULL)
         hover_rectangle(m, m->setting.buttonwindow);
-=======
->>>>>>> 05cdd6167e169c70042b2f4e67d7ccf269a6c8c5
     if (m->setting.littlez != NULL && &m->setting.se_6 != NULL)
         hover_text(m, m->setting.littlez);
     if (m->setting.mediumz != NULL && &m->setting.se_7 != NULL)
