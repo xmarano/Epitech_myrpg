@@ -9,10 +9,24 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
+//all ok
 
-sfRectangleShape *hoov(Global_t *m, sfVector2f popo, sfVector2f siz, float f)
+sfRectangleShape *hoov_inv(Global_t *m,
+    sfVector2f popo, sfVector2f siz, float f)
 {
-    sfRectangleShape *rect = sfRectangleShape_create();
+    sfRectangleShape *rect = m->perso->inv.inv_sprite.rect_inv;
+
+    sfRectangleShape_setFillColor(rect, sfTransparent);
+    sfRectangleShape_setPosition(rect, popo);
+    sfRectangleShape_setSize(rect, siz);
+    sfRectangleShape_setOutlineColor(rect, sfBlack);
+    sfRectangleShape_setOutlineThickness(rect, f);
+    return rect;
+}
+
+sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo, sfVector2f siz, float f)
+{
+    sfRectangleShape *rect = m->perso->inv.inv_sprite.hooved_weapon;
 
     sfRectangleShape_setFillColor(rect, sfTransparent);
     sfRectangleShape_setPosition(rect, popo);
@@ -24,12 +38,11 @@ sfRectangleShape *hoov(Global_t *m, sfVector2f popo, sfVector2f siz, float f)
 
 sfSprite *set_cursor(Global_t *m)
 {
-    sfSprite *sprite = sfSprite_create();
+    sfSprite *sprite = m->perso->inv.inv_sprite.cursor;
     sfVector2f scale = {0.3, 0.3};
     sfVector2f pos = {940, 443};
     sfTexture *Cursor = m->perso->inv.inv_sprite.Cursor;
 
-    Cursor = sfTexture_createFromFile("assets/inv/cursor.png", NULL);
     sfSprite_setTexture(sprite, Cursor, sfFalse);
     sfSprite_setScale(sprite, scale);
     sfSprite_setPosition(sprite, pos);
@@ -38,12 +51,11 @@ sfSprite *set_cursor(Global_t *m)
 
 sfSprite *set_inv_fond(Global_t *m)
 {
-    sfSprite *sprite = sfSprite_create();
+    sfSprite *sprite = m->perso->inv.inv_sprite.inventory;
     sfVector2f pos = {600, 300};
     sfVector2f scale = {3.2, 3.2};
     sfTexture *Inv = m->perso->inv.inv_sprite.Inventory;
 
-    Inv = sfTexture_createFromFile("assets/inv/inv_fond.png", NULL);
     sfSprite_setTexture(sprite, Inv, sfFalse);
     sfSprite_setPosition(sprite, pos);
     sfSprite_setScale(sprite, scale);
@@ -52,24 +64,13 @@ sfSprite *set_inv_fond(Global_t *m)
 
 sfSprite *set_inv_fond2(Global_t *m)
 {
-    sfSprite *sprite = sfSprite_create();
+    sfSprite *sprite = m->perso->inv.inv_sprite.inventory2;
     sfVector2f pos = {920, 300};
     sfVector2f scale = {3.2, 3.2};
     sfTexture *Inv2 = m->perso->inv.inv_sprite.Inventory2;
 
-    Inv2 = sfTexture_createFromFile("assets/inv/inv_fond2.png", NULL);
     sfSprite_setTexture(sprite, Inv2, sfFalse);
     sfSprite_setPosition(sprite, pos);
     sfSprite_setScale(sprite, scale);
-    return sprite;
-}
-
-sfSprite *set_back_screen(Global_t *m)
-{
-    sfSprite *sprite = sfSprite_create();
-    sfTexture *Fond = m->perso->inv.inv_sprite.Fond;
-
-    Fond = sfTexture_createFromFile("assets/inv/fond_inv.png", NULL);
-    sfSprite_setTexture(sprite, Fond, sfFalse);
     return sprite;
 }

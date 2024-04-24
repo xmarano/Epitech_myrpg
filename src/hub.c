@@ -11,18 +11,18 @@
 
 void init_hub (hub_t *h, Global_t *m)
 {
-    h->view = sfView_createFromRect((sfFloatRect){0, 0, 1080, 1080});
-    h->rect = (sfIntRect){0, 520 + 65 * 2, 65, 65};
+    h->view = sfView_createFromRect((sfFloatRect){0, 0, 1408, 800});
+    h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
+    h->texture_hub = sfTexture_createFromFile("maps/map_1.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
-    h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
+    h->hitbox = sfImage_createFromFile("maps/map_1.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){540, 540});
-    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.5});
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){694, 380});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.7, 0.7});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
@@ -34,11 +34,23 @@ void draw_hub(Global_t *m, hub_t *h)
             }
             sfRenderWindow_setView(m->window, h->normal_view);
         } else if (!m->perso->is_visible) {
-            sfSprite_setScale(m->menu.cursor , (sfVector2f){0.4, 0.4});
-            if (sfView_getSize(h->view).x > 840 || sfView_getSize(h->view).y > 390) {
+            sfSprite_setScale(m->menu.cursor , (sfVector2f){0.0, 0.0});
+            if (sfView_getSize(h->view).x > 860 || sfView_getSize(h->view).y > 800) {
                 sfView_zoom(h->view, 0.95f);
             }
             sfRenderWindow_setView(m->window, h->view);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyO)) {
+            sfRenderWindow_setView(m->window, h->normal_view);  // a retirer
+            m->current = 14;
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyH)) {
+            sfRenderWindow_setView(m->window, h->normal_view);
+            m->current = 9;
+        }
+        if (h->texture_perso != NULL) {
+            sfTexture_destroy(h->texture_perso);
+            h->texture_perso = NULL;
         }
         h->texture_perso = sfTexture_createFromFile(m->perso[m->perso->current_perso].texture_battle, NULL);
         sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
@@ -55,22 +67,22 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     hub->movement = (sfVector2f){0, 0};
     if (sfKeyboard_isKeyPressed(sfKeyZ)) {
         hub->movement.y -= SPEED;
-        hub->rect.top = 520;
+        hub->rect.top = 515;
         tic = 1;
     }
     if (sfKeyboard_isKeyPressed(sfKeyS)) {
         hub->movement.y += SPEED;
-        hub->rect.top = 520 + 65 * 2;
+        hub->rect.top = 512 + 65 * 2;
         tic = 1;
     }
     if (sfKeyboard_isKeyPressed(sfKeyQ)) {
         hub->movement.x -= SPEED;
-        hub->rect.top = 520 + 65;
+        hub->rect.top = 515 + 65;
         tic = 1;
     }
     if (sfKeyboard_isKeyPressed(sfKeyD)) {
         hub->movement.x += SPEED;
-        hub->rect.top = 520 + 65 * 3;
+        hub->rect.top = 511 + 65 * 3;
         tic = 1;
     }
     hub->time = sfClock_getElapsedTime(m->clock);
@@ -84,9 +96,8 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 10), (hub->pos_sprite.y + hub->movement.y + 10));
-    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1920 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
+    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1375 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 760) {
         sfSprite_move(hub->sprite_perso, hub->movement);
-        sfVector2f test = sfView_getCenter(hub->view);
         sfView_move(hub->view, hub->movement);
     }
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);

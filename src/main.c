@@ -12,7 +12,7 @@ void event_click(sfEvent event, Global_t *m)
 {
     if (event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    if ((m->current == 12))
+    if (m->current == 12)
         inventory(m, event);
     if (m->current == 13)
         event_setting(event, m);
@@ -44,6 +44,8 @@ void rpg(Global_t *m, hub_t *h)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
+    draw_shop(m);
+    loading_screen(m);
     sfRenderWindow_display(m->window);
 }
 
@@ -61,14 +63,20 @@ int main(int argc, char **argv)
     import_weapons_stats(&m);
     setup_stat(&m);
     init_menu(&m);
-    init_hub(&h, &m);
     init_inventaire(&m);
+    init_pose(&m);
+    init_loading(&m);
+    init_hub(&h, &m);
+    init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_hub(&h);
+    destroy_inventaire(&m);
+    destroy_menu(&m);
+    destroy_select_perso(&m);
+    destroy_loading(&m);
     sfClock_destroy(m.clock);
     sfSprite_destroy(m.menu.cursor);
-    destroy_select_perso(&m); // temporairement ici
     sfRenderWindow_destroy(m.window);
     return 0;
 }

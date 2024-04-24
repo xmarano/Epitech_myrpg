@@ -24,6 +24,18 @@ typedef struct hub {
     sfView *normal_view;
 } hub_t;
 
+typedef struct Loading
+{
+    sfSprite *vert;
+    sfSprite *fond;
+    sfSprite *text;
+    sfTexture *Vert;
+    sfTexture *Fond;
+    sfTexture *Text;
+    sfSprite *back_screen;
+    sfTexture *Back_screen;
+}Loading_t;
+
 typedef struct Zone1
 {
     /* data */

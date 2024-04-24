@@ -9,7 +9,7 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-void print_weapon4_stat(Global_t *m, int who)
+void print_weapon5_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -28,9 +28,15 @@ void print_weapon4_stat(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1065, 635});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[SLOT4], sizeof(Weapons_t));
+    }
+    sfText_destroy(text);
+    sfFont_destroy(font);
 }
 
-void print_weapon3_stat(Global_t *m, int who)
+void print_weapon4_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -49,9 +55,15 @@ void print_weapon3_stat(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1065, 635});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[SLOT3], sizeof(Weapons_t));
+    }
+    sfText_destroy(text);
+    sfFont_destroy(font);
 }
 
-void print_weapon2_stat(Global_t *m, int who)
+void print_weapon3_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -70,6 +82,12 @@ void print_weapon2_stat(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1065, 635});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[SLOT2], sizeof(Weapons_t));
+    }
+    sfText_destroy(text);
+    sfFont_destroy(font);
 }
 
 void print_heal_stat(Global_t *m, int who)
@@ -91,9 +109,15 @@ void print_heal_stat(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1065, 635});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[HEAL], sizeof(Weapons_t));
+    }
+    sfText_destroy(text);
+    sfFont_destroy(font);
 }
 
-void print_current_stat(Global_t *m, int who)
+void print_weapon1_stat(Global_t *m, int who)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -112,4 +136,10 @@ void print_current_stat(Global_t *m, int who)
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){1065, 635});
     sfRenderWindow_drawText(m->window, text, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[SLOT1], sizeof(Weapons_t));
+    }
+    sfText_destroy(text);
+    sfFont_destroy(font);
 }

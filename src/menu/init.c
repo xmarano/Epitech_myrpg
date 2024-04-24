@@ -42,7 +42,7 @@ sfRectangleShape *init_button(Global_t *m, sfVector2f size, int pos_y)
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
     sfRectangleShape_setOutlineThickness(shape, 6);
-    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
+    sfRectangleShape_setOutlineColor(shape, sfBlack);
     rect_pos = sfRectangleShape_getLocalBounds(shape);
     pos_x = (m->menu.wsize.x - rect_pos.width) / 2;
     sfRectangleShape_setPosition(shape, (sfVector2f){pos_x + 5, pos_y});

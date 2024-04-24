@@ -41,11 +41,11 @@ static void inventaire1(Global_t *m)
 
 void draw_inventaire(Global_t *m)
 {
-    if ((m->current == 12)) {
-        if (m->perso->is_visible && m->perso->inv.inv_sprite.inventory != NULL) {
+    if (m->current == 12) {
+        if (m->perso->is_visible) {
             inventaire1(m);
         }
-        if (m->perso->is_visible2 && m->perso->inv.inv_sprite.inventory2 != NULL) {
+        if (m->perso->is_visible2) {
             inventaire2(m);
         }
         if (!m->perso->is_visible && !m->perso->is_visible2) {
@@ -63,11 +63,6 @@ static void reset(Global_t *m)
     m->perso->inv.inv_sprite.pos_hooved.x = 980;
     m->perso->inv.inv_sprite.pos_cursor.y = 443;
     m->perso->inv.inv_sprite.pos_hooved.y = 443;
-    sfRectangleShape_destroy(m->perso->inv.inv_sprite.hooved_weapon);
-    sfSprite_destroy(m->perso->inv.inv_sprite.cursor);
-    sfRectangleShape_destroy(m->perso->inv.inv_sprite.rect_inv);
-    sfSprite_destroy(m->perso->inv.inv_sprite.inventory);
-    sfSprite_destroy(m->perso->inv.inv_sprite.inventory2);
 }
 
 void what_inv2(Global_t *m, sfEvent event)
@@ -103,14 +98,6 @@ void what_inv(Global_t *m, sfEvent event)
     what_inv2(m, event);
 }
 
-void init_inventaire(Global_t *m)
-{
-    m->perso->inv.inv_sprite.pos_cursor.x = 940;
-    m->perso->inv.inv_sprite.pos_hooved.x = 980;
-    m->perso->inv.inv_sprite.pos_cursor.y = 443;
-    m->perso->inv.inv_sprite.pos_hooved.y = 443;
-}
-
 static void moove_cursor_weapons(Global_t *m)
 {
     sfRectangleShape *rect = m->perso->inv.inv_sprite.hooved_weapon;
@@ -129,30 +116,36 @@ static void moove_cursor_weapons(Global_t *m)
 
 static void keydown(Global_t *m)
 {
-    moove_cursor_weapons(m);
     m->perso->what_weapons_stat += 1;
-    if (m->perso->what_weapons_stat >= 5)
-        m->perso->what_weapons_stat = 0;
+    moove_cursor_weapons(m);
+        if (m->perso->what_weapons_stat >= 5)
+    m->perso->what_weapons_stat = 0;
 }
 
-int inventory(Global_t *m, sfEvent event)
+static void print_sprite(Global_t *m)
 {
     sfVector2f p_ho_w = {980, 443};
     sfVector2f s_ho_w = {330, 16 * 1.8};
     sfVector2f p_rct_inv = {600, 300};
     sfVector2f s_rct_inv = {755, 500};
+    sfSprite *sprite = m->perso->inv.inv_sprite.fond;
+    sfTexture *Fond = m->perso->inv.inv_sprite.Fond;
 
+    sfSprite_setTexture(sprite, Fond, sfFalse);
+    m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
+    m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
+    m->perso->inv.inv_sprite.cursor = set_cursor(m);
+    m->perso->inv.inv_sprite.hooved_weapon = hoov_w(m, p_ho_w, s_ho_w, 2);
+    m->perso->inv.inv_sprite.rect_inv = hoov_inv(m, p_rct_inv, s_rct_inv, 7);
+}
+
+int inventory(Global_t *m, sfEvent event)
+{
     if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
-        m->perso->inv.inv_sprite.fond = set_back_screen(m);
-        m->perso->inv.inv_sprite.inventory = set_inv_fond(m);
-        m->perso->inv.inv_sprite.inventory2 = set_inv_fond2(m);
-        m->perso->inv.inv_sprite.cursor = set_cursor(m);
-        m->perso->inv.inv_sprite.hooved_weapon = hoov(m, p_ho_w, s_ho_w, 2);
-        m->perso->inv.inv_sprite.rect_inv = hoov(m, p_rct_inv, s_rct_inv, 7);
+        print_sprite(m);
         what_inv(m, event);
-        if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+        if (sfKeyboard_isKeyPressed(sfKeyDown))
             keydown(m);
-        }
     }
     return 0;
 }
