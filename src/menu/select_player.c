@@ -257,5 +257,33 @@ void destroy_select_perso(Global_t *m)
 {
     sfSprite_destroy(m->select.fond);
     sfText_destroy(m->select.title);
-    /* ajouter les sprite et text destroy */
+    sfSprite_destroy(m->select.p1);
+    sfSprite_destroy(m->select.p2);
+    sfSprite_destroy(m->select.p3);
+    sfSprite_destroy(m->select.p4);
+    sfSprite_destroy(m->select.p5);
+    sfSprite_destroy(m->select.p1_w);
+    sfSprite_destroy(m->select.p2_w);
+    sfSprite_destroy(m->select.p3_w);
+    sfSprite_destroy(m->select.p4_w);
+    sfSprite_destroy(m->select.p5_w);
+    sfSprite_destroy(m->select.p1_d);
+    sfSprite_destroy(m->select.p2_d);
+    sfSprite_destroy(m->select.p3_d);
+    sfSprite_destroy(m->select.p4_d);
+    sfSprite_destroy(m->select.p5_d);
+    sfRectangleShape_destroy(m->select.button1);
+    sfRectangleShape_destroy(m->select.button2);
+    sfRectangleShape_destroy(m->select.button3);
+    sfRectangleShape_destroy(m->select.button4);
+    sfRectangleShape_destroy(m->select.button5);
+    sfRectangleShape_destroy(m->select.play);
+    sfRectangleShape_destroy(m->select.back);
+    sfText_destroy(m->select.play_txt);
+    sfText_destroy(m->select.back_txt);
+    sfText_destroy(m->select.select1);
+    sfText_destroy(m->select.select2);
+    sfText_destroy(m->select.select3);
+    sfText_destroy(m->select.select4);
+    sfText_destroy(m->select.select5);
 }
