@@ -116,6 +116,7 @@ void destroy_select_perso(Global_t *m);
 void destroy_loading(Global_t *m);
 void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
+void draw_shop(Global_t *m);
 
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);

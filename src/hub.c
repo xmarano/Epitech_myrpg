@@ -44,6 +44,10 @@ void draw_hub(Global_t *m, hub_t *h)
             sfRenderWindow_setView(m->window, h->normal_view);  // a retirer
             m->current = 14;
         }
+        if (sfKeyboard_isKeyPressed(sfKeyH)) {
+            sfRenderWindow_setView(m->window, h->normal_view);
+            m->current = 9;
+        }
         if (h->texture_perso != NULL) {
             sfTexture_destroy(h->texture_perso);
             h->texture_perso = NULL;
