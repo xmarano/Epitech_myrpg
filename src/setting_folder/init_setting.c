@@ -13,8 +13,8 @@ sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos)
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
-    sfRectangleShape_setOutlineThickness(shape, 6);
-    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(22, 40, 12));
+    sfRectangleShape_setOutlineThickness(shape, 7);
+    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(0, 0, 0));
     sfRectangleShape_setPosition(shape, pos);
     return shape;
 }
@@ -34,18 +34,18 @@ sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos)
 void init_setting3(Global_t *m)
 {
     m->setting.littlez = init_text2(m->setting.font,
-    "800 x 600", 50, (sfVector2f){590, 340});
+    "800 x 600", 50, (sfVector2f){600, 340});
     m->setting.mediumz = init_text2(m->setting.font,
-    "1280 x 720", 50, (sfVector2f){590, 400});
+    "1280 x 720", 50, (sfVector2f){600, 400});
     m->setting.bigz = init_text2(m->setting.font,
-    "1920 x 1080", 50, (sfVector2f){590, 460});
+    "1920 x 1080", 50, (sfVector2f){600, 460});
     m->setting.volumeclicked = false;
     m->setting.volumeb = init_text2(m->setting.font,
-    "dicrease volume", 50, (sfVector2f){590, 690});
+    "dicrease volume", 50, (sfVector2f){570, 690});
     m->setting.volumeh = init_text2(m->setting.font,
-    "increase volume", 50, (sfVector2f){590, 750});
+    "increase volume", 50, (sfVector2f){570, 750});
     m->setting.cvolume = init_text2(m->setting.font,
-    "volume cut", 50, (sfVector2f){590, 810});
+    "volume cut", 50, (sfVector2f){570, 810});
 }
 
 void init_setting2(Global_t *m)
@@ -55,9 +55,9 @@ void init_setting2(Global_t *m)
     m->setting.buttonsynop = init_button2(m,
     (sfVector2f){200, 58}, (sfVector2f){150, 260});
     m->setting.volumetxt = init_text2(m->setting.font,
-    "volume", 50, (sfVector2f){594, 600});
+    "volume", 50, (sfVector2f){638, 600});
     m->setting.buttonvolum = init_button2(m,
-    (sfVector2f){190, 58}, (sfVector2f){570, 610});
+    (sfVector2f){280, 58}, (sfVector2f){570, 610});
     m->setting.sizewindows = init_text2(m->setting.font,
     "window size", 50, (sfVector2f){590, 250});
     m->setting.buttonwindow = init_button2(m,
@@ -76,13 +76,13 @@ void init_setting(Global_t *m)
     m->setting.buttonretour = init_button2(m,
     (sfVector2f){170, 60}, (sfVector2f){30, 30});
     m->setting.titre = init_text2(m->setting.font,
-    "Settings", 100, (sfVector2f){300, 0});
+    "Settings", 125, (sfVector2f){650, 0});
     m->setting.buttonsett = init_button2(m,
-    (sfVector2f){360, 100}, (sfVector2f){290, 20});
+    (sfVector2f){430, 120}, (sfVector2f){645, 35});
     m->setting.credit = init_text2(m->setting.font,
-    "credit", 50, (sfVector2f){160, 600});
+    "credit", 50, (sfVector2f){192, 600});
     m->setting.buttoncred = init_button2(m,
-    (sfVector2f){140, 58}, (sfVector2f){150, 610});
+    (sfVector2f){200, 58}, (sfVector2f){150, 610});
     init_setting2(m);
     check_globalbounds2(m);
 }
