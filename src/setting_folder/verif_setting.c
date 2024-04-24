@@ -69,11 +69,11 @@ void verif_other(Global_t *m)
 
     if (m->setting.creditbool) {
         m->setting.covercredit = init_button2(m,
-        (sfVector2f){600, 240}, (sfVector2f){900, 340});
+        (sfVector2f){600, 240}, (sfVector2f){1030, 340});
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.covercredit, NULL);
         m->setting.creditpara = init_text2(m->setting.font,
-        creditpara, 50, (sfVector2f){910, 350});
+        creditpara, 50, (sfVector2f){1040, 350});
         sfRenderWindow_drawText(m->window,
         m->setting.creditpara, NULL);
     }
