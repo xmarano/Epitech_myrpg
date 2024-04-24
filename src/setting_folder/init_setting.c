@@ -75,10 +75,8 @@ void init_setting(Global_t *m)
     "retour", 50, (sfVector2f){50, 25});
     m->setting.buttonretour = init_button2(m,
     (sfVector2f){170, 60}, (sfVector2f){30, 30});
-    m->setting.titre = init_text2(m->setting.font, "Settings",
-    125, (sfVector2f){750, 0});
-    m->setting.buttonsett = init_button2(m, (sfVector2f){430, 120},
-    (sfVector2f){745, 35});
+    m->setting.titre = init_text(m, "Settings", 110, 10);
+    m->setting.buttonsett = init_button(m, (sfVector2f){430, 120}, 35);
     m->setting.credit = init_text2(m->setting.font,
     "credit", 50, (sfVector2f){192, 600});
     m->setting.buttoncred = init_button2(m,
