@@ -11,18 +11,18 @@
 
 void init_hub (hub_t *h, Global_t *m)
 {
-    h->view = sfView_createFromRect((sfFloatRect){0, 0, 960, 1080});
+    h->view = sfView_createFromRect((sfFloatRect){0, 0, 1408, 800});
     h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/hub.png", NULL);
+    h->texture_hub = sfTexture_createFromFile("maps/map_1.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
-    h->hitbox = sfImage_createFromFile("maps/hub_detour.png");
+    h->hitbox = sfImage_createFromFile("maps/map_1.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){460, 530});
-    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.5, 0.8});
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){694, 380});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.7, 0.7});
 }
 
 void draw_hub(Global_t *m, hub_t *h)
@@ -39,6 +39,10 @@ void draw_hub(Global_t *m, hub_t *h)
                 sfView_zoom(h->view, 0.95f);
             }
             sfRenderWindow_setView(m->window, h->view);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyO)) {
+            sfRenderWindow_setView(m->window, h->normal_view);  // a retirer
+            m->current = 14;
         }
         if (h->texture_perso != NULL) {
             sfTexture_destroy(h->texture_perso);
@@ -88,7 +92,7 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 10), (hub->pos_sprite.y + hub->movement.y + 10));
-    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 960 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 1080) {
+    if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1375 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 760) {
         sfSprite_move(hub->sprite_perso, hub->movement);
         sfView_move(hub->view, hub->movement);
     }

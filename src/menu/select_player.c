@@ -211,7 +211,7 @@ static void check_hover(Global_t *m)
     if (sfFloatRect_contains(&m->select.gb_play, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             //destroy_select_perso(m);
-            m->current = 12;
+            m->current = 14;
         }
     }
 

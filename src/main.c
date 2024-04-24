@@ -35,7 +35,7 @@ void rpg(Global_t *m, hub_t *h)
 
     m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
-    sfRenderWindow_clear(m->window, sfBlack);
+    sfRenderWindow_clear(m->window, sfWhite);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     draw_menu(m);
@@ -44,6 +44,7 @@ void rpg(Global_t *m, hub_t *h)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
+    loading_screen(m);
     sfRenderWindow_display(m->window);
 }
 
@@ -63,6 +64,7 @@ int main(int argc, char **argv)
     init_menu(&m);
     init_inventaire(&m);
     init_pose(&m);
+    init_loading(&m);
     init_hub(&h, &m);
     init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
@@ -71,6 +73,7 @@ int main(int argc, char **argv)
     destroy_inventaire(&m);
     destroy_menu(&m);
     destroy_select_perso(&m);
+    destroy_loading(&m);
     sfClock_destroy(m.clock);
     sfSprite_destroy(m.menu.cursor);
     sfRenderWindow_destroy(m.window);
