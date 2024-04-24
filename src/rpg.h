@@ -95,7 +95,8 @@ typedef struct Glob {
     Setting_t setting; /* Tom */
     bool show_mouse;
     hub_t hub; /* leo & tom*/
-    Loading_t loading;
+    Loading_t loading; /*Yanis*/
+    Shop_t shop; /*Yanis*/
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;
@@ -117,6 +118,8 @@ void destroy_loading(Global_t *m);
 void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
 void draw_shop(Global_t *m);
+void init_shop(Global_t *m);
+void destroy_shop(Global_t *m);
 
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);
