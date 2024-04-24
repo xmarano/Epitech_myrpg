@@ -118,7 +118,6 @@ static void keydown(Global_t *m)
 {
     m->perso->what_weapons_stat += 1;
     moove_cursor_weapons(m);
-    //printf("%d\n", m->perso->what_weapons_stat);
         if (m->perso->what_weapons_stat >= 5)
     m->perso->what_weapons_stat = 0;
 }

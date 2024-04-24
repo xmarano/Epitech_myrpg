@@ -199,7 +199,6 @@ void weapons_inv_stat(Global_t *m)
 
     weapon_slot1(m, who);
     heal_stick(m, who);
-    printf("%d\n", m->perso[who].num_weapons_in_inv);
     if (m->perso[who].num_weapons_in_inv >= 3)
         weapon_slot3(m, who);
     else
