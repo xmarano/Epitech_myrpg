@@ -10,27 +10,40 @@
 #include "include/menu.h"
 #include "include/worlds.h"
 
+static sfSprite *init_sprit(char *filename, sfVector2f pos, sfVector2f size)
+{
+    sfTexture *texture = sfTexture_createFromFile(filename, NULL);
+    sfSprite *sprite = sfSprite_create();
+
+    sfSprite_setTexture(sprite, texture, sfTrue);
+    sfSprite_setScale(sprite, size);
+    sfSprite_setPosition(sprite, pos);
+    return sprite;
+}
+
 void destroy_shop(Global_t *m)
 {
     sfSprite_destroy(m->shop.shop);
     sfTexture_destroy(m->shop.Shop);
-    return;
 }
 
 void init_shop(Global_t *m)
 {
-    m->shop.shop = sfSprite_create();
-    m->shop.Shop = sfTexture_createFromFile("assets/shop/shop.png", NULL);
-    sfSprite_setScale(m->shop.shop, (sfVector2f){0.5, 0.5});
-    sfSprite_setPosition(m->shop.shop, (sfVector2f){463, 240});
-    sfSprite_setTexture(m->shop.shop, m->shop.Shop, sfFalse);
-    return;
+    sfVector2f pose = {440, 240};
+    sfVector2f size = {0.5, 0.5};
+
+    m->shop.shop = init_sprit("assets/shop/shop.png", pose, size);
+    size.x = size.y = 1.3;
+    pose.x = 640;
+    pose.y = 440;
+    m->weapons[COMMON_SWORD].sprite = init_sprit(m->weapons[COMMON_SWORD].link_texture, pose, size);
 }
 
 void draw_shop(Global_t *m)
 {
     if (m->current == 9) {
         sfRenderWindow_drawSprite(m->window ,m->shop.shop, NULL);
+        sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SWORD].sprite, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             m->current = 12;
     }

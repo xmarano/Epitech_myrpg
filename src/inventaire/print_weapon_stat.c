@@ -102,7 +102,7 @@ void print_heal_stat(Global_t *m, int who)
 
     sprintf(str, "%s%d\n\n", TABS_5, rng);
     sprintf(str + strlen(str), "%d\t\t\t\t %d\n\n", atk, crit);
-    sprintf(str + strlen(str), "%d\t\t\t\t   heal", accuracy);
+    sprintf(str + strlen(str), "%d\t\t\t\t ----", accuracy);
     sfText_setString(text, str);
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, 35);

@@ -80,17 +80,19 @@ enum WHAT_WEAPONS {
     BOSS7_AXE = 26,
     BOSS8_SWORD = 27,
     HEAL_STICK = 28,
+    POTION = 29,
 };
 
 typedef struct Glob {
     int current;
+    int gold;
     sfVector2i mouse;
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
     Select_t select; /* Leo */
     Perso_t perso[23]; /* Yanis */
-    Weapons_t weapons[29]; /* Yanis */
+    Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
