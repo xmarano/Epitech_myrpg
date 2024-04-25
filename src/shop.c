@@ -21,7 +21,7 @@ static sfSprite *init_spritee(Global_t *m, char *filename, sfVector2f pos, sfVec
     return sprite;
 }
 
-static sfSprite *init_sprit(Global_t *m, char *filename, sfVector2f pos, int w)
+static sfSprite *init_spr(Global_t *m, char *filename, sfVector2f pos, int w)
 {
     m->weapons[w].texture = sfTexture_createFromFile(filename, NULL);
     sfSprite *sprite = sfSprite_create();
@@ -47,29 +47,29 @@ void destroy_shop(Global_t *m)
 
 void init_shop_part2(Global_t *m, sfVector2f pose)
 {
-    pose.y = 305;
+    pose.y = 304;
+    pose.x = 419;
+    m->weapons[10].sprite = init_spr(m, m->weapons[10].link_texture, pose, 10);
+    pose.x += 30;
+    m->weapons[16].sprite = init_spr(m, m->weapons[16].link_texture, pose, 16);
+    pose.x += 30;
+    m->weapons[13].sprite = init_spr(m, m->weapons[13].link_texture, pose, 13);
+    pose.x += 30;
+    m->weapons[7].sprite = init_spr(m, m->weapons[7].link_texture, pose, 7);
+    pose.y = 334;
     pose.x = 420;
-    m->weapons[LEGENDARY_SWORD].sprite = init_sprit(m, m->weapons[LEGENDARY_SWORD].link_texture, pose, 10);
+    m->weapons[18].sprite = init_spr(m, m->weapons[18].link_texture, pose, 18);
     pose.x += 30;
-    m->weapons[LEGENDARY_BOW].sprite = init_sprit(m, m->weapons[LEGENDARY_BOW].link_texture, pose, 16);
+    m->weapons[17].sprite = init_spr(m, m->weapons[17].link_texture, pose, 17);
     pose.x += 30;
-    m->weapons[LEGENDARY_SPEAR].sprite = init_sprit(m, m->weapons[LEGENDARY_SPEAR].link_texture, pose, 13);
+    m->weapons[19].sprite = init_spr(m, m->weapons[19].link_texture, pose, 19);
     pose.x += 30;
-    m->weapons[LEGENDARY_AXE].sprite = init_sprit(m, m->weapons[LEGENDARY_AXE].link_texture, pose, 7);
-    pose.y = 335;
-    pose.x = 420;
-    m->weapons[THUNDER_BOOK].sprite = init_sprit(m, m->weapons[THUNDER_BOOK].link_texture, pose, 18);
-    pose.x += 30;
-    m->weapons[FIRE_BOOK].sprite = init_sprit(m, m->weapons[FIRE_BOOK].link_texture, pose, 17);
-    pose.x += 30;
-    m->weapons[FREEZE_BOOK].sprite = init_sprit(m, m->weapons[FREEZE_BOOK].link_texture, pose, 19);
-    pose.x += 30;
-    m->weapons[POTION].sprite = init_sprit(m, m->weapons[POTION].link_texture, pose, 29);
+    m->weapons[29].sprite = init_spr(m, m->weapons[29].link_texture, pose, 29);
     m->shop.hooved = sfRectangleShape_create();
     sfRectangleShape_setSize(m->shop.hooved, (sfVector2f){19, 19});
-    sfRectangleShape_setPosition(m->shop.hooved, (sfVector2f){424, 246});
-    sfRectangleShape_setFillColor(m->shop.hooved, sfTransparent); // Couleur transparente par défaut
-    sfRectangleShape_setOutlineThickness(m->shop.hooved, 1.4); // Épaisseur de la bordure
+    sfRectangleShape_setPosition(m->shop.hooved, (sfVector2f){422, 247});
+    sfRectangleShape_setFillColor(m->shop.hooved, sfTransparent);
+    sfRectangleShape_setOutlineThickness(m->shop.hooved, 2);
     sfRectangleShape_setOutlineColor(m->shop.hooved, sfBlack);
 }
 
@@ -82,22 +82,23 @@ void init_shop(Global_t *m)
     size.x = size.y = 1.3;
     pose.x = 420;
     pose.y = 245;
-    m->weapons[COMMON_SWORD].sprite = init_sprit(m, m->weapons[COMMON_SWORD].link_texture, pose, 8);
+    m->weapons[8].sprite = init_spr(m, m->weapons[8].link_texture, pose, 8);
     pose.x += 30;
-    m->weapons[COMMON_BOW].sprite = init_sprit(m, m->weapons[COMMON_BOW].link_texture, pose, 14);
+    pose.y -= 1;
+    m->weapons[14].sprite = init_spr(m, m->weapons[14].link_texture, pose, 14);
     pose.x += 30;
-    m->weapons[COMMON_SPEAR].sprite = init_sprit(m, m->weapons[COMMON_SPEAR].link_texture, pose, 11);
+    m->weapons[11].sprite = init_spr(m, m->weapons[11].link_texture, pose, 11);
     pose.x += 30;
-    m->weapons[COMMON_AXE].sprite = init_sprit(m, m->weapons[COMMON_AXE].link_texture, pose, 5);
-    pose.y = 275;
-    pose.x = 420;
-    m->weapons[RARE_SWORD].sprite = init_sprit(m, m->weapons[RARE_SWORD].link_texture, pose, 9);
+    m->weapons[5].sprite = init_spr(m, m->weapons[5].link_texture, pose, 5);
+    pose.y = 274;
+    pose.x = 419;
+    m->weapons[9].sprite = init_spr(m, m->weapons[9].link_texture, pose, 9);
     pose.x += 30;
-    m->weapons[RARE_BOW].sprite = init_sprit(m, m->weapons[RARE_BOW].link_texture, pose, 15);
+    m->weapons[15].sprite = init_spr(m, m->weapons[15].link_texture, pose, 15);
     pose.x += 30;
-    m->weapons[RARE_SPEAR].sprite = init_sprit(m, m->weapons[RARE_SPEAR].link_texture, pose, 12);
+    m->weapons[12].sprite = init_spr(m, m->weapons[12].link_texture, pose, 12);
     pose.x += 30;
-    m->weapons[RARE_AXE].sprite = init_sprit(m, m->weapons[RARE_AXE].link_texture, pose, 6);
+    m->weapons[6].sprite = init_spr(m, m->weapons[6].link_texture, pose, 6);
     init_shop_part2(m, pose);
 }
 
@@ -106,7 +107,7 @@ void move_hover_rect(Global_t *m, int direction) {
     const int num_rows = 4;
     const int spacing_x = 30;
     const int spacing_y = 30;
-    const float move_speed = 0.2f;
+    const float move_speed = 0.15f;
     int current_index = m->shop.hovered_index;
     int new_index = current_index;
     static sfClock *clock = NULL;
@@ -136,9 +137,13 @@ void move_hover_rect(Global_t *m, int direction) {
     }
     if (new_index < 0 || new_index >= num_columns * num_rows)
         return;
+    if (clock != NULL) {
+        sfClock_destroy(clock);
+        clock = NULL;
+    }
     int row = new_index / num_columns;
     int column = new_index % num_columns;
-    sfVector2f current_position = sfSprite_getPosition(m->weapons[COMMON_SWORD].sprite);
+    sfVector2f current_position = sfSprite_getPosition(m->weapons[8].sprite);
     sfVector2f new_position = {
         420 + column * (current_position.x - 420 + spacing_x),
         245 + row * (current_position.y - 245 + spacing_y)
@@ -176,7 +181,8 @@ void draw_shop(Global_t *m)
             move_hover_rect(m, sfKeyUp);
         if (sfKeyboard_isKeyPressed(sfKeyDown))
             move_hover_rect(m, sfKeyDown);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+        if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             m->current = 12;
+        }
     }
 }
