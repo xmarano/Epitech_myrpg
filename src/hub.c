@@ -14,11 +14,11 @@ void init_hub (hub_t *h, Global_t *m)
     h->view = sfView_createFromRect((sfFloatRect){0, 0, 1408, 800});
     h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/map_1.png", NULL);
+    h->texture_hub = sfTexture_createFromFile("maps/map.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
-    h->hitbox = sfImage_createFromFile("maps/map_1.png");
+    h->hitbox = sfImage_createFromFile("maps/map_d.png");
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
     sfSprite_setTextureRect(h->sprite_perso, h->rect);
     sfSprite_setPosition(h->sprite_perso, (sfVector2f){694, 380});
