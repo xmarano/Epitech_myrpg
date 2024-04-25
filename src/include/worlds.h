@@ -44,6 +44,8 @@ typedef struct Shop
     int hovered_index;
     sfSprite *coin;
     sfTexture *Coin;
+    sfSprite *fond;
+    sfTexture *Fond;
 }Shop_t;
 
 typedef struct Zone1

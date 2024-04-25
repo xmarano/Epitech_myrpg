@@ -82,6 +82,7 @@ void init_shop(Global_t *m)
 
     m->shop.shop = init_spritee(m, "assets/shop/shop.png", pose, size);
     m->shop.coin = init_spritee(m, "assets/shop/coin.png", pose, size);
+    m->shop.fond = init_spritee(m, "assets/shop/shop_fond.png", (sfVector2f){0, 0}, (sfVector2f){1, 1});
     size.x = size.y = 1.3;
     pose.x = 420;
     pose.y = 245;
@@ -173,14 +174,18 @@ static void move_coin(Global_t *m)
         sfSprite_setTextureRect(m->shop.coin, rect);
         sfClock_restart(clock);
     }
+    sfSprite_setPosition(m->shop.coin, (sfVector2f){620, 193});
+    sfSprite_setScale(m->shop.coin, (sfVector2f){1.6, 1.6});
+    sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
+    sfSprite_setPosition(m->shop.coin, (sfVector2f){500, 370});
     sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
 }
 
 void draw_shop(Global_t *m)
 {
     if (m->current == 9) {
-        sfRenderWindow_drawSprite(m->window ,m->shop.shop, NULL);
-        move_coin(m);
+        sfRenderWindow_drawSprite(m->window, m->shop.fond, NULL);
+        sfRenderWindow_drawSprite(m->window, m->shop.shop, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SWORD].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_BOW].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SPEAR].sprite, NULL);
@@ -197,6 +202,7 @@ void draw_shop(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->weapons[FIRE_BOOK].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[FREEZE_BOOK].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[POTION].sprite, NULL);
+        move_coin(m);
         sfRenderWindow_drawRectangleShape(m->window, m->shop.hooved, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyLeft))
             move_hover_rect(m, sfKeyLeft);

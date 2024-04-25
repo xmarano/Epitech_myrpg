@@ -35,8 +35,7 @@ void rpg(Global_t *m, hub_t *h)
 
     m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
-    if (m->current != 9)
-        sfRenderWindow_clear(m->window, sfBlack);
+    sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &event))
         event_click(event, m);
     draw_menu(m);
