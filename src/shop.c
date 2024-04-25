@@ -43,6 +43,8 @@ void destroy_shop(Global_t *m)
     sfSprite_destroy(m->weapons[POTION].sprite);
     sfTexture_destroy(m->weapons[POTION].texture);
     sfRectangleShape_destroy(m->shop.hooved);
+    sfSprite_destroy(m->shop.coin);
+    sfTexture_destroy(m->shop.Coin);
 }
 
 void init_shop_part2(Global_t *m, sfVector2f pose)
@@ -79,6 +81,7 @@ void init_shop(Global_t *m)
     sfVector2f size = {0.5, 0.5};
 
     m->shop.shop = init_spritee(m, "assets/shop/shop.png", pose, size);
+    m->shop.coin = init_spritee(m, "assets/shop/coin.png", pose, size);
     size.x = size.y = 1.3;
     pose.x = 420;
     pose.y = 245;
@@ -147,10 +150,32 @@ void move_hover_rect(Global_t *m, int direction) {
     m->shop.hovered_index = new_index;
 }
 
+static void move_coin(Global_t *m)
+{
+    static sfClock *clock = NULL;
+    static sfIntRect rect = {0, 0, 16, 16};
+    sfTime time;
+    float seconds;
+
+    if (clock == NULL)
+        clock = sfClock_create();
+    time = sfClock_getElapsedTime(clock);
+    seconds = sfTime_asSeconds(time);
+    if (seconds > 0.1) {
+        rect.left += 16;
+        if (rect.left >= 144)
+            rect.left = 0;
+        sfSprite_setTextureRect(m->shop.coin, rect);
+        sfClock_restart(clock);
+    }
+    sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
+}
+
 void draw_shop(Global_t *m)
 {
     if (m->current == 9) {
         sfRenderWindow_drawSprite(m->window ,m->shop.shop, NULL);
+        move_coin(m);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SWORD].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_BOW].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SPEAR].sprite, NULL);
