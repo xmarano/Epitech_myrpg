@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
-static roy_select(Global_t *m)
+static void roy_select(Global_t *m)
 {
     sfColor color = sfColor_fromRGB(153, 112, 29);
 
@@ -28,7 +28,7 @@ static roy_select(Global_t *m)
     }
 }
 
-static xmarano_select(Global_t *m)
+static void xmarano_select(Global_t *m)
 {
     sfColor color = sfColor_fromRGB(153, 112, 29);
 
@@ -49,7 +49,7 @@ static xmarano_select(Global_t *m)
     }
 }
 
-static patecarbo_select(Global_t *m)
+static void patecarbo_select(Global_t *m)
 {
     sfColor color = sfColor_fromRGB(153, 112, 29);
 
@@ -70,7 +70,7 @@ static patecarbo_select(Global_t *m)
     }
 }
 
-static infenium_select(Global_t *m)
+static void infenium_select(Global_t *m)
 {
     sfColor color = sfColor_fromRGB(153, 112, 29);
 
@@ -91,7 +91,7 @@ static infenium_select(Global_t *m)
     }
 }
 
-static racaillou_select(Global_t *m)
+static void racaillou_select(Global_t *m)
 {
     sfColor color = sfColor_fromRGB(153, 112, 29);
 
