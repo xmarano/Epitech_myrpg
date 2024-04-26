@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
-static sfRectangleShape *init_button_select(Global_t *m, sfVector2f size, sfVector2f pos)
+static sfRectangleShape *init_b_s(Global_t *m, sfVector2f size, sfVector2f pos)
 {
     sfRectangleShape *shape = sfRectangleShape_create();
     sfFloatRect rect_pos;
@@ -27,7 +27,7 @@ static sfRectangleShape *init_button_select(Global_t *m, sfVector2f size, sfVect
     return shape;
 }
 
-static sfSprite *init_sprite_select(Global_t *m, char *filename, sfVector2f pos)
+static sfSprite *init_s_s(Global_t *m, char *filename, sfVector2f pos)
 {
     sfTexture *texture = sfTexture_createFromFile(filename, NULL);
     sfSprite *sprite = sfSprite_create();
@@ -45,7 +45,7 @@ static sfSprite *init_sprite_select(Global_t *m, char *filename, sfVector2f pos)
     return sprite;
 }
 
-sfText *init_text_select(Global_t *m, char *str, int size, sfVector2f pos)
+sfText *init_t_s(Global_t *m, char *str, int size, sfVector2f pos)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("assets/font.ttf");
@@ -81,36 +81,36 @@ static void check_globalbounds(Global_t *m)
 void init_select_perso(Global_t *m)
 {
     m->select.fond = init_sprite("assets/menu/menu.jpg", (sfVector2f){0, 0});
-    m->select.p1 = init_sprite_select(m, "assets/menu/roy.png", (sfVector2f){-510, -150});
-    m->select.p2 = init_sprite_select(m, "assets/menu/xmarano.png", (sfVector2f){-260, -145});
-    m->select.p3 = init_sprite_select(m, "assets/menu/patecarbo.png", (sfVector2f){-10, -145});
-    m->select.p4 = init_sprite_select(m, "assets/menu/infenium.png", (sfVector2f){245, -160});
-    m->select.p5 = init_sprite_select(m, "assets/menu/racaillou.png", (sfVector2f){520, -145});
-    m->select.p1_w = init_sprite_select(m, "assets/menu/roy_w.png", (sfVector2f){-510, -150});
-    m->select.p2_w = init_sprite_select(m, "assets/menu/xmarano_w.png", (sfVector2f){-260, -145});
-    m->select.p3_w = init_sprite_select(m, "assets/menu/patecarbo_w.png", (sfVector2f){-10, -145});
-    m->select.p4_w = init_sprite_select(m, "assets/menu/infenium_w.png", (sfVector2f){245, -160});
-    m->select.p5_w = init_sprite_select(m, "assets/menu/racaillou_w.png", (sfVector2f){520, -145});
-    m->select.p1_d = init_sprite_select(m, "assets/menu/roy_d.png", (sfVector2f){0, 225});
-    m->select.p2_d = init_sprite_select(m, "assets/menu/xmarano_d.png", (sfVector2f){0, 225});
-    m->select.p3_d = init_sprite_select(m, "assets/menu/patecarbo_d.png", (sfVector2f){0, 225});
-    m->select.p4_d = init_sprite_select(m, "assets/menu/infenium_d.png", (sfVector2f){0, 225});
-    m->select.p5_d = init_sprite_select(m, "assets/menu/racaillou_d.png", (sfVector2f){0, 225});
+    m->select.p1 = init_s_s(m, "assets/menu/roy.png", (sfVector2f){-510, -150});
+    m->select.p2 = init_s_s(m, "assets/menu/xmarano.png", (sfVector2f){-260, -145});
+    m->select.p3 = init_s_s(m, "assets/menu/patecarbo.png", (sfVector2f){-10, -145});
+    m->select.p4 = init_s_s(m, "assets/menu/infenium.png", (sfVector2f){245, -160});
+    m->select.p5 = init_s_s(m, "assets/menu/racaillou.png", (sfVector2f){520, -145});
+    m->select.p1_w = init_s_s(m, "assets/menu/roy_w.png", (sfVector2f){-510, -150});
+    m->select.p2_w = init_s_s(m, "assets/menu/xmarano_w.png", (sfVector2f){-260, -145});
+    m->select.p3_w = init_s_s(m, "assets/menu/patecarbo_w.png", (sfVector2f){-10, -145});
+    m->select.p4_w = init_s_s(m, "assets/menu/infenium_w.png", (sfVector2f){245, -160});
+    m->select.p5_w = init_s_s(m, "assets/menu/racaillou_w.png", (sfVector2f){520, -145});
+    m->select.p1_d = init_s_s(m, "assets/menu/roy_d.png", (sfVector2f){0, 225});
+    m->select.p2_d = init_s_s(m, "assets/menu/xmarano_d.png", (sfVector2f){0, 225});
+    m->select.p3_d = init_s_s(m, "assets/menu/patecarbo_d.png", (sfVector2f){0, 225});
+    m->select.p4_d = init_s_s(m, "assets/menu/infenium_d.png", (sfVector2f){0, 225});
+    m->select.p5_d = init_s_s(m, "assets/menu/racaillou_d.png", (sfVector2f){0, 225});
     m->select.title = init_text(m, "SELECT  A  PLAYER", 100, 0);
-    m->select.button1 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){-500, 25});
-    m->select.button2 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){-250, 25});
-    m->select.button3 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){0, 25});
-    m->select.button4 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){250, 25});
-    m->select.button5 = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){500, 25});
-    m->select.back = init_button_select(m, (sfVector2f){100, 50}, (sfVector2f){-625, -325});
-    m->select.play = init_button_select(m, (sfVector2f){200, 75}, (sfVector2f){550, 325});
-    m->select.back_txt = init_text_select(m, "back", 50, (sfVector2f){-630, -353});
-    m->select.play_txt = init_text_select(m, "play", 70, (sfVector2f){543, 290});
-    m->select.select1 = init_text_select(m, "select", 70, (sfVector2f){-505, -10});
-    m->select.select2 = init_text_select(m, "select", 70, (sfVector2f){-255, -10});
-    m->select.select3 = init_text_select(m, "select", 70, (sfVector2f){-5, -10});
-    m->select.select4 = init_text_select(m, "select", 70, (sfVector2f){245, -10});
-    m->select.select5 = init_text_select(m, "select", 70, (sfVector2f){495, -10});
+    m->select.button1 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-500, 25});
+    m->select.button2 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-250, 25});
+    m->select.button3 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){0, 25});
+    m->select.button4 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){250, 25});
+    m->select.button5 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){500, 25});
+    m->select.back = init_b_s(m, (sfVector2f){100, 50}, (sfVector2f){-625, -325});
+    m->select.play = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){550, 325});
+    m->select.back_txt = init_t_s(m, "back", 50, (sfVector2f){-630, -353});
+    m->select.play_txt = init_t_s(m, "play", 70, (sfVector2f){543, 290});
+    m->select.select1 = init_t_s(m, "select", 70, (sfVector2f){-505, -10});
+    m->select.select2 = init_t_s(m, "select", 70, (sfVector2f){-255, -10});
+    m->select.select3 = init_t_s(m, "select", 70, (sfVector2f){-5, -10});
+    m->select.select4 = init_t_s(m, "select", 70, (sfVector2f){245, -10});
+    m->select.select5 = init_t_s(m, "select", 70, (sfVector2f){495, -10});
     check_globalbounds(m);
 }
 
@@ -225,6 +225,17 @@ static void check_hover(Global_t *m)
     }
 }
 
+static void draw_select_perso2(Global_t *m)
+{
+    sfRenderWindow_drawText(m->window, m->select.select1, NULL);
+    sfRenderWindow_drawText(m->window, m->select.select2, NULL);
+    sfRenderWindow_drawText(m->window, m->select.select3, NULL);
+    sfRenderWindow_drawText(m->window, m->select.select4, NULL);
+    sfRenderWindow_drawText(m->window, m->select.select5, NULL);
+    sfRenderWindow_drawText(m->window, m->select.back_txt, NULL);
+    sfRenderWindow_drawText(m->window, m->select.play_txt, NULL);
+}
+
 void draw_select_perso(Global_t *m)
 {
     if (m->current == 11) {
@@ -243,14 +254,26 @@ void draw_select_perso(Global_t *m)
         sfRenderWindow_drawRectangleShape(m->window, m->select.button5, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.back, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->select.play, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select1, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select2, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select3, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select4, NULL);
-        sfRenderWindow_drawText(m->window, m->select.select5, NULL);
-        sfRenderWindow_drawText(m->window, m->select.back_txt, NULL);
-        sfRenderWindow_drawText(m->window, m->select.play_txt, NULL);
+        draw_select_perso2(m);
     }
+}
+
+static destroy_select_perso2(Global_t *m)
+{
+    sfRectangleShape_destroy(m->select.button1);
+    sfRectangleShape_destroy(m->select.button2);
+    sfRectangleShape_destroy(m->select.button3);
+    sfRectangleShape_destroy(m->select.button4);
+    sfRectangleShape_destroy(m->select.button5);
+    sfRectangleShape_destroy(m->select.play);
+    sfRectangleShape_destroy(m->select.back);
+    sfText_destroy(m->select.play_txt);
+    sfText_destroy(m->select.back_txt);
+    sfText_destroy(m->select.select1);
+    sfText_destroy(m->select.select2);
+    sfText_destroy(m->select.select3);
+    sfText_destroy(m->select.select4);
+    sfText_destroy(m->select.select5);
 }
 
 void destroy_select_perso(Global_t *m)
@@ -272,18 +295,5 @@ void destroy_select_perso(Global_t *m)
     sfSprite_destroy(m->select.p3_d);
     sfSprite_destroy(m->select.p4_d);
     sfSprite_destroy(m->select.p5_d);
-    sfRectangleShape_destroy(m->select.button1);
-    sfRectangleShape_destroy(m->select.button2);
-    sfRectangleShape_destroy(m->select.button3);
-    sfRectangleShape_destroy(m->select.button4);
-    sfRectangleShape_destroy(m->select.button5);
-    sfRectangleShape_destroy(m->select.play);
-    sfRectangleShape_destroy(m->select.back);
-    sfText_destroy(m->select.play_txt);
-    sfText_destroy(m->select.back_txt);
-    sfText_destroy(m->select.select1);
-    sfText_destroy(m->select.select2);
-    sfText_destroy(m->select.select3);
-    sfText_destroy(m->select.select4);
-    sfText_destroy(m->select.select5);
+    destroy_select_perso2(m);
 }
