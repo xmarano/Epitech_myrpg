@@ -34,7 +34,7 @@ typedef struct Menu {
     sfFloatRect text;
 } Menu_t;
 
-typedef struct Select {
+typedef struct S {
     sfSprite *fond;
     sfText *title;
     sfSprite *p1;
@@ -78,6 +78,6 @@ typedef struct Select {
     int p3_select;
     int p4_select;
     int p5_select;
-} Select_t;
+} S_t;
 
 #endif

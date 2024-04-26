@@ -90,7 +90,7 @@ typedef struct Glob {
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
-    Select_t select; /* Leo */
+    S_t s; /* Leo */
     Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
