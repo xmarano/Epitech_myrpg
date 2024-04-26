@@ -80,22 +80,25 @@ enum WHAT_WEAPONS {
     BOSS7_AXE = 26,
     BOSS8_SWORD = 27,
     HEAL_STICK = 28,
+    POTION = 29,
 };
 
 typedef struct Glob {
     int current;
+    int gold;
     sfVector2i mouse;
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
     Select_t select; /* Leo */
     Perso_t perso[23]; /* Yanis */
-    Weapons_t weapons[29]; /* Yanis */
+    Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
     Setting_t setting; /* Tom */
     bool show_mouse;
     hub_t hub; /* leo & tom*/
-    Loading_t loading;
+    Loading_t loading; /*Yanis*/
+    Shop_t shop; /*Yanis*/
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;
@@ -117,6 +120,8 @@ void destroy_loading(Global_t *m);
 void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
 void draw_shop(Global_t *m);
+void init_shop(Global_t *m);
+void destroy_shop(Global_t *m);
 
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);

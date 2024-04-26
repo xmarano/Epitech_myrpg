@@ -36,6 +36,18 @@ typedef struct Loading
     sfTexture *Back_screen;
 }Loading_t;
 
+typedef struct Shop
+{
+    sfSprite *shop;
+    sfTexture *Shop;
+    sfRectangleShape *hooved;
+    int hovered_index;
+    sfSprite *coin;
+    sfTexture *Coin;
+    sfSprite *fond;
+    sfTexture *Fond;
+}Shop_t;
+
 typedef struct Zone1
 {
     /* data */

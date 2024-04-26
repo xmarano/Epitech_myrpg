@@ -67,12 +67,14 @@ int main(int argc, char **argv)
     init_pose(&m);
     init_loading(&m);
     init_hub(&h, &m);
+    init_shop(&m);
     init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
     destroy_hub(&h);
     destroy_inventaire(&m);
     destroy_menu(&m);
+    destroy_shop(&m);
     destroy_select_perso(&m);
     destroy_loading(&m);
     sfClock_destroy(m.clock);

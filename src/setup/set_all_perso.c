@@ -15,7 +15,7 @@ static void init_raca(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(perso->current_weapon, &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Racaillou_axe.png");
     memcpy(&perso->inv_weapon[SLOT1], &weapon[RACAILLOU_AXE], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Racaillou_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Racaillou_armed.png");
     perso->num_weapons_in_inv = 2;
@@ -41,7 +41,7 @@ static void initxmarano(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(perso->current_weapon, &weapon[XMARANO_SPEAR], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Xmarano_spear.png");
     memcpy(&perso->inv_weapon[SLOT1], &weapon[XMARANO_SPEAR], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Xmarano_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Xmarano_armed.png");
     perso->num_weapons_in_inv = 2;
@@ -67,7 +67,7 @@ static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(perso->current_weapon, &weapon[PATECARBO_BOW], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Patecarbo_bow.png");
     memcpy(&perso->inv_weapon[SLOT1], &weapon[PATECARBO_BOW], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Patecarbo_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Patecarbo_armed.png");
     perso->num_weapons_in_inv = 2;
@@ -120,7 +120,7 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(perso->current_weapon, &weapon[ROY], sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     memcpy(&perso->inv_weapon[SLOT1], &weapon[ROY_SWORD], sizeof(Weapons_t));
-    memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
+    memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     //memcpy(&perso->inv_weapon[1], &weapon[COMMON_BOW], sizeof(Weapons_t)); ex ajouter une arme dans inv
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png");
