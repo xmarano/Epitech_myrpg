@@ -34,12 +34,12 @@ static sfSprite *init_spr(Global_t *m, char *filename, sfVector2f pos, int w)
 
 static sfText *init_gold(Global_t *m, sfVector2f pos)
 {
-    m->shop.Font = sfFont_createFromFile("assets/font.ttf");
+    sfFont *font = sfFont_createFromFile("assets/font.ttf");
     sfText *text = sfText_create();
     char str[30];
 
     sprintf(str, "%d", m->gold);
-    sfText_setFont(text, m->shop.Font);
+    sfText_setFont(text, font);
     sfText_setString(text, str); // Définissez le contenu de votre texte ici
     sfText_setColor(text, sfRed);
     sfText_setCharacterSize(text, 18); // Définissez la taille des caractères de votre texte
@@ -98,7 +98,8 @@ void init_shop(Global_t *m)
     m->shop.shop = init_spritee(m, "assets/shop/shop.png", pose, size);
     m->shop.coin = init_spritee(m, "assets/shop/coin.png", pose, size);
     m->shop.fond = init_spritee(m, "assets/shop/shop_fond.png", (sfVector2f){0, 0}, (sfVector2f){1, 1});
-    m->shop.text = init_gold(m, (sfVector2f){578, 193});
+    m->shop.gold = init_gold(m, (sfVector2f){578, 193});
+    m->shop.text = init_gold(m, (sfVector2f){0, 0});
     size.x = size.y = 1.3;
     pose.x = 420;
     pose.y = 245;
@@ -143,9 +144,10 @@ void draw_shop(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->weapons[FIRE_BOOK].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[FREEZE_BOOK].sprite, NULL);
         sfRenderWindow_drawSprite(m->window, m->weapons[POTION].sprite, NULL);
-        sfRenderWindow_drawText(m->window, m->shop.text, NULL);
         move_coin(m);
         sfRenderWindow_drawRectangleShape(m->window, m->shop.hooved, NULL);
+        sfRenderWindow_drawText(m->window, m->shop.gold, NULL);
+        sfRenderWindow_drawText(m->window, m->shop.text, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyLeft))
             move_hover_rect(m, sfKeyLeft);
         if (sfKeyboard_isKeyPressed(sfKeyRight))

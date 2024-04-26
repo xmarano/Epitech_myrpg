@@ -12,27 +12,34 @@
 
 static sfText *init_stats(Global_t *m, int w)
 {
+    char str[30];
+    int atk = m->weapons[w].attack;
+    int rng = m->weapons[w].rng;
+    int crit = m->weapons[w].crit;
+    int acc = m->weapons[w].accuracy;
+
+    if (m->shop.text != NULL) {
+        sfText_destroy(m->shop.text);
+        m->shop.text = NULL;
+    }
+    if (m->shop.Font != NULL) {
+        sfFont_destroy(m->shop.Font);
+        m->shop.Font = NULL;
+    }
     m->shop.Font = sfFont_createFromFile("assets/font.ttf");
     m->shop.text = sfText_create();
-    char str[30];
-
-    sprintf(str, "%d", m->weapons[w].attack);
+    sprintf(str, "%d\n\n%d\n\n%d\n\n%d", atk, rng, crit, acc);
     sfText_setFont(m->shop.text, m->shop.Font);
     sfText_setString(m->shop.text, str); // Définissez le contenu de votre texte ici
     sfText_setColor(m->shop.text, sfRed);
     sfText_setCharacterSize(m->shop.text, 18); // Définissez la taille des caractères de votre texte
-    sfText_setPosition(m->shop.text, (sfVector2f){40, 40}); // Définissez la position de votre texte
-    if (m->shop.text != NULL)
-        sfRenderWindow_drawText(m->window, m->shop.text, NULL);
-    // sfText_destroy(m->shop.text);
-    // sfFont_destroy(m->shop.Font);
+    sfText_setPosition(m->shop.text, (sfVector2f){235, 247});
     return m->shop.text;
 }
 
 static void draw_stats_shop(Global_t *m)
 {
-    init_stats(m, COMMON_SWORD);
-    if (m->shop.hovered_index == 0) // COM SOWRD
+    if (m->shop.hovered_index == 0)
         init_stats(m, COMMON_SWORD);
     if (m->shop.hovered_index == 1)
         init_stats(m, COMMON_BOW);
