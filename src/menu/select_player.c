@@ -53,7 +53,6 @@ sfText *init_t_s(Global_t *m, char *str, int size, sfVector2f pos)
     float pos_y;
     float pos_x;
 
-
     sfText_setFont(text, font);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, sfBlack);
@@ -80,7 +79,20 @@ static void check_globalbounds(Global_t *m)
 
 static void init_select_perso2(Global_t *m)
 {
-    
+    m->s.button1 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-500, 25});
+    m->s.button2 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-250, 25});
+    m->s.button3 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){0, 25});
+    m->s.button4 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){250, 25});
+    m->s.button5 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){500, 25});
+    m->s.back = init_b_s(m, (sfVector2f){100, 50}, (sfVector2f){-625, -325});
+    m->s.play = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){550, 325});
+    m->s.back_txt = init_t_s(m, "back", 50, (sfVector2f){-630, -353});
+    m->s.play_txt = init_t_s(m, "play", 70, (sfVector2f){543, 290});
+    m->s.select1 = init_t_s(m, "select", 70, (sfVector2f){-505, -10});
+    m->s.select2 = init_t_s(m, "select", 70, (sfVector2f){-255, -10});
+    m->s.select3 = init_t_s(m, "select", 70, (sfVector2f){-5, -10});
+    m->s.select4 = init_t_s(m, "select", 70, (sfVector2f){245, -10});
+    m->s.select5 = init_t_s(m, "select", 70, (sfVector2f){495, -10});
 }
 
 void init_select_perso(Global_t *m)
@@ -103,132 +115,7 @@ void init_select_perso(Global_t *m)
     m->s.p5_d = init_s_s(m, "assets/menu/r2_d.png", (sfVector2f){0, 225});
     m->s.title = init_text(m, "SELECT  A  PLAYER", 100, 0);
     init_select_perso2(m);
-    m->s.button1 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-500, 25});
-    m->s.button2 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){-250, 25});
-    m->s.button3 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){0, 25});
-    m->s.button4 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){250, 25});
-    m->s.button5 = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){500, 25});
-    m->s.back = init_b_s(m, (sfVector2f){100, 50}, (sfVector2f){-625, -325});
-    m->s.play = init_b_s(m, (sfVector2f){200, 75}, (sfVector2f){550, 325});
-    m->s.back_txt = init_t_s(m, "back", 50, (sfVector2f){-630, -353});
-    m->s.play_txt = init_t_s(m, "play", 70, (sfVector2f){543, 290});
-    m->s.select1 = init_t_s(m, "select", 70, (sfVector2f){-505, -10});
-    m->s.select2 = init_t_s(m, "select", 70, (sfVector2f){-255, -10});
-    m->s.select3 = init_t_s(m, "select", 70, (sfVector2f){-5, -10});
-    m->s.select4 = init_t_s(m, "select", 70, (sfVector2f){245, -10});
-    m->s.select5 = init_t_s(m, "select", 70, (sfVector2f){495, -10});
     check_globalbounds(m);
-}
-
-static void check_hover(Global_t *m)
-{
-    /*  ROY  */
-    hover(m, m->s.button1, &m->s.gb_b1);
-    if (sfFloatRect_contains(&m->s.gb_b1, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            m->s.p1_select = 1;
-            sfRectangleShape_setFillColor(m->s.button1, sfColor_fromRGB(153, 112, 29));
-            m->perso->current_perso = ROY;
-        }
-    }
-    if (m->s.p1_select == 1) {
-        sfRenderWindow_drawSprite(m->window, m->s.p1_w, NULL);
-        sfRenderWindow_drawSprite(m->window, m->s.p1_d, NULL);
-        m->s.p2_select = 0;
-        m->s.p3_select = 0;
-        m->s.p4_select = 0;
-        m->s.p5_select = 0;
-    }
-
-    /*  XMARANO  */
-    hover(m, m->s.button2, &m->s.gb_b2);
-    if (sfFloatRect_contains(&m->s.gb_b2, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            m->s.p2_select = 1;
-            sfRectangleShape_setFillColor(m->s.button2, sfColor_fromRGB(153, 112, 29));
-            m->perso->current_perso = XMARANO;
-        }
-    }
-    if (m->s.p2_select == 1) {
-        sfRenderWindow_drawSprite(m->window, m->s.p2_w, NULL);
-        sfRenderWindow_drawSprite(m->window, m->s.p2_d, NULL);
-        m->s.p1_select = 0;
-        m->s.p3_select = 0;
-        m->s.p4_select = 0;
-        m->s.p5_select = 0;
-    }
-
-    /*  PATECARBO  */
-    hover(m, m->s.button3, &m->s.gb_b3);
-    if (sfFloatRect_contains(&m->s.gb_b3, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            m->s.p3_select = 1;
-            sfRectangleShape_setFillColor(m->s.button3, sfColor_fromRGB(153, 112, 29));
-            m->perso->current_perso = PATECARBO;
-        }
-    }
-    if (m->s.p3_select == 1) {
-        sfRenderWindow_drawSprite(m->window, m->s.p3_w, NULL);
-        sfRenderWindow_drawSprite(m->window, m->s.p3_d, NULL);
-        m->s.p1_select = 0;
-        m->s.p2_select = 0;
-        m->s.p4_select = 0;
-        m->s.p5_select = 0;
-    }
-
-    /*  INFENIUM  */
-    hover(m, m->s.button4, &m->s.gb_b4);
-    if (sfFloatRect_contains(&m->s.gb_b4, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            m->s.p4_select = 1;
-            sfRectangleShape_setFillColor(m->s.button4, sfColor_fromRGB(153, 112, 29));
-            m->perso->current_perso = INFENIUM;
-        }
-    }
-    if (m->s.p4_select == 1) {
-        sfRenderWindow_drawSprite(m->window, m->s.p4_w, NULL);
-        sfRenderWindow_drawSprite(m->window, m->s.p4_d, NULL);
-        m->s.p1_select = 0;
-        m->s.p2_select = 0;
-        m->s.p3_select = 0;
-        m->s.p5_select = 0;
-    }
-
-    /*  RACAILLOU  */
-    hover(m, m->s.button5, &m->s.gb_b5);
-    if (sfFloatRect_contains(&m->s.gb_b5, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            m->s.p5_select = 1;
-            sfRectangleShape_setFillColor(m->s.button5, sfColor_fromRGB(153, 112, 29));
-            m->perso->current_perso = RACAILLOU;
-        }
-    }
-    if (m->s.p5_select == 1) {
-        sfRenderWindow_drawSprite(m->window, m->s.p5_w, NULL);
-        sfRenderWindow_drawSprite(m->window, m->s.p5_d, NULL);
-        m->s.p1_select = 0;
-        m->s.p2_select = 0;
-        m->s.p3_select = 0;
-        m->s.p4_select = 0;
-    }
-
-    /*  PLAY  */
-    hover(m, m->s.play, &m->s.gb_play);
-    if (sfFloatRect_contains(&m->s.gb_play, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            //destroy_select_perso(m);
-            m->current = 14;
-        }
-    }
-
-    /*  Back  */
-    hover(m, m->s.back, &m->s.gb_back);
-    if (sfFloatRect_contains(&m->s.gb_back, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            //destroy_select_perso(m);
-            m->current = 10;
-        }
-    }
 }
 
 static void draw_select_perso2(Global_t *m)
@@ -251,7 +138,7 @@ void draw_select_perso(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->s.p3, NULL);
         sfRenderWindow_drawSprite(m->window, m->s.p4, NULL);
         sfRenderWindow_drawSprite(m->window, m->s.p5, NULL);
-        check_hover(m);
+        check_hover_select(m);
         sfRenderWindow_drawText(m->window, m->s.title, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->s.button1, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->s.button2, NULL);
@@ -264,7 +151,7 @@ void draw_select_perso(Global_t *m)
     }
 }
 
-static destroy_select_perso2(Global_t *m)
+static void destroy_select_perso2(Global_t *m)
 {
     sfRectangleShape_destroy(m->s.button1);
     sfRectangleShape_destroy(m->s.button2);

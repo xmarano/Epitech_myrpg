@@ -112,7 +112,7 @@ int setup_stat(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
 void destroy_menu(Global_t *m);
-
+void check_hover_select(Global_t *m);
 void init_select_perso(Global_t *m);
 void draw_select_perso(Global_t *m);
 void destroy_select_perso(Global_t *m);
