@@ -96,7 +96,12 @@ void moveCharacter(Global_t *m, hub_t *hub) {
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 20));
     if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1375 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 760) {
         sfSprite_move(hub->sprite_perso, hub->movement);
-        sfView_move(hub->view, hub->movement);
+        if (hub->pos_sprite.x + hub->movement.x > 408 && hub->pos_sprite.x + hub->movement.x < 1375 - 408) {
+            sfView_move(hub->view, (sfVector2f){hub->movement.x, 0});
+        }
+        if (hub->pos_sprite.y + hub->movement.y > 217 && hub->pos_sprite.y + hub->movement.y < 750 - 213) {
+            sfView_move(hub->view, (sfVector2f){0, hub->movement.y});
+        }
     }
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
