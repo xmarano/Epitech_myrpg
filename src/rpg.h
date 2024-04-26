@@ -122,6 +122,8 @@ void loading_screen(Global_t *m);
 void draw_shop(Global_t *m);
 void init_shop(Global_t *m);
 void destroy_shop(Global_t *m);
+void move_coin(Global_t *m);
+void move_hover_rect(Global_t *m, int direction);
 
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);

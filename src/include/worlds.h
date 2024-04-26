@@ -46,6 +46,8 @@ typedef struct Shop
     sfTexture *Coin;
     sfSprite *fond;
     sfTexture *Fond;
+    sfText *text;
+    sfFont *Font;
 }Shop_t;
 
 typedef struct Zone1

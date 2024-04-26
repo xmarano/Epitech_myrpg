@@ -41,10 +41,10 @@ void rpg(Global_t *m, hub_t *h)
     draw_menu(m);
     draw_select_perso(m);
     draw_setting(m);
+    draw_shop(m);
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
-    draw_shop(m);
     loading_screen(m);
     sfRenderWindow_display(m->window);
 }
@@ -64,10 +64,10 @@ int main(int argc, char **argv)
     setup_stat(&m);
     init_menu(&m);
     init_inventaire(&m);
+    init_shop(&m);
     init_pose(&m);
     init_loading(&m);
     init_hub(&h, &m);
-    init_shop(&m);
     init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h);
