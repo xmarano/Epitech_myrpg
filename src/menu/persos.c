@@ -114,41 +114,22 @@ static racaillou_select(Global_t *m)
 
 void check_hover_select(Global_t *m)
 {
-    /*  ROY  */
     hover(m, m->s.button1, &m->s.gb_b1);
     roy_select(m);
-
-    /*  XMARANO  */
     hover(m, m->s.button2, &m->s.gb_b2);
     xmarano_select(m);
-
-    /*  PATECARBO  */
     hover(m, m->s.button3, &m->s.gb_b3);
     patecarbo_select(m);
-
-    /*  INFENIUM  */
     hover(m, m->s.button4, &m->s.gb_b4);
     infenium_select(m);
-
-    /*  RACAILLOU  */
     hover(m, m->s.button5, &m->s.gb_b5);
     racaillou_select(m);
-
-    /*  PLAY  */
     hover(m, m->s.play, &m->s.gb_play);
-    if (sfFloatRect_contains(&m->s.gb_play, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            //destroy_select_perso(m);
+    if (sfFloatRect_contains(&m->s.gb_play, m->mouse.x, m->mouse.y))
+        if (sfMouse_isButtonPressed(sfMouseLeft))
             m->current = 14;
-        }
-    }
-
-    /*  Back  */
     hover(m, m->s.back, &m->s.gb_back);
-    if (sfFloatRect_contains(&m->s.gb_back, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            //destroy_select_perso(m);
+    if (sfFloatRect_contains(&m->s.gb_back, m->mouse.x, m->mouse.y))
+        if (sfMouse_isButtonPressed(sfMouseLeft))
             m->current = 10;
-        }
-    }
 }
