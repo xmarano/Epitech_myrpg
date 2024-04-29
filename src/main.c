@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 
     if (argc != 1)
         return 84;
-    m.perso->is_visible == false;
+    m.perso->is_visible = false;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
     import_weapons_stats(&m);
