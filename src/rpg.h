@@ -109,6 +109,7 @@ typedef struct Glob {
 void draw_mouse(Global_t *m);
 int import_weapons_stats(Global_t *m);
 int setup_stat(Global_t *m);
+void draw_stats_shop(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
 void destroy_menu(Global_t *m);
@@ -124,7 +125,7 @@ void init_shop(Global_t *m);
 void destroy_shop(Global_t *m);
 void move_coin(Global_t *m);
 void move_hover_rect(Global_t *m, int direction);
-
+void select_perso(Global_t *m);
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
@@ -136,6 +137,7 @@ void click(Global_t *m, sfFloatRect *rect, int current);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
 void destroy_setting(Global_t *m);
+sfText *init_stats(Global_t *m, int w);
 void draw_inventaire(Global_t *m);
 void event_setting(sfEvent event, Global_t *m);
 int set_boss(Global_t *m);

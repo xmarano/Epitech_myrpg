@@ -10,13 +10,14 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-static sfText *init_stats(Global_t *m, int w)
+sfText *init_stats(Global_t *m, int w)
 {
-    char str[30];
+    char str[50];
     int atk = m->weapons[w].attack;
     int rng = m->weapons[w].rng;
     int crit = m->weapons[w].crit;
     int acc = m->weapons[w].accuracy;
+    int cost = m->weapons[w].cost;
 
     if (m->shop.text != NULL) {
         sfText_destroy(m->shop.text);
@@ -28,16 +29,20 @@ static sfText *init_stats(Global_t *m, int w)
     }
     m->shop.Font = sfFont_createFromFile("assets/font.ttf");
     m->shop.text = sfText_create();
-    sprintf(str, "%d\n\n%d\n\n%d\n\n%d", atk, rng, crit, acc);
+    sprintf(str, "%d\n\n%d\n\n%d\n\n%d\n\n\n%s%s%d", atk, rng, crit, acc, TABS_5, TABS_6, cost);
     sfText_setFont(m->shop.text, m->shop.Font);
-    sfText_setString(m->shop.text, str); // Définissez le contenu de votre texte ici
+    sfText_setString(m->shop.text, str);
     sfText_setColor(m->shop.text, sfRed);
-    sfText_setCharacterSize(m->shop.text, 18); // Définissez la taille des caractères de votre texte
+    sfText_setCharacterSize(m->shop.text, 18);
     sfText_setPosition(m->shop.text, (sfVector2f){235, 247});
+    if (m->weapons[w].cost > m->gold) {
+        m->shop.is_lock = true;
+        sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
+    }
     return m->shop.text;
 }
 
-static void draw_stats_shop(Global_t *m)
+void draw_stats_shop(Global_t *m)
 {
     if (m->shop.hovered_index == 0)
         init_stats(m, COMMON_SWORD);
@@ -150,6 +155,6 @@ void move_hover_rect(Global_t *m, int direction)
         245 + row * (current_position.y - 245 + spacing_y)
     };
     sfRectangleShape_setPosition(m->shop.hooved, new_position);
+    sfSprite_setPosition(m->shop.lock, new_position);
     m->shop.hovered_index = new_index;
-    draw_stats_shop(m);
 }
