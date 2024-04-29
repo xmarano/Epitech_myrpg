@@ -87,6 +87,7 @@ typedef struct Glob {
     int current;
     int gold;
     sfVector2i mouse;
+    sfEvent event;
     sfRenderWindow *window;
     sfClock *clock;
     Menu_t menu; /* Leo */
@@ -110,8 +111,10 @@ void draw_mouse(Global_t *m);
 int import_weapons_stats(Global_t *m);
 int setup_stat(Global_t *m);
 void draw_stats_shop(Global_t *m);
+void update_purchase_state(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
+void import_weapon_inv(Global_t *m, int w);
 void destroy_menu(Global_t *m);
 void check_hover_select(Global_t *m);
 void init_select_perso(Global_t *m);

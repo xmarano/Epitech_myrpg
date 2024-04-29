@@ -36,8 +36,13 @@ sfText *init_stats(Global_t *m, int w)
     sfText_setCharacterSize(m->shop.text, 18);
     sfText_setPosition(m->shop.text, (sfVector2f){235, 247});
     if (m->weapons[w].cost > m->gold) {
-        m->shop.is_lock = true;
         sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
+    }
+    if (m->event.type == sfEvtKeyReleased) {
+        if (m->event.key.code == sfKeyB) {
+            if (m->weapons[w].cost < m->gold && m->perso->num_weapons_in_inv < 5)
+                import_weapon_inv(m, w);
+        }
     }
     return m->shop.text;
 }
@@ -99,7 +104,7 @@ void move_coin(Global_t *m)
     sfSprite_setPosition(m->shop.coin, (sfVector2f){627, 195});
     sfSprite_setScale(m->shop.coin, (sfVector2f){1.2, 1.2});
     sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
-    sfSprite_setPosition(m->shop.coin, (sfVector2f){500, 370});
+    sfSprite_setPosition(m->shop.coin, (sfVector2f){500, 375});
     sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
     if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) >= 0.1f) {
         sfClock_destroy(clock);
@@ -113,7 +118,6 @@ void move_hover_rect(Global_t *m, int direction)
     const int num_rows = 4;
     const int spacing_x = 30;
     const int spacing_y = 30;
-    const float move_speed = 0.15f;
     int current_index = m->shop.hovered_index;
     int new_index = current_index;
     static sfClock *clock = NULL;
@@ -124,7 +128,7 @@ void move_hover_rect(Global_t *m, int direction)
         clock = sfClock_create();
     elapsed = sfClock_getElapsedTime(clock);
     elapsed_seconds = sfTime_asSeconds(elapsed);
-    if (elapsed_seconds < move_speed)
+    if (elapsed_seconds < 0.15f)
         return;
     sfClock_restart(clock);
     switch (direction) {

@@ -49,11 +49,15 @@ typedef struct Shop
     sfTexture *Fond;
     sfText *text;
     sfFont *Font;
-    int is_select;
+    bool is_select;
     sfSprite *all_head;
     sfSprite *cursor;
     sfSprite *lock;
     bool is_lock;
+    sfVector2f cursor_pose;
+    int buyer;
+    bool purchase_pending;
+    sfClock *purchase_clock;
 }Shop_t;
 
 typedef struct Zone1

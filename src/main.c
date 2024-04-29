@@ -8,36 +8,23 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
-void event_click(sfEvent event, Global_t *m)
+void event_click(Global_t *m)
 {
-    if (event.type == sfEvtClosed || m->current == -1)
+    if (m->event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
     if (m->current == 12)
-        inventory(m, event);
+        inventory(m, m->event);
     if (m->current == 13)
-        event_setting(event, m);
-}
-
-void clock(Global_t *m)
-{
-    sfTime time = sfClock_getElapsedTime(m->clock);
-    float seconds;
-
-    seconds = time.microseconds / 1000000.0;
-    if (seconds > 0.1) {
-        sfClock_restart(m->clock);
-    }
+        event_setting(m->event, m);
 }
 
 void rpg(Global_t *m, hub_t *h)
 {
-    sfEvent event;
-
     m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
     sfRenderWindow_clear(m->window, sfBlack);
-    while (sfRenderWindow_pollEvent(m->window, &event))
-        event_click(event, m);
+    while (sfRenderWindow_pollEvent(m->window, &m->event))
+        event_click(m);
     draw_menu(m);
     draw_select_perso(m);
     draw_setting(m);
