@@ -39,13 +39,8 @@ void draw_hub(Global_t *m, hub_t *h)
             }
             sfRenderWindow_setView(m->window, h->view);
         }
-        if (sfKeyboard_isKeyPressed(sfKeyO)) {
-            sfRenderWindow_setView(m->window, h->normal_view);  // a retirer
-            m->current = 14;
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyH)) {
+        if (sfKeyboard_isKeyPressed(sfKeyH))
             m->current = 9;
-        }
         if (h->texture_perso != NULL) {
             sfTexture_destroy(h->texture_perso);
             h->texture_perso = NULL;
@@ -58,7 +53,8 @@ void draw_hub(Global_t *m, hub_t *h)
     }
 }
 
-void moveCharacter(Global_t *m, hub_t *hub) {
+void moveCharacter(Global_t *m, hub_t *hub)
+{
     int tic = 0;
     float seconds;
 

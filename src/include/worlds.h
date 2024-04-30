@@ -24,8 +24,7 @@ typedef struct hub {
     sfView *normal_view;
 } hub_t;
 
-typedef struct Loading
-{
+typedef struct Loading {
     sfSprite *vert;
     sfSprite *fond;
     sfSprite *text;
@@ -36,8 +35,7 @@ typedef struct Loading
     sfTexture *Back_screen;
 }Loading_t;
 
-typedef struct Shop
-{
+typedef struct Shop {
     sfSprite *shop;
     sfTexture *Shop;
     sfRectangleShape *hooved;
@@ -60,23 +58,19 @@ typedef struct Shop
     sfClock *purchase_clock;
 }Shop_t;
 
-typedef struct Zone1
-{
+typedef struct Zone1 {
     /* data */
 }Zone1_t;
 
-typedef struct Zone2
-{
+typedef struct Zone2 {
     /* data */
 }Zone2_t;
 
-typedef struct Zone3
-{
+typedef struct Zone3 {
     /* data */
 }Zone3_t;
 
-typedef struct Zone8
-{
+typedef struct Zone8 {
     /* data */
 }Zone8_t;
 
