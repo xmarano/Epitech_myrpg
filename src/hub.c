@@ -88,8 +88,10 @@ void moveCharacter(Global_t *m, hub_t *hub)
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
     hub->what_word = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
-    if ((hub->what_word.r == 50 && hub->what_word.b == 50 && hub->what_word.g == 50) || sfKeyboard_isKeyPressed(sfKeyH))
-            m->current = 9;
+    if ((hub->what_word.r == 50 && hub->what_word.g == 50 && hub->what_word.b == 50) || sfKeyboard_isKeyPressed(sfKeyH)) {
+        m->shop.is_select = false;
+        m->current = 9; // open shop
+    }
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
     if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1375 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 760) {
         sfSprite_move(hub->sprite_perso, hub->movement);

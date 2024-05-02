@@ -55,9 +55,8 @@ typedef struct Shop {
     bool is_lock;
     sfVector2f cursor_pose;
     int buyer;
-    bool purchase_pending;
-    sfClock *purchase_clock;
     sfSprite *contour;
+    sfClock *buy_clock;
 }Shop_t;
 
 typedef struct Zone1 {

@@ -18,11 +18,13 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
+    #include <time.h>
     #define SPEED 2
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
     #define TABS_5 "\t\t\t\t\t"
+    #define DELAY_BETWEEN_BUYS 100
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
@@ -125,6 +127,7 @@ void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
 void draw_shop(Global_t *m);
 void init_shop(Global_t *m);
+void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt);
 void destroy_shop(Global_t *m);
 void move_coin(Global_t *m);
 void move_hover_rect(Global_t *m, int direction);

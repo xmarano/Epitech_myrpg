@@ -10,6 +10,24 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
+static int check_buy_delay(Global_t *m)
+{
+    sfTime elapsed_time;
+    float seconds;
+
+    if (!m->shop.buy_clock) {
+        m->shop.buy_clock = sfClock_create();
+    }
+    elapsed_time = sfClock_getElapsedTime(m->shop.buy_clock);
+    seconds = sfTime_asSeconds(elapsed_time);
+    if (seconds >= 0.5f) {
+        sfClock_restart(m->shop.buy_clock);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 sfText *init_stats(Global_t *m, int w)
 {
     char str[50];
@@ -35,14 +53,11 @@ sfText *init_stats(Global_t *m, int w)
     sfText_setColor(m->shop.text, sfRed);
     sfText_setCharacterSize(m->shop.text, 18);
     sfText_setPosition(m->shop.text, (sfVector2f){235, 265});
-    if (m->weapons[w].cost > m->gold) {
+    if (m->weapons[w].cost > m->gold)
         sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
-    }
-    if (m->event.type == sfEvtKeyReleased) {
-        if (m->event.key.code == sfKeyB) {
-            if (m->weapons[w].cost < m->gold && m->perso->num_weapons_in_inv < 5)
-                import_weapon_inv(m, w);
-        }
+    if ((sfKeyboard_isKeyPressed(sfKeyB)) && check_buy_delay(m)) {
+        if (m->weapons[w].cost < m->gold && m->perso->num_weapons_in_inv < 5)
+            import_weapon_inv(m, w);
     }
     return m->shop.text;
 }

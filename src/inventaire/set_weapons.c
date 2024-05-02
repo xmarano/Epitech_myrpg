@@ -36,7 +36,7 @@ static void destroyer(sfText *text, sfFont *font,
     sfFont_destroy(font);
 }
 
-static void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt)
+void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt)
 {
     int who = m->perso->current_perso;
     sfSprite *weapon = sfSprite_create();
@@ -195,10 +195,22 @@ void weapons_inv_stat(Global_t *m)
 {
     int who = m->perso->current_perso;
     sfVector2f empty_sprite_pose = {980, 519};
-    sfVector2f err_text = {1050, 506};
+    sfVector2f err_text = {1050, 0};
 
-    weapon_slot1(m, who);
-    heal_stick(m, who);
+    empty_sprite_pose.y = 463;
+    err_text.y = 426;
+    if (m->perso[who].num_weapons_in_inv >= 1)
+        weapon_slot1(m, who);
+    else
+        empty_slot(m, empty_sprite_pose, err_text);
+    empty_sprite_pose.y = 481;
+    err_text.y = 466;
+    if (m->perso[who].num_weapons_in_inv >= 2)
+        heal_stick(m, who);
+    else
+        empty_slot(m, empty_sprite_pose, err_text);
+    empty_sprite_pose.y = 519;
+    err_text.y = 506; // new
     if (m->perso[who].num_weapons_in_inv >= 3)
         weapon_slot3(m, who);
     else
