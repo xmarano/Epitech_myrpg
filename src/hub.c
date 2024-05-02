@@ -89,7 +89,7 @@ void moveCharacter(Global_t *m, hub_t *hub)
         sfClock_restart(m->clock);
     }
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
-    hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 20));
+    hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
     if (hub->color.r != 255 && hub->pos_sprite.x + hub->movement.x > 0 && hub->pos_sprite.x + hub->movement.x < 1375 && hub->pos_sprite.y + hub->movement.y > 0 && hub->pos_sprite.y + hub->movement.y < 760) {
         sfSprite_move(hub->sprite_perso, hub->movement);
         if (hub->pos_sprite.x + hub->movement.x > 408 && hub->pos_sprite.x + hub->movement.x < 1375 - 408) {

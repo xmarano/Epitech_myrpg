@@ -60,6 +60,7 @@ void destroy_shop(Global_t *m)
     sfSprite_destroy(m->shop.coin);
     sfTexture_destroy(m->shop.Coin);
     sfSprite_destroy(m->shop.lock);
+    sfSprite_destroy(m->shop.contour);
 }
 
 static void init_shop_part4(Global_t *m)
@@ -131,6 +132,7 @@ void init_shop(Global_t *m)
     m->shop.cursor = init_spritee(m, "assets/shop/cursor.png", m->shop.cursor_pose, (sfVector2f){0.2, 0.2});
     m->shop.fond = init_spritee(m, "assets/shop/shop_fond.png", (sfVector2f){0, 0}, (sfVector2f){1, 1});
     m->shop.lock = init_spritee(m, "assets/shop/lock.png", (sfVector2f){-300, -300}, (sfVector2f){0.5, 0.5});
+    m->shop.contour = init_spritee(m, "assets/shop/contour.png", (sfVector2f){170, 83}, (sfVector2f){0.52, 0.52});
     m->shop.gold = init_gold(m, (sfVector2f){578, 193});
     size.x = size.y = 1.3;
     init_shop_part2(m, pose);

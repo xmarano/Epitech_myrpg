@@ -29,12 +29,12 @@ sfText *init_stats(Global_t *m, int w)
     }
     m->shop.Font = sfFont_createFromFile("assets/font.ttf");
     m->shop.text = sfText_create();
-    sprintf(str, "%d\n\n%d\n\n%d\n\n%d\n\n\n%s%s%d", atk, rng, crit, acc, TABS_5, TABS_6, cost);
+    sprintf(str, "%d\n\n%d\n\n%d\n\n%d\n\n%s%s%d", atk, rng, crit, acc, TABS_5, TABS_6, cost);
     sfText_setFont(m->shop.text, m->shop.Font);
     sfText_setString(m->shop.text, str);
     sfText_setColor(m->shop.text, sfRed);
     sfText_setCharacterSize(m->shop.text, 18);
-    sfText_setPosition(m->shop.text, (sfVector2f){235, 247});
+    sfText_setPosition(m->shop.text, (sfVector2f){235, 265});
     if (m->weapons[w].cost > m->gold) {
         sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
     }

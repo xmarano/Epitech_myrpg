@@ -56,6 +56,7 @@ typedef struct Shop {
     int buyer;
     bool purchase_pending;
     sfClock *purchase_clock;
+    sfSprite *contour;
 }Shop_t;
 
 typedef struct Zone1 {

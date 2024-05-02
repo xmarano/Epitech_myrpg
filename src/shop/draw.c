@@ -25,6 +25,7 @@ void draw_all_shop(Global_t *m)
 {
     sfRenderWindow_drawSprite(m->window, m->shop.fond, NULL);
     sfRenderWindow_drawSprite(m->window, m->shop.shop, NULL);
+    sfRenderWindow_drawSprite(m->window, m->shop.contour, NULL);
     sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SWORD].sprite, NULL);
     sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_BOW].sprite, NULL);
     sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SPEAR].sprite, NULL);
