@@ -141,7 +141,10 @@ static void print_sprite(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyE) || sfKeyboard_isKeyPressed(sfKeyLeft) || sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE) ||
+    sfKeyboard_isKeyPressed(sfKeyLeft) ||
+    sfKeyboard_isKeyPressed(sfKeyRight) ||
+    sfKeyboard_isKeyPressed(sfKeyDown)) {
         print_sprite(m);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown))

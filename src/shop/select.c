@@ -13,51 +13,27 @@
 void import_weapon_inv(Global_t *m, int w)
 {
     int who = m->shop.buyer;
+    Perso_t *character;
+    Weapons_t *weap;
 
-    if (who == 0) {
-        if (m->perso[XMARANO].num_weapons_in_inv < 5) {
-            memcpy(&m->perso[XMARANO].inv_weapon[m->perso[XMARANO].num_weapons_in_inv], &m->weapons[w], sizeof(Weapons_t));
-            m->perso[XMARANO].num_weapons_in_inv++;
-            printf("buyed\n");
+    if (who == 0)
+        character = &m->perso[XMARANO];
+    if (who == 1)
+        character = &m->perso[ROY];
+    if (who == 2)
+        character = &m->perso[RACAILLOU];
+    if (who == 3)
+        character = &m->perso[PATECARBO];
+    if (who == 4)
+        character = &m->perso[INFENIUM];
+    weap = character->inv_weapon;
+    for (int i = 0; i < 5; i++) {
+        if (weap[i].is_empty == true) {
+            memcpy(&weap[i], &m->weapons[w], sizeof(Weapons_t));
             m->gold -= m->weapons[w].cost;
+            weap[i].is_empty = false;
+            return;
         }
-        return;
-    }
-    if (who == 1) {
-        if (m->perso[ROY].num_weapons_in_inv < 5) {
-            memcpy(&m->perso[ROY].inv_weapon[m->perso[ROY].num_weapons_in_inv], &m->weapons[w], sizeof(Weapons_t));
-            m->perso[ROY].num_weapons_in_inv++;
-            printf("buyed\n");
-            m->gold -= m->weapons[w].cost;
-        }
-        return;
-    }
-    if (who == 2) {
-        if (m->perso[RACAILLOU].num_weapons_in_inv < 5) {
-            memcpy(&m->perso[RACAILLOU].inv_weapon[m->perso[RACAILLOU].num_weapons_in_inv], &m->weapons[w], sizeof(Weapons_t));
-            m->perso[RACAILLOU].num_weapons_in_inv++;
-            printf("buyed\n");
-            m->gold -= m->weapons[w].cost;
-        }
-        return;
-    }
-    if (who == 3) {
-        if (m->perso[PATECARBO].num_weapons_in_inv < 5) {
-            memcpy(&m->perso[PATECARBO].inv_weapon[m->perso[PATECARBO].num_weapons_in_inv], &m->weapons[w], sizeof(Weapons_t));
-            m->perso[PATECARBO].num_weapons_in_inv++;
-            printf("buyed\n");
-            m->gold -= m->weapons[w].cost;
-        }
-        return;
-    }
-    if (who == 4) {
-        if (m->perso[INFENIUM].num_weapons_in_inv < 5) {
-            memcpy(&m->perso[INFENIUM].inv_weapon[m->perso[INFENIUM].num_weapons_in_inv], &m->weapons[w], sizeof(Weapons_t));
-            m->perso[INFENIUM].num_weapons_in_inv++;
-            printf("buyed\n");
-            m->gold -= m->weapons[w].cost;
-        }
-        return;
     }
 }
 
@@ -80,7 +56,8 @@ void select_perso(Global_t *m)
             m->shop.cursor_pose.x += 40;
             sfSprite_setPosition(m->shop.cursor, m->shop.cursor_pose);
         }
-    } else if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
         if (cursor_position > 0) {
             cursor_position--;
             m->shop.cursor_pose.x -= 40;

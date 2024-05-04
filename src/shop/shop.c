@@ -10,12 +10,13 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-static sfSprite *init_spritee(Global_t *m, char *filename, sfVector2f pos, sfVector2f size)
+static sfSprite *init_spritee(Global_t *m, char *filename,
+    sfVector2f pos, sfVector2f size)
 {
     sfTexture *texture = sfTexture_createFromFile(filename, NULL);
     sfSprite *sprite = sfSprite_create();
 
-    sfSprite_setTexture(sprite ,texture, sfTrue);
+    sfSprite_setTexture(sprite, texture, sfTrue);
     sfSprite_setScale(sprite, size);
     sfSprite_setPosition(sprite, pos);
     return sprite;
@@ -23,9 +24,9 @@ static sfSprite *init_spritee(Global_t *m, char *filename, sfVector2f pos, sfVec
 
 static sfSprite *init_spr(Global_t *m, char *filename, sfVector2f pos, int w)
 {
-    m->weapons[w].texture = sfTexture_createFromFile(filename, NULL);
     sfSprite *sprite = sfSprite_create();
 
+    m->weapons[w].texture = sfTexture_createFromFile(filename, NULL);
     sfSprite_setTexture(sprite, m->weapons[w].texture, sfTrue);
     sfSprite_setScale(sprite, (sfVector2f){1.3, 1.3});
     sfSprite_setPosition(sprite, pos);
@@ -61,6 +62,7 @@ void destroy_shop(Global_t *m)
     sfTexture_destroy(m->shop.Coin);
     sfSprite_destroy(m->shop.lock);
     sfSprite_destroy(m->shop.contour);
+    sfClock_destroy(m->shop.buy_clock);
 }
 
 static void init_shop_part4(Global_t *m)
@@ -119,25 +121,42 @@ static void init_shop_part3(Global_t *m, sfVector2f pose)
     m->shop.is_select = -1;
 }
 
-void init_shop(Global_t *m)
+static void preshot(Global_t *m, sfVector2f size, sfVector2f pose)
 {
-    sfVector2f pose = {180, 90};
-    sfVector2f size = {0.5, 0.5};
+    sfVector2f two = {0, 0};
+    sfVector2f three = {-300, -300};
+    sfVector2f four = {170, 83};
+    char *fond = "assets/shop/shop_fond.png";
+    char *lock = "assets/shop/contour.png";
+    char *contour = "assets/shop/contour.png";
 
-    m->shop.cursor_pose.x = 340;
-    m->shop.cursor_pose.y = 190;
-    m->shop.shop = init_spritee(m, "assets/shop/shop.png", pose, size);
-    m->shop.coin = init_spritee(m, "assets/shop/coin.png", pose, size);
-    m->shop.all_head = init_spritee(m, "assets/shop/all_perso.png", (sfVector2f){320, 150}, (sfVector2f){0.6, 0.6});
-    m->shop.cursor = init_spritee(m, "assets/shop/cursor.png", m->shop.cursor_pose, (sfVector2f){0.2, 0.2});
-    m->shop.fond = init_spritee(m, "assets/shop/shop_fond.png", (sfVector2f){0, 0}, (sfVector2f){1, 1});
-    m->shop.lock = init_spritee(m, "assets/shop/lock.png", (sfVector2f){-300, -300}, (sfVector2f){0.5, 0.5});
-    m->shop.contour = init_spritee(m, "assets/shop/contour.png", (sfVector2f){170, 83}, (sfVector2f){0.52, 0.52});
+    m->shop.fond = init_spritee(m, fond, two, (sfVector2f){1, 1});
+    m->shop.lock = init_spritee(m, lock, three, (sfVector2f){0.5, 0.5});
+    m->shop.contour = init_spritee(m, contour, four, (sfVector2f){0.52, 0.52});
     m->shop.gold = init_gold(m, (sfVector2f){578, 193});
-    size.x = size.y = 1.3;
+    size.x = 1.3;
+    size.y = 1.3;
     init_shop_part2(m, pose);
     init_shop_part3(m, pose);
     init_shop_part4(m);
     m->shop.is_select = false;
     m->shop.is_lock = false;
+}
+
+void init_shop(Global_t *m)
+{
+    sfVector2f pose = {180, 90};
+    sfVector2f size = {0.5, 0.5};
+    char *all_head = "assets/shop/all_perso.png";
+    char *cursor = "assets/shop/cursor.png";
+    sfVector2f one = {320, 150};
+    sfVector2f cursor_s = {0.2, 0.2};
+
+    m->shop.cursor_pose.x = 340;
+    m->shop.cursor_pose.y = 190;
+    m->shop.shop = init_spritee(m, "assets/shop/shop.png", pose, size);
+    m->shop.coin = init_spritee(m, "assets/shop/coin.png", pose, size);
+    m->shop.all_head = init_spritee(m, all_head, one, (sfVector2f){0.6, 0.6});
+    m->shop.cursor = init_spritee(m, cursor, m->shop.cursor_pose, cursor_s);
+    preshot(m, size, pose);
 }

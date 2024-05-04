@@ -111,6 +111,8 @@ typedef struct Glob {
 
 void draw_mouse(Global_t *m);
 int import_weapons_stats(Global_t *m);
+void equiped_weapon(Global_t *m, int who);
+bool is_empty_slot(Weapons_t *weapon_slo);
 int setup_stat(Global_t *m);
 void draw_stats_shop(Global_t *m);
 void update_purchase_state(Global_t *m);

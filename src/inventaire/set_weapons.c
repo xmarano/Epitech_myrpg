@@ -9,24 +9,6 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-void equiped_weapon(Global_t *m, int who)
-{
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/font.ttf");
-    char *weapon_name = m->perso[who].current_weapon->name;
-    char str[30];
-
-    sprintf(str, "Equiped :  %s", weapon_name);
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 33);
-    sfText_setColor(text, sfBlack);
-    sfText_setString(text, str);
-    sfText_setPosition(text, (sfVector2f){940, 365});
-    sfRenderWindow_drawText(m->window, text, NULL);
-    sfFont_destroy(font);
-    sfText_destroy(text);
-}
-
 static void destroyer(sfText *text, sfFont *font,
     sfSprite *weapon, sfTexture *Weapon)
 {
@@ -174,48 +156,46 @@ static void weapon_slot1(Global_t *m, int who)
     destroyer(text, font, weapon, Weapon);
 }
 
-void weapons_inv_stat2(Global_t *m, sfVector2f
-    empty_sprite_pose, sfVector2f err_text)
+void weapons_inv_stat2(Global_t *m, sfVector2f spr_pose, sfVector2f err_text)
 {
     int who = m->perso->current_perso;
 
-    if (m->perso[who].num_weapons_in_inv >= 4)
+    spr_pose.y = 519;
+    err_text.y = 506;
+    if (is_empty_slot(&m->perso[who].inv_weapon[SLOT2]))
+        weapon_slot3(m, who);
+    else
+        empty_slot(m, spr_pose, err_text);
+    spr_pose.y = 557;
+    err_text.y = 546;
+    if (is_empty_slot(&m->perso[who].inv_weapon[SLOT3]))
         weapon_slot4(m, who);
     else
-        empty_slot(m, empty_sprite_pose, err_text);
-    empty_sprite_pose.y = 595;
+        empty_slot(m, spr_pose, err_text);
+    spr_pose.y = 595;
     err_text.y = 582;
-    if (m->perso[who].num_weapons_in_inv >= 5)
+    if (is_empty_slot(&m->perso[who].inv_weapon[SLOT4]))
         weapon_slot5(m, who);
     else
-        empty_slot(m, empty_sprite_pose, err_text);
+        empty_slot(m, spr_pose, err_text);
 }
 
 void weapons_inv_stat(Global_t *m)
 {
     int who = m->perso->current_perso;
-    sfVector2f empty_sprite_pose = {980, 519};
-    sfVector2f err_text = {1050, 0};
+    sfVector2f empty_sprite_pose = {980, 463};
+    sfVector2f err_text = {1050, 426};
 
-    empty_sprite_pose.y = 463;
-    err_text.y = 426;
-    if (m->perso[who].num_weapons_in_inv >= 1)
+    if (is_empty_slot(&m->perso[who].inv_weapon[SLOT1]))
         weapon_slot1(m, who);
-    else
+    else {
         empty_slot(m, empty_sprite_pose, err_text);
+    }
     empty_sprite_pose.y = 481;
     err_text.y = 466;
-    if (m->perso[who].num_weapons_in_inv >= 2)
+    if (is_empty_slot(&m->perso[who].inv_weapon[HEAL]))
         heal_stick(m, who);
     else
         empty_slot(m, empty_sprite_pose, err_text);
-    empty_sprite_pose.y = 519;
-    err_text.y = 506; // new
-    if (m->perso[who].num_weapons_in_inv >= 3)
-        weapon_slot3(m, who);
-    else
-        empty_slot(m, empty_sprite_pose, err_text);
-    empty_sprite_pose.y = 557;
-    err_text.y = 546;
     weapons_inv_stat2(m, empty_sprite_pose, err_text);
 }

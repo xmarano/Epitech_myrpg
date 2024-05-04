@@ -14,6 +14,7 @@ static int check_buy_delay(Global_t *m)
 {
     sfTime elapsed_time;
     float seconds;
+    int code = 0;
 
     if (!m->shop.buy_clock) {
         m->shop.buy_clock = sfClock_create();
@@ -22,10 +23,9 @@ static int check_buy_delay(Global_t *m)
     seconds = sfTime_asSeconds(elapsed_time);
     if (seconds >= 0.5f) {
         sfClock_restart(m->shop.buy_clock);
-        return 1;
-    } else {
-        return 0;
+        code = 1;
     }
+    return code;
 }
 
 sfText *init_stats(Global_t *m, int w)
@@ -56,7 +56,7 @@ sfText *init_stats(Global_t *m, int w)
     if (m->weapons[w].cost > m->gold)
         sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
     if ((sfKeyboard_isKeyPressed(sfKeyB)) && check_buy_delay(m)) {
-        if (m->weapons[w].cost < m->gold && m->perso->num_weapons_in_inv < 5)
+        if (m->weapons[w].cost < m->gold)
             import_weapon_inv(m, w);
     }
     return m->shop.text;
@@ -137,7 +137,10 @@ void move_hover_rect(Global_t *m, int direction)
     int new_index = current_index;
     static sfClock *clock = NULL;
     sfTime elapsed;
+    sfVector2f current_position;
     float elapsed_seconds;
+    int row;
+    int column;
 
     if (!clock)
         clock = sfClock_create();
@@ -166,9 +169,9 @@ void move_hover_rect(Global_t *m, int direction)
         sfClock_destroy(clock);
         clock = NULL;
     }
-    int row = new_index / num_columns;
-    int column = new_index % num_columns;
-    sfVector2f current_position = sfSprite_getPosition(m->weapons[8].sprite);
+    row = new_index / num_columns;
+    column = new_index % num_columns;
+    current_position = sfSprite_getPosition(m->weapons[8].sprite);
     sfVector2f new_position = {
         420 + column * (current_position.x - 420 + spacing_x),
         245 + row * (current_position.y - 245 + spacing_y)

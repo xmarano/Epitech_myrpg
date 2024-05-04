@@ -12,6 +12,15 @@
 
 void draw_plus(Global_t *m)
 {
+    sfRenderWindow *win = m->window;
+
+    sfRenderWindow_drawSprite(win, m->weapons[LEGENDARY_SPEAR].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[LEGENDARY_AXE].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[THUNDER_BOOK].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[FIRE_BOOK].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[FREEZE_BOOK].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[POTION].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->shop.all_head, NULL);
     move_coin(m);
     sfRenderWindow_drawRectangleShape(m->window, m->shop.hooved, NULL);
     sfText_setString(m->shop.gold, my_inttostr(m->gold));
@@ -23,26 +32,21 @@ void draw_plus(Global_t *m)
 
 void draw_all_shop(Global_t *m)
 {
-    sfRenderWindow_drawSprite(m->window, m->shop.fond, NULL);
-    sfRenderWindow_drawSprite(m->window, m->shop.shop, NULL);
-    sfRenderWindow_drawSprite(m->window, m->shop.contour, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SWORD].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_BOW].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_SPEAR].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[COMMON_AXE].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[RARE_SWORD].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[RARE_BOW].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[RARE_SPEAR].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[RARE_AXE].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[LEGENDARY_SWORD].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[LEGENDARY_BOW].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[LEGENDARY_SPEAR].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[LEGENDARY_AXE].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[THUNDER_BOOK].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[FIRE_BOOK].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[FREEZE_BOOK].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->weapons[POTION].sprite, NULL);
-    sfRenderWindow_drawSprite(m->window, m->shop.all_head, NULL);
+    sfRenderWindow *win = m->window;
+
+    sfRenderWindow_drawSprite(win, m->shop.fond, NULL);
+    sfRenderWindow_drawSprite(win, m->shop.shop, NULL);
+    sfRenderWindow_drawSprite(win, m->shop.contour, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[COMMON_SWORD].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[COMMON_BOW].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[COMMON_SPEAR].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[COMMON_AXE].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[RARE_SWORD].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[RARE_BOW].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[RARE_SPEAR].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[RARE_AXE].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[LEGENDARY_SWORD].sprite, NULL);
+    sfRenderWindow_drawSprite(win, m->weapons[LEGENDARY_BOW].sprite, NULL);
 }
 
 static void moove(Global_t *m)

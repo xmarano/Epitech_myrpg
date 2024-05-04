@@ -8,6 +8,15 @@
 #include "../include/perso.h"
 #include "../rpg.h"
 
+static void set_empty(Perso_t *perso)
+{
+    perso->inv_weapon[SLOT1].is_empty = false;
+    perso->inv_weapon[HEAL].is_empty = false;
+    perso->inv_weapon[SLOT2].is_empty = true;
+    perso->inv_weapon[SLOT3].is_empty = true;
+    perso->inv_weapon[SLOT4].is_empty = true;
+}
+
 static void init_raca(Perso_t *perso, char *name, Weapons_t weapon[])
 {
     perso->name_perso = name;
@@ -18,7 +27,6 @@ static void init_raca(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Racaillou_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Racaillou_armed.png");
-    perso->num_weapons_in_inv = 2;
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
@@ -32,6 +40,7 @@ static void init_raca(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.str = 7;
     perso->stat_p.spd = 7;
     perso->stat_p.mov = 5;
+    set_empty(perso);
 }
 
 static void initxmarano(Perso_t *perso, char *name, Weapons_t weapon[])
@@ -44,7 +53,6 @@ static void initxmarano(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Xmarano_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Xmarano_armed.png");
-    perso->num_weapons_in_inv = 2;
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
@@ -58,6 +66,7 @@ static void initxmarano(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.str = 7;
     perso->stat_p.spd = 3;
     perso->stat_p.mov = 4;
+    set_empty(perso);
 }
 
 static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
@@ -70,7 +79,6 @@ static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Patecarbo_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Patecarbo_armed.png");
-    perso->num_weapons_in_inv = 2;
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
@@ -84,6 +92,7 @@ static void init_pate(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.str = 4;
     perso->stat_p.spd = 4;
     perso->stat_p.mov = 5;
+    set_empty(perso);
 }
 
 static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
@@ -96,7 +105,6 @@ static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
     memcpy(&perso->inv_weapon[HEAL], &weapon[HEAL_STICK], sizeof(Weapons_t));
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Infenium_dialogue.png");
     strcpy(perso->texture_battle, "assets/perso/battle/hero/Infenium_armed.png");
-    perso->num_weapons_in_inv = 2;
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
@@ -110,6 +118,7 @@ static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.str = 1;
     perso->stat_p.spd = 11;
     perso->stat_p.mov = 8;
+    set_empty(perso);
 }
 
 static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
@@ -121,10 +130,8 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
     strcpy(perso->current_weapon->link_texture, "assets/weapons/Roy_sword.png");
     memcpy(&perso->inv_weapon[SLOT1], &weapon[ROY_SWORD], sizeof(Weapons_t));
     memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], sizeof(Weapons_t));
-    //memcpy(&perso->inv_weapon[1], &weapon[COMMON_BOW], sizeof(Weapons_t)); ex ajouter une arme dans inv
     strcpy(perso->texture_dialogue, "assets/perso/dialogue/hero/Roy_dialogue.png");
-    strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png");
-    perso->num_weapons_in_inv = 2; //!\ modifier cette valeurs quand on ajoute une arme dans l'inventaire !
+    strcpy(perso->texture_battle, "assets/perso/battle/hero/Roy_armed.png"); //!\ modifier cette valeurs quand on ajoute une arme dans l'inventaire !
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 18;
@@ -137,6 +144,7 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->stat_p.str = 5;
     perso->stat_p.spd = 7;
     perso->stat_p.mov = 5;
+    set_empty(perso);
 }
 
 int setup_stat(Global_t *m)

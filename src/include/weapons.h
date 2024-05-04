@@ -23,6 +23,7 @@ typedef struct stats_weapon {
     int cost;
     sfTexture *texture;
     sfSprite *sprite;
+    bool is_empty;
 } Weapons_t;
 
 #endif
