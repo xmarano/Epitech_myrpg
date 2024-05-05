@@ -9,7 +9,6 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-
 bool is_empty_slot(Weapons_t *weapon_slot)
 {
     return weapon_slot->is_empty != true;

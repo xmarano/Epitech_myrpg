@@ -189,6 +189,8 @@ void weapons_inv_stat(Global_t *m)
     if (is_empty_slot(&m->perso[who].inv_weapon[SLOT1]))
         weapon_slot1(m, who);
     else {
+        empty_sprite_pose.y -= 20;
+        err_text.y += 5;
         empty_slot(m, empty_sprite_pose, err_text);
     }
     empty_sprite_pose.y = 481;

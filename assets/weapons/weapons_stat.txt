@@ -1,8 +1,8 @@
-Roy_sword sword 4 80 1 0 0 assets/weapons/Roy_sword.png
-Infenium_book book 8 70 2 0 0 assets/weapons/Infenium_book.png
-Patecarbo_bow bow 4 75 2 0 0 assets/weapons/Patecarbo_bow.png
-Xmarano_spear spear 5 85 1 0 0 assets/weapons/Xmarano_spear.png
-Racaillou_axe axe 7 80 1 0 0 assets/weapons/Racaillou_axe.png
+Roy_sword sword 4 80 1 0 100 assets/weapons/Roy_sword.png
+Infenium_book book 8 70 2 0 100 assets/weapons/Infenium_book.png
+Patecarbo_bow bow 4 75 2 0 100 assets/weapons/Patecarbo_bow.png
+Xmarano_spear spear 5 85 1 0 100 assets/weapons/Xmarano_spear.png
+Racaillou_axe axe 7 80 1 0 100 assets/weapons/Racaillou_axe.png
 Common_axe axe 10 75 1 0 350 assets/weapons/axe1.png
 Rare_axe axe 12 70 1 12 4000 assets/weapons/axe2.png
 Legendary_axe axe 16 95 1 20 14000 assets/weapons/axe3.png

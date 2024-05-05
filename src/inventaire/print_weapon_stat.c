@@ -19,7 +19,8 @@ static void event(Global_t *m, int index)
         &m->perso[who].inv_weapon[index], sizeof(Weapons_t));
     }
     if (sfKeyboard_isKeyPressed(sfKeyS)) {
-        m->gold += m->perso[who].inv_weapon[index].cost;
+        m->gold += ((REFUND * m->perso[who].inv_weapon[index].cost) / 100);
+        printf("selled\n");
         memset(&m->perso[who].inv_weapon[index], 0, sizeof(Weapons_t));
         m->perso->inv_weapon[index].is_empty = true;
     }
