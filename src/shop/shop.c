@@ -127,7 +127,7 @@ static void preshot(Global_t *m, sfVector2f size, sfVector2f pose)
     sfVector2f three = {-300, -300};
     sfVector2f four = {170, 83};
     char *fond = "assets/shop/shop_fond.png";
-    char *lock = "assets/shop/contour.png";
+    char *lock = "assets/shop/lock.png";
     char *contour = "assets/shop/contour.png";
 
     m->shop.fond = init_spritee(m, fond, two, (sfVector2f){1, 1});
