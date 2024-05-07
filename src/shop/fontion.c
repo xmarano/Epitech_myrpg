@@ -28,6 +28,24 @@ static int check_buy_delay(Global_t *m)
     return code;
 }
 
+static void more(Global_t *m, int w, char *str)
+{
+    m->shop.Font = sfFont_createFromFile("assets/font.ttf");
+    m->shop.text = sfText_create();
+    sfText_setFont(m->shop.text, m->shop.Font);
+    sfText_setString(m->shop.text, str);
+    sfText_setColor(m->shop.text, sfRed);
+    sfText_setCharacterSize(m->shop.text, 18);
+    sfText_setPosition(m->shop.text, (sfVector2f){235, 265});
+    if (m->weapons[w].cost > m->gold)
+        sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
+    if ((sfKeyboard_isKeyPressed(sfKeyB)) && check_buy_delay(m)) {
+        if (m->weapons[w].cost < m->gold)
+            import_weapon_inv(m, w);
+    }
+    return;
+}
+
 sfText *init_stats(Global_t *m, int w)
 {
     char str[50];
@@ -45,39 +63,14 @@ sfText *init_stats(Global_t *m, int w)
         sfFont_destroy(m->shop.Font);
         m->shop.Font = NULL;
     }
-    m->shop.Font = sfFont_createFromFile("assets/font.ttf");
-    m->shop.text = sfText_create();
-    sprintf(str, "%d\n\n%d\n\n%d\n\n%d\n\n%s%s%d", atk, rng, crit, acc, TABS_5, TABS_6, cost);
-    sfText_setFont(m->shop.text, m->shop.Font);
-    sfText_setString(m->shop.text, str);
-    sfText_setColor(m->shop.text, sfRed);
-    sfText_setCharacterSize(m->shop.text, 18);
-    sfText_setPosition(m->shop.text, (sfVector2f){235, 265});
-    if (m->weapons[w].cost > m->gold)
-        sfRenderWindow_drawSprite(m->window, m->shop.lock, NULL);
-    if ((sfKeyboard_isKeyPressed(sfKeyB)) && check_buy_delay(m)) {
-        if (m->weapons[w].cost < m->gold)
-            import_weapon_inv(m, w);
-    }
+    sprintf(str, "%d\n\n%d\n\n%d\n\n%d\n\n", atk, rng, crit, acc);
+    sprintf(str + strlen(str), "%s%s%d", TABS_5, TABS_6, cost);
+    more(m, w, str);
     return m->shop.text;
 }
 
-void draw_stats_shop(Global_t *m)
+static void suite(Global_t *m)
 {
-    if (m->shop.hovered_index == 0)
-        init_stats(m, COMMON_SWORD);
-    if (m->shop.hovered_index == 1)
-        init_stats(m, COMMON_BOW);
-    if (m->shop.hovered_index == 2)
-        init_stats(m, COMMON_SPEAR);
-    if (m->shop.hovered_index == 3)
-        init_stats(m, COMMON_AXE);
-    if (m->shop.hovered_index == 4)
-        init_stats(m, RARE_SWORD);
-    if (m->shop.hovered_index == 5)
-        init_stats(m, RARE_BOW);
-    if (m->shop.hovered_index == 6)
-        init_stats(m, RARE_SPEAR);
     if (m->shop.hovered_index == 7)
         init_stats(m, RARE_AXE);
     if (m->shop.hovered_index == 8)
@@ -98,85 +91,21 @@ void draw_stats_shop(Global_t *m)
         init_stats(m, POTION);
 }
 
-void move_coin(Global_t *m)
+void draw_stats_shop(Global_t *m)
 {
-    static sfClock *clock = NULL;
-    static sfIntRect rect = {0, 0, 16, 16};
-    sfTime time;
-    float seconds;
-
-    if (clock == NULL)
-        clock = sfClock_create();
-    time = sfClock_getElapsedTime(clock);
-    seconds = sfTime_asSeconds(time);
-    if (seconds > 0.1) {
-        rect.left += 16;
-        if (rect.left >= 144)
-            rect.left = 0;
-        sfSprite_setTextureRect(m->shop.coin, rect);
-        sfClock_restart(clock);
-    }
-    sfSprite_setPosition(m->shop.coin, (sfVector2f){627, 195});
-    sfSprite_setScale(m->shop.coin, (sfVector2f){1.2, 1.2});
-    sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
-    sfSprite_setPosition(m->shop.coin, (sfVector2f){500, 375});
-    sfRenderWindow_drawSprite(m->window, m->shop.coin, NULL);
-    if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) >= 0.1f) {
-        sfClock_destroy(clock);
-        clock = NULL;
-    }
-}
-
-void move_hover_rect(Global_t *m, int direction)
-{
-    const int num_columns = 4;
-    const int num_rows = 4;
-    const int spacing_x = 30;
-    const int spacing_y = 30;
-    int current_index = m->shop.hovered_index;
-    int new_index = current_index;
-    static sfClock *clock = NULL;
-    sfTime elapsed;
-    sfVector2f current_position;
-    float elapsed_seconds;
-    int row;
-    int column;
-
-    if (!clock)
-        clock = sfClock_create();
-    elapsed = sfClock_getElapsedTime(clock);
-    elapsed_seconds = sfTime_asSeconds(elapsed);
-    if (elapsed_seconds < 0.15f)
-        return;
-    sfClock_restart(clock);
-    switch (direction) {
-        case sfKeyLeft:
-            new_index--;
-            break;
-        case sfKeyRight:
-            new_index++;
-            break;
-        case sfKeyUp:
-            new_index -= num_columns;
-            break;
-        case sfKeyDown:
-            new_index += num_columns;
-            break;
-    }
-    if (new_index < 0 || new_index >= num_columns * num_rows)
-        return;
-    if (clock != NULL) {
-        sfClock_destroy(clock);
-        clock = NULL;
-    }
-    row = new_index / num_columns;
-    column = new_index % num_columns;
-    current_position = sfSprite_getPosition(m->weapons[8].sprite);
-    sfVector2f new_position = {
-        420 + column * (current_position.x - 420 + spacing_x),
-        245 + row * (current_position.y - 245 + spacing_y)
-    };
-    sfRectangleShape_setPosition(m->shop.hooved, new_position);
-    sfSprite_setPosition(m->shop.lock, new_position);
-    m->shop.hovered_index = new_index;
+    if (m->shop.hovered_index == 0)
+        init_stats(m, COMMON_SWORD);
+    if (m->shop.hovered_index == 1)
+        init_stats(m, COMMON_BOW);
+    if (m->shop.hovered_index == 2)
+        init_stats(m, COMMON_SPEAR);
+    if (m->shop.hovered_index == 3)
+        init_stats(m, COMMON_AXE);
+    if (m->shop.hovered_index == 4)
+        init_stats(m, RARE_SWORD);
+    if (m->shop.hovered_index == 5)
+        init_stats(m, RARE_BOW);
+    if (m->shop.hovered_index == 6)
+        init_stats(m, RARE_SPEAR);
+    suite(m);
 }

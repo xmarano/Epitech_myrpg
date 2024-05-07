@@ -57,6 +57,11 @@ typedef struct Shop {
     int buyer;
     sfSprite *contour;
     sfClock *buy_clock;
+    //
+    int num_columns;
+    int num_rows;
+    int spacing_x;
+    int spacing_y;
 }Shop_t;
 
 typedef struct Zone1 {

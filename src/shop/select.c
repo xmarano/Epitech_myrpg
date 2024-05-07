@@ -10,23 +10,8 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-void import_weapon_inv(Global_t *m, int w)
+static void transfert(Global_t *m, Weapons_t *weap, int w)
 {
-    int who = m->shop.buyer;
-    Perso_t *character;
-    Weapons_t *weap;
-
-    if (who == 0)
-        character = &m->perso[XMARANO];
-    if (who == 1)
-        character = &m->perso[ROY];
-    if (who == 2)
-        character = &m->perso[RACAILLOU];
-    if (who == 3)
-        character = &m->perso[PATECARBO];
-    if (who == 4)
-        character = &m->perso[INFENIUM];
-    weap = character->inv_weapon;
     for (int i = 0; i < 5; i++) {
         if (weap[i].is_empty == true) {
             memcpy(&weap[i], &m->weapons[w], sizeof(Weapons_t));
@@ -37,19 +22,29 @@ void import_weapon_inv(Global_t *m, int w)
     }
 }
 
-void select_perso(Global_t *m)
+void import_weapon_inv(Global_t *m, int w)
 {
-    static sfClock *clock = NULL;
-    sfTime elapsed;
-    float elapsed_seconds;
+    Perso_t *character;
+    Weapons_t *weap;
+
+    if (m->shop.buyer == 0)
+        character = &m->perso[XMARANO];
+    if (m->shop.buyer == 1)
+        character = &m->perso[ROY];
+    if (m->shop.buyer == 2)
+        character = &m->perso[RACAILLOU];
+    if (m->shop.buyer == 3)
+        character = &m->perso[PATECARBO];
+    if (m->shop.buyer == 4)
+        character = &m->perso[INFENIUM];
+    weap = character->inv_weapon;
+    transfert(m, weap, w);
+}
+
+static void depl(Global_t *m)
+{
     static int cursor_position = 0;
 
-    if (!clock)
-        clock = sfClock_create();
-    elapsed = sfClock_getElapsedTime(clock);
-    elapsed_seconds = sfTime_asSeconds(elapsed);
-    if (elapsed_seconds < 0.15f)
-        return;
     if (sfKeyboard_isKeyPressed(sfKeyRight)) {
         if (cursor_position < 4) {
             cursor_position++;
@@ -68,6 +63,21 @@ void select_perso(Global_t *m)
         m->shop.buyer = cursor_position;
         m->shop.is_select = true;
     }
+}
+
+void select_perso(Global_t *m)
+{
+    static sfClock *clock = NULL;
+    sfTime elapsed;
+    float elapsed_seconds;
+
+    if (!clock)
+        clock = sfClock_create();
+    elapsed = sfClock_getElapsedTime(clock);
+    elapsed_seconds = sfTime_asSeconds(elapsed);
+    if (elapsed_seconds < 0.15f)
+        return;
+    depl(m);
     sfClock_restart(clock);
     if (m->shop.is_select == false) {
         sfClock_destroy(clock);
