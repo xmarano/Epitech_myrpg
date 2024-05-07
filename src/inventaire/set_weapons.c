@@ -156,10 +156,9 @@ static void weapon_slot1(Global_t *m, int who)
     destroyer(text, font, weapon, Weapon);
 }
 
-void weapons_inv_stat2(Global_t *m, sfVector2f spr_pose, sfVector2f err_text)
+void weapons_inv_stat2(Global_t *m, sfVector2f spr_pose,
+    sfVector2f err_text, int who)
 {
-    int who = m->perso->current_perso;
-
     spr_pose.y = 519;
     err_text.y = 506;
     if (is_empty_slot(&m->perso[who].inv_weapon[SLOT2]))
@@ -199,5 +198,5 @@ void weapons_inv_stat(Global_t *m)
         heal_stick(m, who);
     else
         empty_slot(m, empty_sprite_pose, err_text);
-    weapons_inv_stat2(m, empty_sprite_pose, err_text);
+    weapons_inv_stat2(m, empty_sprite_pose, err_text, who);
 }

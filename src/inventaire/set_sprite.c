@@ -9,8 +9,6 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
-//all ok
-
 sfRectangleShape *hoov_inv(Global_t *m,
     sfVector2f popo, sfVector2f siz, float f)
 {

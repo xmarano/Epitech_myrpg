@@ -14,7 +14,8 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
     perso->type = "Enemy";
     perso->is_hero = false;
     memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
-    strcpy(perso->current_weapon->link_texture, "assets/weapons/Thunder_book.png");
+    strcpy(perso->current_weapon->link_texture,
+    "assets/weapons/Thunder_book.png");
     strcpy(perso->texture_dialogue, "NULL");
     strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy_mage.png");
     perso->stat_p.level = 7;
