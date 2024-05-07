@@ -16,9 +16,11 @@ void event_click(Global_t *m)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);
+    if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
+        m->current = 100;
 }
 
-void rpg(Global_t *m, hub_t *h)
+void rpg(Global_t *m, hub_t *h, fight_t *f)
 {
     m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
@@ -32,6 +34,7 @@ void rpg(Global_t *m, hub_t *h)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
+    init_lifebars(f, m);
     loading_screen(m);
     sfRenderWindow_display(m->window);
 }
@@ -40,6 +43,7 @@ int main(int argc, char **argv)
 {
     Global_t m = {0};
     hub_t h = {0};
+    fight_t f = {0};
     sfVideoMode mode = {1920, 1080, 32};
 
     if (argc != 1)
@@ -57,7 +61,7 @@ int main(int argc, char **argv)
     init_hub(&h, &m);
     init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
-        rpg(&m, &h);
+        rpg(&m, &h, &f);
     destroy_hub(&h);
     destroy_inventaire(&m);
     destroy_menu(&m);
