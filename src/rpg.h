@@ -208,6 +208,6 @@ void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 
-#include "include/fight.h"
+    #include "include/fight.h"
 
 #endif

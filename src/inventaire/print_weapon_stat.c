@@ -13,7 +13,6 @@ static void event(Global_t *m, int index)
 {
     int who = m->perso->current_perso;
 
-    printf("%d\n", who);
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
         memcpy(&m->perso[who].current_weapon,
