@@ -35,10 +35,20 @@ void destroy_loading(Global_t *m)
 
 void init_loading(Global_t *m)
 {
-    m->loading.fond = init_sprit("assets/loading/barre.png", (sfVector2f){760, 480}, (sfVector2f){9, 9});
-    m->loading.vert = init_sprit("assets/loading/vert.png", (sfVector2f){760, 480}, (sfVector2f){9, 9});
-    m->loading.text = init_sprit("assets/loading/load.png", (sfVector2f){760, 480}, (sfVector2f){9, 9});
-    m->loading.back_screen = init_sprit("assets/loading/back.png", (sfVector2f){0, 0}, (sfVector2f){1, 1});
+    sfVector2f pose_1 = {760, 480};
+    sfVector2f common = {9, 9};
+    sfVector2f pos_2 = {0, 0};
+    sfVector2f one = {1, 1};
+
+    m->loading.fond = init_sprit("assets/loading/barre.png", pose_1, common);
+    m->loading.vert = init_sprit("assets/loading/vert.png", pose_1, common);
+    m->loading.text = init_sprit("assets/loading/load.png", pose_1, common);
+    m->loading.back_screen = init_sprit("assets/loading/back.png", pos_2, one);
+}
+
+void bcl(float time, sfClock *clock)
+{
+    while (sfTime_asSeconds(sfClock_getElapsedTime(clock)) - time < 0.3f);
 }
 
 void loading_screen(Global_t *m)
@@ -58,13 +68,13 @@ void loading_screen(Global_t *m)
             sfRenderWindow_display(m->window);
             time = sfClock_getElapsedTime(clock);
             elapsed_time = sfTime_asSeconds(time);
-            while (sfTime_asSeconds(sfClock_getElapsedTime(clock)) - elapsed_time < 0.3f);
+            bcl(elapsed_time, clock);
             vert_pose.x += 27;
         }
         sfClock_destroy(clock);
         time = sfClock_getElapsedTime(clock);
         elapsed_time = sfTime_asSeconds(time);
-        while (sfTime_asSeconds(sfClock_getElapsedTime(clock)) - elapsed_time < 0.2f);
+        bcl(elapsed_time, clock);
         m->current = 12;
     }
 }

@@ -31,7 +31,7 @@ enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
     INFENIUM_BOOK, INFENIUM = 1,
     PATECARBO_BOW, PATECARBO = 2,
-    XMARANO_SPEAR, XMARANO  = 3,
+    XMARANO_SPEAR, XMARANO = 3,
     RACAILLOU_AXE, RACAILLOU = 4,
     BOSS1 = 5,
     BOSS2 = 6,
@@ -191,8 +191,10 @@ sfSprite *set_back_screen(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
 void check_globalbounds2(Global_t *m);
 void check_the_hover2(Global_t *m);
-sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
-sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo, sfVector2f siz, float f);
+sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo,
+    sfVector2f siz, float f);
+sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo,
+    sfVector2f siz, float f);
 void destroy_inventaire(Global_t *m);
 sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos);
 sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);

@@ -5,7 +5,7 @@
 ** menu.c
 */
 
-#include "rpg.h"
+#include "../rpg.h"
 
 int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def)
 {

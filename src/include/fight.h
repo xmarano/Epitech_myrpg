@@ -26,7 +26,8 @@ typedef struct fight_struct {
 
 void init_lifebars(fight_t *fight, Global_t *m);
 int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def);
-int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t *weapon_atk, Weapons_t *weapon_def);
+int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
+    *weapon_atk, Weapons_t *weapon_def);
 int double_attack(stchar_t *attack, stchar_t *defense);
 int critical_hit(stchar_t *attack, stchar_t *defense, Weapons_t *weapon);
 void level_up(stchar_t *stats);

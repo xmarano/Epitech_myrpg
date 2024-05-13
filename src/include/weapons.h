@@ -7,8 +7,7 @@
 
 #ifndef WEAPONS_H
     #define WEAPONS_H
-
-#include "../rpg.h"
+    #include "../rpg.h"
     #define MAX_WEAPONS 20
     #define MAX_NAME_LENGTH 50
 

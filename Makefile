@@ -23,6 +23,7 @@ SRCNAME	=	src/*.c	\
 			src/setting_folder/*.c	\
 			src/shop/*.c	\
 			src/fight_interface/*.c	\
+			src/rng/*.c	\
 
 LIB 	= 	libmy.a
 
