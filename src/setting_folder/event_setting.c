@@ -37,6 +37,13 @@ void modify_size(sfVector2i mouse, Global_t *m)
     }
 }
 
+void modify_song(sfVector2i mouse, Global_t *m)
+{
+    if (m->setting.displaySizeOptions) {
+        verif_song(mouse, m);
+    }
+}
+
 void other_option(sfVector2i mouse, Global_t *m)
 {
     sfFloatRect crb = sfRectangleShape_getGlobalBounds(m->setting.buttoncred);
@@ -68,5 +75,6 @@ void event_setting(sfEvent event, Global_t *m)
             m->setting.volumeclicked = !m->setting.volumeclicked;
         other_option(mouse, m);
         modify_size(mouse, m);
+        modify_song(mouse, m);
     }
 }

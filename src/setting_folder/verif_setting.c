@@ -84,6 +84,8 @@ void verif_other(Global_t *m)
 
 void verif_thing(Global_t *m)
 {
+    sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
+
     if (m->setting.displaySizeOptions) {
         sfRenderWindow_drawText(m->window, m->setting.littlez, NULL);
         sfRenderWindow_drawText(m->window, m->setting.mediumz, NULL);
@@ -93,7 +95,6 @@ void verif_thing(Global_t *m)
         sfRenderWindow_drawText(m->window, m->setting.volumeb, NULL);
         sfRenderWindow_drawText(m->window, m->setting.volumeh, NULL);
         sfRenderWindow_drawText(m->window, m->setting.cvolume, NULL);
-        verif_song(m);
     }
     verif_other(m);
 }

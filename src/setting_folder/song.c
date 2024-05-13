@@ -42,7 +42,7 @@ void stop_song(Global_t *m)
     }
 }
 
-void verif_song(Global_t *m)
+void verif_song(sfVector2i mouse, Global_t *m)
 {
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect downvol = sfText_getGlobalBounds(m->setting.volumeb);
