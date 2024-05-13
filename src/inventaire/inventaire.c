@@ -78,13 +78,13 @@ void what_inv2(Global_t *m, sfEvent event)
         m->perso->is_visible = true;
         return;
     }
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyE)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI)
         reset(m);
 }
 
 void what_inv(Global_t *m, sfEvent event)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyE &&
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI &&
     !m->perso->is_visible && !m->perso->is_visible2) {
         m->perso->is_visible = true;
         m->perso->is_visible2 = false;
@@ -141,7 +141,7 @@ static void print_sprite(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyE) ||
+    if (sfKeyboard_isKeyPressed(sfKeyI) ||
     sfKeyboard_isKeyPressed(sfKeyLeft) ||
     sfKeyboard_isKeyPressed(sfKeyRight) ||
     sfKeyboard_isKeyPressed(sfKeyDown)) {

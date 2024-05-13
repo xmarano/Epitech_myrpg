@@ -24,7 +24,6 @@ SRCNAME	=	src/*.c	\
 			src/shop/*.c	\
 			src/fight_interface/*.c	\
 			src/rng/*.c	\
-			src/dialogue_code/*.c	\
 			src/hub/*.c	\
 
 LIB 	= 	libmy.a

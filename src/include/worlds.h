@@ -7,8 +7,8 @@
 
 #ifndef WORLDS_H
     #define WORLDS_H
-    #include "../rpg.h"
     #define get_size sfView_getSize
+    #include "../rpg.h"
 
 typedef struct hub {
     sfIntRect rect;
@@ -21,11 +21,12 @@ typedef struct hub {
     sfImage *hitbox;
     sfVector2f pos_sprite;
     sfColor color;
-    sfColor what_word;
     sfView *view;
     sfView *normal_view;
     sfSprite *pouilleux;
     sfTexture *Pouilleux;
+    sfSprite *bulle;
+    sfTexture *Bulle;
 } hub_t;
 
 typedef struct Loading {
@@ -60,7 +61,6 @@ typedef struct Shop {
     int buyer;
     sfSprite *contour;
     sfClock *buy_clock;
-    //
     int num_columns;
     int num_rows;
     int spacing_x;

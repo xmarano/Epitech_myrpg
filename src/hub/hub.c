@@ -23,6 +23,9 @@ void init_hub(hub_t *h, Global_t *m)
     h->hitbox = sfImage_createFromFile("maps/map_d.png");
     h->pouilleux = sfSprite_create();
     h->Pouilleux = sfTexture_createFromFile(link_pou, NULL);
+    h->bulle = sfSprite_create();
+    h->Bulle = sfTexture_createFromFile("assets/bulle.png", NULL);
+    sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->pouilleux, (sfVector2f){0.8, 0.8});
     sfSprite_setTexture(h->pouilleux, h->Pouilleux, sfFalse);
     sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
@@ -75,4 +78,8 @@ void destroy_hub(hub_t *h)
     sfSprite_destroy(h->sprite_perso);
     sfTexture_destroy(h->texture_hub);
     sfTexture_destroy(h->texture_perso);
+    sfSprite_destroy(h->pouilleux);
+    sfTexture_destroy(h->Pouilleux);
+    sfSprite_destroy(h->bulle);
+    sfTexture_destroy(h->Bulle);
 }
