@@ -51,6 +51,15 @@ void bcl(float time, sfClock *clock)
     while (sfTime_asSeconds(sfClock_getElapsedTime(clock)) - time < 0.3f);
 }
 
+static void prt(Global_t *m, sfVector2f vert_pose)
+{
+    sfSprite_setPosition(m->loading.vert, vert_pose);
+    sfRenderWindow_drawSprite(m->window, m->loading.vert, NULL);
+    sfRenderWindow_drawSprite(m->window, m->loading.fond, NULL);
+    sfRenderWindow_display(m->window);
+    m->current = 12;
+}
+
 void loading_screen(Global_t *m)
 {
     sfVector2f vert_pose = {760, 480};
@@ -62,10 +71,7 @@ void loading_screen(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->loading.back_screen, NULL);
         sfRenderWindow_drawSprite(m->window, m->loading.text, NULL);
         for (int i = 0; i < 14; ++i) {
-            sfSprite_setPosition(m->loading.vert, vert_pose);
-            sfRenderWindow_drawSprite(m->window, m->loading.vert, NULL);
-            sfRenderWindow_drawSprite(m->window, m->loading.fond, NULL);
-            sfRenderWindow_display(m->window);
+            prt(m, vert_pose);
             time = sfClock_getElapsedTime(clock);
             elapsed_time = sfTime_asSeconds(time);
             bcl(elapsed_time, clock);
@@ -75,6 +81,5 @@ void loading_screen(Global_t *m)
         time = sfClock_getElapsedTime(clock);
         elapsed_time = sfTime_asSeconds(time);
         bcl(elapsed_time, clock);
-        m->current = 12;
     }
 }

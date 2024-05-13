@@ -15,6 +15,7 @@
 
 typedef struct setting {
     sfFont *font;
+    sfFont *special_font;
     sfVector2u window_size;
     sfSprite *background_s;
     sfText *titre;
@@ -73,7 +74,8 @@ typedef struct setting {
 
     sfVector2i mouse;
     sfFloatRect creditBounds;
-} Setting_t;
 
+    sfMusic *music;
+} Setting_t;
 
 #endif
