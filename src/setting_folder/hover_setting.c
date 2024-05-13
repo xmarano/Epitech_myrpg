@@ -55,15 +55,15 @@ static void hover_txt(Global_t *m)
 
 static void check_hover_text(Global_t *m)
 {
-    if (m->setting.buttonretour != NULL && &m->setting.se_1 != NULL)
+    if (m->setting.buttonretour && &m->setting.se_1)
         hover_rectangle(m, m->setting.buttonretour);
-    if (m->setting.buttoncred != NULL && &m->setting.se_2 != NULL)
+    if (m->setting.buttoncred && &m->setting.se_2)
         hover_rectangle(m, m->setting.buttoncred);
-    if (m->setting.buttonsynop != NULL && &m->setting.se_3 != NULL)
+    if (m->setting.buttonsynop && &m->setting.se_3)
         hover_rectangle(m, m->setting.buttonsynop);
-    if (m->setting.buttonvolum != NULL && &m->setting.se_4 != NULL)
+    if (m->setting.buttonvolum && &m->setting.se_4)
         hover_rectangle(m, m->setting.buttonvolum);
-    if (m->setting.buttonwindow != NULL && &m->setting.se_5 != NULL)
+    if (m->setting.buttonwindow && &m->setting.se_5)
         hover_rectangle(m, m->setting.buttonwindow);
     hover_txt(m);
 }
