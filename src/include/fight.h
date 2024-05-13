@@ -24,6 +24,8 @@ typedef struct fight_struct {
     sfSprite *combat_scene;
     sfText **text_tab;
     sfFont *font;
+    int dmg_atk;
+    int dmg_def;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);
@@ -37,5 +39,8 @@ int critical_hit(stchar_t *attack, stchar_t *defense, Weapons_t *weapon);
 void level_up(stchar_t *stats);
 int damage_physical(Perso_t *attacker, Perso_t *defender);
 int damage_magical(Perso_t *attacker, Perso_t *defender);
+int get_crit_rate(Perso_t *atk, Perso_t *def);
+int get_hit_rate(Perso_t *atk, Perso_t *def);
+int set_dmg(fight_t *fight, Global_t *m, Perso_t *atk, Perso_t *def);
 
 #endif

@@ -10,8 +10,8 @@
 int double_attack(stchar_t *attack, stchar_t *defense)
 {
     if (attack->spd - defense->spd >= 4)
-        return 1;
-    return 0;
+        return 2;
+    return 1;
 }
 
 int critical_hit(stchar_t *attack, stchar_t *defense, Weapons_t *weapon)
@@ -29,12 +29,12 @@ int damage_physical(Perso_t *attacker, Perso_t *defender)
 {
     int crit = critical_hit(&attacker->stat_p, &defender->stat_p,
     attacker->current_weapon);
-    int atk = attacker->stat_p.skl +
+    int atk = attacker->stat_p.str +
     is_weapon_advantage(attacker->current_weapon,
     defender->current_weapon) + attacker->current_weapon->attack;
     int def = defender->stat_p.def; //+ defender->current_case->def_bonus;
 
-    return (atk - def) * crit;
+    return (atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p);
 }
 
 int damage_magical(Perso_t *attacker, Perso_t *defender)
@@ -46,5 +46,5 @@ int damage_magical(Perso_t *attacker, Perso_t *defender)
     defender->current_weapon) + attacker->current_weapon->attack;
     int def = defender->stat_p.res + defender->current_case->def_bonus;
 
-    return (atk - def) * crit;
+    return (atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p);
 }

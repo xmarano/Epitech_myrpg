@@ -22,6 +22,8 @@ char *my_inttostr(int num)
     int len = length(num);
     char *str = malloc(len + 1);
 
+    if (num == 0)
+        return "0";
     for (int i = len - 1; i >= 0; i--) {
         str[i] = (num % 10) + '0';
         num /= 10;

@@ -34,7 +34,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
-    init_lifebars(f, m);
+    //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
     sfRenderWindow_display(m->window);
 }
@@ -73,7 +73,8 @@ int main(int argc, char **argv)
     initalisateur2sprite(&m);
     init_hub(&h, &m);
     init_select_perso(&m);
-    init_lifebars(&m, &f);
+    init_lifebars(&f, &m);
+    //set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h, &f);
     destroy_hub(&h);
