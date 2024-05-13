@@ -1,0 +1,37 @@
+//Chapitre 8//
+
+1 : It’s finally the end we gonna win
+3 : We gonna attain the peace
+2 : The king is just there
+4 : the end is within reach
+0 : The king is over there
+
+
+*reach the king*
+
+Boss8 : Who bothers me during my sleep ?!!
+
+1: We’ve come to end your reign of terror, King.
+3: Your time is up, King. We’re here to restore peace.
+2: King, your reign ends here and now.
+4: We’ve come to put a stop to your plans, King.
+0: King, your rule ends today.
+
+Boss8: You dare to challenge me? I will conquer the world and dest0 Edgar’s kingdom.
+I will shatter the peace and spread war!
+
+1: We won’t let that happen. We’re here to fight for peace.
+3: We’re not afraid of you. We’ll do whatever it takes to stop you.
+2: We’re ready to fight. We won’t let you dest0 the peace.
+4: We’re stronger than you think. We won’t let you spread war.
+0: We’re determined to stop you. We won’t let you conquer the world.
+
+*Fight*
+
+Boss8: How… how did you defeat me?
+
+1: It’s over, King. Now, release the villagers.
+3: We’ve won, King. It’s time to free the villagers.
+2: Your reign is over, King. Let the villagers go.
+4: We’ve beaten you, King. Now, set the villagers free.
+0: We’ve triumphed, King. Release the villagers now.
