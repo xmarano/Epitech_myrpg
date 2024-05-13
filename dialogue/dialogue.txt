@@ -5,17 +5,17 @@
 1 : it hurt, where we are?
 3 : ahhhh , what happened ??!!! We need to find someone
 2 : whaa my head hurt and I have sand in my nose *sneeze*
-4 : why we are here , I was just playing a game 
+4 : why we are here , I was just playing a game
 0 : how did I get here ? We need answer !
 
 
 *FIRST SPEAK TO THE SELLER *
 Seller : Welcome boy , is everything ok you seems disoriented
 
-1 : No I passed out at home and woke up on a beach where we are ? 
+1 : No I passed out at home and woke up on a beach where we are ?
 3 : No, not at all, where we are?
 2 : *sneeze* No I don’t know where we ara can you help me ?
-4 : NO ! I was just playing I don’t know where we are 
+4 : NO ! I was just playing I don’t know where we are
 0 : Hello , I lost my mind and I don’t know where we are can you help me ?
 
 Seller : don’t worry boy everything is okay , you are in Elae kingdom we live in peace here
@@ -43,10 +43,10 @@ till first level finish *we need do find the king before*
 
 *Launch the map*
 
-1 : So the king is probably in his castle 
+1 : So the king is probably in his castle
 3 : So he’s probably this way ?
 2 : I need to explore to find the king
-4 : So he’s probably in this castle 
+4 : So he’s probably in this castle
 0 : ok, so I need to find the king of Elae
 
 
@@ -466,15 +466,15 @@ Boss7 : Stop !! What do you want from our king ?
 3 : You’re king attack us with all your soldier and chief we want to make the peace 
 2 : We come in peace, we just want to make the peace here
 4 : We just want the peace , let’s us talk to your king
-0 : We need need to talk at your king about your attack 
+0 : We need need to talk at your king about your attack
 
 Boss7 : Our king don’t talk to stranger get out there or I will kill you all 
 
-1 : Come on so 
+1 : Come on so
 3 : So come to fight
 2 : If it’s the only solution to make peace come here
 4 : Come fight with us
-0 : We gonna defeat you 
+0 : We gonna defeat you
 
 
 *after the fight*
@@ -482,37 +482,37 @@ Boss7 : Our king don’t talk to stranger get out there or I will kill you all
 Boss7 : your determination is incredible , you are very strong
 
 1 : We just want the peace
-3 : Our determination is to have the peace in the world 
+3 : Our determination is to have the peace in the world
 2 : We only want to make the peace
 4 : Our strength come from our determination that why
 0 : The only reason we fight is to make the peace
 
 //Chapitre 8//
 
-1 : It’s finally the end we gonna win 
+1 : It’s finally the end we gonna win
 3 : We gonna attain the peace
 2 : The king is just there
 4 : the end is within reach
-0 : The king is over there 
+0 : The king is over there
 
 
 *reach the king*
 
 Boss8 : Who bothers me during my sleep ?!!
 
-1: We’ve come to end your reign of terror, King. 
-3: Your time is up, King. We’re here to restore peace. 
-2: King, your reign ends here and now. 
+1: We’ve come to end your reign of terror, King.
+3: Your time is up, King. We’re here to restore peace.
+2: King, your reign ends here and now.
 4: We’ve come to put a stop to your plans, King.
 0: King, your rule ends today.
 
 Boss8: You dare to challenge me? I will conquer the world and dest0 Edgar’s kingdom.
 I will shatter the peace and spread war!
 
-1: We won’t let that happen. We’re here to fight for peace. 
-3: We’re not afraid of you. We’ll do whatever it takes to stop you. 
-2: We’re ready to fight. We won’t let you dest0 the peace. 
-4: We’re stronger than you think. We won’t let you spread war. 
+1: We won’t let that happen. We’re here to fight for peace.
+3: We’re not afraid of you. We’ll do whatever it takes to stop you.
+2: We’re ready to fight. We won’t let you dest0 the peace.
+4: We’re stronger than you think. We won’t let you spread war.
 0: We’re determined to stop you. We won’t let you conquer the world.
 
 *Fight*
@@ -521,6 +521,6 @@ Boss8: How… how did you defeat me?
 
 1: It’s over, King. Now, release the villagers.
 3: We’ve won, King. It’s time to free the villagers.
-2: Your reign is over, King. Let the villagers go. 
+2: Your reign is over, King. Let the villagers go.
 4: We’ve beaten you, King. Now, set the villagers free.
 0: We’ve triumphed, King. Release the villagers now.
