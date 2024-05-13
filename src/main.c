@@ -39,6 +39,26 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     sfRenderWindow_display(m->window);
 }
 
+static void annihilateur2sprite(Global_t *m)
+{
+    destroy_inventaire(m);
+    destroy_menu(m);
+    destroy_shop(m);
+    destroy_select_perso(m);
+    destroy_loading(m);
+}
+
+static void initalisateur2sprite(Global_t *m)
+{
+    import_weapons_stats(m);
+    setup_stat(m);
+    init_menu(m);
+    init_inventaire(m);
+    init_shop(m);
+    init_pose(m);
+    init_loading(m);
+}
+
 int main(int argc, char **argv)
 {
     Global_t m = {0};
@@ -48,26 +68,15 @@ int main(int argc, char **argv)
 
     if (argc != 1)
         return 84;
-    m.perso->is_visible = false;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
-    import_weapons_stats(&m);
-    setup_stat(&m);
-    init_menu(&m);
-    init_inventaire(&m);
-    init_shop(&m);
-    init_pose(&m);
-    init_loading(&m);
+    initalisateur2sprite(&m);
     init_hub(&h, &m);
     init_select_perso(&m);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h, &f);
     destroy_hub(&h);
-    destroy_inventaire(&m);
-    destroy_menu(&m);
-    destroy_shop(&m);
-    destroy_select_perso(&m);
-    destroy_loading(&m);
+    annihilateur2sprite(&m);
     sfClock_destroy(m.clock);
     sfSprite_destroy(m.menu.cursor);
     sfRenderWindow_destroy(m.window);

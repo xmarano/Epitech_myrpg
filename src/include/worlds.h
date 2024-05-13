@@ -8,6 +8,7 @@
 #ifndef WORLDS_H
     #define WORLDS_H
     #include "../rpg.h"
+    #define get_size sfView_getSize
 
 typedef struct hub {
     sfIntRect rect;
@@ -23,6 +24,8 @@ typedef struct hub {
     sfColor what_word;
     sfView *view;
     sfView *normal_view;
+    sfSprite *pouilleux;
+    sfTexture *Pouilleux;
 } hub_t;
 
 typedef struct Loading {

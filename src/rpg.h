@@ -19,7 +19,7 @@
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
     #include <time.h>
-    #define SPEED 2
+    #define SPEED 7
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
@@ -106,7 +106,10 @@ typedef struct Glob {
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;
-    //next
+    Zone4_t zone4;
+    Zone5_t zone5;
+    Zone6_t zone6;
+    Zone7_t zone7;
     Zone8_t zone8;
 } Global_t;
 
@@ -169,7 +172,7 @@ void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon);
 void init_hub(hub_t *h, Global_t *m);
 void draw_hub(Global_t *m, hub_t *h);
-void moveCharacter(Global_t *m, hub_t *hub);
+void movecharacter(Global_t *m, hub_t *hub);
 void destroy_hub(hub_t *h);
 void set_sprite_head_name(Global_t *m, int who);
 void set_text_health(Global_t *m, int who);
