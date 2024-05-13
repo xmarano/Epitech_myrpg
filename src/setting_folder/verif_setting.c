@@ -50,14 +50,15 @@ char *credit_read(void)
 void synopsis_bool(Global_t *m)
 {
     char *synopsypara = synop_read();
+    m->setting.special_font = sfFont_createFromFile("assets/text.ttf");
 
     if (m->setting.synopbool){
-        m->setting.coversynop = init_button2(m,
-        (sfVector2f){760, 660}, (sfVector2f){900, 200});
+        m->setting.coversynop = init_button2(m->setting.special_font,
+        (sfVector2f){760, 510}, (sfVector2f){900, 260});
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.coversynop, NULL);
-        m->setting.synopsypara = init_text2(m->setting.font,
-        synopsypara, 50, (sfVector2f){910, 210});
+        m->setting.synopsypara = init_text2(m->setting.special_font,
+        synopsypara, 30, (sfVector2f){910, 270});
         sfRenderWindow_drawText(m->window,
         m->setting.synopsypara, NULL);
     }
@@ -92,6 +93,7 @@ void verif_thing(Global_t *m)
         sfRenderWindow_drawText(m->window, m->setting.volumeb, NULL);
         sfRenderWindow_drawText(m->window, m->setting.volumeh, NULL);
         sfRenderWindow_drawText(m->window, m->setting.cvolume, NULL);
+        verif_song(m);
     }
     verif_other(m);
 }
