@@ -19,7 +19,7 @@
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
     #include <time.h>
-    #define SPEED 7
+    #define SPEED 2
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
@@ -171,6 +171,7 @@ void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon);
 void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon);
 void init_hub(hub_t *h, Global_t *m);
+void passages_mondes(Global_t *m, hub_t *hub);
 void draw_hub(Global_t *m, hub_t *h);
 void movecharacter(Global_t *m, hub_t *hub);
 void destroy_hub(hub_t *h);

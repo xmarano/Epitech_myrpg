@@ -81,25 +81,13 @@ void les_colisions(Global_t *m, hub_t *hub)
     }
 }
 
-static void passages_mondes(Global_t *m, hub_t *hub)
-{
-    return;
-}
-
 void movecharacter2(Global_t *m, hub_t *hub)
 {
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
-    hub->what_word = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x +
-    hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
-    if ((hub->what_word.r == 50 && hub->what_word.g == 50 &&
-    hub->what_word.b == 50) || sfKeyboard_isKeyPressed(sfKeyH)) {
-        m->shop.is_select = false;
-        m->current = 9;
-    }
     hub->color = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x +
     hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
-    les_colisions(m, hub);
     passages_mondes(m, hub);
+    les_colisions(m, hub);
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
     draw_pouilleux(m, hub);
