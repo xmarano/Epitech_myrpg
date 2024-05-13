@@ -51,22 +51,8 @@ void draw_hub(Global_t *m, hub_t *h)
     }
 }
 
-void moveCharacter(Global_t *m, hub_t *hub)
+static int movement2(hub_t *hub, int tic)
 {
-    int tic = 0;
-    float seconds;
-
-    hub->movement = (sfVector2f){0, 0};
-    if (sfKeyboard_isKeyPressed(sfKeyZ)) {
-        hub->movement.y -= SPEED;
-        hub->rect.top = 515;
-        tic = 1;
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyS)) {
-        hub->movement.y += SPEED;
-        hub->rect.top = 512 + 65 * 2;
-        tic = 1;
-    }
     if (sfKeyboard_isKeyPressed(sfKeyQ)) {
         hub->movement.x -= SPEED;
         hub->rect.top = 515 + 65;
@@ -77,15 +63,28 @@ void moveCharacter(Global_t *m, hub_t *hub)
         hub->rect.top = 511 + 65 * 3;
         tic = 1;
     }
-    hub->time = sfClock_getElapsedTime(m->clock);
-    seconds = hub->time.microseconds / 1000000.0;
-    if (seconds > 0.09) {
-        if (hub->rect.left < (64 * 8) && tic == 1)
-            hub->rect.left += 64;
-        else
-            hub->rect.left = 0;
-        sfClock_restart(m->clock);
+    return tic;
+}
+
+static int movement(hub_t *hub)
+{
+    int tic = 0;
+
+    if (sfKeyboard_isKeyPressed(sfKeyZ)) {
+        hub->movement.y -= SPEED;
+        hub->rect.top = 515;
+        tic = 1;
     }
+    if (sfKeyboard_isKeyPressed(sfKeyS)) {
+        hub->movement.y += SPEED;
+        hub->rect.top = 512 + 65 * 2;
+        tic = 1;
+    }
+    return movement2(hub, tic);
+}
+
+static void moveCharacter2(Global_t *m, hub_t *hub)
+{
     hub->pos_sprite = sfSprite_getPosition(hub->sprite_perso);
     hub->what_word = sfImage_getPixel(hub->hitbox, (hub->pos_sprite.x + hub->movement.x + 20), (hub->pos_sprite.y + hub->movement.y + 37));
     if ((hub->what_word.r == 50 && hub->what_word.g == 50 && hub->what_word.b == 50) || sfKeyboard_isKeyPressed(sfKeyH)) {
@@ -104,6 +103,25 @@ void moveCharacter(Global_t *m, hub_t *hub)
     }
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
+}
+
+void moveCharacter(Global_t *m, hub_t *hub)
+{
+    float seconds;
+    int tic;
+
+    hub->movement = (sfVector2f){0, 0};
+    tic = movement(hub);
+    hub->time = sfClock_getElapsedTime(m->clock);
+    seconds = hub->time.microseconds / 1000000.0;
+    if (seconds > 0.09) {
+        if (hub->rect.left < (64 * 8) && tic == 1)
+            hub->rect.left += 64;
+        else
+            hub->rect.left = 0;
+        sfClock_restart(m->clock);
+    }
+    moveCharacter2(m, hub);
 }
 
 void destroy_hub(hub_t *h)
