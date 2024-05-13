@@ -53,7 +53,7 @@ void synopsis_bool(Global_t *m)
     m->setting.special_font = sfFont_createFromFile("assets/text.ttf");
 
     if (m->setting.synopbool){
-        m->setting.coversynop = init_button2(m->setting.special_font,
+        m->setting.coversynop = init_button2(m,
         (sfVector2f){760, 510}, (sfVector2f){900, 260});
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.coversynop, NULL);
