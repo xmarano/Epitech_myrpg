@@ -76,6 +76,7 @@ int main(int argc, char **argv)
     init_lifebars(&m, &f);
     while (sfRenderWindow_isOpen(m.window))
         rpg(&m, &h, &f);
+    }
     destroy_hub(&h);
     destroy_fight_struct(&f);
     annihilateur2sprite(&m);
