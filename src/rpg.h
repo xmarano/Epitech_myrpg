@@ -213,6 +213,7 @@ void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
+void wordpt(char *str, sfRenderWindow *window, sfFont *font);
 
     #include "include/fight.h"
 

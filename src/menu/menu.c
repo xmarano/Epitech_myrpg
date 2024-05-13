@@ -5,7 +5,6 @@
 ** menu.c
 */
 #include "../rpg.h"
-#include "../include/menu.h"
 
 static void check_globalbounds(Global_t *m)
 {
