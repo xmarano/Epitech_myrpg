@@ -1,0 +1,524 @@
+//Prologue//
+
+*ON THE BEACH*
+
+Infenium : it hurt, where we are?
+Xmarano : ahhhh , what happened ??!!! We need to find someone
+Pate Carbo : whaa my head hurt and I have sand in my nose *sneeze*
+Le racaillou : why we are here , I was just playing a game 
+Roy : how did I get here ? We need answer !
+
+
+*FIRST SPEAK TO THE SELLER *
+Seller : Welcome boy , is everything ok you seems disoriented
+
+Infenium : No I passed out at home and woke up on a beach where we are ? 
+Xmarano : No, not at all, where we are?
+Pate Carbo : *sneeze* No I don’t know where we ara can you help me ?
+Le racaillou : NO ! I was just playing I don’t know where we are 
+Roy : Hello , I lost my mind and I don’t know where we are can you help me ?
+
+Seller : don’t worry boy everything is okay , you are in Elae kingdom we live in peace here
+
+Infenium : Ok thanks you, where can I find help ?
+Xmarano : Thanks you I need to find the king Edgar to help him where I can find help ?
+Pate Carbo : Ok and with who I can speak to find the king Edgar ?
+Le racaillou : Cool, peace village,  and at who I can speak to find the king Edgar ?
+Roy : Thanks you old man , how to find the king Edgar ?
+
+Seller : Hmmm I’m just a merchant… but you can speak at our king Edgar but
+he’s a little bit upset these days because of the Aixus Kingdom ask him yourself
+
+Infenium : Ok thank you,  have a good day ! 
+Xmarano : Ok thanks , bye
+Pate Carbo : Ok , bye 
+Le racaillou : thank you , bye ! 
+Roy : Thanks you a lot I’m gonna speak to him , have a good day sir 
+
+Seller : Bye sir *CAN’T SPEAK UNTIL FINISH FIRST LEVEL*write continuously
+till first level finish *we need do find the king before*
+
+
+//Chapitre 1//
+
+*Launch the map*
+
+Infenium : So the king is probably in his castle 
+Xmarano : So he’s probably this way ?
+Pate Carbo : I need to explore to find the king
+Le racaillou : So he’s probably in this castle 
+Roy : ok, so I need to find the king of Elae
+
+
+*First enter in a the map*
+++ Launch screen explanation? Explain element , bastion and shop
+
+*enter in a shop*
+
+Seller : welcome in my shop say me if you want anything // Launch screen explanation
+
+If buy 
+Seller : thank you for your purchase
+
+If leave buyingHave a good day ! 
+
+If leave without buying 
+Seller : bye
+
+
+*encouter first ennemy*
+++ Launch screen explanation
+
+
+Infenium : Why do you attack me ?
+Xmarano : AAAARGH why you attack me ? @#9E8##bdjkk 
+Pate Carbo : Seriously ?
+Le racaillou : Go away I don’t want to fight
+Roy : Want to fight ? Come on
+Ennemy : hahaha all for the real king !!!Infenium : The real king ?
+Xmarano : what are you talking about ?
+Pate Carbo : what ?
+Le racaillou : I don’t know what your talking about 
+Roy : I don’t know who you are but no one hurt my friend
+
+*Enter in the castle*
+
+Infenium : here we go …
+Xmarano : finally
+Pate Carbo : So finally I he’s here
+Le racaillou : So king he’s here ?
+Roy : *Smile* finally Edgar : Welcome, who are you ?
+
+
+Infenium : I’m a infenium and this is my friends Xmarano, Pate Carbo, Le racaillou and Roy  you need  us don’t you ?
+Xmarano : I’m a Xmarano and this is my friends Infenium, Pate Carbo, Le racaillou and Roy you need  us don’t you ?
+Pate Carbo : I’m a Pate Carbo and this is my friends Xmarano, Infenium, Le racaillou and Roy  you need  us don’t you ?
+Le racaillou : I’m a Le racaillou and this is my friends Xmarano, Pate Carbo, Infenium and Roy  you need  us don’t you ?
+Roy : I’m a Roy and this is my friends Xmarano, Pate Carbo, Le racaillou and Infenium  you need  us don’t you ?
+
+Edgar : Yes, a new king from the neighboring kingdom Aixus wants to 
+take control of the entire country and proclaims himself as the true king
+
+Infenium : Oh that why some bandit attack me , what do you want ?
+Xmarano : Oh I understand, why do you want from us ?
+Pate Carbo : Ok, what you want us to do ?
+Le racaillou : Ok what you want ?
+Roy : Ok sir, I understand the situation so what you want from us ?
+
+
+King : Thank you for coming, I need you to defeat the king of Aixus 
+for stop his desire of destruction and take over everything
+
+Infenium : Where do we need to go first ?
+Xmarano : Where we need to go ?
+Pate Carbo : So I need to go where then ?
+Le racaillou : where are we going then ?
+Roy : Ok I will help sir , where we need to go first ?
+
+
+Edgar : You need to go first at the desert to defeat his first general and obtain information of the king 
+
+Infenium : Ok, we gonna protect the kingdom for you 
+Xmarano : Ok, the kingdom is safe with us
+Pate Carbo : Of courses I will help you 
+Le racaillou : Don’t worry I will help you 
+Roy : I’m gonna help you 
+
+*Encounter the boss*
+
+Boss1 : WHERE IS EDGAR???!!!
+
+Infenium : We are the the soldier of the king Edgar we gonna defend him don’t approach him
+Xmarano : We are here to defend the kingdom of Elae , we gonna defend him so  don’t approach him
+Pate Carbo : We need to defend Edgar we gonna defeat you  
+Le racaillou :we gonna defend him.
+Roy : Hi, we gonna defeat you and after ask you some questions
+
+Boss1 : I am the chief of the west army, I will Kill you before killing Edgar 
+
+Infenium : I’m infenium and with my friend we are gonna defeat you and your soldiers
+Xmarano : I don’t need a name to defeat you 
+Pate Carbo : Pfff come on you talk to much 
+Le racaillou : I will make you speak 
+Roy : I will defeat you with my team come here
+
+
+*Fight part*
+
+Boss1 : Howw…how…how do you defeat me and my soldier ?
+
+Infenium : No one can defeat us, answer my questions now 
+Xmarano : You don’t have any chance to us, answer my questions 
+Pate Carbo : You can’t defeat us, now answer my question
+Le racaillou : Now you gonna answer our questions 
+Roy : say me all the answer I need now Boss1 : okay say me what you want *bleed*
+
+Infenium : Where can I find your king ?
+Xmarano : Where is your king ?
+Pate Carbo : Where is the king of Aixus ?
+Le racaillou : where is the king of your kingdom?
+Roy : Give me the place of your kingdom 
+
+Boss2  : He ’s in the north of the continent but you need to go to the dock to take a boat and 
+go in his kingdom but no one can defeat he’s the strongest in the planet he’s the more intelligent 
+
+*Go away*
+
+Infenium : We need to go to the desert before
+Xmarano : We need to go to the desert before
+Pate Carbo :  We need to go to the desert before
+Le racaillou : We need to go to the desert before
+Roy : We need to go to the desert before
+
+
+//Chapitre 2//
+
+*Speak to the seller second times*
+
+Seller : Hi you finally come again, what do you need now ?
+
+Infenium : Hi the king ask our help to defend the kingdom can you help us spot us to find the desert please
+Xmarano : Hi, we need to find the desert to help the king 
+Pate Carbo : Hello, we need to find the desert now 
+Le racaillou : Hello, can you say me where the desert is please ?
+Roy : Hello old man, now we need to find the desert to help the king
+
+Seller : of courses ! You can find the different part of the kingdom by following the different signs scattered throughout the villages 
+
+Infenium : Thank you a lot 
+Xmarano : Thank you sir
+Pate Carbo : Thanks 
+Le racaillou : I thank you 
+Roy : Thank you old man 
+
+
+Seller : don’t worry and remember if you need anything my shop is open at anytime you can buy a lot of thing here, bye !
+
+++ show the actual shop 
+
+*Spawn in the desert*
+
+Infenium : it seems empty here 
+Xmarano : there is a lot of wind 
+Pate Carbo : it’s hot there
+Le racaillou : wow the sun shines brightly
+Roy : I have a bad feeling about this place 
+
+
+*encouter the boss*
+Infenium : Hey could you please help us for prepare ourself to go at the dock
+Xmarano : Hey where can we find something to prepare us to go at the dock please
+Pate Carbo : hey we need to go at the dock could you please help us please
+Le racaillou : Hello where can we find weapon you find before go to the dock 
+Roy : Hello sir, we want to go at the dock could please help us 
+
+Boss2: You really that I would help you ? Look at the villagers , they are all dead and I’m the one who kill them we my elite troops.
+
+Infenium : How did you you dare I’m gonna kill you 
+Xmarano : No one kill innocent  
+Pate Carbo : No one can kill them they don’t deserve it
+Le racaillou : No one deserve that  how did you dare
+Roy : It’s not possible I will make you regret 
+
+
+Boss2: How it’s possible no one defeat me before you are so strong
+*run away*
+
+Infenium : Pathetic, now we need to go away 
+Xmarano : So we need to go to the the dock now
+Pate Carbo : The dock … here we go
+Le racaillou : I hope it’s not far the dock 
+Roy : We need to go to the dock to find him now
+
+//Chapitre 3//
+
+*spawn at the dock*
+
+Infenium : it more colder here
+Xmarano : WHAAA there is a arena I want to go in 
+Pate Carbo : What’s the big thing over there it seems to be an arena
+Le racaillou : The dock seems a little bit suspicious 
+Roy : I hope he don’t lie to us 
+
+*First enter in the arena*
+// Launch screen explanation
+
+*First enter in the shop*
+// Launch screen explanation
+
+Seller : Hello, welcome in my shop there is what I have
+//show the shop 
+
+*Encouter the boss* 
+
+Infenium : Hello do you have a boat so with my friends we can go to the Aixus kingdom
+Xmarano : Hey , do you have boat for us ?
+Pate Carbo : We need to go to the Aixus kingdom do you a boat for us 
+Le racaillou : we need to travel the sea to go to the kingdom aixus do you sell anything?
+Roy : Hi sir, I search a boat to go in the Aixus kingdom what are you selling ?
+
+Boss3 : …………. ………. ………. …………
+Boss3 : …….. …… …………… ……………..
+Boss3 : ………………. ….     …….  …….  ….
+Boss3 : DOES I LOOK LIKE A STUPID MERCHANT ?
+Boss3 : YOU WANT TO DIE ????!!!!!!!!!!!!!
+
+Infenium : oh sorry, so who are you ?
+Xmarano : My bad I don’t see well, who are you ?
+Pate Carbo : Serious ? I’m so sorry, who are you then ?
+Le racaillou : I’m very sorry , but who are you ? 
+Roy : I’m very sorry old man, who are please 
+
+Boss3 : You make me mad now … I’m the maritime chief for the Aixus king, the new king of the Elea kingdom and the whole world 
+Infenium : You’re a sbire of the Aixus kingdom, where are the villagers then ?
+Xmarano : So where the villagers went ?
+Pate Carbo : So that why there is no one in the dock , where are they ?! 
+Le racaillou : where the inhabitant went ?
+Roy : So what do you do of the villagers ?! 
+
+Boss3 : The villagers ? HAHAHA I kill them all there is no survivors here now it’s the place of the 
+Aixus kingdom and now it’s your time to die 
+
+*Launch fight*
+
+Boss3 : you are very strong opponents, I let’s you the victory you I’m too old now for too intensive fight, what do you want from me ?
+
+
+Infenium : I need to boat to go at the other side of the and see your king 
+Xmarano : Give me a boat 
+Pate Carbo : I need a boat please
+Le racaillou : Can I have a boat 
+Roy : Thank you , you’re strong too, I want a boat to see your king please 
+
+Boss3 : A boat ? *suspicious smile* you can take mine he’s totally perfect he’s just in front a the right, now let me I need to heal a little  
+
+Infenium : Thank you rest as you want and after help the villager to rebuild their villages
+Xmarano : OK , try don’t die
+Pate Carbo : Thanks, bye
+Le racaillou : Help the villager after that
+Roy : Rest well, but after that help all the villagers that need help
+
+//Chapitre 4//
+
+*take the boat*
+
+
+Infenium : Wow , the sea is beautiful 
+Xmarano : I can see a beautiful fish 
+Pate Carbo : Wow I love the sea
+Le racaillou : Why does a boat come to us
+Roy : it seem too calm here *encounter the boss*
+
+Boss4 : You really thinks that you can kill chief of our army like it’s nothing ?
+
+Infenium : Who are you ?
+Xmarano : Why do you attack us ?
+Pate Carbo : Why do you want from us ?
+Le racaillou : Why you attack us ?
+Roy : What are you talking about ?
+
+Boss4 : I’m the Maritime chief of the south sea , you try to defeat our army by killing our soldat so now I will make all of you regret
+
+Infenium : We just want to discuss with you king that destroy our fields
+Xmarano : It’s you that attack us 
+Pate Carbo : Don’t say that, you thatattack us with our army
+Le racaillou : No , it’s you that try to destroy our country
+Roy : We just defend ourself from you army 
+
+Boss4 : Don’t try to lie 
+
+Infenium :Enough talk, let’s defend ourselves! 
+Xmarano : For our country, we won’t back down! 
+Pate Carbo : You’ve made a mistake challenging us! 
+Le racaillou :  Let’s show him what we’re made of!
+Roy :  Prepare yourself 
+
+Boss4 : You’ll regret this! 
+
+*fight*
+
+Infenium : We did it… we actually did it! 
+Xmarano : That was for our country! 
+Pate Carbo : He won’t be bothering us anymore. 
+Le racaillou : That’s what happens when you mess with us!
+Roy : Let’s continue, our people are waiting for us
+
+//Chapitre 5//
+
+Arriving on solid ground after the boat ride
+
+Infenium: The earth beneath my feet has never felt so comforting.
+Xmarano: Finally, we’ve arrived. This land… it has a mystical aura.
+Pate Carbo: It’s a new world opening up to us.
+Le racaillou: I sense a different energy here.
+Roy: We’ve crossed the sea, now it’s time for the land.
+
+*Dialogue with a villager*
+
+Villager: Who are you? We haven’t seen strangers in a long time.
+
+Infenium: We come seeking help. We’ve faced the maritime chief. 
+Xmarano: And we’ve heard about your king. We need to meet him. 
+Pate Carbo: Our journey is urgent, and time is against us.
+Le racaillou: Can you guide us to your king or someone who can help?
+Roy: We mean no harm, our intentions are pure.
+
+*Arrival at the castle*
+
+Boss5: Halt! Who dares to approach the royal grounds without permission?!
+
+Infenium: We mean no harm. We seek an audience with the king.
+Xmarano: We’ve traveled far and faced many dangers. We won’t be stopped now.
+Pate Carbo: We have proven our worth time and again. Let us pass.
+Le racaillou: Your king needs to hear what we have to say.
+
+Boss5: None shall pass without proving their worth! Prepare yourselves!
+
+After a fierce battle, the Royal Guard is defeated
+
+Boss5: You… you’ve proven your strength. The king… he resides in secrecy.
+There’s a hidden path behind the throne room. Now leave me be!
+
+Infenium: Thank you for your guidance; we shall proceed with caution.
+Xmarano: Every step brings us closer to unraveling this mystery.
+Pate Carbo: May our paths cross again under friendlier skies.
+Le racaillou: Your strength is admirable; may peace find you.
+Roy: In another life, we could have been allies.
+
+
+//Chapitre 6//
+
+*Spawn at the throne room*
+
+Infenium: This throne room… there’s a malevolent aura emanating from the throne. 
+Xmarano: Something’s not right here. Can you feel it? It’s coming from the throne. 
+Pate Carbo: We need to hurry. There’s an evil presence around the throne. 
+Le racaillou: The throne… it’s radiating a wicked energy. We must act quickly. 
+Roy: The throne is the source of this dark aura. We need to move fast.
+
+*Encounter the boss*
+
+Boss6: So, you’ve made it this far. But you will go no further!
+
+Infenium: We’ve come for the king. If you stand in our way, we will fight. 
+Xmarano: We’re not afraid of you, old man. We’ve faced your kind before. 
+Pate Carbo: We’re prepared to do whatever it takes. We won’t be stopped here. 
+Le racaillou: You might be strong, but we’ve got something you don’t - determination. 
+Roy: We’re here for the king. And we won’t let you or anyone else stop us.
+
+Boss6: You’re brave, I’ll give you that. But bravery alone won’t save you.
+
+Infenium: We’ve got more than bravery on our side. We’ve got each other. 
+Xmarano: And we’ve got a reason to fight. That’s more than you can say. 
+Pate Carbo: We’re not just fighting for ourselves. We’re fighting for everyone you’ve threatened. 
+Le racaillou: And we won’t back down. Not now, not ever. 
+Roy: So come on then. Let’s see what you’ve got.
+
+*Fight part*
+
+Boss6: How… how did you defeat me?
+
+Infenium: Tell us where to find the king. Now. 
+Xmarano: We’ve won. Now, where is the king? 
+Pate Carbo: We’re not leaving until you tell us where the king is. 
+Le racaillou: You’ve lost. Now, where’s the king? 
+Roy: We’ve beaten you. Now tell us where to find the king.
+
+Boss6: Underneath this throne… there’s a path… to the king’s village… a frozen kingdom…
+
+
+Infenium: We need to move. The king’s village awaits. 
+Xmarano: A frozen kingdom… Let’s go. 
+Pate Carbo: We’ve got no time to waste. To the king’s village. 
+Le racaillou: A frozen kingdom… Sounds interesting. Let’s go. 
+Roy: The king’s village… Let’s move out.
+
+
+//Chapitre 7//
+
+Arriving in the Ice Kingdom
+
+Infenium : Wow it’s very cold here
+Xmarano : I never see snow before
+Pate Carbo : I can see the castle from here !!!
+Le racaillou : Wow it’s cold 
+Roy : I hope we can finally found the king here 
+
+*talk to villager*
+
+Villager : … we don’t talk to stranger here
+
+Infenium : We just want the peace 
+Xmarano : We will help you don’t worry 
+Pate Carbo : I know your afraid don’t worry we gonna help you 
+Le racaillou : we gonna help you don’t worry 
+Roy : We come in peace don’t worry we will help you all
+
+Villager : Thank you please make the kingdom free
+
+*enter in the castle*
+
+Boss7 : Stop !! What do you want from our king ?
+
+Infenium : We are the soldier of Edgar and we want to make the peace in our country 
+Xmarano : You’re king attack us with all your soldier and chief we want to make the peace 
+Pate Carbo : We come in peace, we just want to make the peace here
+Le racaillou : We just want the peace , let’s us talk to your king
+Roy : We need need to talk at your king about your attack 
+
+Boss7 : Our king don’t talk to stranger get out there or I will kill you all 
+
+Infenium : Come on so 
+Xmarano : So come to fight
+Pate Carbo : If it’s the only solution to make peace come here
+Le racaillou : Come fight with us
+Roy : We gonna defeat you 
+
+
+*after the fight*
+
+Boss7 : your determination is incredible , you are very strong
+
+Infenium : We just want the peace
+Xmarano : Our determination is to have the peace in the world 
+Pate Carbo : We only want to make the peace
+Le racaillou : Our strength come from our determination that why
+Roy : The only reason we fight is to make the peace
+
+//Chapitre 8//
+
+Infenium : It’s finally the end we gonna win 
+Xmarano : We gonna attain the peace
+Pate Carbo : The king is just there
+Le racaillou : the end is within reach
+Roy : The king is over there 
+
+
+*reach the king*
+
+Boss8 : Who bothers me during my sleep ?!!
+
+Infenium: We’ve come to end your reign of terror, King. 
+Xmarano: Your time is up, King. We’re here to restore peace. 
+Pate Carbo: King, your reign ends here and now. 
+Le racaillou: We’ve come to put a stop to your plans, King.
+Roy: King, your rule ends today.
+
+Boss8: You dare to challenge me? I will conquer the world and destroy Edgar’s kingdom.
+I will shatter the peace and spread war!
+
+Infenium: We won’t let that happen. We’re here to fight for peace. 
+Xmarano: We’re not afraid of you. We’ll do whatever it takes to stop you. 
+Pate Carbo: We’re ready to fight. We won’t let you destroy the peace. 
+Le racaillou: We’re stronger than you think. We won’t let you spread war. 
+Roy: We’re determined to stop you. We won’t let you conquer the world.
+
+*Fight*
+
+Boss8: How… how did you defeat me?
+
+Infenium: It’s over, King. Now, release the villagers.
+Xmarano: We’ve won, King. It’s time to free the villagers.
+Pate Carbo: Your reign is over, King. Let the villagers go. 
+Le racaillou: We’ve beaten you, King. Now, set the villagers free.
+Roy: We’ve triumphed, King. Release the villagers now.
