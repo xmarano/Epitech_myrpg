@@ -22,9 +22,13 @@ typedef struct fight_struct {
     sfIntRect weapon_advantage_rect;
     sfTexture *globat_texture;
     sfSprite *combat_scene;
+    sfText **text_tab;
+    sfFont *font;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);
+void print_fight_scene(Global_t *m, fight_t *fight, Perso_t *atk, Perso_t *def);
+void destroy_fight_struct(fight_t *fight);
 int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def);
 int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
     *weapon_atk, Weapons_t *weapon_def);
