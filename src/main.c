@@ -64,7 +64,6 @@ int main(int argc, char **argv)
     char str[] = "bonjour voici un test";
     while (sfRenderWindow_isOpen(m.window)){
         rpg(&m, &h, &f);
-        wordpt(str, m.window, font);
     }
     destroy_hub(&h);
     destroy_inventaire(&m);
