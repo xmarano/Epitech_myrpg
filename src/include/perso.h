@@ -79,7 +79,6 @@ typedef struct Perso {
     sfTexture *dialogue_texture;
     bool is_hero;
     case_t *current_case;
-    bool current_selled;
 }Perso_t;
 
 #endif
