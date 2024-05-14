@@ -30,6 +30,8 @@ typedef struct hub {
     sfSprite *dia_pouill;
     sfTexture *Dia_pouill;
     sfClock *pouill_clocke;
+    sfSprite *cadre;
+    sfTexture *Cadre;
     bool is_talking;
 } hub_t;
 

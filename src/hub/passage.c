@@ -77,12 +77,33 @@ void passages_mondes2_3(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){320, 550});
         sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
-            m->current = 3;
+            //draw_pouill_dia(m, hub, 0);
         }
     }
 }
 
 static void passages_mondes1(Global_t *m, hub_t *hub)
+{
+    int word = 1;
+
+    if (hub->color.r == 150 && hub->color.g == 0 && hub->color.b == 0 && m->zone1.is_w1_clear == false) {
+        sfSprite_setPosition(hub->bulle, (sfVector2f){625, 285});
+        sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            hub->is_talking = false;
+        if (sfKeyboard_isKeyPressed(sfKeyE)) {
+            if (!hub->is_talking) {
+                hub->is_talking = true;
+                draw_pouill_dia(m, word, (sfVector2f){320, 272});
+            }
+        }
+        if (hub->is_talking)
+            draw_pouill_dia(m, word, (sfVector2f){320, 272});
+    } else
+        hub->is_talking = false;
+}
+
+static void open_shop(Global_t *m, hub_t *hub)
 {
     if ((hub->color.r == 50 && hub->color.g == 50 && hub->color.b == 50)) {
         sfSprite_setPosition(hub->bulle, (sfVector2f){310, 35});
@@ -92,22 +113,11 @@ static void passages_mondes1(Global_t *m, hub_t *hub)
             m->current = 9;
         }
     }
-    if (hub->color.r == 150 && hub->color.g == 0 && hub->color.b == 0
-        && m->zone1.is_w1_clear == false) {
-        sfSprite_setPosition(hub->bulle, (sfVector2f){625, 285});
-        sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyE)) {
-            if (!hub->is_talking)
-                hub->is_talking = true;
-            draw_pouill_dia(m, hub);
-        } else {
-            hub->is_talking = false;
-        }
-    }
 }
 
 void passages_mondes(Global_t *m, hub_t *hub)
 {
+    open_shop(m, hub);
     passages_mondes1(m, hub);
     passages_mondes2_3(m, hub);
     passages_mondes4_5(m, hub);
