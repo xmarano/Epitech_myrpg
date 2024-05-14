@@ -34,7 +34,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
-    print_fight_scene(m, f, &m->perso[INFENIUM], &m->perso[XMARANO]);
+    //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
     sfRenderWindow_display(m->window);
 }
@@ -75,8 +75,12 @@ int main(int argc, char **argv)
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[INFENIUM], &m.perso[XMARANO]);
-    while (sfRenderWindow_isOpen(m.window))
+    print_fight_scene(&m, &f, &m.perso[INFENIUM], &m.perso[XMARANO]);
+    sfFont* font = sfFont_createFromFile("assets/text.ttf");
+    m.perso->current_perso = 4;
+    while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
+    }
     destroy_hub(&h);
     destroy_fight_struct(&f);
     annihilateur2sprite(&m);
