@@ -27,8 +27,18 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font)
     for (int i = 0; i < strlen(str); i++) {
         strncat(phrase, &str[i], 1);
         sentencept(phrase, window, font);
+        if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+            sentencept(str, window, font);
+            sfSleep(sfSeconds(2.0));
+            free(phrase);
+            return;
+        }
     }
     sentencept(str, window, font);
     sfSleep(sfSeconds(2.0));
     free(phrase);
 }
+
+//sfFont* font = sfFont_createFromFile("assets/text.ttf");
+//char str[] = "bonjour voici un test un peu long j'avoue, j'ai pas trop d'idee apres";
+//wordpt(str, m.window, font);

@@ -60,8 +60,6 @@ int main(int argc, char **argv)
     init_loading(&m);
     init_hub(&h, &m);
     init_select_perso(&m);
-    sfFont* font = sfFont_createFromFile("assets/text.ttf");
-    char str[] = "bonjour voici un test";
     while (sfRenderWindow_isOpen(m.window)){
         rpg(&m, &h, &f);
     }

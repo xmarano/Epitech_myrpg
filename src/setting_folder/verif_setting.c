@@ -50,8 +50,8 @@ char *credit_read(void)
 void synopsis_bool(Global_t *m)
 {
     char *synopsypara = synop_read();
-    m->setting.special_font = sfFont_createFromFile("assets/text.ttf");
 
+    m->setting.special_font = sfFont_createFromFile("assets/text.ttf");
     if (m->setting.synopbool){
         m->setting.coversynop = init_button2(m,
         (sfVector2f){760, 510}, (sfVector2f){900, 260});
