@@ -76,8 +76,7 @@ int main(int argc, char **argv)
     init_hub(&h, &m);
     init_select_perso(&m);
     init_lifebars(&f, &m);
-    set_dmg(&f, &m, &m.perso[INFENIUM], &m.perso[XMARANO]);
-    print_fight_scene(&m, &f, &m.perso[INFENIUM], &m.perso[XMARANO]);
+    set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }
