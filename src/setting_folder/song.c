@@ -34,8 +34,9 @@ void min_volume(Global_t *m)
 void stop_song(Global_t *m)
 {
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
+    sfFloatRect bounds = sfText_getGlobalBounds(m->setting.cvolume);
+
     if (m->setting.cvolume != NULL) {
-        sfFloatRect bounds = sfText_getGlobalBounds(m->setting.cvolume);
         if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
             sfMusic_setVolume(m->setting.music, 0);
         }
@@ -56,4 +57,3 @@ void verif_song(sfVector2i mouse, Global_t *m)
     if (sfFloatRect_contains(&coupvol, mousePos.x, mousePos.y))
         stop_song(m);
 }
-

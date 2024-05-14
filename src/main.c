@@ -73,8 +73,7 @@ int main(int argc, char **argv)
     initalisateur2sprite(&m);
     init_hub(&h, &m);
     init_select_perso(&m);
-    init_lifebars(&f, &m);
-    while (sfRenderWindow_isOpen(m.window))
+    while (sfRenderWindow_isOpen(m.window)){
         rpg(&m, &h, &f);
     destroy_hub(&h);
     destroy_fight_struct(&f);
