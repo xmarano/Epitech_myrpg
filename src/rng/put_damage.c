@@ -33,7 +33,8 @@ int damage_physical(Perso_t *attacker, Perso_t *defender)
     is_weapon_advantage(attacker->current_weapon,
     defender->current_weapon) + attacker->current_weapon->attack;
     int def = defender->stat_p.def; //+ defender->current_case->def_bonus;
-
+    if ((atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p) <= 0)
+        return 0;
     return (atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p);
 }
 
@@ -44,7 +45,8 @@ int damage_magical(Perso_t *attacker, Perso_t *defender)
     int atk = attacker->stat_p.mag +
     is_weapon_advantage(attacker->current_weapon,
     defender->current_weapon) + attacker->current_weapon->attack;
-    int def = defender->stat_p.res + defender->current_case->def_bonus;
-
+    int def = defender->stat_p.res; //+ defender->current_case->def_bonus;
+    if ((atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p) <= 0)
+        return 0;
     return (atk - def) * crit * double_attack(&attacker->stat_p, &defender->stat_p);
 }

@@ -8,6 +8,14 @@
 #include "../rpg.h"
 #include "../include/npc.h"
 
+void change_name(char *name)
+{
+    for (int i = 0; name[i] != '\0'; i++) {
+        if (name[i] == '_')
+            name[i] = ' ';
+    }
+}
+
 int import_weapons_stats(Global_t *m)
 {
     FILE *file = fopen("assets/weapons/weapons_stat.txt", "r");
@@ -22,6 +30,7 @@ int import_weapons_stats(Global_t *m)
             fclose(file);
             return 84;
         }
+        change_name(m->weapons[i].name);
     }
     fclose(file);
     return 0;

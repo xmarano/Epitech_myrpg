@@ -131,6 +131,8 @@ void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 
     draw_text((sfVector2f){350, 760}, atk->current_weapon->name, m, f);
     draw_text((sfVector2f){1000, 760}, def->current_weapon->name, m, f);
+    draw_text((sfVector2f){850, 875}, my_inttostr(atk->stat_p.current_hp), m, f);
+    draw_text((sfVector2f){1775, 875}, my_inttostr(def->stat_p.current_hp), m, f);
     draw_current_weapon(atk, m, (sfVector2f){850, 775});
     draw_current_weapon(def, m, (sfVector2f){1485, 775});
     draw_weapon_advantage_atk(atk, def, f, m);

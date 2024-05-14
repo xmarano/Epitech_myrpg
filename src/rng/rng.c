@@ -7,6 +7,23 @@
 
 #include "../rpg.h"
 
+int is_weapon_advantage2(Weapons_t *weapon_atk, Weapons_t *weapon_def)
+{
+    if (strcmp(weapon_atk->weapon_type, "axe") == 0) {
+        if (strcmp(weapon_def->weapon_type, "sword") == 0)
+            return -1;
+    }
+    if (strcmp(weapon_atk->weapon_type, "sword") == 0) {
+        if (strcmp(weapon_def->weapon_type, "spear") == 0)
+            return -1;
+    }
+    if (strcmp(weapon_atk->weapon_type, "spear") == 0) {
+        if (strcmp(weapon_def->weapon_type, "axe") == 0)
+            return -1;
+    }
+    return 0;
+}
+
 int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def)
 {
     if (strcmp(weapon_atk->weapon_type, "sword") == 0) {
@@ -21,9 +38,7 @@ int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def)
         if (strcmp(weapon_def->weapon_type, "sword") == 0)
             return 1;
     }
-    if (strcmp(weapon_atk->weapon_type, weapon_def->weapon_type) != 0)
-        return -1;
-    return 0;
+    return is_weapon_advantage2(weapon_atk, weapon_def);
 }
 
 int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
