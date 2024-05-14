@@ -71,6 +71,54 @@ void draw_text2(sfVector2f pos, char *msg, Global_t *m, fight_t *f)
     sfText_destroy(text);
 }
 
+void draw_weapon_advantage_atk(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
+{
+    sfSprite *logo_sprite = sfSprite_create();
+
+    sfSprite_setTexture(logo_sprite, f->globat_texture, sfFalse);
+    if (is_weapon_advantage(atk->current_weapon, def->current_weapon) == 1)
+        sfSprite_setTextureRect(logo_sprite, (sfIntRect){1, 66, 17, 16});
+    else if (is_weapon_advantage(atk->current_weapon, def->current_weapon) == -1)
+        sfSprite_setTextureRect(logo_sprite, (sfIntRect){20, 66, 16, 16});
+    else {
+        sfSprite_destroy(logo_sprite);
+        return;
+    }
+    sfSprite_setScale(logo_sprite, (sfVector2f){5, 5});
+    sfSprite_setPosition(logo_sprite, (sfVector2f){850, 775});
+    sfRenderWindow_drawSprite(m->window, logo_sprite, NULL);
+    sfSprite_destroy(logo_sprite);
+}
+
+void draw_weapon_advantage_def(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
+{
+    sfSprite *logo_sprite = sfSprite_create();
+
+    sfSprite_setTexture(logo_sprite, f->globat_texture, sfFalse);
+    if (is_weapon_advantage(def->current_weapon, atk->current_weapon) == 1)
+        sfSprite_setTextureRect(logo_sprite, (sfIntRect){1, 66, 17, 16});
+    else if (is_weapon_advantage(def->current_weapon, atk->current_weapon) == -1)
+        sfSprite_setTextureRect(logo_sprite, (sfIntRect){20, 66, 16, 16});
+    else {
+        sfSprite_destroy(logo_sprite);
+        return;
+    }
+    sfSprite_setScale(logo_sprite, (sfVector2f){5, 5});
+    sfSprite_setPosition(logo_sprite, (sfVector2f){1485, 775});
+    sfRenderWindow_drawSprite(m->window, logo_sprite, NULL);
+    sfSprite_destroy(logo_sprite);
+}
+
+void draw_current_weapon(Perso_t *atk, Global_t *m, sfVector2f pos)
+{
+    atk->current_weapon->sprite = sfSprite_create();
+    sfSprite_setTexture(atk->current_weapon->sprite, sfTexture_createFromFile(atk->current_weapon->link_texture, NULL), sfFalse);
+    sfSprite_setPosition(atk->current_weapon->sprite, pos);
+    sfSprite_setScale(atk->current_weapon->sprite, (sfVector2f){5, 5});
+    sfRenderWindow_drawSprite(m->window, atk->current_weapon->sprite, NULL);
+    sfSprite_destroy(atk->current_weapon->sprite);
+}
+
 void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 {
     draw_text2((sfVector2f){175, 690}, my_inttostr(get_hit_rate(atk, def)), m, f);
@@ -83,6 +131,10 @@ void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 
     draw_text((sfVector2f){350, 760}, atk->current_weapon->name, m, f);
     draw_text((sfVector2f){1000, 760}, def->current_weapon->name, m, f);
+    draw_current_weapon(atk, m, (sfVector2f){850, 775});
+    draw_current_weapon(def, m, (sfVector2f){1485, 775});
+    draw_weapon_advantage_atk(atk, def, f, m);
+    draw_weapon_advantage_def(atk, def, f, m);
 }
 
 void print_fight_scene(Global_t *m, fight_t *fight, Perso_t *atk, Perso_t *def)

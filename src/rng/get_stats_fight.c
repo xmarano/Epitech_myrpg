@@ -23,6 +23,7 @@ int get_hit_rate(Perso_t *atk, Perso_t *def)
     is_weapon_advantage(atk->current_weapon, def->current_weapon) * 10;
     int avoid = def->stat_p.spd * 2 + def->stat_p.lck;
     //+ defense->current_case->esq_bonus;
-
+    if (accuracy - avoid > 100)
+        return 100;
     return accuracy - avoid;
 }
