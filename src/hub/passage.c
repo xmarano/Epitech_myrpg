@@ -93,11 +93,15 @@ static void passages_mondes1(Global_t *m, hub_t *hub)
         }
     }
     if (hub->color.r == 150 && hub->color.g == 0 && hub->color.b == 0
-    && m->zone1.is_w1_clear == false) {
+        && m->zone1.is_w1_clear == false) {
         sfSprite_setPosition(hub->bulle, (sfVector2f){625, 285});
         sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
-            m->current = 1;
+            if (!hub->is_talking)
+                hub->is_talking = true;
+            draw_pouill_dia(m, hub);
+        } else {
+            hub->is_talking = false;
         }
     }
 }

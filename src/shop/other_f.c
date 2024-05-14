@@ -75,7 +75,7 @@ void move_hover_rect(Global_t *m, int direction)
     }
 }
 
-static void caca(Global_t *m, sfClock *clock)
+static void drw(Global_t *m, sfClock *clock)
 {
     sfSprite_setPosition(m->shop.coin, (sfVector2f){627, 195});
     sfSprite_setScale(m->shop.coin, (sfVector2f){1.2, 1.2});
@@ -106,5 +106,5 @@ void move_coin(Global_t *m)
         sfSprite_setTextureRect(m->shop.coin, rect);
         sfClock_restart(clock);
     }
-    caca(m, clock);
+    drw(m, clock);
 }

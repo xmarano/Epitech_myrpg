@@ -27,6 +27,10 @@ typedef struct hub {
     sfTexture *Pouilleux;
     sfSprite *bulle;
     sfTexture *Bulle;
+    sfSprite *dia_pouill;
+    sfTexture *Dia_pouill;
+    sfClock *pouill_clocke;
+    bool is_talking;
 } hub_t;
 
 typedef struct Loading {

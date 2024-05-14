@@ -218,6 +218,9 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num);
 void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int current_perso);
 void sentencept(char *phrase, sfRenderWindow *window, sfFont *font);
 void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *font);
+void init_pouill_dialog(Global_t *m);
+void draw_pouill_dia(Global_t *m, hub_t *hub);
+void destroy_dialoque(Global_t *m);
 
     #include "include/fight.h"
 

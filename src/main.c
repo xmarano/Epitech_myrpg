@@ -46,11 +46,13 @@ static void annihilateur2sprite(Global_t *m)
     destroy_shop(m);
     destroy_select_perso(m);
     destroy_loading(m);
+    destroy_dialoque(m);
 }
 
 static void initalisateur2sprite(Global_t *m)
 {
     import_weapons_stats(m);
+    init_pouill_dialog(m);
     setup_stat(m);
     init_menu(m);
     init_inventaire(m);
