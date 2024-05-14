@@ -16,6 +16,8 @@ void event_click(Global_t *m)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);
+    if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
+        m->current = 100;
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
@@ -74,8 +76,6 @@ int main(int argc, char **argv)
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[INFENIUM], &m.perso[XMARANO]);
     print_fight_scene(&m, &f, &m.perso[INFENIUM], &m.perso[XMARANO]);
-    sfFont* font = sfFont_createFromFile("assets/text.ttf");
-    m.perso->current_perso = 4;
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }

@@ -74,8 +74,5 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
     fclose(file);
 }
 
-
-
+// m.perso->current_perso = 4;
 //sfFont* font = sfFont_createFromFile("assets/text.ttf");
-//char str[] = "bonjour voici un test un peu long j'avoue, j'ai pas trop d'idee apres";
-//wordpt(str, m.window, font);
