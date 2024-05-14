@@ -21,7 +21,7 @@ ElFreeze book 17 80 2 0 10000 assets/weapons/Freeze_book.png
 Rapier sword 5 75 1 10 0 assets/weapons/Boss1_sword.png
 Vanity stick 7 80 2 0 0 assets/weapons/Boss2_stick.png
 Evil_Bow bow 10 80 2 10 0 assets/weapons/Boss3_bow.png
-Legendary_Spear spear 10 80 1 25 0 assets/weapons/Boss4_spear.png
+Cursed_Spear spear 10 80 1 25 0 assets/weapons/Boss4_spear.png
 Light_Sword sword 12 85 1 20 0 assets/weapons/Boss5_sword.png
 Nosferatu book 14 70 2 10 0 assets/weapons/Boss6_book.png
 Devil_Axe axe 18 80 1 15 0 assets/weapons/Boss7_axe.png
