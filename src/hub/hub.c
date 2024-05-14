@@ -11,8 +11,10 @@
 
 static void init_hub2(Global_t *m, hub_t *h)
 {
+    char *link_dia_b = "assets/perso/dialogue/dia_board.png";
+
     m->hub.cadre = sfSprite_create();
-    m->hub.Cadre = sfTexture_createFromFile("assets/perso/dialogue/dia_board.png", NULL);
+    m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
     sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});
@@ -27,6 +29,7 @@ static void init_hub2(Global_t *m, hub_t *h)
 void init_hub(hub_t *h, Global_t *m)
 {
     char *link_pou = "assets/perso/dialogue/npc/pouilleux.png";
+    char *link_bull = "assets/perso/dialogue/bulle.png";
 
     h->view = sfView_createFromRect((sfFloatRect){0, 0, 1408, 800});
     h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
@@ -39,7 +42,7 @@ void init_hub(hub_t *h, Global_t *m)
     h->pouilleux = sfSprite_create();
     h->Pouilleux = sfTexture_createFromFile(link_pou, NULL);
     h->bulle = sfSprite_create();
-    h->Bulle = sfTexture_createFromFile("assets/perso/dialogue/bulle.png", NULL);
+    h->Bulle = sfTexture_createFromFile(link_bull, NULL);
     init_hub2(m, h);
 }
 

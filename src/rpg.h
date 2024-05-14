@@ -19,7 +19,7 @@
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
     #include <time.h>
-    #define SPEED 2
+    #define SPEED 6
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
@@ -221,6 +221,11 @@ void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *fon
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose);
 void destroy_dialoque(Global_t *m);
+void false_to_true(hub_t *hub);
+void passages_mondes5(Global_t *m, hub_t *hub);
+void passages_mondes6(Global_t *m, hub_t *hub);
+void passages_mondes7(Global_t *m, hub_t *hub);
+void passages_mondes8(Global_t *m, hub_t *hub);
 
     #include "include/fight.h"
 

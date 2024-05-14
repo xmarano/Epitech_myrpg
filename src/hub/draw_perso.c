@@ -85,7 +85,8 @@ void movecharacter2(Global_t *m, hub_t *hub)
     passages_mondes(m, hub);
     les_colisions(m, hub);
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
-    sfRenderWindow_drawSprite(m->window, hub->pouilleux, NULL);
+    if (hub->err == false)
+        sfRenderWindow_drawSprite(m->window, hub->pouilleux, NULL);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
     draw_pouilleux(m, hub);
 }
