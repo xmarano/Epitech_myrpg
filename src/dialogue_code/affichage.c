@@ -27,7 +27,7 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font)
     for (int i = 0; i < strlen(str); i++) {
         strncat(phrase, &str[i], 1);
         sentencept(phrase, window, font);
-        if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
             sentencept(str, window, font);
             sfSleep(sfSeconds(2.0));
             free(phrase);
