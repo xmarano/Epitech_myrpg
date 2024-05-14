@@ -19,8 +19,10 @@ static void event(Global_t *m, int index)
         &m->perso[who].inv_weapon[index], sizeof(Weapons_t));
     }
     if (sfKeyboard_isKeyPressed(sfKeyS)) {
+        if (strcmp(m->perso[who].current_weapon->name,
+        m->perso[who].inv_weapon[index].name) == 0)
+            memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
         m->gold += ((REFUND * m->perso[who].inv_weapon[index].cost) / 100);
-        printf("selled\n");
         memset(&m->perso[who].inv_weapon[index], 0, sizeof(Weapons_t));
         m->perso[who].inv_weapon[index].is_empty = true;
     }
