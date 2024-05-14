@@ -64,6 +64,8 @@ void draw_hub(Global_t *m, hub_t *h)
         sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
         if (!m->perso->is_visible)
             movecharacter(m, h);
+        h->pos_sprite = sfSprite_getPosition(h->sprite_perso);
+        h->color = sfImage_getPixel(h->hitbox, (h->pos_sprite.x + h->movement.x + 20), (h->pos_sprite.y + h->movement.y + 37));
         if (sfKeyboard_isKeyPressed(sfKeyTab)) {
             sfRenderWindow_setView(m->window, h->normal_view);
             m->current = 10;
