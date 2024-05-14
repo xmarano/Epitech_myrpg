@@ -9,6 +9,18 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
+static void init_hub2(Global_t *m, hub_t *h)
+{
+    sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
+    sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});
+    sfSprite_setScale(h->pouilleux, (sfVector2f){0.8, 0.8});
+    sfSprite_setTexture(h->pouilleux, h->Pouilleux, sfFalse);
+    sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
+    sfSprite_setTextureRect(h->sprite_perso, h->rect);
+    sfSprite_setPosition(h->sprite_perso, (sfVector2f){694, 380});
+    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.7, 0.7});
+}
+
 void init_hub(hub_t *h, Global_t *m)
 {
     char *link_pou = "assets/perso/dialogue/npc/pouilleux.png";
@@ -25,13 +37,7 @@ void init_hub(hub_t *h, Global_t *m)
     h->Pouilleux = sfTexture_createFromFile(link_pou, NULL);
     h->bulle = sfSprite_create();
     h->Bulle = sfTexture_createFromFile("assets/bulle.png", NULL);
-    sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
-    sfSprite_setScale(h->pouilleux, (sfVector2f){0.8, 0.8});
-    sfSprite_setTexture(h->pouilleux, h->Pouilleux, sfFalse);
-    sfSprite_setTexture(h->sprite_hub, h->texture_hub, sfFalse);
-    sfSprite_setTextureRect(h->sprite_perso, h->rect);
-    sfSprite_setPosition(h->sprite_perso, (sfVector2f){694, 380});
-    sfSprite_setScale(h->sprite_perso, (sfVector2f){0.7, 0.7});
+    init_hub2(m, h);
 }
 
 void vision(Global_t *m, hub_t *h)
@@ -65,11 +71,8 @@ void draw_hub(Global_t *m, hub_t *h)
         if (!m->perso->is_visible)
             movecharacter(m, h);
         h->pos_sprite = sfSprite_getPosition(h->sprite_perso);
-        h->color = sfImage_getPixel(h->hitbox, (h->pos_sprite.x + h->movement.x + 20), (h->pos_sprite.y + h->movement.y + 37));
-        if (sfKeyboard_isKeyPressed(sfKeyTab)) {
-            sfRenderWindow_setView(m->window, h->normal_view);
-            m->current = 10;
-        }
+        h->color = sfImage_getPixel(h->hitbox, (h->pos_sprite.x +
+        h->movement.x + 20), (h->pos_sprite.y + h->movement.y + 37));
     }
 }
 

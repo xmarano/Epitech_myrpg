@@ -16,8 +16,6 @@ void event_click(Global_t *m)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);
-    if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
-        m->current = 100;
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
@@ -34,7 +32,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_hub(m, h);
     draw_inventaire(m);
     draw_mouse(m);
-    print_fight_scene(m, f, &m->perso[INFENIUM], &m->perso[XMARANO]);
+    //print_fight_scene(m, f, &m->perso[INFENIUM], &m->perso[XMARANO]);
     loading_screen(m);
     sfRenderWindow_display(m->window);
 }
