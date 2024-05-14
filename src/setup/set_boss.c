@@ -113,6 +113,7 @@ static void init_boss2(Perso_t *perso, char *name, Weapons_t weapon)
     perso->name_perso = name;
     perso->type = "Boss";
     perso->is_hero = false;
+    memcpy(perso->current_weapon, &weapon, sizeof(Weapons_t));
     strcpy(perso->current_weapon->link_texture, link_wep);
     strcpy(perso->texture_dialogue, link_dia);
     strcpy(perso->texture_battle, link_bat);
