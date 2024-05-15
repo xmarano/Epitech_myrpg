@@ -19,7 +19,7 @@
     #include <SFML/Audio.h>
     #include <SFML/Config.h>
     #include <time.h>
-    #define SPEED 6
+    #define SPEED 2
     #define FRAME_WIDTH 65
     #define FRAME_HEIGHT 65
     #define TABS_6 "\t\t\t\t\t\t"
@@ -192,7 +192,6 @@ void print_weapon4_stat(Global_t *m, int who);
 void print_weapon3_stat(Global_t *m, int who);
 void print_heal_stat(Global_t *m, int who);
 void print_weapon1_stat(Global_t *m, int who);
-sfSprite *set_back_screen(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
 void check_globalbounds2(Global_t *m);
 void check_the_hover2(Global_t *m);
@@ -201,6 +200,7 @@ sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo,
 sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo,
     sfVector2f siz, float f);
 void destroy_inventaire(Global_t *m);
+Dialogue_t readDialogueFromFile(Global_t *m, char *filename);
 sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos);
 sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);
 void init_setting3(Global_t *m);
@@ -220,14 +220,14 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
 void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y);
 void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *font);
 void init_pouill_dialog(Global_t *m);
-void draw_pouill_dia(Global_t *m, int word, sfVector2f pose);
+void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);
 void destroy_dialoque(Global_t *m);
 void false_to_true(hub_t *hub);
 void passages_mondes5(Global_t *m, hub_t *hub);
 void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
-void what_dialogue(Global_t *m, int word);
+void what_dialogue(Global_t *m, int word, hub_t *hub);
 
     #include "include/fight.h"
 

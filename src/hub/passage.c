@@ -41,7 +41,7 @@ void passages_mondes4(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -63,7 +63,7 @@ void passages_mondes3(Global_t *m, hub_t *hub)
             false_to_true_special(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -83,7 +83,7 @@ void passages_mondes2(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -93,7 +93,7 @@ static void passages_mondes1(Global_t *m, hub_t *hub)
     sfVector2f per_pose = sfSprite_getPosition(hub->sprite_perso);
 
     if (hub->color.r == 150 && hub->color.g == 0 && hub->color.b == 0 &&
-    m->zone1.is_w1_clear == false && hub->prologue_ok == true) {
+    m->zone1.is_w1_clear == false && m->hub.prologue_ok == true) {
         sfSprite_setPosition(hub->bulle, (sfVector2f){625, 285});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
@@ -103,7 +103,7 @@ static void passages_mondes1(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -124,7 +124,7 @@ static void prologue(Global_t *m, hub_t *hub)
     int word = 0;
     sfVector2f per_pose = sfSprite_getPosition(hub->sprite_perso);
 
-    if (hub->color.r == 150 && hub->color.g == 150 && hub->color.b == 150 && hub->prologue_ok == false) {
+    if (hub->color.r == 150 && hub->color.g == 150 && hub->color.b == 150 && m->hub.prologue_ok == false) {
         sfSprite_setPosition(hub->bulle, (sfVector2f){660, 400});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
@@ -134,20 +134,23 @@ static void prologue(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
 void passages_mondes(Global_t *m, hub_t *hub)
 {
-    open_shop(m, hub);
-    prologue(m, hub);
-    passages_mondes1(m, hub);
-    passages_mondes2(m, hub);
-    passages_mondes3(m, hub);
-    passages_mondes4(m, hub);
-    passages_mondes5(m, hub);
-    passages_mondes6(m, hub);
-    passages_mondes7(m, hub);
-    passages_mondes8(m, hub);
+    if (m->hub.prologue_ok == false)
+        prologue(m, hub);
+    else if (m->hub.prologue_ok == true) {
+        open_shop(m, hub);
+        passages_mondes1(m, hub);
+        passages_mondes2(m, hub);
+        passages_mondes3(m, hub);
+        passages_mondes4(m, hub);
+        passages_mondes5(m, hub);
+        passages_mondes6(m, hub);
+        passages_mondes7(m, hub);
+        passages_mondes8(m, hub);
+    }
 }

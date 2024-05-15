@@ -77,7 +77,7 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
         }
         char *speaker = strtok(line, ":");
         char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
+        if (dialogue != NULL) {
             strcpy(last_speaker, speaker);
             int position = atoi(speaker) == current_perso ? 0 : 1;
             wordpt(dialogue, window, font, last_speaker, position);

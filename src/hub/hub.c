@@ -15,6 +15,8 @@ static void init_hub2(Global_t *m, hub_t *h)
 
     m->hub.cadre = sfSprite_create();
     m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
+    m->dialogue.pro_dia = sfText_create();
+    m->dialogue = readDialogueFromFile(m, "dialogue/prologue.txt");
     sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});

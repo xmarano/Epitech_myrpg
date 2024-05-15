@@ -7,7 +7,7 @@
 0 : ok, so I need to find the king of Elae
 
 1 : Why do you attack me ?
-3 : AAAARGH why you attack me ? @#9E8##bdjkk 
+3 : AAAARGH why you attack me ? @#9E8##bdjkk
 2 : Seriously ?
 4 : Go away I don’t want to fight
 0 : Want to fight ? Come on

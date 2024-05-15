@@ -26,7 +26,7 @@ void passages_mondes8(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -46,7 +46,7 @@ void passages_mondes7(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -66,7 +66,7 @@ void passages_mondes6(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -86,6 +86,6 @@ void passages_mondes5(Global_t *m, hub_t *hub)
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }

@@ -11,58 +11,60 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-Dialogue_t readDialogueFromFile(const char *filename)
+Dialogue_t readDialogueFromFile(Global_t *m, char *filename)
 {
-    Dialogue_t dialogue;
     FILE *file = fopen(filename, "r");
-    dialogue.lineCount = 0;
-    if (file == NULL) {
-        fprintf(stderr, "Erreur lors de l'ouverture du fichier %s\n", filename);
-        exit(EXIT_FAILURE);
-    }
-    while (fgets(dialogue.lines[dialogue.lineCount], MAX_CHARS_PER_LINE, file) != NULL) {
-        dialogue.lines[dialogue.lineCount][strcspn(dialogue.lines[dialogue.lineCount], "\n")] = 0;
-        dialogue.lineCount++;
-        if (dialogue.lineCount >= MAX_LINES) {
-            fprintf(stderr, "Nombre maximal de lignes atteint. Augmentez MAX_LINES si nécessaire.\n");
+
+    m->dialogue.lineCount = 0;
+    while (fgets(m->dialogue.lines[m->dialogue.lineCount],
+    MAX_CHARS_PER_LINE, file) != NULL) {
+        m->dialogue.lines[m->dialogue.lineCount]
+        [strcspn(m->dialogue.lines[m->dialogue.lineCount], "\n")] = 0;
+        m->dialogue.lineCount++;
+        if (m->dialogue.lineCount >= MAX_LINES) {
             break;
         }
     }
     fclose(file);
-    return dialogue;
+    return m->dialogue;
 }
 
-void displayDialogue(Global_t *m, Dialogue_t *dialogue) {
-    sfVector2f position = {50, 50};
-    sfText_setPosition(m->hub.dia_pouill, position);
+void displayprologue(Global_t *m, hub_t *hub)
+{
+    sfVector2f position = {400, 500};
+    sfText_setFont(m->dialogue.pro_dia, m->setting.fontdi);
+    sfText_setColor(m->dialogue.pro_dia, sfBlack);
+    sfText_setPosition(m->dialogue.pro_dia, position);
+    sfText_setScale(m->dialogue.pro_dia, (sfVector2f){0.6, 0.6});
 
-    sfText_setString(m->hub.dia_pouill, dialogue->lines[dialogue->currentLine]);
-
-    if (dialogue->displayFull) {
-        // Afficher la phrase entière si displayFull est vrai
-        // sfSleep(sfMilliseconds(1000)); // Temps d'attente pour chaque phrase
-    } else {
-        // Attente d'appui sur 'enter' avant d'afficher la prochaine ligne
-        sfEvent event;
-        while (sfRenderWindow_pollEvent(m->window, &event)) {
-            if (event.type == sfEvtKeyPressed && event.key.code == sfKeyReturn) {
-                dialogue->currentLine++;
-                if (dialogue->currentLine >= dialogue->lineCount) {
-                    // Fin du dialogue
-                    dialogue->currentLine = 0; // Réinitialiser pour la prochaine fois
-                    return;
-                }
-                sfText_setString(m->hub.dia_pouill, dialogue->lines[dialogue->currentLine]);
-                sfRenderWindow_drawText(m->window, m->hub.dia_pouill, NULL);
-                sfRenderWindow_display(m->window);
+    int i = 0;
+    char *currentLine = m->dialogue.lines[m->dialogue.currentLine];
+    char displayedText[MAX_CHARS_PER_LINE] = "";
+    while (currentLine[i] != '\0') {
+        char letter[2] = {currentLine[i], '\0'};
+        strcat(displayedText, letter);
+        sfText_setString(m->dialogue.pro_dia, displayedText);
+        sfRenderWindow_drawText(m->window, m->dialogue.pro_dia, NULL);
+        //sfSleep(sfMilliseconds(50));
+        if (currentLine[i] == '*') {
+            if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+                m->dialogue.currentLine++;
                 return;
             }
         }
+        i++;
+    }
+    m->dialogue.currentLine++;
+    if (currentLine[0] == '$' || m->dialogue.currentLine >=
+    m->dialogue.lineCount) {
+        m->hub.prologue_ok = true;
+        hub->is_talking = false;
     }
 }
 
-void what_dialogue(Global_t *m, int word)
+void what_dialogue(Global_t *m, int word, hub_t *hub)
 {
-    if (word == 1)
-        displayDialogue(m, &m->dialogue);
+    if (word == 0) {
+        displayprologue(m, hub);
+    }
 }

@@ -44,8 +44,9 @@ static int movement(hub_t *hub)
 
 void draw_pouilleux(Global_t *m, hub_t *h)
 {
-    sfSprite_setPosition(h->pouilleux, (sfVector2f){640, 440});
-    if (h->prologue_ok == true)
+    if (m->hub.prologue_ok == false)
+        sfSprite_setPosition(h->pouilleux, (sfVector2f){640, 440});
+    if (m->hub.prologue_ok == true)
         sfSprite_setPosition(h->pouilleux, (sfVector2f){605, 325});
     if (m->zone1.is_w1_clear == true)
         sfSprite_setPosition(h->pouilleux, (sfVector2f){830, 0});
