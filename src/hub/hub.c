@@ -19,7 +19,7 @@ static void reading(Global_t *m)
     readdialoguefromfile(m, "dialogue/pou5.txt", m->dialogue.lines_w5);
     readdialoguefromfile(m, "dialogue/pou6.txt", m->dialogue.lines_w6);
     readdialoguefromfile(m, "dialogue/pou7.txt", m->dialogue.lines_w7);
-    readdialoguefromfile(m, "dialogue/pou8.txt", m->dialogue.lines_w7);
+    readdialoguefromfile(m, "dialogue/pou8.txt", m->dialogue.lines_w8);
 }
 
 static void init_hub2(Global_t *m, hub_t *h)
@@ -34,7 +34,6 @@ static void init_hub2(Global_t *m, hub_t *h)
     m->hub.cadre = sfSprite_create();
     m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
     m->hub.Cadre2 = sfTexture_createFromFile(link_dia_b2, NULL);
-    //sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     m->dialogue.pro_dia = sfText_create();
     reading(m);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);

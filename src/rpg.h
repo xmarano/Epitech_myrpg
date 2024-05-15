@@ -200,7 +200,10 @@ sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo,
 sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo,
     sfVector2f siz, float f);
 void destroy_inventaire(Global_t *m);
-void readdialoguefromfile(Global_t *m, char *filename, char array[MAX_LINES][MAX_CHARS]);
+void readdialoguefromfile(Global_t *m, char *filename,
+    char array[MAX_LINES][MAX_CHARS]);
+void displaydialogue(Global_t *m, hub_t *hub, int word,
+    char array[MAX_LINES][MAX_CHARS]);
 sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos);
 sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);
 void init_setting3(Global_t *m);

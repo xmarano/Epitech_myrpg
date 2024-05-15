@@ -10,12 +10,8 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-sfVector2f swap_pou_pose2(sfVector2f pose, int word)
+static sfVector2f swap_pou_pose3(sfVector2f pose, int word)
 {
-    if (word == 5) {
-        pose.x += 110;
-        pose.y -= 60;
-    }
     if (word == 6) {
         pose.x -= 550;
         pose.y -= 120;
@@ -31,6 +27,23 @@ sfVector2f swap_pou_pose2(sfVector2f pose, int word)
     return (pose);
 }
 
+sfVector2f swap_pou_pose2(sfVector2f pose, int word)
+{
+    if (word == 3) {
+        pose.x -= 230;
+        pose.y -= 120;
+    }
+    if (word == 4) {
+        pose.x -= 80;
+        pose.y -= 320;
+    }
+    if (word == 5) {
+        pose.x += 110;
+        pose.y -= 60;
+    }
+    return swap_pou_pose3(pose, word);
+}
+
 sfVector2f swap_pou_pose(sfVector2f pose, int word)
 {
     if (word == 0) {
@@ -44,14 +57,6 @@ sfVector2f swap_pou_pose(sfVector2f pose, int word)
     if (word == 2) {
         pose.x -= 240;
         pose.y += 160;
-    }
-    if (word == 3) {
-        pose.x -= 230;
-        pose.y -= 120;
-    }
-    if (word == 4) {
-        pose.x -= 80;
-        pose.y -= 300;
     }
     return swap_pou_pose2(pose, word);
 }
