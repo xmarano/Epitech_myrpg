@@ -18,7 +18,13 @@ void event_click(Global_t *m)
         event_setting(m->event, m);
     if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
         m->current = 100;
+    if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue) {
+        m->perso->current_perso = 0;
+        sfFont* font = sfFont_createFromFile("assets/text.ttf");
+        parseFile("dialogue/chap1.txt", m->window, font, m->perso->current_perso);
+    }
 }
+
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
 {
@@ -77,11 +83,8 @@ int main(int argc, char **argv)
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
-    sfFont* font = sfFont_createFromFile("assets/text.ttf");
-    m.perso->current_perso = 0;
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
-        parseFile("dialogue/chap1.txt", m.window, font, m.perso->current_perso);
     }
     destroy_hub(&h);
     destroy_fight_struct(&f);

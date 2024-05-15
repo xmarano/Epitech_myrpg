@@ -70,6 +70,7 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
     }
     char line[256];
     char last_speaker[256] = "";
+    sfEvent event;
     while (fgets(line, sizeof(line), file)) {
         if (strchr(line, '*') != NULL) {
             break;
@@ -81,9 +82,17 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
             int position = atoi(speaker) == current_perso ? 0 : 1;
             wordpt(dialogue, window, font, last_speaker, position);
         }
+        while (sfRenderWindow_pollEvent(window, &event)) {
+            if (event.type == sfEvtClosed) {
+                sfRenderWindow_close(window);
+                fclose(file);
+                return;
+            }
+        }
     }
     fclose(file);
 }
+
 
 
 // m.perso->current_perso = 4;
