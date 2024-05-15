@@ -18,12 +18,7 @@ void event_click(Global_t *m)
         event_setting(m->event, m);
     if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
         m->current = 100;
-    if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue) {
-        m->perso->current_perso = 0;
-        parseFile("dialogue/chap1.txt", m->window, m->setting.fontdi, m->perso->current_perso);
-    }
 }
-
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
 {
