@@ -84,17 +84,6 @@ static void move_rect(Global_t *m, int offset, int max_value)
     }
 }
 
-static void ptr_dia(Global_t *m, int word)
-{
-
-}
-
-void what_dialogue(Global_t *m, int word)
-{
-    if (word == 1)
-        ptr_dia(m, word);
-}
-
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose)
 {
     sfIntRect base = {0, 0, 91, 80};
