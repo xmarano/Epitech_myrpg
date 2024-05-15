@@ -1,42 +1,20 @@
 //Chapitre 1//
 
-*Launch the map*
-
 1 : So the king is probably in his castle
 3 : So he’s probably this way ?
 2 : I need to explore to find the king
 4 : So he’s probably in this castle
 0 : ok, so I need to find the king of Elae
 
-
-*First enter in a the map*
-++ Launch screen explanation? Explain element , bastion and shop
-
-*enter in a shop*
-
-Seller : welcome in my shop say me if you want anything 
-
-// Launch screen explanation
-
-If buy 
-Seller : thank you for your purchase
-
-If leave buyingHave a good day ! 
-
-If leave without buying 
-Seller : bye
-
-
-*encouter first ennemy*
-++ Launch screen explanation
-
-
 1 : Why do you attack me ?
 3 : AAAARGH why you attack me ? @#9E8##bdjkk 
 2 : Seriously ?
 4 : Go away I don’t want to fight
 0 : Want to fight ? Come on
-Ennemy : hahaha all for the real king !!!1 : The real king ?
+
+anthony : hahaha all for the real king !!!
+
+1 : The real king ?
 3 : what are you talking about ?
 2 : what ?
 4 : I don’t know what your talking about 

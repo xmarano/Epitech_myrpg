@@ -5,40 +5,7 @@
 ** main.c
 */
 #include "../rpg.h"
-
-void sentencept(char *phrase, sfRenderWindow *window, sfFont *font)
-{
-    sfText *text = sfText_create();
-    sfText_setString(text, phrase);
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 20);
-    sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawText(window, text, NULL);
-    sfRenderWindow_display(window);
-    sfSleep(sfSeconds(0.1));
-    sfText_destroy(text);
-}
-
-void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num)
-{
-    char *phrase = malloc(strlen(str) + 1);
-    strcpy(phrase, "");
-
-    for (int i = 0; i < strlen(str); i++) {
-        strncat(phrase, &str[i], 1);
-        drawText(num, 0, sfRenderWindow_getSize(window).y - 30, window, font);
-        sentencept(phrase, window, font);
-        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-            sentencept(str, window, font);
-            sfSleep(sfSeconds(2.0));
-            free(phrase);
-            return;
-        }
-    }
-    sentencept(str, window, font);
-    sfSleep(sfSeconds(2.0));
-    free(phrase);
-}
+#include <ctype.h>
 
 void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *font)
 {
@@ -52,6 +19,48 @@ void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *fon
     sfText_destroy(text);
 }
 
+void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, int position)
+{
+    char *phrase = malloc(strlen(str) + 1);
+    strcpy(phrase, "");
+
+    for (int i = 0; i < strlen(str); i++) {
+        strncat(phrase, &str[i], 1);
+        if (position == 0) { // current_perso
+            drawText(num, 0, sfRenderWindow_getSize(window).y - 30, window, font);
+            sentencept(phrase, window, font, 0, 30);
+        } else { // speaker
+            drawText(num, sfRenderWindow_getSize(window).x - 30, sfRenderWindow_getSize(window).y - 30, window, font);
+            sentencept(phrase, window, font, sfRenderWindow_getSize(window).x - 30, 30);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
+            sentencept(str, window, font, position, 30);
+            sfSleep(sfSeconds(2.0));
+            free(phrase);
+            return;
+        }
+    }
+    sentencept(str, window, font, position, 30);
+    sfSleep(sfSeconds(2.0));
+    free(phrase);
+}
+
+void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y)
+{
+    sfRenderWindow_clear(window, sfBlack);
+    sfText *text = sfText_create();
+    sfText_setString(text, phrase);
+    sfText_setFont(text, font);
+    sfText_setCharacterSize(text, 20);
+    sfVector2f position = {x, y};
+    sfText_setPosition(text, position);
+    sfRenderWindow_drawText(window, text, NULL);
+    sfRenderWindow_display(window);
+    sfSleep(sfSeconds(0.1));
+    sfText_destroy(text);
+}
+
+
 void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int current_perso)
 {
     FILE *file = fopen(filename, "r");
@@ -60,19 +69,22 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
         return;
     }
     char line[256];
+    char last_speaker[256] = "";
     while (fgets(line, sizeof(line), file)) {
-        int num = atoi(strtok(line, ":"));
+        if (strchr(line, '*') != NULL) {
+            break;
+        }
+        char *speaker = strtok(line, ":");
         char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL && num == current_perso) {
-            char str_num[10];
-            sprintf(str_num, "%d", num);
-            wordpt(dialogue, window, font, str_num);
-            drawText(str_num, 0, sfRenderWindow_getSize(window).y - 30, window, font);
-            sentencept(str_num, window, font);
+        if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
+            strcpy(last_speaker, speaker);
+            int position = atoi(speaker) == current_perso ? 0 : 1;
+            wordpt(dialogue, window, font, last_speaker, position);
         }
     }
     fclose(file);
 }
+
 
 // m.perso->current_perso = 4;
 //sfFont* font = sfFont_createFromFile("assets/text.ttf");

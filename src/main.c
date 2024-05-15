@@ -77,8 +77,11 @@ int main(int argc, char **argv)
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
+    sfFont* font = sfFont_createFromFile("assets/text.ttf");
+    m.perso->current_perso = 0;
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
+        parseFile("dialogue/chap1.txt", m.window, font, m.perso->current_perso);
     }
     destroy_hub(&h);
     destroy_fight_struct(&f);
