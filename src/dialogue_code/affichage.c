@@ -19,32 +19,6 @@ void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *fon
     sfText_destroy(text);
 }
 
-void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, int position)
-{
-    char *phrase = malloc(strlen(str) + 1);
-    strcpy(phrase, "");
-
-    for (int i = 0; i < strlen(str); i++) {
-        strncat(phrase, &str[i], 1);
-        if (position == 0) { // current_perso
-            drawText(num, 0, sfRenderWindow_getSize(window).y - 30, window, font);
-            sentencept(phrase, window, font, 0, 30);
-        } else { // speaker
-            drawText(num, sfRenderWindow_getSize(window).x - 30, sfRenderWindow_getSize(window).y - 30, window, font);
-            sentencept(phrase, window, font, sfRenderWindow_getSize(window).x - 30, 30);
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-            sentencept(str, window, font, position, 30);
-            sfSleep(sfSeconds(2.0));
-            free(phrase);
-            return;
-        }
-    }
-    sentencept(str, window, font, position, 30);
-    sfSleep(sfSeconds(2.0));
-    free(phrase);
-}
-
 void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y)
 {
     sfRenderWindow_clear(window, sfBlack);
@@ -60,6 +34,32 @@ void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y
     sfText_destroy(text);
 }
 
+
+void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, int position)
+{
+    char *phrase = malloc(strlen(str) + 1);
+    strcpy(phrase, "");
+
+    for (int i = 0; i < strlen(str); i++) {
+        strncat(phrase, &str[i], 1);
+        if (position == 0) {
+            drawText(num, 0, sfRenderWindow_getSize(window).y - 30, window, font);
+            sentencept(phrase, window, font, 0, 30);
+        } else {
+            drawText(num, sfRenderWindow_getSize(window).x - 30, sfRenderWindow_getSize(window).y - 30, window, font);
+            sentencept(phrase, window, font, sfRenderWindow_getSize(window).x - 30, 30);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
+            sentencept(str, window, font, position, 30);
+            sfSleep(sfSeconds(2.0));
+            free(phrase);
+            return;
+        }
+    }
+    sentencept(str, window, font, position, 30);
+    sfSleep(sfSeconds(2.0));
+    free(phrase);
+}
 
 void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int current_perso)
 {
