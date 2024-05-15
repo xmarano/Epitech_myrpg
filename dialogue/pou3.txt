@@ -1,7 +1,5 @@
-Guide: You are going to beat the third Boss.
-YOU: know it's everytime the same routine.
-Guide : The boss is a chief he possed an arc.
-YOU : He gonna be hard to dodge .
-Guide : I hope you gonna find a tactic to beat him.
-YOU : Yeah I hope too.
-Guide : Good luck !
+You are going to beat the third Boss.
+The boss is a chief he possed an arc.
+I hope you gonna find a tactic to beat him.
+Good luck.
+ !

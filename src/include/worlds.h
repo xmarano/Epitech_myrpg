@@ -34,7 +34,6 @@ typedef struct hub {
     sfIntRect rect_dia;
     sfClock *clock;
     bool is_talking;
-    bool err;
     bool prologue_ok;
 } hub_t;
 

@@ -1,7 +1,5 @@
-Guide: You are going to beat the fifth Boss.
-YOU: it's start to be interesting.
-Guide : To prevent you he have a long sword.
-YOU : Wow it's impressive he's gonna be hard to defeat.
-Guide : I hope you will come back alive.
-YOU : Don't worry for that see  you old man.
-Guide : See you !
+You are going to beat the fifth Boss.
+To prevent you he have a long sword.
+I hope you will come back alive.
+See you.
+ !

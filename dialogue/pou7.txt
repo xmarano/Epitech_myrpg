@@ -1,7 +1,5 @@
-Guide: You are going to beat the seventh Boss.
-YOU: i hope this one gonna say me where is the king.
-Guide : He possed a chopped if i remember well.
-YOU : Cool, it's the first time.
-Guide : Be prudent you approach the king.
-YOU : Don't worry for this.
-Guide : I know good luck !
+You are going to beat the seventh Boss.
+He possed a chopped if i remember well.
+Be prudent you approach the king.
+I know good luck.
+ !

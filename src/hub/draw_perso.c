@@ -42,7 +42,7 @@ static int movement(hub_t *hub)
     return movement2(hub, tic);
 }
 
-void draw_pouilleux(Global_t *m, hub_t *h)
+void pose_pouilleux(Global_t *m, hub_t *h)
 {
     if (m->hub.prologue_ok == false)
         sfSprite_setPosition(h->pouilleux, (sfVector2f){640, 440});
@@ -51,7 +51,7 @@ void draw_pouilleux(Global_t *m, hub_t *h)
     if (m->zone1.is_w1_clear == true)
         sfSprite_setPosition(h->pouilleux, (sfVector2f){830, 0});
     if (m->zone2.is_w2_clear == true)
-        sfSprite_setPosition(h->pouilleux, (sfVector2f){289, 595});
+        sfSprite_setPosition(h->pouilleux, (sfVector2f){385, 595});
     if (m->zone3.is_w3_clear == true)
         sfSprite_setPosition(h->pouilleux, (sfVector2f){300, 705});
     if (m->zone4.is_w4_clear == true)
@@ -88,10 +88,9 @@ void movecharacter2(Global_t *m, hub_t *hub)
     passages_mondes(m, hub);
     les_colisions(m, hub);
     sfSprite_setTextureRect(hub->sprite_perso, hub->rect);
-    if (hub->err == false)
-        sfRenderWindow_drawSprite(m->window, hub->pouilleux, NULL);
+    sfRenderWindow_drawSprite(m->window, hub->pouilleux, NULL);
     sfRenderWindow_drawSprite(m->window, hub->sprite_perso, NULL);
-    draw_pouilleux(m, hub);
+    pose_pouilleux(m, hub);
 }
 
 void movecharacter(Global_t *m, hub_t *hub)

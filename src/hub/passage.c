@@ -10,14 +10,6 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-static void false_to_true_special(hub_t *hub)
-{
-    if (!hub->is_talking) {
-        hub->is_talking = true;
-        hub->err = true;
-    }
-}
-
 void false_to_true(hub_t *hub)
 {
     if (!hub->is_talking) {
@@ -50,14 +42,11 @@ void passages_mondes3(Global_t *m, hub_t *hub)
 
     if (hub->color.r == 150 && hub->color.g == 150 && hub->color.b == 0 &&
     m->zone2.is_w2_clear == true && m->zone3.is_w3_clear == false) {
-        sfSprite_setPosition(hub->bulle, (sfVector2f){320, 550});
+        sfSprite_setPosition(hub->bulle, (sfVector2f){410, 550});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
-            hub->err = false;
-        }
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
-            false_to_true_special(hub);
+            false_to_true(hub);
         }
         if (hub->is_talking)
             draw_pouill_dia(m, word, per_pose, hub);

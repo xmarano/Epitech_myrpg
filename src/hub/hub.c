@@ -13,7 +13,13 @@ static void reading(Global_t *m)
 {
     readDialogueFromFile(m, "dialogue/prologue.txt", m->dialogue.lines);
     readDialogueFromFile(m, "dialogue/pou1.txt", m->dialogue.lines_w1);
-    //readDialogueFromFile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
+    readDialogueFromFile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
+    readDialogueFromFile(m, "dialogue/pou3.txt", m->dialogue.lines_w3);
+    readDialogueFromFile(m, "dialogue/pou4.txt", m->dialogue.lines_w4);
+    readDialogueFromFile(m, "dialogue/pou5.txt", m->dialogue.lines_w5);
+    readDialogueFromFile(m, "dialogue/pou6.txt", m->dialogue.lines_w6);
+    readDialogueFromFile(m, "dialogue/pou7.txt", m->dialogue.lines_w7);
+    readDialogueFromFile(m, "dialogue/pou8.txt", m->dialogue.lines_w7);
 }
 
 static void init_hub2(Global_t *m, hub_t *h)
