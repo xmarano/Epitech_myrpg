@@ -75,6 +75,7 @@ typedef struct setting {
     sfVector2i mouse;
     sfFloatRect creditBounds;
 
+    sfFont* fontdi;
     sfMusic *music;
 } Setting_t;
 

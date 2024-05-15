@@ -20,8 +20,7 @@ void event_click(Global_t *m)
         m->current = 100;
     if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue) {
         m->perso->current_perso = 0;
-        sfFont* font = sfFont_createFromFile("assets/text.ttf");
-        parseFile("dialogue/chap1.txt", m->window, font, m->perso->current_perso);
+        parseFile("dialogue/chap1.txt", m->window, m->setting.fontdi, m->perso->current_perso);
     }
 }
 
@@ -83,6 +82,7 @@ int main(int argc, char **argv)
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
+    m.setting.fontdi = sfFont_createFromFile("assets/text.ttf");
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }

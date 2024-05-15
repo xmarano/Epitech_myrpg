@@ -94,6 +94,5 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
 }
 
 
-
 // m.perso->current_perso = 4;
 //sfFont* font = sfFont_createFromFile("assets/text.ttf");
