@@ -8,16 +8,30 @@
 #ifndef NPC_H
     #define NPC_H
     #include "../rpg.h"
-    //#include "../include/npc.h"
+    #include "../include/npc.h"
+    #include "../my.h"
+    #include <SFML/Window.h>
+    #include <SFML/Graphics.h>
+    #include <SFML/Audio.h>
     #define MAX_LINES 100
-    #define MAX_CHARS_PER_LINE 256
+    #define MAX_CHARS_PER_LINE 200
 
 typedef struct dial {
     char lines[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w1[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w2[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w3[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w4[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w5[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w6[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w7[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w8[MAX_LINES][MAX_CHARS_PER_LINE];
     int lineCount;
     int currentLine;
     bool displayFull;
-}Dialogue_t;
+    sfText *pro_dia;
+    bool waitForEnter;
+} Dialogue_t;
 
 typedef struct npc {
     char name[10];

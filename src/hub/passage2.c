@@ -20,13 +20,11 @@ void passages_mondes8(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){1175, -7});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -40,13 +38,11 @@ void passages_mondes7(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){1340, 380});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -60,13 +56,11 @@ void passages_mondes6(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){1305, 540});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }
 
@@ -80,12 +74,10 @@ void passages_mondes5(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){25, 165});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
         if (hub->is_talking)
-            draw_pouill_dia(m, word, per_pose);
+            draw_pouill_dia(m, word, per_pose, hub);
     }
 }

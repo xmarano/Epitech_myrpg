@@ -84,7 +84,7 @@ static void move_rect(Global_t *m, int offset, int max_value)
     }
 }
 
-void draw_pouill_dia(Global_t *m, int word, sfVector2f pose)
+void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub)
 {
     sfIntRect base = {0, 0, 91, 80};
     sfVector2f animated_rect_pos;
@@ -104,7 +104,7 @@ void draw_pouill_dia(Global_t *m, int word, sfVector2f pose)
     sfSprite_setTextureRect(m->hub.dia_pouill, m->hub.rect_dia);
     sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
     sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
-    what_dialogue(m, word);
+    what_dialogue(m, word, hub, pose);
 }
 
 void destroy_dialoque(Global_t *m)
