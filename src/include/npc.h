@@ -8,18 +8,20 @@
 #ifndef NPC_H
     #define NPC_H
     #include "../rpg.h"
+    //#include "../include/npc.h"
     #define MAX_LINES 100
     #define MAX_CHARS_PER_LINE 256
 
 typedef struct dial {
     char lines[MAX_LINES][MAX_CHARS_PER_LINE];
     int lineCount;
+    int currentLine;
+    bool displayFull;
 }Dialogue_t;
 
 typedef struct npc {
     char name[10];
     char link_texture[20];
-    //Npc_srpite_t set;
 } Npc_t;
 
 #endif
