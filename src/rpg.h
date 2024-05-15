@@ -102,6 +102,7 @@ typedef struct Glob {
     bool show_mouse;
     hub_t hub; /* leo & tom*/
     Loading_t loading; /*Yanis*/
+    Dialogue_t dialogue;
     Shop_t shop; /*Yanis*/
     Zone1_t zone1;
     Zone2_t zone2;
@@ -214,9 +215,9 @@ void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
-void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, int position);
+void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num);
 void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int current_perso);
-void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y);
+void sentencept(char *phrase, sfRenderWindow *window, sfFont *font);
 void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *font);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose);
@@ -226,6 +227,7 @@ void passages_mondes5(Global_t *m, hub_t *hub);
 void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
+void what_dialogue(Global_t *m, int word);
 
     #include "include/fight.h"
 

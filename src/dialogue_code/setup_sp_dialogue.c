@@ -33,6 +33,10 @@ sfVector2f swap_pou_pose2(sfVector2f pose, int word)
 
 sfVector2f swap_pou_pose(sfVector2f pose, int word)
 {
+    if (word == 0) {
+        pose.x -= 240;
+        pose.y -= 50;
+    }
     if (word == 1) {
         pose.x -= 300;
         pose.y -= 50;
@@ -80,6 +84,17 @@ static void move_rect(Global_t *m, int offset, int max_value)
     }
 }
 
+static void ptr_dia(Global_t *m, int word)
+{
+
+}
+
+void what_dialogue(Global_t *m, int word)
+{
+    if (word == 1)
+        ptr_dia(m, word);
+}
+
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose)
 {
     sfIntRect base = {0, 0, 91, 80};
@@ -100,6 +115,7 @@ void draw_pouill_dia(Global_t *m, int word, sfVector2f pose)
     sfSprite_setTextureRect(m->hub.dia_pouill, m->hub.rect_dia);
     sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
     sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
+    what_dialogue(m, word);
 }
 
 void destroy_dialoque(Global_t *m)

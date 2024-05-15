@@ -35,6 +35,7 @@ typedef struct hub {
     sfClock *clock;
     bool is_talking;
     bool err;
+    bool prologue_ok;
 } hub_t;
 
 typedef struct Loading {

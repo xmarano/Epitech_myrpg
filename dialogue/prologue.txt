@@ -1,39 +1,13 @@
-//Prologue//
+Seller : Welcome boy , is everything ok? you seems disoriented
 
-*ON THE BEACH*
-
-1 : it hurt, where we are?
-3 : ahhhh , what happened ??!!! We need to find someone
-2 : whaa my head hurt and I have sand in my nose *sneeze*
-4 : why we are here , I was just playing a game
-0 : how did I get here ? We need answer !
-
-
-*FIRST SPEAK TO THE SELLER *
-Seller : Welcome boy , is everything ok you seems disoriented
-
-1 : No I passed out at home and woke up on a beach where we are ?
-3 : No, not at all, where we are?
-2 : *sneeze* No I don’t know where we ara can you help me ?
-4 : NO ! I was just playing I don’t know where we are
-0 : Hello , I lost my mind and I don’t know where we are can you help me ?
+YOU: No I passed out at home and woke up on a beach where we are ?
 
 Seller : don’t worry boy everything is okay , you are in Elae kingdom we live in peace here
 
-1 : Ok thanks you, where can I find help ?
-3 : Thanks you I need to find the king Edgar to help him where I can find help ?
-2 : Ok and with who I can speak to find the king Edgar ?
-4 : Cool, peace village,  and at who I can speak to find the king Edgar ?
-0 : Thanks you old man , how to find the king Edgar ?
+YOU : Cool, peace village, and at who I can speak to find the king Edgar ?
 
-Seller : Hmmm I’m just a merchant… but you can speak at our king Edgar but
-he’s a little bit upset these days because of the Aixus Kingdom ask him yourself
+Seller : Hmmm I’m just a merchant… but you can speak at our king Edgar but he’s a little bit upset these days because of the Aixus Kingdom ask him yourself
 
-1 : Ok thank you,  have a good day ! 
-3 : Ok thanks , bye
-2 : Ok , bye 
-4 : thank you , bye ! 
-0 : Thanks you a lot I’m gonna speak to him , have a good day sir 
+YOU : Ok thank you, See you soon !
 
-Seller : Bye sir *CAN’T SPEAK UNTIL FINISH FIRST LEVEL*write continuously
-till first level finish *we need do find the king before*
+Seller : Bye sir, I'll show you the way.
