@@ -83,7 +83,7 @@ int main(int argc, char **argv)
         rpg(&m, &h, &f);
         //parseFile("dialogue/chap1.txt", m.window, font, m.perso->current_perso);
     }
-    destroy_hub(&h);
+    destroy_hub(&m, &h);
     destroy_fight_struct(&f);
     annihilateur2sprite(&m);
     sfClock_destroy(m.clock);

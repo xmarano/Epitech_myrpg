@@ -35,8 +35,6 @@ void passages_mondes4(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){325, 675});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
@@ -56,7 +54,6 @@ void passages_mondes3(Global_t *m, hub_t *hub)
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
-            hub->is_talking = false;
             hub->err = false;
         }
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
@@ -77,8 +74,6 @@ void passages_mondes2(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){858, -7});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
@@ -97,8 +92,6 @@ static void passages_mondes1(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){625, 285});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
@@ -128,8 +121,6 @@ static void prologue(Global_t *m, hub_t *hub)
         sfSprite_setPosition(hub->bulle, (sfVector2f){660, 400});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            hub->is_talking = false;
         if (sfKeyboard_isKeyPressed(sfKeyE)) {
             false_to_true(hub);
         }
@@ -152,5 +143,9 @@ void passages_mondes(Global_t *m, hub_t *hub)
         passages_mondes6(m, hub);
         passages_mondes7(m, hub);
         passages_mondes8(m, hub);
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        m->dialogue.currentLine = 0;
+        hub->is_talking = false;
     }
 }

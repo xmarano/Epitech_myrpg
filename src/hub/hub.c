@@ -9,6 +9,13 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
+static void reading(Global_t *m)
+{
+    readDialogueFromFile(m, "dialogue/prologue.txt", m->dialogue.lines);
+    readDialogueFromFile(m, "dialogue/pou1.txt", m->dialogue.lines_w1);
+    //readDialogueFromFile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
+}
+
 static void init_hub2(Global_t *m, hub_t *h)
 {
     char *link_dia_b = "assets/perso/dialogue/dia_board.png";
@@ -16,7 +23,7 @@ static void init_hub2(Global_t *m, hub_t *h)
     m->hub.cadre = sfSprite_create();
     m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
     m->dialogue.pro_dia = sfText_create();
-    m->dialogue = readDialogueFromFile(m, "dialogue/prologue.txt");
+    reading(m);
     sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});
@@ -84,7 +91,7 @@ void draw_hub(Global_t *m, hub_t *h)
     }
 }
 
-void destroy_hub(hub_t *h)
+void destroy_hub(Global_t *m, hub_t *h)
 {
     sfImage_destroy(h->hitbox);
     sfSprite_destroy(h->sprite_hub);
@@ -95,4 +102,5 @@ void destroy_hub(hub_t *h)
     sfTexture_destroy(h->Pouilleux);
     sfSprite_destroy(h->bulle);
     sfTexture_destroy(h->Bulle);
+    sfText_destroy(m->dialogue.pro_dia);
 }

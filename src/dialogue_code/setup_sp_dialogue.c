@@ -104,7 +104,7 @@ void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub)
     sfSprite_setTextureRect(m->hub.dia_pouill, m->hub.rect_dia);
     sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
     sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
-    what_dialogue(m, word, hub);
+    what_dialogue(m, word, hub, pose);
 }
 
 void destroy_dialoque(Global_t *m)

@@ -175,7 +175,7 @@ void init_hub(hub_t *h, Global_t *m);
 void passages_mondes(Global_t *m, hub_t *hub);
 void draw_hub(Global_t *m, hub_t *h);
 void movecharacter(Global_t *m, hub_t *hub);
-void destroy_hub(hub_t *h);
+void destroy_hub(Global_t *m, hub_t *h);
 void set_sprite_head_name(Global_t *m, int who);
 void set_text_health(Global_t *m, int who);
 void set_sprite_mini(Global_t *m, int who);
@@ -200,7 +200,7 @@ sfRectangleShape *hoov_inv(Global_t *m, sfVector2f popo,
 sfRectangleShape *hoov_w(Global_t *m, sfVector2f popo,
     sfVector2f siz, float f);
 void destroy_inventaire(Global_t *m);
-Dialogue_t readDialogueFromFile(Global_t *m, char *filename);
+void readDialogueFromFile(Global_t *m, char *filename, char array[MAX_LINES][MAX_CHARS_PER_LINE]);
 sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos);
 sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);
 void init_setting3(Global_t *m);
@@ -227,7 +227,7 @@ void passages_mondes5(Global_t *m, hub_t *hub);
 void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
-void what_dialogue(Global_t *m, int word, hub_t *hub);
+void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
 
     #include "include/fight.h"
 

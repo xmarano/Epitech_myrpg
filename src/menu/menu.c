@@ -82,7 +82,6 @@ void destroy_menu(Global_t *m)
     sfRectangleShape_destroy(m->menu.button2);
     sfRectangleShape_destroy(m->menu.button3);
     sfRectangleShape_destroy(m->menu.button4);
-    sfText_destroy(m->dialogue.pro_dia);
 }
 
 void draw_mouse(Global_t *m)

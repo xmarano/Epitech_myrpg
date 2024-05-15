@@ -18,10 +18,19 @@
 
 typedef struct dial {
     char lines[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w1[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w2[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w3[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w4[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w5[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w6[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w7[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines_w8[MAX_LINES][MAX_CHARS_PER_LINE];
     int lineCount;
     int currentLine;
     bool displayFull;
     sfText *pro_dia;
+    bool waitForEnter;
 } Dialogue_t;
 
 typedef struct npc {
