@@ -20,9 +20,7 @@ Dialogue_t readDialogueFromFile(const char *filename)
         fprintf(stderr, "Erreur lors de l'ouverture du fichier %s\n", filename);
         exit(EXIT_FAILURE);
     }
-
     while (fgets(dialogue.lines[dialogue.lineCount], MAX_CHARS_PER_LINE, file) != NULL) {
-        // Supprimer le saut de ligne à la fin de chaque ligne
         dialogue.lines[dialogue.lineCount][strcspn(dialogue.lines[dialogue.lineCount], "\n")] = 0;
         dialogue.lineCount++;
         if (dialogue.lineCount >= MAX_LINES) {
@@ -30,18 +28,41 @@ Dialogue_t readDialogueFromFile(const char *filename)
             break;
         }
     }
-
     fclose(file);
     return dialogue;
 }
 
-static void ptr_dia(Global_t *m, int word)
-{
+void displayDialogue(Global_t *m, Dialogue_t *dialogue) {
+    sfVector2f position = {50, 50};
+    sfText_setPosition(m->hub.dia_pouill, position);
 
+    sfText_setString(m->hub.dia_pouill, dialogue->lines[dialogue->currentLine]);
+
+    if (dialogue->displayFull) {
+        // Afficher la phrase entière si displayFull est vrai
+        // sfSleep(sfMilliseconds(1000)); // Temps d'attente pour chaque phrase
+    } else {
+        // Attente d'appui sur 'enter' avant d'afficher la prochaine ligne
+        sfEvent event;
+        while (sfRenderWindow_pollEvent(m->window, &event)) {
+            if (event.type == sfEvtKeyPressed && event.key.code == sfKeyReturn) {
+                dialogue->currentLine++;
+                if (dialogue->currentLine >= dialogue->lineCount) {
+                    // Fin du dialogue
+                    dialogue->currentLine = 0; // Réinitialiser pour la prochaine fois
+                    return;
+                }
+                sfText_setString(m->hub.dia_pouill, dialogue->lines[dialogue->currentLine]);
+                sfRenderWindow_drawText(m->window, m->hub.dia_pouill, NULL);
+                sfRenderWindow_display(m->window);
+                return;
+            }
+        }
+    }
 }
 
 void what_dialogue(Global_t *m, int word)
 {
     if (word == 1)
-        ptr_dia(m, word);
+        displayDialogue(m, &m->dialogue);
 }
