@@ -11,26 +11,32 @@
 
 static void reading(Global_t *m)
 {
-    readDialogueFromFile(m, "dialogue/prologue.txt", m->dialogue.lines);
-    readDialogueFromFile(m, "dialogue/pou1.txt", m->dialogue.lines_w1);
-    readDialogueFromFile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
-    readDialogueFromFile(m, "dialogue/pou3.txt", m->dialogue.lines_w3);
-    readDialogueFromFile(m, "dialogue/pou4.txt", m->dialogue.lines_w4);
-    readDialogueFromFile(m, "dialogue/pou5.txt", m->dialogue.lines_w5);
-    readDialogueFromFile(m, "dialogue/pou6.txt", m->dialogue.lines_w6);
-    readDialogueFromFile(m, "dialogue/pou7.txt", m->dialogue.lines_w7);
-    readDialogueFromFile(m, "dialogue/pou8.txt", m->dialogue.lines_w7);
+    readdialoguefromfile(m, "dialogue/prologue.txt", m->dialogue.lines);
+    readdialoguefromfile(m, "dialogue/pou1.txt", m->dialogue.lines_w1);
+    readdialoguefromfile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
+    readdialoguefromfile(m, "dialogue/pou3.txt", m->dialogue.lines_w3);
+    readdialoguefromfile(m, "dialogue/pou4.txt", m->dialogue.lines_w4);
+    readdialoguefromfile(m, "dialogue/pou5.txt", m->dialogue.lines_w5);
+    readdialoguefromfile(m, "dialogue/pou6.txt", m->dialogue.lines_w6);
+    readdialoguefromfile(m, "dialogue/pou7.txt", m->dialogue.lines_w7);
+    readdialoguefromfile(m, "dialogue/pou8.txt", m->dialogue.lines_w7);
 }
 
 static void init_hub2(Global_t *m, hub_t *h)
 {
-    char *link_dia_b = "assets/perso/dialogue/dia_board.png";
+    char *link_dia_b = "assets/perso/dialogue/diaboard1.png";
+    char *link_dia_b2 = "assets/perso/dialogue/diaboard2.png";
 
+    m->hub.swap_clock = sfClock_create();
+    m->dialogue.dia_name = sfText_create();
+    m->dialogue.Font = sfFont_createFromFile("assets/dialogue_font.ttf");
+    sfText_setFont(m->dialogue.dia_name, m->dialogue.Font);
     m->hub.cadre = sfSprite_create();
     m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
+    m->hub.Cadre2 = sfTexture_createFromFile(link_dia_b2, NULL);
+    //sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     m->dialogue.pro_dia = sfText_create();
     reading(m);
-    sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});
     sfSprite_setScale(h->pouilleux, (sfVector2f){0.8, 0.8});
@@ -109,4 +115,8 @@ void destroy_hub(Global_t *m, hub_t *h)
     sfSprite_destroy(h->bulle);
     sfTexture_destroy(h->Bulle);
     sfText_destroy(m->dialogue.pro_dia);
+    sfText_destroy(m->dialogue.dia_name);
+    sfFont_destroy(m->dialogue.Font);
+    sfTexture_destroy(m->hub.Cadre2);
+    sfClock_destroy(m->hub.swap_clock);
 }

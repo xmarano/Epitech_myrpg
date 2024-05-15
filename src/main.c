@@ -49,10 +49,11 @@ static void annihilateur2sprite(Global_t *m)
     destroy_dialoque(m);
 }
 
-static void initalisateur2sprite(Global_t *m)
+static void initalisateur2sprite(Global_t *m, hub_t *h)
 {
     import_weapons_stats(m);
     init_pouill_dialog(m);
+    init_hub(h, m);
     setup_stat(m);
     init_menu(m);
     init_inventaire(m);
@@ -72,13 +73,10 @@ int main(int argc, char **argv)
         return 84;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
-    initalisateur2sprite(&m);
-    init_hub(&h, &m);
+    initalisateur2sprite(&m, &h);
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
-    m.setting.fontdi = sfFont_createFromFile("assets/text.ttf");
-    m.perso->current_perso = 0;
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }

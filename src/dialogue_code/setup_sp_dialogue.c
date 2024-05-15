@@ -84,6 +84,30 @@ static void move_rect(Global_t *m, int offset, int max_value)
     }
 }
 
+static void draw_name(Global_t *m, sfVector2f pose)
+{
+    sfTime time = sfClock_getElapsedTime(m->hub.swap_clock);
+    float seconds = sfTime_asSeconds(time);
+    static int toggle = 0;
+
+    if (seconds >= 0.7) {
+        toggle = !toggle;
+        sfClock_restart(m->hub.swap_clock);
+    }
+    if (toggle == 0)
+        sfSprite_setTexture(m->hub.cadre, m->hub.Cadre, sfFalse);
+    else
+        sfSprite_setTexture(m->hub.cadre, m->hub.Cadre2, sfFalse);
+    sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
+    sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
+    pose.x += 110;
+    pose.y += 17;
+    sfText_setString(m->dialogue.dia_name, "Guide ambulant");
+    sfText_setScale(m->dialogue.dia_name, (sfVector2f){0.6, 0.6});
+    sfText_setPosition(m->dialogue.dia_name, pose);
+    sfRenderWindow_drawText(m->window, m->dialogue.dia_name, NULL);
+}
+
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub)
 {
     sfIntRect base = {0, 0, 91, 80};
@@ -102,8 +126,7 @@ void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub)
     animated_rect_pos.y += 109.5;
     sfSprite_setPosition(m->hub.dia_pouill, animated_rect_pos);
     sfSprite_setTextureRect(m->hub.dia_pouill, m->hub.rect_dia);
-    sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
-    sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
+    draw_name(m, pose);
     pose.x += 30;
     pose.y += 80;
     what_dialogue(m, word, hub, pose);
@@ -123,6 +146,7 @@ void init_pouill_dialog(Global_t *m)
     char *link_pou = "assets/perso/dialogue/npc/pouilleux_dialogue.png";
 
     m->hub.dia_pouill = sfSprite_create();
+    m->setting.fontdi = sfFont_createFromFile("assets/text.ttf");
     m->hub.Dia_pouill = sfTexture_createFromFile(link_pou, NULL);
     sfSprite_setTexture(m->hub.dia_pouill, m->hub.Dia_pouill, sfFalse);
     sfSprite_setScale(m->hub.dia_pouill, (sfVector2f){2.3, 2.3});

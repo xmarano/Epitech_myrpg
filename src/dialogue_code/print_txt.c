@@ -11,13 +11,14 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-void readDialogueFromFile(Global_t *m, char *filename, char array[MAX_LINES][MAX_CHARS_PER_LINE])
+void readdialoguefromfile(Global_t *m, char *filename,
+    char array[MAX_LINES][MAX_CHARS])
 {
     FILE *file = fopen(filename, "r");
 
     m->dialogue.lineCount = 0;
     while (fgets(array[m->dialogue.lineCount],
-    MAX_CHARS_PER_LINE, file) != NULL) {
+    MAX_CHARS, file) != NULL) {
         array[m->dialogue.lineCount]
         [strcspn(array[m->dialogue.lineCount], "\n")] = 0;
         m->dialogue.lineCount++;
@@ -61,7 +62,8 @@ static void setup(Global_t *m, sfVector2f pose)
     sfText_setScale(m->dialogue.pro_dia, (sfVector2f){0.4, 0.6});
 }
 
-void displaydialogue(Global_t *m, hub_t *hub, int word, char array[MAX_LINES][MAX_CHARS_PER_LINE])
+void displaydialogue(Global_t *m, hub_t *hub, int word,
+    char array[MAX_LINES][MAX_CHARS])
 {
     char *currentLine = array[m->dialogue.currentLine];
     int i = 0;

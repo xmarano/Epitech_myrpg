@@ -106,7 +106,8 @@ static void prologue(Global_t *m, hub_t *hub)
     int word = 0;
     sfVector2f per_pose = sfSprite_getPosition(hub->sprite_perso);
 
-    if (hub->color.r == 150 && hub->color.g == 150 && hub->color.b == 150 && m->hub.prologue_ok == false) {
+    if (hub->color.r == 150 && hub->color.g == 150 &&
+    hub->color.b == 150 && m->hub.prologue_ok == false) {
         sfSprite_setPosition(hub->bulle, (sfVector2f){660, 400});
         if (!hub->is_talking)
             sfRenderWindow_drawSprite(m->window, hub->bulle, NULL);

@@ -14,23 +14,25 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #define MAX_LINES 100
-    #define MAX_CHARS_PER_LINE 200
+    #define MAX_CHARS 200
 
 typedef struct dial {
-    char lines[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w1[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w2[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w3[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w4[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w5[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w6[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w7[MAX_LINES][MAX_CHARS_PER_LINE];
-    char lines_w8[MAX_LINES][MAX_CHARS_PER_LINE];
+    char lines[MAX_LINES][MAX_CHARS];
+    char lines_w1[MAX_LINES][MAX_CHARS];
+    char lines_w2[MAX_LINES][MAX_CHARS];
+    char lines_w3[MAX_LINES][MAX_CHARS];
+    char lines_w4[MAX_LINES][MAX_CHARS];
+    char lines_w5[MAX_LINES][MAX_CHARS];
+    char lines_w6[MAX_LINES][MAX_CHARS];
+    char lines_w7[MAX_LINES][MAX_CHARS];
+    char lines_w8[MAX_LINES][MAX_CHARS];
     int lineCount;
     int currentLine;
     bool displayFull;
     sfText *pro_dia;
     bool waitForEnter;
+    sfText *dia_name;
+    sfFont *Font;
 } Dialogue_t;
 
 typedef struct npc {

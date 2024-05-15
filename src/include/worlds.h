@@ -31,10 +31,12 @@ typedef struct hub {
     sfTexture *Dia_pouill;
     sfSprite *cadre;
     sfTexture *Cadre;
+    sfTexture *Cadre2;
     sfIntRect rect_dia;
     sfClock *clock;
     bool is_talking;
     bool prologue_ok;
+    sfClock *swap_clock;
 } hub_t;
 
 typedef struct Loading {
