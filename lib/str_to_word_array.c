@@ -1,3 +1,11 @@
+/*
+** EPITECH PROJECT, 2023
+** str_to_word_array
+** File description:
+** Infos
+*/
+#include "../src/my.h"
+
 static int count_lines(char *str, char delimiteur)
 {
     int count = 0;
