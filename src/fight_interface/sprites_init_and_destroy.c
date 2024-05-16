@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2023
 ** B-MUL-200-MAR-2-1-myrpg-yanis.prevost
 ** File description:
-** lifebar.c
+** sprites_init_and _destroy.c
 */
 
-#include "../include/perso.h"
 #include "../rpg.h"
+#include "../include/perso.h"
 
 void destroy_fight_sprites(fight_t *f)
 {
@@ -18,14 +18,15 @@ void destroy_fight_sprites(fight_t *f)
 
 void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
 {
+    sfIntRect sprite_atkrect = {0, 511 + 65 * 3, 65, 65};
+
     f->sprite_atk = sfSprite_create();
     f->texture_atk = sfTexture_createFromFile(atk->texture_battle, NULL);
     f->sprite_def = sfSprite_create();
     f->texture_def = sfTexture_createFromFile(def->texture_battle, NULL);
     f->has_def_attacked = sfFalse;
-
     sfSprite_setTexture(f->sprite_atk, f->texture_atk, sfFalse);
-    sfSprite_setTextureRect(f->sprite_atk, (sfIntRect){0, 511 + 65 * 3, 65, 65});
+    sfSprite_setTextureRect(f->sprite_atk, sprite_atkrect);
     sfSprite_setPosition(f->sprite_atk, (sfVector2f){500, 450});
     sfSprite_setScale(f->sprite_atk, (sfVector2f){3, 3});
     sfSprite_setTexture(f->sprite_def, f->texture_def, sfFalse);

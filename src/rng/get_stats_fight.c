@@ -23,6 +23,7 @@ int get_hit_rate(Perso_t *atk, Perso_t *def)
     is_weapon_advantage(atk->current_weapon, def->current_weapon) * 10;
     int avoid = def->stat_p.spd * 2 + def->stat_p.lck;
     //+ defense->current_case->esq_bonus;
+
     if (accuracy - avoid > 100)
         return 100;
     return accuracy - avoid;
@@ -34,6 +35,7 @@ int get_damage_physical(Perso_t *attacker, Perso_t *defender)
     is_weapon_advantage(attacker->current_weapon,
     defender->current_weapon) + attacker->current_weapon->attack;
     int def = defender->stat_p.def; //+ defender->current_case->def_bonus;
+
     if ((atk - def) * double_attack(&attacker->stat_p, &defender->stat_p) <= 0)
         return 0;
     return (atk - def) * double_attack(&attacker->stat_p, &defender->stat_p);
@@ -45,6 +47,7 @@ int get_damage_magical(Perso_t *attacker, Perso_t *defender)
     is_weapon_advantage(attacker->current_weapon,
     defender->current_weapon) + attacker->current_weapon->attack;
     int def = defender->stat_p.res; //+ defender->current_case->def_bonus;
+
     if ((atk - def) * double_attack(&attacker->stat_p, &defender->stat_p) <= 0)
         return 0;
     return (atk - def) * double_attack(&attacker->stat_p, &defender->stat_p);

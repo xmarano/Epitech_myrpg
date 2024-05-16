@@ -10,13 +10,12 @@
 
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 {
-    sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
-    sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
-
     float seconds;
     sfTime time = sfClock_getElapsedTime(f->clock_lifebar);
-    seconds = time.microseconds / 1000000.0;
 
+    seconds = time.microseconds / 1000000.0;
+    sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
+    sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
     if (f->is_fight == sfTrue && seconds > 2) {
         if (atk->stat_p.mag > atk->stat_p.str)
             def->stat_p.current_hp -= damage_magical(atk, def);
@@ -34,7 +33,7 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         f->is_fight = sfFalse;
     }
     if (seconds > 6 && f->has_def_attacked == sfFalse) {
-                if (def->stat_p.current_hp > 0)
+            if (def->stat_p.current_hp > 0)
             if (def->stat_p.mag > def->stat_p.str)
                 atk->stat_p.current_hp -= damage_magical(def, atk);
             else

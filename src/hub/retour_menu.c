@@ -5,3 +5,12 @@
 ** retour_menu.c
 */
 
+#include "../rpg.h"
+#include "../include/perso.h"
+#include "../include/menu.h"
+#include "../include/worlds.h"
+
+void retour_menu(Global_t *m)
+{
+    return;
+}

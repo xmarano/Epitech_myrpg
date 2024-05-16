@@ -9,6 +9,21 @@
 #include "../rpg.h"
 #include "../include/perso.h"
 
+void swap_current(Global_t *m)
+{
+    static float elapsedTime = 0.0f;
+    sfTime timeElapsed = sfClock_getElapsedTime(m->perso->swap_clock);
+
+    elapsedTime += sfTime_asSeconds(timeElapsed);
+    sfClock_restart(m->perso->swap_clock);
+    if (sfKeyboard_isKeyPressed(sfKeyK) && elapsedTime > 0.2f) {
+        m->perso->current_perso += 1;
+        if (m->perso->current_perso == 5)
+            m->perso->current_perso = 0;
+        elapsedTime = 0.0f;
+    }
+}
+
 bool is_empty_slot(Weapons_t *weapon_slot)
 {
     return weapon_slot->is_empty != true;

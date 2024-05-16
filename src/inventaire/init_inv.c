@@ -24,6 +24,7 @@ void destroy_inventaire(Global_t *m)
     sfRectangleShape_destroy(m->perso->inv.inv_sprite.rect_inv);
     sfSprite_destroy(m->perso->inv.inv_sprite.inventory);
     sfSprite_destroy(m->perso->inv.inv_sprite.inventory2);
+    sfClock_destroy(m->perso->swap_clock);
 }
 
 void init_inventaire(Global_t *m)
@@ -43,5 +44,6 @@ void init_inventaire(Global_t *m)
     m->perso->inv.inv_sprite.cursor = sfSprite_create();
     m->perso->inv.inv_sprite.hooved_weapon = sfRectangleShape_create();
     m->perso->inv.inv_sprite.rect_inv = sfRectangleShape_create();
+    m->perso->swap_clock = sfClock_create();
     m->gold = 1000;
 }

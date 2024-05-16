@@ -33,7 +33,6 @@ void init_lifebars(fight_t *fight, Global_t *m)
     fight->font = sfFont_createFromFile("assets/fight.ttf");
     fight->is_fight = sfTrue;
     fight->clock_lifebar = sfClock_create();
-
     sfSprite_setTexture(fight->combat_scene, sfTexture_createFromFile("assets/fight/battle_scene.png", NULL), sfFalse);
     sfSprite_setScale(fight->combat_scene, (sfVector2f){8, 6.25});
     sfSprite_setScale(fight->empty_bar_sprite, (sfVector2f){8, 8});
@@ -126,11 +125,9 @@ void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     draw_text2((sfVector2f){175, 690}, my_inttostr(get_hit_rate(atk, def)), m, f);
     draw_text2((sfVector2f){175, 740}, my_inttostr(f->dmg_atk), m, f);
     draw_text2((sfVector2f){175, 790}, my_inttostr(get_crit_rate(atk, def)), m, f);
-
     draw_text2((sfVector2f){1775, 690}, my_inttostr(get_hit_rate(def, atk)), m, f);
     draw_text2((sfVector2f){1775, 740}, my_inttostr(f->dmg_def), m, f);
     draw_text2((sfVector2f){1775, 790}, my_inttostr(get_crit_rate(def, atk)), m, f);
-
     draw_text((sfVector2f){350, 760}, atk->current_weapon->name, m, f);
     draw_text((sfVector2f){1000, 760}, def->current_weapon->name, m, f);
     draw_text((sfVector2f){825, 875}, my_inttostr(atk->stat_p.current_hp), m, f);

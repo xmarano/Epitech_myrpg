@@ -63,6 +63,7 @@ typedef struct case_struct {
 } case_t;
 
 typedef struct Perso {
+    sfClock *swap_clock;
     int what_weapons_stat;
     int current_perso; //perso designer
     char *name_perso; // nom du perso

@@ -116,6 +116,7 @@ typedef struct Glob {
     Zone8_t zone8;
 } Global_t;
 
+void swap_current(Global_t *m);
 void draw_mouse(Global_t *m);
 void roy_stats(Perso_t *perso);
 void xmarano_stats(Perso_t *perso);
@@ -134,6 +135,7 @@ void set_stats_b6(Perso_t *perso);
 void set_stats_b7(Perso_t *perso);
 void set_stats_b8(Perso_t *perso);
 int setup_stat(Global_t *m);
+void retour_menu(Global_t *m);
 void draw_stats_shop(Global_t *m);
 void update_purchase_state(Global_t *m);
 void init_menu(Global_t *m);

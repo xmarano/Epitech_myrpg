@@ -56,5 +56,12 @@ void init_w_sprite(Global_t *m)
     load_sprite_map(m);
     load_texte_map(m);
     sfSprite_setTexture(m->zone1.w1_map, m->zone1.w1_Map, sfFalse);
+    sfSprite_setTexture(m->zone2.w2_map, m->zone2.w2_Map, sfFalse);
+    sfSprite_setTexture(m->zone3.w3_map, m->zone3.w3_Map, sfFalse);
+    sfSprite_setTexture(m->zone4.w4_map, m->zone4.w4_Map, sfFalse);
+    sfSprite_setTexture(m->zone5.w5_map, m->zone5.w5_Map, sfFalse);
+    sfSprite_setTexture(m->zone6.w6_map, m->zone6.w6_Map, sfFalse);
+    sfSprite_setTexture(m->zone7.w7_map, m->zone7.w7_Map, sfFalse);
+    sfSprite_setTexture(m->zone8.w8_map, m->zone8.w8_Map, sfFalse);
     init_sp_perso_boss(m);
 }

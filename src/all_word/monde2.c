@@ -14,6 +14,5 @@
 void draw_monde2(Global_t *m, hub_t *hub)
 {
     if (m->current == 2) {
-
     }
 }
