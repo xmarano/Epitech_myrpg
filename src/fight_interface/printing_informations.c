@@ -13,13 +13,13 @@
 int set_dmg(fight_t *fight, Global_t *m, Perso_t *atk, Perso_t *def)
 {
     if (atk->stat_p.str >= atk->stat_p.mag)
-        fight->dmg_atk = damage_physical(atk, def);
+        fight->dmg_atk = get_damage_physical(atk, def);
     else
-        fight->dmg_atk = damage_magical(atk, def);
+        fight->dmg_atk = get_damage_magical(atk, def);
     if (def->stat_p.str >= def->stat_p.mag)
-        fight->dmg_def = damage_physical(def, atk);
+        fight->dmg_def = get_damage_physical(def, atk);
     else
-        fight->dmg_def = damage_magical(def, atk);
+        fight->dmg_def = get_damage_magical(def, atk);
 }
 
 void init_lifebars(fight_t *fight, Global_t *m)
@@ -31,6 +31,8 @@ void init_lifebars(fight_t *fight, Global_t *m)
     fight->combat_scene = sfSprite_create();
     fight->ennemy_bar_sprite = sfSprite_create();
     fight->font = sfFont_createFromFile("assets/fight.ttf");
+    fight->is_fight = sfTrue;
+    fight->clock_lifebar = sfClock_create();
 
     sfSprite_setTexture(fight->combat_scene, sfTexture_createFromFile("assets/fight/battle_scene.png", NULL), sfFalse);
     sfSprite_setScale(fight->combat_scene, (sfVector2f){8, 6.25});
@@ -159,6 +161,7 @@ void print_fight_scene(Global_t *m, fight_t *fight, Perso_t *atk, Perso_t *def)
     draw_text((sfVector2f){25, 50}, atk->name_perso, m, fight);
     draw_text((sfVector2f){1525, 50}, def->name_perso, m, fight);
     draw_stats(atk, def, m, fight);
+    print_sprites(atk, def, m, fight);
 }
 
 void destroy_fight_struct(fight_t *fight)
