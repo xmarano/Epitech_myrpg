@@ -99,6 +99,7 @@ typedef struct Zone1 {
     sfSprite *w1_map;
     sfTexture *w1_Map;
     bool is_w1_clear;
+    char **tab_map;
 }Zone1_t;
 
 typedef struct Zone2 {

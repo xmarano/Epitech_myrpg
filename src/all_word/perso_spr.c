@@ -30,7 +30,6 @@ void destory_all_w_maps(Global_t *m)
 
 void init_sp_perso_boss(Global_t *m)
 {
-    m->zone1.view_w1 = sfView_createFromRect((sfFloatRect){0, 0, 1203, 802});
     m->univers.rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     m->univers.sprite_roy = sfSprite_create();
     m->univers.sprite_infe = sfSprite_create();
