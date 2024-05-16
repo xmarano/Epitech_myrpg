@@ -39,9 +39,10 @@ static void inventaire1(Global_t *m)
     sfRenderWindow_drawRectangleShape(m->window, rect_inv, NULL);
 }
 
-void draw_inventaire(Global_t *m)
+void draw_inventaire(Global_t *m, hub_t *hub)
 {
-    if (m->current == 12) {
+    if (m->current == 12 || m->current == 1) {
+        sfRenderWindow_setView(m->window, hub->normal_view);
         if (m->perso->is_visible) {
             swap_current(m);
             inventaire1(m);
@@ -143,9 +144,10 @@ static void print_sprite(Global_t *m)
 
 int inventory(Global_t *m, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyI) || sfKeyboard_isKeyPressed(sfKeyLeft)
-    || sfKeyboard_isKeyPressed(sfKeyRight)
-    || sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyI) ||
+    sfKeyboard_isKeyPressed(sfKeyLeft) ||
+    sfKeyboard_isKeyPressed(sfKeyRight) ||
+    sfKeyboard_isKeyPressed(sfKeyDown)) {
         print_sprite(m);
         what_inv(m, event);
         if (sfKeyboard_isKeyPressed(sfKeyDown))

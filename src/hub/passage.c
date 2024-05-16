@@ -137,6 +137,6 @@ void passages_mondes(Global_t *m, hub_t *hub)
     if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
         m->dialogue.currentLine = 0;
         hub->is_talking = false;
-        m->current = 20;
     }
+    return_and_old_current(m, 12);
 }

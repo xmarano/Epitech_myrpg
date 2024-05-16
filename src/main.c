@@ -11,6 +11,7 @@
 
 static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
 {
+    m->show_mouse = true;
     if (argc == 2) {
         if (strcmp(argv[1], "dev") == 0) {
             m->gold = 100000;
@@ -24,7 +25,7 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
 {
     if (m->event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    if (m->current == 12)
+    if (m->current == 12 || m->current == 1)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);
@@ -39,22 +40,29 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
 static void draw_mondes(Global_t *m, hub_t *h)
 {
     draw_monde1(m);
+    draw_monde2(m);
+    draw_monde3(m);
+    draw_monde4(m);
+    draw_monde5(m);
+    draw_monde6(m);
+    draw_monde7(m);
+    draw_monde8(m);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
 {
-    m->show_mouse = true;
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &m->event))
         event_click(m, h, f);
+    retour_menu(m, h);
     draw_menu(m);
     draw_select_perso(m);
     draw_setting(m);
     draw_mondes(m, h);
     draw_shop(m);
     draw_hub(m, h);
-    draw_inventaire(m);
+    draw_inventaire(m, h);
     draw_mouse(m);
     //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
