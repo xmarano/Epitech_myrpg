@@ -20,19 +20,6 @@ static void init_code(int argc, char **argv, Global_t *m, hub_t *h)
     }
 }
 
-void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
-{
-    destroy_hub(m, h);
-    destroy_fight_struct(f);
-    destroy_inventaire(m);
-    destroy_menu(m);
-    destroy_shop(m);
-    destory_all_w_maps(m);
-    destroy_select_perso(m);
-    destroy_loading(m);
-    destroy_dialoque(m);
-}
-
 void event_click(Global_t *m, hub_t *h, fight_t *f)
 {
     if (m->event.type == sfEvtClosed || m->current == -1)
@@ -72,6 +59,19 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
     sfRenderWindow_display(m->window);
+}
+
+void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
+{
+    destroy_hub(m, h);
+    destroy_fight_struct(f);
+    destroy_inventaire(m);
+    destroy_menu(m);
+    destroy_shop(m);
+    destory_all_w_maps(m);
+    destroy_select_perso(m);
+    destroy_loading(m);
+    destroy_dialoque(m);
 }
 
 static void initalisateur2sprite(Global_t *m, hub_t *h)
