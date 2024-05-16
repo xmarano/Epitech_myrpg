@@ -15,6 +15,7 @@ static void init_code(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
+            m->current = 12;
         }
     }
 }
