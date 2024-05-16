@@ -5,7 +5,7 @@ XLLLL       FF LLLL    B  B F  X
 XFLLLFF B   FF  LLL    F    F  X
 X   FM  F FFF    LL      F M  IX
 X   MMMM               MMM F   X
-X   MMMM   M          MMMM     X
+X   MMMM   M    0     MMMM     X
 X  M FMF FMF       MMMMMMM    FX
 XFF FM    MFMFI MMMMMMMMMM B   X
 XFFMMMMMMMMM FF MMMMMMMMMM     X

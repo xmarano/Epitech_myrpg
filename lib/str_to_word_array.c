@@ -10,12 +10,12 @@
 char *get_buff(char *filename)
 {
     int fd;
-    char *buffer = malloc(sizeof(char) * 700);
+    char *buffer = malloc(sizeof(char) * 750);
     int size;
 
     fd = open(filename, O_RDONLY);
-    size = read(fd, buffer, 700);
-    buffer = strcat(buffer, "\0");
+    size = read(fd, buffer, 750);
+    buffer[size] = '\0';
     printf("%s\n", buffer);
     close(fd);
     return buffer;
@@ -48,7 +48,7 @@ char **str_to_word_array(char *str)
     int x = 0;
     int i = 0;
     int size = 0;
-    char **arr = malloc(sizeof(char) * (100));
+    char **arr = malloc(sizeof(char) * (1200));
 
     while (str[i] != '\0') {
         if (is_alphanum2(str[i]))
@@ -61,6 +61,6 @@ char **str_to_word_array(char *str)
         }
         i++;
     }
-    arr[x] = NULL;
+    arr[x + 1] = NULL;
     return (arr);
 }

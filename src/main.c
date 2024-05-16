@@ -92,6 +92,7 @@ int main(int argc, char **argv)
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }
+    free(m.zone1.tab_map);
     destroy_hub(&m, &h);
     destroy_fight_struct(&f);
     annihilateur2sprite(&m);
