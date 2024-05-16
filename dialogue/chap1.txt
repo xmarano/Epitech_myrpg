@@ -1,15 +1,15 @@
 //Chapitre 1//
 
 1 : So the king is probably in his castle 
-3 : So he’s probably this way ?
+3 : So he is probably this way ?
 2 : I need to explore to find the king
-4 : So he’s probably in this castle 
+4 : So he is probably in this castle 
 0 : ok, so I need to find the king of Elae
 
 1 : Why do you attack me ?
 3 : AAAARGH why you attack me ? @#9E8##bdjkk 
 2 : Seriously ?
-4 : Go away I don’t want to fight
+4 : Go away I do not want to fight
 0 : Want to fight ? Come on
 
 Ennemy : hahaha all for the real king !!!
@@ -17,23 +17,23 @@ Ennemy : hahaha all for the real king !!!
 1 : The real king ?
 3 : what are you talking about ?
 2 : what ?
-4 : I don’t know what your talking about 
-0 : I don’t know who you are but no one hurt my friend
+4 : I do not know what your talking about 
+0 : I do not know who you are but no one hurt my friend
 
 *Enter in the castle*
 
 1 : here we go …
 3 : finally
-2 : So finally I he’s here
-4 : So king he’s here ?
+2 : So finally I he is here
+4 : So king he is here ?
 0 : *Smile* finally Edgar : Welcome, who are you ?
 
 
-1 : I’m Infenium and this is my friends Xmarano, Pate carbo , Le racaillou and Roy  you need  us don’t you ?
-3 : I’m Xmarano and this is my friends infenium, Pate carbo , Le racaillou and Roy you need  us don’t you ?
-2 : I’m Pate carbo and this is my friends Xmarano, infenium, Le racaillou and Roy you need  us don’t you ?
-4 : I’m Le racaillou and this is my friends Xmarano, Pate carbo , infenium and Roy you need  us don’t you ?
-0 : I’m Roy and this is my friends Xmarano, Pate carbo , Le racaillou and infenium  you need  us don’t you ?
+1 : I’m Infenium and this is my friends Xmarano, Pate carbo , Le racaillou and Roy  you need  us do not you ?
+3 : I’m Xmarano and this is my friends infenium, Pate carbo , Le racaillou and Roy you need  us do not you ?
+2 : I’m Pate carbo and this is my friends Xmarano, infenium, Le racaillou and Roy you need  us do not you ?
+4 : I’m Le racaillou and this is my friends Xmarano, Pate carbo , infenium and Roy you need  us do not you ?
+0 : I’m Roy and this is my friends Xmarano, Pate carbo , Le racaillou and infenium  you need  us do not you ?
 
 Edgar : Yes, a new king from the neighboring kingdom Aixus wants to
 take control of the entire country and proclaims himself as the true king
@@ -60,15 +60,15 @@ Edgar : You need to go first at the desert to defeat his first general and obtai
 1 : Ok, we gonna protect the kingdom for you 
 3 : Ok, the kingdom is safe with us
 2 : Of courses I will help you 
-4 : Don’t worry I will help you 
+4 : do not worry I will help you 
 0 : I’m gonna help you 
 
 *Encounter the boss*
 
 Boss1 : WHERE IS EDGAR???!!!
 
-1 : We are the the soldier of the king Edgar we gonna defend him don’t approach him
-3 : We are here to defend the kingdom of Elae , we gonna defend him so  don’t approach him
+1 : We are the the soldier of the king Edgar we gonna defend him do not approach him
+3 : We are here to defend the kingdom of Elae , we gonna defend him so  do not approach him
 2 : We need to defend Edgar we gonna defeat you  
 4 :we gonna defend him.
 0 : Hi, we gonna defeat you and after ask you some questions
@@ -76,7 +76,7 @@ Boss1 : WHERE IS EDGAR???!!!
 Boss1 : I am the chief of the west army, I will Kill you before killing Edgar 
 
 1 : I’m 1 and with my friend we are gonna defeat you and your soldiers
-3 : I don’t need a name to defeat you 
+3 : I do not need a name to defeat you 
 2 : Pfff come on you talk to much 
 4 : I will make you speak 
 0 : I will defeat you with my team come here
@@ -87,7 +87,7 @@ Boss1 : I am the chief of the west army, I will Kill you before killing Edgar
 Boss1 : Howw…how…how do you defeat me and my soldier ?
 
 1 : No one can defeat us, answer my questions now 
-3 : You don’t have any chance to us, answer my questions 
+3 : You do not have any chance to us, answer my questions 
 2 : You can’t defeat us, now answer my question
 4 : Now you gonna answer our questions 
 0 : say me all the answer I need now Boss1 : okay say me what you want *bleed*
@@ -98,8 +98,8 @@ Boss1 : Howw…how…how do you defeat me and my soldier ?
 4 : where is the king of your kingdom?
 0 : Give me the place of your kingdom 
 
-Boss2  : He ’s in the north of the continent but you need to go to the dock to take a boat and 
-go in his kingdom but no one can defeat he’s the strongest in the planet he’s the more intelligent 
+Boss2  : He is in the north of the continent but you need to go to the dock to take a boat and 
+go in his kingdom but no one can defeat he is the strongest in the planet he is the more intelligent 
 
 *Go away*
 
