@@ -32,15 +32,21 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, in
         if (position == 0) {
             drawText(num, 0, window_height - 30, window, font);
             sentencept(phrase, window, font, 0, 30);
+            if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
+                sentencept(str, window, font, position, 30);
+                sfSleep(sfSeconds(1.0));
+                free(phrase);
+                return;
+            }
         } else {
             drawText(num, window_width - 600, window_height - 600, window, font);
             sentencept(phrase, window, font, window_width - 600, 30);
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-            sentencept(str, window, font, position, 30);
-            sfSleep(sfSeconds(2.0));
-            free(phrase);
-            return;
+            if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
+                sentencept(phrase, window, font, window_width - 600, 30);
+                sfSleep(sfSeconds(1.0));
+                free(phrase);
+                return;
+                }
         }
     }
     sfSleep(sfSeconds(2.0));
