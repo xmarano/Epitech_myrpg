@@ -16,6 +16,7 @@ void init_w_sprite(Global_t *m)
     m->zone1.w1_map = sfSprite_create();
     m->zone1.w1_Map = sfTexture_createFromFile("maps/map1/map1.png", NULL);
     m->zone1.view_w1 = sfView_createFromRect((sfFloatRect){0, 0, 1203, 802});
+    m->zone1.view_w1 = sfView_createFromRect((sfFloatRect){0, 0, 1203, 802});
     m->zone1.tab_map = 
     sfSprite_setTexture(m->zone1.w1_map, m->zone1.w1_Map, sfFalse);
     init_sp_perso_boss(m);
