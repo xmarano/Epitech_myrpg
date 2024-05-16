@@ -108,6 +108,27 @@ typedef struct Zone {
     sfTexture *texture_Boss6;
     sfTexture *texture_Boss7;
     sfTexture *texture_Boss8;
+
+    sfSprite *sprite_enemy1_axe;
+    sfSprite *sprite_enemy2_axe;
+    sfSprite *sprite_enemy3_axe;
+    sfSprite *sprite_enemy1_spear;
+    sfSprite *sprite_enemy2_spear;
+    sfSprite *sprite_enemy3_spear;
+    sfSprite *sprite_enemy1_sword;
+    sfSprite *sprite_enemy2_sword;
+    sfSprite *sprite_enemy3_sword;
+    sfSprite *sprite_enemy_mage;
+    sfTexture *texture_enemy1_axe;
+    sfTexture *texture_enemy2_axe;
+    sfTexture *texture_enemy3_axe;
+    sfTexture *texture_enemy1_spear;
+    sfTexture *texture_enemy2_spear;
+    sfTexture *texture_enemy3_spear;
+    sfTexture *texture_enemy1_sword;
+    sfTexture *texture_enemy2_sword;
+    sfTexture *texture_enemy3_sword;
+    sfTexture *texture_enemy_mage;
 }ZoneUniversel_t;
 
 typedef struct Zone1 {
