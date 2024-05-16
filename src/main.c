@@ -9,7 +9,7 @@
 #include "include/menu.h"
 #include "my.h"
 
-static void init_code(int argc, char **argv, Global_t *m, hub_t *h)
+static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
 {
     if (argc == 2) {
         if (strcmp(argv[1], "dev") == 0) {
@@ -74,7 +74,7 @@ void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     destroy_dialoque(m);
 }
 
-static void initalisateur2sprite(Global_t *m, hub_t *h)
+static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
 {
     import_weapons_stats(m);
     init_pouill_dialog(m);
@@ -86,6 +86,8 @@ static void initalisateur2sprite(Global_t *m, hub_t *h)
     init_shop(m);
     init_pose(m);
     init_loading(m);
+    init_select_perso(m);
+    init_lifebars(f, m);
 }
 
 int main(int argc, char **argv)
@@ -99,11 +101,9 @@ int main(int argc, char **argv)
         return 84;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
-    initalisateur2sprite(&m, &h);
-    init_select_perso(&m);
-    init_lifebars(&f, &m);
+    initalisateur2sprite(&m, &h, &f);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
-    init_code(argc, argv, &m, &h);
+    init_dev(argc, argv, &m, &h);
     while (sfRenderWindow_isOpen(m.window)) {
        rpg(&m, &h, &f);
     }
