@@ -104,6 +104,7 @@ void draw_hub(Global_t *m, hub_t *h)
 
 void destroy_hub(Global_t *m, hub_t *h)
 {
+    sfClock_destroy(m->hub.clock);
     sfImage_destroy(h->hitbox);
     sfSprite_destroy(h->sprite_hub);
     sfSprite_destroy(h->sprite_perso);

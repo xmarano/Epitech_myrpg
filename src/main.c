@@ -8,10 +8,37 @@
 #include "include/perso.h"
 #include "include/menu.h"
 
-void event_click(Global_t *m)
+void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
 {
-    if (m->event.type == sfEvtClosed || m->current == -1)
+    destroy_hub(m, h);
+    printf("hub_destroyed\n");
+    destroy_fight_struct(f);
+    printf("fight_destroyed\n");
+    destroy_inventaire(m);
+    printf("inv_destroyed\n");
+    destroy_menu(m);
+    printf("menu_destroyed\n");
+    destroy_shop(m);
+    printf("shop_destroyed\n");
+    destory_all_w_maps(m);
+    printf("maps_destroyed\n");
+    destroy_select_perso(m);
+    printf("selet_destroyed\n");
+    destroy_loading(m);
+    printf("load_destroyed\n");
+    destroy_dialoque(m);
+    printf("dialogue_destroyed\n");
+}
+
+void event_click(Global_t *m, hub_t *h, fight_t *f)
+{
+    if (m->event.type == sfEvtClosed || m->current == -1) {
+        annihilateur2sprite(m, h, f);
         sfRenderWindow_close(m->window);
+        sfRenderWindow_destroy(m->window);
+        printf("window_destroyed\n");
+    }
+    printf("here\n");
     if (m->current == 12)
         inventory(m, m->event);
     if (m->current == 13)
@@ -35,7 +62,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     m->mouse = sfMouse_getPositionRenderWindow(m->window);
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &m->event))
-        event_click(m);
+        event_click(m, h, f);
     draw_menu(m);
     draw_select_perso(m);
     draw_setting(m);
@@ -47,17 +74,6 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
     sfRenderWindow_display(m->window);
-}
-
-static void annihilateur2sprite(Global_t *m)
-{
-    destroy_inventaire(m);
-    destroy_menu(m);
-    destroy_shop(m);
-    destory_all_w_maps(m);
-    destroy_select_perso(m);
-    destroy_loading(m);
-    destroy_dialoque(m);
 }
 
 static void initalisateur2sprite(Global_t *m, hub_t *h)
@@ -92,11 +108,6 @@ int main(int argc, char **argv)
     while (sfRenderWindow_isOpen(m.window)) {
         rpg(&m, &h, &f);
     }
-    destroy_hub(&m, &h);
-    destroy_fight_struct(&f);
-    annihilateur2sprite(&m);
-    sfClock_destroy(m.clock);
-    sfSprite_destroy(m.menu.cursor);
-    sfRenderWindow_destroy(m.window);
+    annihilateur2sprite(&m, &h, &f);
     return 0;
 }

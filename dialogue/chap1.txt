@@ -35,7 +35,7 @@ Ennemy : hahaha all for the real king !!!
 4 : I’m Le racaillou and this is my friends Xmarano, Pate carbo , infenium and Roy you need  us don’t you ?
 0 : I’m Roy and this is my friends Xmarano, Pate carbo , Le racaillou and infenium  you need  us don’t you ?
 
-Edgar : Yes, a new king from the neighboring kingdom Aixus wants to 
+Edgar : Yes, a new king from the neighboring kingdom Aixus wants to
 take control of the entire country and proclaims himself as the true king
 
 1 : Oh that why some bandit attack me , what do you want ?
@@ -45,7 +45,7 @@ take control of the entire country and proclaims himself as the true king
 0 : Ok sir, I understand the situation so what you want from us ?
 
 
-King : Thank you for coming, I need you to defeat the king of Aixus 
+King : Thank you for coming, I need you to defeat the king of Aixus
 for stop his desire of destruction and take over everything
 
 1 : Where do we need to go first ?

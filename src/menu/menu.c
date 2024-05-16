@@ -18,7 +18,7 @@ void init_menu(Global_t *m)
 {
     sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
     m->current = 10;
-    m->clock = sfClock_create();
+    m->hub.clock = sfClock_create();
     m->menu.wsize = sfRenderWindow_getSize(m->window);
     m->menu.map = init_sprite("assets/menu/menu.jpg", (sfVector2f){0, 0});
     m->menu.cursor = init_sprite("assets/menu/cursor.png", (sfVector2f){0, 0});
@@ -72,6 +72,7 @@ void draw_menu(Global_t *m)
 
 void destroy_menu(Global_t *m)
 {
+    sfSprite_destroy(m->menu.cursor);
     sfSprite_destroy(m->menu.map);
     sfText_destroy(m->menu.title);
     sfText_destroy(m->menu.new_game);
