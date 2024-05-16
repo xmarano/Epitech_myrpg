@@ -7,6 +7,17 @@
 #include "rpg.h"
 #include "include/perso.h"
 #include "include/menu.h"
+#include "my.h"
+
+static void init_code(int argc, char **argv, Global_t *m, hub_t *h)
+{
+    if (argc == 2) {
+        if (strcmp(argv[1], "dev") == 0) {
+            m->gold = 100000;
+            m->hub.prologue_ok = true;
+        }
+    }
+}
 
 void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
 {
@@ -83,7 +94,7 @@ int main(int argc, char **argv)
     fight_t f = {0};
     sfVideoMode mode = {1920, 1080, 32};
 
-    if (argc != 1)
+    if (argc >= 3)
         return 84;
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
@@ -91,6 +102,7 @@ int main(int argc, char **argv)
     init_select_perso(&m);
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
+    init_code(argc, argv, &m, &h);
     while (sfRenderWindow_isOpen(m.window)) {
        rpg(&m, &h, &f);
     }
