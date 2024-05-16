@@ -78,8 +78,24 @@ typedef struct Shop {
     int spacing_y;
 }Shop_t;
 
+typedef struct Zone {
+    sfIntRect rect;
+
+    sfSprite *sprite_roy;
+    sfSprite *sprite_infe;
+    sfSprite *sprite_xmara;
+    sfSprite *sprite_pate;
+    sfSprite *sprite_raca;
+
+    sfTexture *texture_roy;
+    sfTexture *texture_infe;
+    sfTexture *texture_xmara;
+    sfTexture *texture_pate;
+    sfTexture *texture_raca;
+}ZoneUniversel_t;
+
 typedef struct Zone1 {
-    /* data */
+    sfView *view_w1;
     sfSprite *w1_map;
     sfTexture *w1_Map;
     bool is_w1_clear;

@@ -104,6 +104,7 @@ typedef struct Glob {
     Loading_t loading; /*Yanis*/
     Dialogue_t dialogue;
     Shop_t shop; /*Yanis*/
+    ZoneUniversel_t univers;
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;

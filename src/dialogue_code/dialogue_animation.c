@@ -19,24 +19,23 @@ static void change_bool(Global_t *m, hub_t *hub, int word)
         m->hub.prologue_ok = true;
         return;
     }
-    m->current = 14;
     sfRenderWindow_setView(m->window, hub->normal_view);
     if (word == 1)
-        m->hub.what_word = 1;
-    if (word == 2)
-        m->zone2.is_w2_clear = true;
-    if (word == 3)
-        m->zone3.is_w3_clear = true;
-    if (word == 4)
-        m->zone4.is_w4_clear = true;
-    if (word == 5)
-        m->zone5.is_w5_clear = true;
-    if (word == 6)
-        m->zone6.is_w6_clear = true;
-    if (word == 7)
-        m->zone7.is_w7_clear = true;
-    if (word == 8)
-        m->zone8.is_w8_clear = true;
+        m->current = 1;
+    // if (word == 2)
+    //     m->zone2.is_w2_clear = true;
+    // if (word == 3)
+    //     m->zone3.is_w3_clear = true;
+    // if (word == 4)
+    //     m->zone4.is_w4_clear = true;
+    // if (word == 5)
+    //     m->zone5.is_w5_clear = true;
+    // if (word == 6)
+    //     m->zone6.is_w6_clear = true;
+    // if (word == 7)
+    //     m->zone7.is_w7_clear = true;
+    // if (word == 8)
+    //     m->zone8.is_w8_clear = true;
 }
 
 void readdialoguefromfile(Global_t *m, char *filename,

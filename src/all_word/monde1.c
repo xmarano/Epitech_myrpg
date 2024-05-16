@@ -13,6 +13,9 @@
 
 void draw_monde1(Global_t *m, hub_t *hub)
 {
-    if (m->current == 1)
-        printf("dd\n");
+    if (m->current == 1) {
+        sfRenderWindow_setView(m->window, m->zone1.view_w1);
+        sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
+        sfRenderWindow_drawSprite(m->window, m->univers.sprite_roy, NULL);
+    }
 }

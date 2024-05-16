@@ -29,7 +29,6 @@ static void init_hub2(Global_t *m, hub_t *h)
 
     m->hub.swap_clock = sfClock_create();
     m->dialogue.dia_name = sfText_create();
-    m->hub.what_word = 12;
     m->dialogue.Font = sfFont_createFromFile("assets/dialogue_font.ttf");
     sfText_setFont(m->dialogue.dia_name, m->dialogue.Font);
     m->hub.cadre = sfSprite_create();

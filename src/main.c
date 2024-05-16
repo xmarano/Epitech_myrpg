@@ -65,8 +65,8 @@ static void initalisateur2sprite(Global_t *m, hub_t *h)
     import_weapons_stats(m);
     init_pouill_dialog(m);
     init_hub(h, m);
-    init_w_sprite(m);
     setup_stat(m);
+    init_w_sprite(m);
     init_menu(m);
     init_inventaire(m);
     init_shop(m);
