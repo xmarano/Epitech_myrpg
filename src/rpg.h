@@ -26,6 +26,8 @@
     #define TABS_5 "\t\t\t\t\t"
     #define DELAY_BETWEEN_BUYS 100
     #define REFUND 40
+    #define set_tx sfTexture_createFromFile
+    #define sp_txr sfSprite_setTexture
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
