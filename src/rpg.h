@@ -231,6 +231,9 @@ void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
 void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
+void draw_monde1(Global_t *m, hub_t *hub);
+void init_w_sprite(Global_t *m);
+void destory_all_w_maps(Global_t *m);
 
     #include "include/fight.h"
 

@@ -51,13 +51,26 @@ void bcl(float time, sfClock *clock)
     while (sfTime_asSeconds(sfClock_getElapsedTime(clock)) - time < 0.3f);
 }
 
+static void set_current(Global_t *m)
+{
+    if (m->hub.what_word == 1)
+        m->current = 1;
+    if (m->hub.what_word == 2)
+        m->current = 2;
+    if (m->hub.what_word == 3)
+        m->current = 3;
+        // suite jusqu'a 8
+    if (m->hub.what_word == 12) // hub a swap to 0 (askip)
+        m->current = 12;
+}
+
 static void prt(Global_t *m, sfVector2f vert_pose)
 {
     sfSprite_setPosition(m->loading.vert, vert_pose);
     sfRenderWindow_drawSprite(m->window, m->loading.vert, NULL);
     sfRenderWindow_drawSprite(m->window, m->loading.fond, NULL);
     sfRenderWindow_display(m->window);
-    m->current = 12;
+    set_current(m);
 }
 
 void loading_screen(Global_t *m)

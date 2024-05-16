@@ -15,10 +15,14 @@ static void change_bool(Global_t *m, hub_t *hub, int word)
 {
     hub->is_talking = false;
     m->dialogue.currentLine = 0;
-    if (word == 0)
+    if (word == 0) {
         m->hub.prologue_ok = true;
+        return;
+    }
+    m->current = 14;
+    sfRenderWindow_setView(m->window, hub->normal_view);
     if (word == 1)
-        m->zone1.is_w1_clear = true;
+        m->hub.what_word = 1;
     if (word == 2)
         m->zone2.is_w2_clear = true;
     if (word == 3)
@@ -101,8 +105,7 @@ void displaydialogue(Global_t *m, hub_t *hub, int word,
     handle_enter_keypress(m, clock, &enterPressed);
     move_to_nextline(m, &enterPressed, clock, array);
     display_currentline(m, array);
-    if (currentLine[strlen(currentLine) - 1] == '!'
-    && sfKeyboard_isKeyPressed(sfKeyEnter)) {
+    if (currentLine[strlen(currentLine) - 1] == '!' && sfKeyboard_isKeyPressed(sfKeyEnter)) {
         sfClock_destroy(clock);
         clock = NULL;
         change_bool(m, hub, word);

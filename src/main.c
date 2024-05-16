@@ -24,6 +24,11 @@ void event_click(Global_t *m)
     }
 }
 
+static void draw_mondes(Global_t *m, hub_t *h)
+{
+    draw_monde1(m, h);
+}
+
 void rpg(Global_t *m, hub_t *h, fight_t *f)
 {
     m->show_mouse = true;
@@ -34,6 +39,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_menu(m);
     draw_select_perso(m);
     draw_setting(m);
+    draw_mondes(m, h);
     draw_shop(m);
     draw_hub(m, h);
     draw_inventaire(m);
@@ -48,6 +54,7 @@ static void annihilateur2sprite(Global_t *m)
     destroy_inventaire(m);
     destroy_menu(m);
     destroy_shop(m);
+    destory_all_w_maps(m);
     destroy_select_perso(m);
     destroy_loading(m);
     destroy_dialoque(m);
@@ -58,6 +65,7 @@ static void initalisateur2sprite(Global_t *m, hub_t *h)
     import_weapons_stats(m);
     init_pouill_dialog(m);
     init_hub(h, m);
+    init_w_sprite(m);
     setup_stat(m);
     init_menu(m);
     init_inventaire(m);
