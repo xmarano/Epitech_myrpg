@@ -19,7 +19,7 @@ void event_click(Global_t *m)
     if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
         m->current = 100;
     if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue) {
-        m->perso->current_perso = 4;
+        m->perso->current_perso = 3;
         parseFile("dialogue/chap1.txt", m->window, m->setting.fontdi, m->perso->current_perso);
     }
 }

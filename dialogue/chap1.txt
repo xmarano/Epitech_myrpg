@@ -1,18 +1,18 @@
 //Chapitre 1//
 
-1 : So the king is probably in his castle
+1 : So the king is probably in his castle 
 3 : So he’s probably this way ?
 2 : I need to explore to find the king
-4 : So he’s probably in this castle
+4 : So he’s probably in this castle 
 0 : ok, so I need to find the king of Elae
 
 1 : Why do you attack me ?
-3 : AAAARGH why you attack me ? @#9E8##bdjkk
+3 : AAAARGH why you attack me ? @#9E8##bdjkk 
 2 : Seriously ?
 4 : Go away I don’t want to fight
 0 : Want to fight ? Come on
 
-anthony : hahaha all for the real king !!!
+Ennemy : hahaha all for the real king !!!
 
 1 : The real king ?
 3 : what are you talking about ?
