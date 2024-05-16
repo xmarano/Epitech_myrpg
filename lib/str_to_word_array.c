@@ -59,6 +59,6 @@ char **str_to_word_array(char *str)
         }
         i++;
     }
-    arr[x + 1] = NULL;
+    arr[x] = NULL;
     return (arr);
 }
