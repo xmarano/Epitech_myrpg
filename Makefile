@@ -26,6 +26,7 @@ SRCNAME	=	src/*.c	\
 			src/rng/*.c	\
 			src/dialogue_code/*.c	\
 			src/hub/*.c	\
+			src/all_word/*.c	\
 
 LIB 	= 	libmy.a
 
