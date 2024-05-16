@@ -47,7 +47,7 @@ static void handle_enter_keypress(Global_t *m, sfClock *clock,
     sfTime elapsedTime = sfClock_getElapsedTime(clock);
     float seconds = sfTime_asSeconds(elapsedTime);
 
-    if (sfKeyboard_isKeyPressed(sfKeyEnter) && seconds > 0.1)
+    if (sfKeyboard_isKeyPressed(sfKeyEnter) && seconds > 0.2)
         *enterPressed = false;
 }
 
