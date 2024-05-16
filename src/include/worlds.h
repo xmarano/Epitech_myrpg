@@ -12,6 +12,7 @@
 
 typedef struct hub {
     sfIntRect rect;
+    sfClock *clock_hub;
     sfSprite *sprite_perso;
     sfTexture *texture_perso;
     sfTexture *texture_hub;

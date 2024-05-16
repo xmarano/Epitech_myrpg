@@ -94,7 +94,6 @@ typedef struct Glob {
     sfVector2i mouse;
     sfEvent event;
     sfRenderWindow *window;
-    sfClock *clock;
     Menu_t menu; /* Leo */
     S_t s; /* Leo */
     Perso_t perso[23]; /* Yanis */

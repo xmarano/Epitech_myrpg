@@ -143,7 +143,6 @@ void destroy_dialoque(Global_t *m)
     sfTexture_destroy(m->hub.Dia_pouill);
     sfSprite_destroy(m->hub.cadre);
     sfTexture_destroy(m->hub.Cadre);
-    sfClock_destroy(m->hub.clock);
 }
 
 void init_pouill_dialog(Global_t *m)

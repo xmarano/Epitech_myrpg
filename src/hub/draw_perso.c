@@ -100,14 +100,14 @@ void movecharacter(Global_t *m, hub_t *hub)
 
     hub->movement = (sfVector2f){0, 0};
     tic = movement(hub);
-    hub->time = sfClock_getElapsedTime(m->clock);
+    hub->time = sfClock_getElapsedTime(m->hub.clock);
     seconds = hub->time.microseconds / 1000000.0;
     if (seconds > 0.09) {
         if (hub->rect.left < (64 * 8) && tic == 1)
             hub->rect.left += 64;
         else
             hub->rect.left = 0;
-        sfClock_restart(m->clock);
+        sfClock_restart(m->hub.clock);
     }
     movecharacter2(m, hub);
 }
