@@ -86,7 +86,6 @@ typedef struct Zone {
     sfSprite *sprite_xmara;
     sfSprite *sprite_pate;
     sfSprite *sprite_raca;
-
     sfTexture *texture_roy;
     sfTexture *texture_infe;
     sfTexture *texture_xmara;
@@ -101,12 +100,14 @@ typedef struct Zone {
     sfSprite *sprite_Boss6;
     sfSprite *sprite_Boss7;
     sfSprite *sprite_Boss8;
-
-    sfTexture *texture_roy;
-    sfTexture *texture_infe;
-    sfTexture *texture_xmara;
-    sfTexture *texture_pate;
-    sfTexture *texture_raca;
+    sfTexture *texture_Boss1;
+    sfTexture *texture_Boss2;
+    sfTexture *texture_Boss3;
+    sfTexture *texture_Boss4;
+    sfTexture *texture_Boss5;
+    sfTexture *texture_Boss6;
+    sfTexture *texture_Boss7;
+    sfTexture *texture_Boss8;
 }ZoneUniversel_t;
 
 typedef struct Zone1 {
