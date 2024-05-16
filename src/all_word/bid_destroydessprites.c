@@ -68,13 +68,40 @@ static void destory_perso_sprites(Global_t *m)
     sfTexture_destroy(m->univ.txr_pate);
     sfTexture_destroy(m->univ.txr_raca);
 }
+static void free_all_maptxt_and_view(Global_t *m)
+{
+    free(m->zone1.tab_map);
+    free(m->zone2.tab_map);
+    free(m->zone3.tab_map);
+    free(m->zone4.tab_map);
+    free(m->zone5.tab_map);
+    free(m->zone6.tab_map);
+    free(m->zone7.tab_map);
+    free(m->zone8.tab_map);
+    sfView_destroy(m->zone1.view_w1);
+    sfView_destroy(m->zone2.view_w2);
+    sfView_destroy(m->zone3.view_w3);
+    sfView_destroy(m->zone4.view_w4);
+    sfView_destroy(m->zone5.view_w5);
+    sfView_destroy(m->zone6.view_w6);
+    sfView_destroy(m->zone7.view_w7);
+    sfView_destroy(m->zone8.view_w8);
+}
 
 void destory_all_w_maps(Global_t *m)
 {
     sfSprite_destroy(m->zone1.w1_map);
     sfTexture_destroy(m->zone1.w1_Map);
+    sfSprite_destroy(m->zone2.w2_map);
+    sfTexture_destroy(m->zone3.w3_Map);
+    sfSprite_destroy(m->zone3.w3_map);
+    sfTexture_destroy(m->zone4.w4_Map);
+    sfSprite_destroy(m->zone5.w5_map);
+    sfTexture_destroy(m->zone6.w6_Map);
+    sfSprite_destroy(m->zone7.w7_map);
+    sfTexture_destroy(m->zone8.w8_Map);
     destory_perso_sprites(m);
     destory_boss_sprites(m);
     destory_enemy_sprites(m);
-    free(m->zone1.tab_map);
+    free_all_maptxt_and_view(m);
 }

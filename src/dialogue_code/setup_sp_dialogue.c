@@ -83,7 +83,7 @@ static void move_rect(Global_t *m, int offset, int max_value)
     sfTime time = sfClock_getElapsedTime(m->hub.clock);
     float seconds = time.microseconds / 1000000.0;
 
-    if (seconds >= 0.1) {
+    if (seconds >= 0.3) {
         sfClock_restart(m->hub.clock);
         anime_mouse(m, offset, max_value);
     }

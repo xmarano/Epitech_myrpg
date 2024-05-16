@@ -81,7 +81,6 @@ typedef struct Shop {
 
 typedef struct Zone {
     sfIntRect rect;
-
     sfSprite *spr_roy;
     sfSprite *spr_infe;
     sfSprite *spr_xmara;
@@ -92,7 +91,6 @@ typedef struct Zone {
     sfTexture *txr_xmara;
     sfTexture *txr_pate;
     sfTexture *txr_raca;
-
     sfSprite *spr_Boss1;
     sfSprite *spr_Boss2;
     sfSprite *spr_Boss3;
@@ -109,7 +107,6 @@ typedef struct Zone {
     sfTexture *txr_Boss6;
     sfTexture *txr_Boss7;
     sfTexture *txr_Boss8;
-
     sfSprite *spr_emy1_axe;
     sfSprite *spr_emy2_axe;
     sfSprite *spr_emy3_axe;
@@ -141,52 +138,59 @@ typedef struct Zone1 {
 }Zone1_t;
 
 typedef struct Zone2 {
-    /* data */
+    sfView *view_w2;
     sfSprite *w2_map;
     sfTexture *w2_Map;
     bool is_w2_clear;
+    char **tab_map;
 }Zone2_t;
 
 typedef struct Zone3 {
-    /* data */
+    sfView *view_w3;
     sfSprite *w3_map;
     sfTexture *w3_Map;
     bool is_w3_clear;
+    char **tab_map;
 }Zone3_t;
 
 typedef struct Zone4 {
-    /* data */
+    sfView *view_w4;
     sfSprite *w4_map;
     sfTexture *w4_Map;
     bool is_w4_clear;
+    char **tab_map;
 }Zone4_t;
 
 typedef struct Zone5 {
-    /* data */
+    sfView *view_w5;
     sfSprite *w5_map;
     sfTexture *w5_Map;
     bool is_w5_clear;
+    char **tab_map;
 }Zone5_t;
 
 typedef struct Zone6 {
-    /* data */
+    sfView *view_w6;
     sfSprite *w6_map;
     sfTexture *w6_Map;
     bool is_w6_clear;
+    char **tab_map;
 }Zone6_t;
 
 typedef struct Zone7 {
-    /* data */
+    sfView *view_w7;
     sfSprite *w7_map;
     sfTexture *w7_Map;
     bool is_w7_clear;
+    char **tab_map;
 }Zone7_t;
 
 typedef struct Zone8 {
-    /* data */
+    sfView *view_w8;
     sfSprite *w8_map;
     sfTexture *w8_Map;
     bool is_w8_clear;
+    char **tab_map;
 }Zone8_t;
 
 #endif
