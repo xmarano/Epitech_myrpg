@@ -35,6 +35,7 @@ typedef struct hub {
     sfTexture *Cadre2;
     sfIntRect rect_dia;
     sfClock *clock;
+    sfClock *bouche_clock;
     bool is_talking;
     bool prologue_ok;
     sfClock *swap_clock;

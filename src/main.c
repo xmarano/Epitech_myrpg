@@ -39,7 +39,7 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
 
 static void draw_mondes(Global_t *m, hub_t *h)
 {
-    draw_monde1(m, h);
+    draw_monde1(m);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)

@@ -11,7 +11,7 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-void draw_monde1(Global_t *m, hub_t *hub)
+void draw_monde1(Global_t *m)
 {
     if (m->current == 1) {
         sfRenderWindow_setView(m->window, m->zone1.view_w1);

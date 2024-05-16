@@ -89,7 +89,8 @@ void displaydialogue(Global_t *m, hub_t *hub, int word,
     handle_enter_keypress(m, clock, &enterPressed);
     move_to_nextline(m, &enterPressed, clock, array);
     display_currentline(m, array);
-    if (currentLine[strlen(currentLine) - 1] == '!' && sfKeyboard_isKeyPressed(sfKeyEnter)) {
+    if (currentLine[strlen(currentLine) - 1] == '!'
+    && sfKeyboard_isKeyPressed(sfKeyEnter)) {
         sfClock_destroy(clock);
         clock = NULL;
         change_bool(m, hub, word);

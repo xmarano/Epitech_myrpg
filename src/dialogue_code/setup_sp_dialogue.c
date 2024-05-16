@@ -80,11 +80,11 @@ static void anime_mouse(Global_t *m, int offset, int max_value)
 
 static void move_rect(Global_t *m, int offset, int max_value)
 {
-    sfTime time = sfClock_getElapsedTime(m->hub.clock);
+    sfTime time = sfClock_getElapsedTime(m->hub.bouche_clock);
     float seconds = time.microseconds / 1000000.0;
 
     if (seconds >= 0.3) {
-        sfClock_restart(m->hub.clock);
+        sfClock_restart(m->hub.bouche_clock);
         anime_mouse(m, offset, max_value);
     }
 }
@@ -143,6 +143,7 @@ void destroy_dialoque(Global_t *m)
     sfTexture_destroy(m->hub.Dia_pouill);
     sfSprite_destroy(m->hub.cadre);
     sfTexture_destroy(m->hub.Cadre);
+    sfClock_destroy(m->hub.bouche_clock);
 }
 
 void init_pouill_dialog(Global_t *m)
@@ -159,4 +160,5 @@ void init_pouill_dialog(Global_t *m)
     m->hub.rect_dia.width = 32;
     m->hub.rect_dia.height = 16;
     m->hub.clock = sfClock_create();
+    m->hub.bouche_clock = sfClock_create();
 }
