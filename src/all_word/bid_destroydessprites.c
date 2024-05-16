@@ -76,4 +76,5 @@ void destory_all_w_maps(Global_t *m)
     destory_perso_sprites(m);
     destory_boss_sprites(m);
     destory_enemy_sprites(m);
+    free(m->zone1.tab_map);
 }
