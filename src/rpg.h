@@ -156,6 +156,7 @@ void select_perso(Global_t *m);
 void init_inventaire(Global_t *m);
 void init_pose(Global_t *m);
 int inventory(Global_t *m, sfEvent event);
+void init_sp_perso_boss(Global_t *m);
 sfSprite *init_sprite(char *filename, sfVector2f pos);
 sfText *init_text(Global_t *m, char *str, int size, int pos_y);
 sfRectangleShape *init_button(Global_t *m, sfVector2f size, int pos_y);
