@@ -15,7 +15,6 @@ char *get_buff(char *filename)
     fd = open(filename, O_RDONLY);
     size = read(fd, buffer, 750);
     buffer[size] = '\0';
-    printf("%s\n", buffer);
     close(fd);
     return buffer;
 }

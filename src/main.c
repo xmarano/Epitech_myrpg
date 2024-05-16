@@ -11,34 +11,20 @@
 void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
 {
     destroy_hub(m, h);
-    printf("hub_destroyed\n");
     destroy_fight_struct(f);
-    printf("fight_destroyed\n");
     destroy_inventaire(m);
-    printf("inv_destroyed\n");
     destroy_menu(m);
-    printf("menu_destroyed\n");
     destroy_shop(m);
-    printf("shop_destroyed\n");
     destory_all_w_maps(m);
-    printf("maps_destroyed\n");
     destroy_select_perso(m);
-    printf("selet_destroyed\n");
     destroy_loading(m);
-    printf("load_destroyed\n");
     destroy_dialoque(m);
-    printf("dialogue_destroyed\n");
 }
 
 void event_click(Global_t *m, hub_t *h, fight_t *f)
 {
-    if (m->event.type == sfEvtClosed || m->current == -1) {
-        annihilateur2sprite(m, h, f);
+    if (m->event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-        sfRenderWindow_destroy(m->window);
-        printf("window_destroyed\n");
-    }
-    printf("here\n");
     if (m->current == 12)
         inventory(m, m->event);
     if (m->current == 13)
@@ -108,7 +94,7 @@ int main(int argc, char **argv)
     while (sfRenderWindow_isOpen(m.window)) {
        rpg(&m, &h, &f);
     }
-    free(m.zone1.tab_map);
     annihilateur2sprite(&m, &h, &f);
+    sfRenderWindow_destroy(m.window);
     return 0;
 }
