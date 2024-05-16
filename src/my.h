@@ -29,5 +29,7 @@ int my_put_nbr_recursive(int nb);
 int my_printf(const char *format, ...);
 char *my_strcat(char *dest, char const *src);
 int my_strcmp(char const *s1, char const *s2);
+char *get_buff(char *filename);
+char **str_to_word_array(char *str);
 
 #endif

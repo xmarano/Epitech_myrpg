@@ -236,7 +236,6 @@ void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
 void draw_monde1(Global_t *m, hub_t *hub);
 void init_w_sprite(Global_t *m);
 void destory_all_w_maps(Global_t *m);
-char **str_to_word_array(char *str, char d);
 
     #include "include/fight.h"
 

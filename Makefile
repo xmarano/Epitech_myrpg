@@ -15,6 +15,7 @@ SRCLIB	=	lib/my_atoi.c 		\
 			lib/my_put_nbr_recursive.c 	\
 			lib/my_putstr.c 	\
 			lib/my_putchar.c 	\
+			lib/str_to_word_array.c\
 
 SRCNAME	=	src/*.c	\
 			src/menu/*.c	\
