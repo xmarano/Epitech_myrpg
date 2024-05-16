@@ -11,24 +11,6 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-static void set_pose_perso(char **map, char ref, sfSprite *sprite, int i)
-{
-    for (int y = 0; map[i][y] != '\0'; y++) {
-        if (map[i][y] == ref) {
-            sfSprite_setPosition(sprite,
-            (sfVector2f){(y - 1) * 40, (i - 1) * 40});
-        }
-    }
-}
-
-void check_position(char **map, char ref, sfSprite *sprite, Global_t *m)
-{
-    for (int i = 0; map[i] != NULL; i++) {
-        set_pose_perso(map, ref, sprite, i);
-    }
-    sfRenderWindow_drawSprite(m->window, sprite, NULL);
-}
-
 void draw_monde1(Global_t *m)
 {
     if (m->current == 1) {

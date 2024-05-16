@@ -239,6 +239,7 @@ void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
 void draw_monde1(Global_t *m);
 void init_w_sprite(Global_t *m);
 void destory_all_w_maps(Global_t *m);
+void check_position(char **map, char ref, sfSprite *sprite, Global_t *m);
 
     #include "include/fight.h"
 
