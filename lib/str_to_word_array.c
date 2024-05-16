@@ -5,7 +5,6 @@
 ** Infos
 */
 #include "../src/my.h"
-#include "../src/rpg.h"
 
 char *get_buff(char *filename)
 {
