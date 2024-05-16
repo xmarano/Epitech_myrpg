@@ -33,8 +33,8 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, in
             drawText(num, 0, window_height - 30, window, font);
             sentencept(phrase, window, font, 0, 30);
         } else {
-            drawText(num, window_width - 30, window_height - 30, window, font);
-            sentencept(phrase, window, font, window_width - 30, 30);
+            drawText(num, window_width - 600, window_height - 600, window, font);
+            sentencept(phrase, window, font, window_width - 600, 30);
         }
         if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
             sentencept(str, window, font, position, 30);
@@ -43,7 +43,6 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, in
             return;
         }
     }
-    sentencept(str, window, font, position, 30);
     sfSleep(sfSeconds(2.0));
     free(phrase);
 }
@@ -78,7 +77,7 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
         }
         char *speaker = strtok(line, ":");
         char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL) {
+        if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
             strcpy(last_speaker, speaker);
             int position = atoi(speaker) == current_perso ? 0 : 1;
             wordpt(dialogue, window, font, last_speaker, position);
@@ -86,6 +85,3 @@ void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int c
     }
     fclose(file);
 }
-
-// m.perso->current_perso = 4;
-//sfFont* font = sfFont_createFromFile("assets/text.ttf");
