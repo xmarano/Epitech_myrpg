@@ -106,15 +106,9 @@ int main(int argc, char **argv)
     init_lifebars(&f, &m);
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     while (sfRenderWindow_isOpen(m.window)) {
-        rpg(&m, &h, &f);
+       rpg(&m, &h, &f);
     }
-    annihilateur2sprite(&m, &h, &f);
     free(m.zone1.tab_map);
-    destroy_hub(&m, &h);
-    destroy_fight_struct(&f);
-    annihilateur2sprite(&m);
-    sfClock_destroy(m.clock);
-    sfSprite_destroy(m.menu.cursor);
-    sfRenderWindow_destroy(m.window);
+    annihilateur2sprite(&m, &h, &f);
     return 0;
 }
