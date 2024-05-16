@@ -11,18 +11,25 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
+
+void check_position(char **map, char ref, sfSprite *sprite, Global_t *m)
+{
+    for (int i = 0; map[i] != NULL; i++) {
+        for (int y = 0; map[i][y] != '\0'; y++) {
+            if (map[i][y] == ref) {
+                sfSprite_setPosition(sprite, (sfVector2f){(y - 1) * 40, (i - 1) * 40});
+            }
+        }
+    }
+    sfRenderWindow_drawSprite(m->window, sprite, NULL);
+}
+
 void draw_monde1(Global_t *m)
 {
     if (m->current == 1) {
         sfRenderWindow_setView(m->window, m->zone1.view_w1);
-        for (int i = 0; m->zone1.tab_map[i] != NULL; i++) {
-            for (int y = 0; m->zone1.tab_map[i][y] != '\0'; y++) {
-                if (m->zone1.tab_map[i][y] == '0') {
-                    sfSprite_setPosition(m->univ.spr_roy, (sfVector2f){(y - 1) * 40, (i - 1) * 40});
-                }
-            }
-        }
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
-        sfRenderWindow_drawSprite(m->window, m->univ.spr_roy, NULL);
+        check_position(m->zone1.tab_map, '0', m->univ.spr_roy, m);
+        check_position(m->zone1.tab_map, '1', m->univ.spr_xmara, m);
     }
 }
