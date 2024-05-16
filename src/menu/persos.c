@@ -16,6 +16,7 @@ static void roy_select(Global_t *m)
             m->s.p1_select = 1;
             sfRectangleShape_setFillColor(m->s.button1, color);
             m->perso->current_perso = ROY;
+            m->perso->first_current_perso = ROY;
         }
     }
     if (m->s.p1_select == 1) {
@@ -37,6 +38,7 @@ static void xmarano_select(Global_t *m)
             m->s.p2_select = 1;
             sfRectangleShape_setFillColor(m->s.button2, color);
             m->perso->current_perso = XMARANO;
+            m->perso->first_current_perso = XMARANO;
         }
     }
     if (m->s.p2_select == 1) {
@@ -58,6 +60,7 @@ static void patecarbo_select(Global_t *m)
             m->s.p3_select = 1;
             sfRectangleShape_setFillColor(m->s.button3, color);
             m->perso->current_perso = PATECARBO;
+            m->perso->first_current_perso = PATECARBO;
         }
     }
     if (m->s.p3_select == 1) {
@@ -79,6 +82,7 @@ static void infenium_select(Global_t *m)
             m->s.p4_select = 1;
             sfRectangleShape_setFillColor(m->s.button4, color);
             m->perso->current_perso = INFENIUM;
+            m->perso->first_current_perso = INFENIUM;
         }
     }
     if (m->s.p4_select == 1) {
@@ -100,6 +104,7 @@ static void racaillou_select(Global_t *m)
             m->s.p5_select = 1;
             sfRectangleShape_setFillColor(m->s.button5, color);
             m->perso->current_perso = RACAILLOU;
+            m->perso->first_current_perso = RACAILLOU;
         }
     }
     if (m->s.p5_select == 1) {

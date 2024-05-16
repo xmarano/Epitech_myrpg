@@ -16,16 +16,20 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 12;
+            m->current = 0;
         }
     }
 }
 
 void event_click(Global_t *m, hub_t *h, fight_t *f)
 {
+    if (m->current == 12 && m->load_game_called == false) {
+        load_game(m, h);
+        m->load_game_called = true;
+    }
     if (m->event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    if (m->current == 12 || m->current == 1)
+    if (m->current == 0 || m->current == 1)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);

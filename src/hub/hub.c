@@ -84,7 +84,7 @@ void draw_hub(Global_t *m, hub_t *h)
 {
     char *perso = NULL;
 
-    if (m->current == 12) { /* temporaire normalement m->current == 0*/
+    if (m->current == 0) { /* temporaire normalement m->current == 0*/
         perso = m->perso[m->perso->current_perso].texture_battle;
         vision(m, h);
         if (h->texture_perso != NULL) {

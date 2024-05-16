@@ -76,7 +76,7 @@ void draw_shop(Global_t *m)
         if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             m->shop.is_select = -1;
             m->shop.is_lock = false;
-            m->current = 12;
+            m->current = 0;
         }
     }
 }

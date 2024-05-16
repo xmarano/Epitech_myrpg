@@ -41,7 +41,7 @@ static void inventaire1(Global_t *m)
 
 void draw_inventaire(Global_t *m, hub_t *hub)
 {
-    if (m->current == 12 || m->current == 1) {
+    if (m->current == 0 || m->current == 1) {
         sfRenderWindow_setView(m->window, hub->normal_view);
         if (m->perso->is_visible) {
             swap_current(m);
@@ -66,6 +66,7 @@ static void reset(Global_t *m)
     m->perso->inv.inv_sprite.pos_hooved.x = 980;
     m->perso->inv.inv_sprite.pos_cursor.y = 443;
     m->perso->inv.inv_sprite.pos_hooved.y = 443;
+    m->perso->current_perso = m->perso->first_current_perso;
 }
 
 void what_inv2(Global_t *m, sfEvent event)

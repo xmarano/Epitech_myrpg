@@ -249,6 +249,7 @@ void draw_monde8(Global_t *m);
 void init_w_sprite(Global_t *m);
 void destory_all_w_maps(Global_t *m);
 void check_position(char **map, char ref, sfSprite *sprite, Global_t *m);
+void load_game(Global_t *m, hub_t *hub);
 
     #include "include/fight.h"
 

@@ -138,5 +138,5 @@ void passages_mondes(Global_t *m, hub_t *hub)
         m->dialogue.currentLine = 0;
         hub->is_talking = false;
     }
-    return_and_old_current(m, 12);
+    return_and_old_current(m, 0);
 }

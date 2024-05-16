@@ -57,7 +57,7 @@ static void prt(Global_t *m, sfVector2f vert_pose)
     sfRenderWindow_drawSprite(m->window, m->loading.vert, NULL);
     sfRenderWindow_drawSprite(m->window, m->loading.fond, NULL);
     sfRenderWindow_display(m->window);
-    m->current = 12;
+    m->current = 0;
 }
 
 void loading_screen(Global_t *m)

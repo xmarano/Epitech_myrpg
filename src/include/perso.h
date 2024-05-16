@@ -66,6 +66,7 @@ typedef struct Perso {
     sfClock *swap_clock;
     int what_weapons_stat;
     int current_perso; //perso designer
+    int first_current_perso;
     char *name_perso; // nom du perso
     char *type; // type du perso
     Weapons_t current_weapon[20]; //arme actuelle
