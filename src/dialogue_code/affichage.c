@@ -42,7 +42,7 @@ void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, in
             drawText(num, window_width - 600, window_height - 600, window, font);
             sentencept(phrase, window, font, window_width - 600, 30);
             if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-                sentencept(phrase, window, font, window_width - 600, 30);
+                sentencept(str, window, font, window_width - 600, 30);
                 sfSleep(sfSeconds(1.0));
                 free(phrase);
                 return;
