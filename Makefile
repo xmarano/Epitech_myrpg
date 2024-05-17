@@ -5,6 +5,13 @@
 ## Makefile
 ##
 
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+RED = \033[0;31m
+NC = \033[0m
+BOLD = \033[1m
+
 SRCLIB	=	lib/my_atoi.c 		\
 			lib/my_inttostr.c	\
 			lib/my_strlen.c 	\
@@ -43,25 +50,33 @@ UNAME	:=	$(shell uname -s)
 
 2 	= 	-L/opt/homebrew/Cellar/csfml/2.5.2_1/lib
 
-$(NAME)	:	$(LIB) $(OBJNAME)
-
+$(NAME): $(LIB) $(OBJNAME)
+	@echo "$(YELLOW)$(BOLD)Compiling for $(UNAME)...$(NC)"
 ifeq ($(UNAME),Linux)
 	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(CFLAGS) -g3
 else ifeq ($(UNAME),Darwin)
-	gcc -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(1) $(2) -g3
+	gcc -w -o $(NAME) $(SRCNAME) -lmy -L./ $(CSFML) $(1) $(2) -g3
 endif
+	@echo "$(GREEN)$(BOLD)Executable $(NAME) created!$(NC)"
 
-$(LIB)	:	$(OBJLIB)
+$(LIB): $(OBJLIB)
+	@echo "$(BLUE)$(BOLD)Creating static library $(LIB)...$(NC)"
 	ar rc libmy.a lib/*.o
 	rm lib/*.o
+	@echo "$(GREEN)$(BOLD)Static library $(LIB) created!$(NC)"
 
-all	:	$(LIB) $(NAME)
+all: $(LIB) $(NAME)
 
-clean	:
+clean:
+	@echo "$(RED)$(BOLD)Cleaning up object files and library...$(NC)"
 	rm -f $(OBJLIB) $(OBJNAME) libmy.a
+	@echo "$(GREEN)$(BOLD)Clean complete!$(NC)"
 
-fclean	: clean
+fclean: clean
+	@echo "$(RED)$(BOLD)Removing executable...$(NC)"
 	rm -f $(NAME)
 	rm -rf my_rpg.dSYM
+	@echo "$(GREEN)$(BOLD)Full clean complete!$(NC)"
 
-re	: 	fclean all
+re: fclean all
+	@echo "$(YELLOW)$(BOLD)Rebuilding everything...$(NC)"
