@@ -12,6 +12,7 @@
     #define MAX_NAME_LENGTH 50
 
 typedef struct stats_weapon {
+    int idx_weap;
     char name[MAX_NAME_LENGTH];
     char weapon_type[MAX_NAME_LENGTH];
     char link_texture[100];

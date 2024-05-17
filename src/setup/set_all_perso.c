@@ -93,7 +93,7 @@ static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
     set_empty(perso);
 }
 
-static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
+static void initroy(Perso_t *perso, char *name, Weapons_t weapon[], Global_t *m)
 {
     char *link_text = "assets/weapons/Roy_sword.png";
     char *link_dia = "assets/perso/dialogue/hero/Roy_dialogue.png";
@@ -103,7 +103,7 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
     perso->name_perso = name;
     perso->type = "Lord";
     perso->is_hero = true;
-    memcpy(perso->current_weapon, &weapon[ROY], size);
+    memcpy(perso->current_weapon, &weapon[ROY_SWORD], size);
     strcpy(perso->current_weapon->link_texture, link_text);
     memcpy(&perso->inv_weapon[SLOT1], &weapon[ROY_SWORD], size);
     memcpy(&perso->inv_weapon[HEAL], &weapon[POTION], size);
@@ -115,7 +115,7 @@ static void initroy(Perso_t *perso, char *name, Weapons_t weapon[])
 
 int setup_stat(Global_t *m)
 {
-    initroy(&m->perso[ROY], "ROY", m->weapons);
+    initroy(&m->perso[ROY], "ROY", m->weapons, m);
     initinfenium(&m->perso[INFENIUM], "Infenium", m->weapons);
     init_pate(&m->perso[PATECARBO], "PateCarbo", m->weapons);
     initxmarano(&m->perso[XMARANO], "Xmarano", m->weapons);
