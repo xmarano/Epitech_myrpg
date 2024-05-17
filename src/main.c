@@ -60,9 +60,9 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &m->event))
         event_click(m, h, f);
-    retour_menu(m, h);
     draw_menu(m);
     draw_select_perso(m);
+    draw_menu_option(m, h);
     draw_setting(m);
     draw_mondes(m, h);
     draw_shop(m);
@@ -80,9 +80,10 @@ void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     destroy_fight_struct(f);
     destroy_inventaire(m);
     destroy_menu(m);
+    destroy_select_perso(m);
+    destroy_menu_option(m);
     destroy_shop(m);
     destory_all_w_maps(m);
-    destroy_select_perso(m);
     destroy_loading(m);
     destroy_dialoque(m);
 }
@@ -95,11 +96,12 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     setup_stat(m);
     init_w_sprite(m);
     init_menu(m);
+    init_select_perso(m);
+    init_menu_option(m);
     init_inventaire(m);
     init_shop(m);
     init_pose(m);
     init_loading(m);
-    init_select_perso(m);
     init_lifebars(f, m);
 }
 

@@ -80,4 +80,11 @@ typedef struct S {
     int p5_select;
 } S_t;
 
+typedef struct Option {
+    sfSprite *fond;
+    sfVector2u wsize;
+    sfText *resume;
+    sfRectangleShape *button1;
+} Option_t;
+
 #endif

@@ -103,6 +103,7 @@ typedef struct Glob {
     sfRenderWindow *window;
     Menu_t menu; /* Leo */
     S_t s; /* Leo */
+    Option_t o; /* Leo */
     Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
@@ -142,7 +143,9 @@ void set_stats_b6(Perso_t *perso);
 void set_stats_b7(Perso_t *perso);
 void set_stats_b8(Perso_t *perso);
 int setup_stat(Global_t *m);
-void retour_menu(Global_t *m, hub_t *hub);
+void init_menu_option(Global_t *m);
+void draw_menu_option(Global_t *m, hub_t *hub);
+void destroy_menu_option(Global_t *m);
 void draw_stats_shop(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
