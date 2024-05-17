@@ -29,7 +29,7 @@ void destroy_inventaire(Global_t *m)
 
 void init_inventaire(Global_t *m)
 {
-    char *fond_inv = "assets/inv/fond_inv.png";
+    char *fond_inv = "assets/inv/fond_inv.jpeg";
     char *fond = "assets/inv/inv_fond.png";
     char *fon2 = "assets/inv/inv_fond2.png";
     char *cursor = "assets/inv/cursor.png";
