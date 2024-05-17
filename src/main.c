@@ -37,7 +37,8 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
         m->current = 100;
     if (sfKeyboard_isKeyPressed(sfKeySpace) == sfTrue) {
         m->perso->current_perso = 3;
-        parseFile("dialogue/chap1.txt", m->window, m->setting.fontdi, m->perso->current_perso);
+        RenderContext context = {m->window, m->setting.fontdi};
+        parseFile("dialogue/chap1.txt", &context, m->perso->current_perso);
     }
 }
 

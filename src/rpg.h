@@ -88,6 +88,11 @@ enum WHAT_WEAPONS {
     POTION = 29,
 };
 
+typedef struct {
+    sfRenderWindow *window;
+    sfFont *font;
+} RenderContext;
+
 typedef struct Glob {
     int current;
     int old_current;
@@ -225,10 +230,10 @@ void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
-void wordpt(char *str, sfRenderWindow *window, sfFont *font, const char *num, int position);
-void parseFile(const char *filename, sfRenderWindow *window, sfFont *font, int current_perso);
-void sentencept(char *phrase, sfRenderWindow *window, sfFont *font, int x, int y);
-void drawText(const char *str, int x, int y, sfRenderWindow *window, sfFont *font);
+void wordpt(char *str, RenderContext *context, const char *num, int position);
+void parseFile(const char *filename, RenderContext *context, int current_perso);
+void sentencept(char *phrase, RenderContext *context, int x, int y);
+void drawText(const char *str, int x, int y, RenderContext *context);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);
 void destroy_dialoque(Global_t *m);
