@@ -101,6 +101,9 @@ void destory_all_w_maps(Global_t *m)
     sfTexture_destroy(m->zone6.w6_Map);
     sfSprite_destroy(m->zone7.w7_map);
     sfTexture_destroy(m->zone8.w8_Map);
+    sfSprite_destroy(m->univ.map_cursor_sprite);
+    sfTexture_destroy(m->univ.map_cursor_text);
+    sfClock_destroy(m->univ.clock_cursor);
     destory_perso_sprites(m);
     destory_boss_sprites(m);
     destory_enemy_sprites(m);
