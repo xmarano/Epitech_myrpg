@@ -15,8 +15,9 @@ void retour_menu(Global_t *m, hub_t *h)
             save_game(m, h);
             sfRenderWindow_close(m->window);
         }
-        if (sfKeyboard_isKeyPressed(sfKeyEscape)) // retour en ariere
+        if (sfKeyboard_isKeyPressed(sfKeyH)) {// retour en ariere
             m->current = m->old_current;
+        }
         // quitter sans sauvgarder
         return;
     }

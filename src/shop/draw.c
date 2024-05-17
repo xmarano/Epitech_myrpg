@@ -77,6 +77,7 @@ void draw_shop(Global_t *m)
             m->shop.is_select = -1;
             m->shop.is_lock = false;
             m->current = 0;
+            sfSleep(sfSeconds(0.2));
         }
     }
 }

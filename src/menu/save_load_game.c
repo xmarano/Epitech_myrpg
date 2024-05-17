@@ -32,11 +32,9 @@ void load_game(Global_t *m, hub_t *hub)
         m->current = 14;
         return;
     }
-    if (fscanf(file, "%d", &m->gold) != 1) {
-        printf("Erreur de lecture!\n");
-        sfRenderWindow_close(m->window);
-        return;
-    }
+    fscanf(file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", &m->gold, &m->hub.prologue_ok,
+    &m->zone1.is_w1_clear,  &m->zone2.is_w2_clear, &m->zone3.is_w3_clear, &m->zone4.is_w4_clear,
+    &m->zone5.is_w5_clear, &m->zone6.is_w6_clear, &m->zone7.is_w7_clear, &m->zone8.is_w8_clear);
     m->current = 14;
     fclose(file);
 }
@@ -45,7 +43,9 @@ void save_game(Global_t *m, hub_t *h)
 {
     FILE *file = fopen("assets/save_party/save.txt", "w");
 
-    fprintf(file, "%d", m->gold);
+    fprintf(file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", m->gold, m->hub.prologue_ok,
+    m->zone1.is_w1_clear,  m->zone2.is_w2_clear, m->zone3.is_w3_clear, m->zone4.is_w4_clear,
+    m->zone5.is_w5_clear, m->zone6.is_w6_clear, m->zone7.is_w7_clear, m->zone8.is_w8_clear);
     printf("game saved succesfully!\n");
     return;
 }

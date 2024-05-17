@@ -10,7 +10,7 @@
 
 void return_and_old_current(Global_t *m, int value)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyBack)) {
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
         m->old_current = value;
         m->current = 20;
     }
