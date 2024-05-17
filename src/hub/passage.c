@@ -134,9 +134,11 @@ void passages_mondes(Global_t *m, hub_t *hub)
         passages_mondes7(m, hub);
         passages_mondes8(m, hub);
     }
-    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) && hub->is_talking == true) {
         m->dialogue.currentLine = 0;
+        sfSleep(sfSeconds(0.2));
         hub->is_talking = false;
+        return;
     }
     return_and_old_current(m, 0);
 }
