@@ -31,11 +31,6 @@ typedef struct inv2_sprite {
 }inv2_sprite_t;
 
 typedef struct inventaire {
-    char *item1;
-    char *item2;
-    char *item3;
-    char *item4;
-    char *item5;
     inv2_sprite_t inv_sprite;
 } inv_t;
 
