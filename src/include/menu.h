@@ -84,7 +84,11 @@ typedef struct Option {
     sfSprite *fond;
     sfVector2u wsize;
     sfRectangleShape *button1;
+    sfFloatRect gb_b1;
     sfText *resume;
+    sfRectangleShape *button2;
+    sfFloatRect gb_b2;
+    sfText *save;
 } Option_t;
 
 #endif
