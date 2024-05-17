@@ -11,6 +11,8 @@
 void retour_menu(Global_t *m, hub_t *h)
 {
     if (m->current == 20) {
+        sfRenderWindow_setView(m->window, h->normal_view);
+        m->show_mouse = true;
         if (sfKeyboard_isKeyPressed(sfKeyF)) { // boutton save game é quitter
             save_game(m, h);
             sfRenderWindow_close(m->window);
