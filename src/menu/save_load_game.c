@@ -23,7 +23,7 @@ static int gestion_err_du_fichier(FILE *file, int c, Global_t *m)
     fseek(file, 0, SEEK_SET);
 }
 
-static void load_curret_weapon(Global_t *m, FILE *file)
+static void load_inventory(Global_t *m, FILE *file)
 {
     size_t size = sizeof(Weapons_t);
     int weap;
@@ -70,7 +70,7 @@ void load_game(Global_t *m, hub_t *hub)
                &m->perso[i].stat_p.lck, &m->perso[i].stat_p.mag, &m->perso[i].stat_p.skl, &m->perso[i].stat_p.def, &m->perso[i].stat_p.res,
                &m->perso[i].stat_p.str, &m->perso[i].stat_p.spd, &m->perso[i].stat_p.mov);
     }
-    load_curret_weapon(m, file);
+    load_inventory(m, file);
     m->current = 14;
     fclose(file);
 }
