@@ -82,13 +82,20 @@ typedef struct S {
 
 typedef struct Option {
     sfSprite *fond;
-    sfVector2u wsize;
     sfRectangleShape *button1;
-    sfFloatRect gb_b1;
-    sfText *resume;
     sfRectangleShape *button2;
+    sfRectangleShape *button3;
+    sfRectangleShape *button4;
+    sfFloatRect gb_b1;
     sfFloatRect gb_b2;
-    sfText *save;
+    sfFloatRect gb_b3;
+    sfFloatRect gb_b4;
+    sfText *text1;
+    sfText *text2;
+    sfText *text2_1;
+    sfText *text3;
+    sfText *text4;
+    int is_saved;
 } Option_t;
 
 #endif

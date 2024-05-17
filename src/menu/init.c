@@ -59,7 +59,10 @@ void hover(Global_t *m, sfRectangleShape *shape, sfFloatRect *rect)
 
 void click(Global_t *m, sfFloatRect *rect, int current)
 {
-    if (sfFloatRect_contains(rect, m->mouse.x, m->mouse.y))
-        if (sfMouse_isButtonPressed(sfMouseLeft))
+    if (sfFloatRect_contains(rect, m->mouse.x, m->mouse.y)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
             m->current = current;
+            m->o.is_saved = 0;
+        }
+    }
 }
