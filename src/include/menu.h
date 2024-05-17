@@ -83,8 +83,8 @@ typedef struct S {
 typedef struct Option {
     sfSprite *fond;
     sfVector2u wsize;
-    sfText *resume;
     sfRectangleShape *button1;
+    sfText *resume;
 } Option_t;
 
 #endif
