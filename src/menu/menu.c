@@ -41,7 +41,7 @@ static void check_hover(Global_t *m)
         if (sfMouse_isButtonPressed(sfMouseLeft))
             m->current = 11;
     hover(m, m->menu.button2, &m->menu.gb_b2);
-    click(m, &m->menu.gb_b2, 12); // a changer à 0 pour continuer diect au hub.
+    click(m, &m->menu.gb_b2, 12);
     hover(m, m->menu.button3, &m->menu.gb_b3);
     if (sfFloatRect_contains(&m->menu.gb_b3, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
