@@ -21,15 +21,12 @@ void draw_menu_option(Global_t *m, hub_t *h)
         sfRenderWindow_drawSprite(m->window, m->o.fond, NULL);
         if (sfKeyboard_isKeyPressed(sfKeyH))
             m->current = m->old_current;
+        if (sfKeyboard_isKeyPressed(sfKeyF)) {
+            save_game(m, h);
+            sfRenderWindow_close(m->window);
+        }
     }
 }
-
-/*
-    if (sfKeyboard_isKeyPressed(sfKeyF)) {  // boutton save game é quitter
-        save_game(m, h);
-        sfRenderWindow_close(m->window);
-    }
-*/
 
 void destroy_menu_option(Global_t *m)
 {
