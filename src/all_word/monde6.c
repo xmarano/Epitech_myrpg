@@ -15,5 +15,6 @@ void draw_monde6(Global_t *m)
 {
     if (m->current == 6) {
         return_and_old_current(m, 6);
+        move_game_cursor(m);
     }
 }

@@ -81,6 +81,9 @@ typedef struct Shop {
 }Shop_t;
 
 typedef struct Zone {
+    sfSprite *map_cursor_sprite;
+    sfTexture *map_cursor_text;
+    sfClock *clock_cursor;
     sfIntRect rect;
     sfSprite *spr_roy;
     sfSprite *spr_infe;

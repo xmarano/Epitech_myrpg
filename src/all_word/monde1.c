@@ -18,6 +18,7 @@ void draw_monde1(Global_t *m)
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
         check_position(m->zone1.tab_map, '0', m->univ.spr_roy, m);
         check_position(m->zone1.tab_map, '1', m->univ.spr_xmara, m);
+        move_game_cursor(m);
         return_and_old_current(m, 1);
     }
 }

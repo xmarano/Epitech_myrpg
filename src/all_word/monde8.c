@@ -15,5 +15,6 @@ void draw_monde8(Global_t *m)
 {
     if (m->current == 8) {
         return_and_old_current(m, 8);
+        move_game_cursor(m);
     }
 }

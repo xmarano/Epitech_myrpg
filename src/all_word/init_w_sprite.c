@@ -67,6 +67,8 @@ void load_sprite_map(Global_t *m)
     m->zone7.w7_Map = sfTexture_createFromFile("maps/map7/map7.png", NULL);
     m->zone8.w8_map = sfSprite_create();
     m->zone8.w8_Map = sfTexture_createFromFile("maps/map8/map8.png", NULL);
+    m->univ.map_cursor_sprite = sfSprite_create();
+    m->univ.map_cursor_text = sfTexture_createFromFile("maps/cursor_map.png", NULL);
 }
 
 void init_w_sprite(Global_t *m)
@@ -81,5 +83,9 @@ void init_w_sprite(Global_t *m)
     sfSprite_setTexture(m->zone6.w6_map, m->zone6.w6_Map, sfFalse);
     sfSprite_setTexture(m->zone7.w7_map, m->zone7.w7_Map, sfFalse);
     sfSprite_setTexture(m->zone8.w8_map, m->zone8.w8_Map, sfFalse);
+    sfSprite_setTexture(
+    m->univ.map_cursor_sprite, m->univ.map_cursor_text, sfFalse);
+    sfSprite_setScale(m->univ.map_cursor_sprite, (sfVector2f){1.29, 1.29});
+    m->univ.clock_cursor = sfClock_create();
     init_sp_perso_boss(m);
 }
