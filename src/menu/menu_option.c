@@ -35,7 +35,7 @@ void init_menu_option(Global_t *m)
 static void check_hover(Global_t *m, hub_t *h)
 {
     hover(m, m->o.button1, &m->o.gb_b1);
-    click(m, &m->o.gb_b1, m->old_current);
+    click(m, &m->o.gb_b1, 0);
     hover(m, m->o.button2, &m->o.gb_b2);
     if (sfFloatRect_contains(&m->o.gb_b2, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
@@ -48,6 +48,7 @@ static void check_hover(Global_t *m, hub_t *h)
     hover(m, m->o.button3, &m->o.gb_b3);
     if (sfFloatRect_contains(&m->o.gb_b3, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->old_current = m->current;
             m->current = 13;
             init_setting(m);
         }
