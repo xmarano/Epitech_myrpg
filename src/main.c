@@ -61,6 +61,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     while (sfRenderWindow_pollEvent(m->window, &m->event))
         event_click(m, h, f);
     draw_menu(m);
+    save_auto(m);
     draw_select_perso(m);
     draw_menu_option(m, h);
     draw_setting(m);

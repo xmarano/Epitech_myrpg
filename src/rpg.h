@@ -158,6 +158,7 @@ void destroy_select_perso(Global_t *m);
 void destroy_loading(Global_t *m);
 void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
+void save_auto(Global_t *m);
 void draw_shop(Global_t *m);
 void init_shop(Global_t *m);
 void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt);
@@ -258,7 +259,7 @@ void init_w_sprite(Global_t *m);
 void destory_all_w_maps(Global_t *m);
 void check_position(char **map, char ref, sfSprite *sprite, Global_t *m);
 void load_game(Global_t *m, hub_t *hub);
-void save_game(Global_t *m, hub_t *h);
+void save_game(Global_t *m);
 void update_move_cursor(sfVector2f pos_cursor, Global_t *m);
 void move_game_cursor(Global_t *m);
 
