@@ -118,6 +118,7 @@ static void save_current_weapon(Global_t *m, FILE *file)
         }
         fprintf(file, "\n");
     }
+    printf("Game saved succesfully!\n");
 }
 
 void save_game(Global_t *m)
@@ -142,7 +143,6 @@ void save_game(Global_t *m)
     }
     save_current_weapon(m, file);
     fflush(file);
-    printf("Game saved succesfully!\n");
 }
 
 void save_auto(Global_t *m)
