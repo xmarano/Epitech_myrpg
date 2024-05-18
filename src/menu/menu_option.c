@@ -40,7 +40,7 @@ static void check_hover(Global_t *m, hub_t *h)
     if (sfFloatRect_contains(&m->o.gb_b2, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfRectangleShape_setOutlineColor(m->o.button2, sfWhite);
-            save_game(m, h);
+            save_game(m);
             m->o.is_saved = 1;
         } else
             sfRectangleShape_setOutlineColor(m->o.button2, sfBlack);
@@ -55,7 +55,7 @@ static void check_hover(Global_t *m, hub_t *h)
     hover(m, m->o.button4, &m->o.gb_b4);
     if (sfFloatRect_contains(&m->o.gb_b4, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            save_game(m, h);
+            save_game(m);
             usleep(1000000);
             m->current = 10;
         }

@@ -120,8 +120,9 @@ static void save_current_weapon(Global_t *m, FILE *file)
     }
 }
 
-void save_game(Global_t *m, hub_t *h)
+void save_game(Global_t *m)
 {
+    remove("rm assets/save_party/save.txt");
     FILE *file = fopen("assets/save_party/save.txt", "w");
 
     fprintf(file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n", m->gold,
@@ -142,4 +143,19 @@ void save_game(Global_t *m, hub_t *h)
     }
     save_current_weapon(m, file);
     printf("Game saved succesfully!\n");
+}
+
+void save_auto(Global_t *m)
+{
+    sfTime time = sfClock_getElapsedTime(m->menu.save_auto_clk);
+    float seconds = sfTime_asSeconds(time);
+
+    if (m->current == 0 || m->current == 9) {
+        if (seconds >= 10.0f) {
+            save_game(m);
+            sfClock_restart(m->menu.save_auto_clk);
+        }
+    }
+    if (m->current == 10 || m->current == 11 || m->current == 13 || m->current == 20)
+        sfClock_restart(m->menu.save_auto_clk);
 }

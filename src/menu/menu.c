@@ -17,6 +17,7 @@ static void check_globalbounds(Global_t *m)
 void init_menu(Global_t *m)
 {
     sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
+    m->menu.save_auto_clk = sfClock_create();
     m->current = 10;
     m->hub.clock = sfClock_create();
     m->menu.wsize = sfRenderWindow_getSize(m->window);
@@ -83,6 +84,7 @@ void destroy_menu(Global_t *m)
     sfRectangleShape_destroy(m->menu.button2);
     sfRectangleShape_destroy(m->menu.button3);
     sfRectangleShape_destroy(m->menu.button4);
+    sfClock_destroy(m->menu.save_auto_clk);
 }
 
 void draw_mouse(Global_t *m)
