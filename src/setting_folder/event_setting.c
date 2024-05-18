@@ -55,7 +55,7 @@ void other_option(sfVector2i mouse, Global_t *m)
     if (sfFloatRect_contains(&bsy, mouse.x, mouse.y))
         m->setting.synopbool = !m->setting.synopbool;
     if (sfFloatRect_contains(&rt, mouse.x, mouse.y)){
-        m->current = 10;
+        m->current = m->old_current;
         destroy_all(m);
     }
 }
