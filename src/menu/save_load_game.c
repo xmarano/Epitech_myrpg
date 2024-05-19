@@ -144,6 +144,7 @@ void save_game(Global_t *m)
     }
     save_current_weapon(m, file);
     fflush(file);
+    printf("sauver\n");
 }
 
 void save_auto(Global_t *m)
