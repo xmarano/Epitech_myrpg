@@ -61,15 +61,16 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     while (sfRenderWindow_pollEvent(m->window, &m->event))
         event_click(m, h, f);
     draw_menu(m);
-    save_auto(m);
     draw_select_perso(m);
     draw_menu_option(m, h);
     draw_setting(m);
     draw_mondes(m, h);
     draw_shop(m);
     draw_hub(m, h);
+    save_auto(m);
     draw_inventaire(m, h);
     draw_mouse(m);
+    print_save_txt(m);
     //print_fight_scene(m, f, &m->perso[ROY], &m->perso[ENEMY1_AXE]);
     loading_screen(m);
     sfRenderWindow_display(m->window);

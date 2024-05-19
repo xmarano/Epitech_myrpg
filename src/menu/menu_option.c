@@ -27,6 +27,7 @@ static void check_globalbounds(Global_t *m)
 void init_menu_option(Global_t *m)
 {
     m->o.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
+    m->o.txt_clock = sfClock_create();
     m->o.button1 = init_button(m, (sfVector2f){325, 100}, 295);
     m->o.button2 = init_button(m, (sfVector2f){325, 100}, 445);
     m->o.button3 = init_button(m, (sfVector2f){325, 100}, 595);
@@ -38,21 +39,14 @@ void init_menu_option(Global_t *m)
     m->o.text4 = init_text(m, "SAVE & QUIT", 60, 750);
     sfText_setColor(m->o.text2_1, sfColor_fromRGB(0, 125, 0));
     check_globalbounds(m);
+    m->menu.save_txt = sfText_create();
+    sfText_setFont(m->menu.save_txt, m->dialogue.Font);
+    sfText_setPosition(m->menu.save_txt, (sfVector2f){1660, 1010});
+    sfText_setCharacterSize(m->menu.save_txt, 30);
 }
 
-static void check_hover(Global_t *m, hub_t *h)
+static void check_hover2(Global_t *m)
 {
-    hover(m, m->o.button1, &m->o.gb_b1);
-    click(m, &m->o.gb_b1, 0);
-    hover(m, m->o.button2, &m->o.gb_b2);
-    if (sfFloatRect_contains(&m->o.gb_b2, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfRectangleShape_setOutlineColor(m->o.button2, sfWhite);
-            save_game(m);
-            m->o.is_saved = 1;
-        } else
-            sfRectangleShape_setOutlineColor(m->o.button2, sfBlack);
-    }
     hover(m, m->o.button3, &m->o.gb_b3);
     if (sfFloatRect_contains(&m->o.gb_b3, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
@@ -71,6 +65,21 @@ static void check_hover(Global_t *m, hub_t *h)
     }
 }
 
+static void check_hover(Global_t *m, hub_t *h)
+{
+    hover(m, m->o.button1, &m->o.gb_b1);
+    click(m, &m->o.gb_b1, 0);
+    hover(m, m->o.button2, &m->o.gb_b2);
+    if (sfFloatRect_contains(&m->o.gb_b2, m->mouse.x, m->mouse.y)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            sfRectangleShape_setOutlineColor(m->o.button2, sfWhite);
+            save_game(m);
+        } else
+            sfRectangleShape_setOutlineColor(m->o.button2, sfBlack);
+    }
+    check_hover2(m);
+}
+
 void draw_menu_option(Global_t *m, hub_t *h)
 {
     if (m->current == 20) {
@@ -80,9 +89,9 @@ void draw_menu_option(Global_t *m, hub_t *h)
         sfRenderWindow_drawRectangleShape(m->window, m->o.button1, NULL);
         sfRenderWindow_drawText(m->window, m->o.text1, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button2, NULL);
-        if (m->o.is_saved == 1)
+        if (m->o.is_saved == 1) {
             sfRenderWindow_drawText(m->window, m->o.text2_1, NULL);
-        else
+        } else
             sfRenderWindow_drawText(m->window, m->o.text2, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button3, NULL);
         sfRenderWindow_drawText(m->window, m->o.text3, NULL);
@@ -107,4 +116,6 @@ void destroy_menu_option(Global_t *m)
     sfText_destroy(m->o.text2_1);
     sfText_destroy(m->o.text3);
     sfText_destroy(m->o.text4);
+    sfText_destroy(m->menu.save_txt);
+    sfClock_destroy(m->o.txt_clock);
 }

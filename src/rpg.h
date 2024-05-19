@@ -227,6 +227,7 @@ sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos);
 void init_setting3(Global_t *m);
 void init_setting2(Global_t *m);
 void init_setting(Global_t *m);
+void print_save_txt(Global_t *m);
 void diff_size(sfVector2i mouse, Global_t *m);
 void modify_size(sfVector2i mouse, Global_t *m);
 void other_option(sfVector2i mouse, Global_t *m);

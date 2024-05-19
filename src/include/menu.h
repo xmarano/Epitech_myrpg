@@ -33,6 +33,7 @@ typedef struct Menu {
     sfFloatRect gb_b3;
     sfFloatRect gb_b4;
     sfFloatRect text;
+    sfText *save_txt;
 } Menu_t;
 
 typedef struct S {
@@ -97,6 +98,8 @@ typedef struct Option {
     sfText *text3;
     sfText *text4;
     int is_saved;
+    int is_saved2;
+    sfClock *txt_clock;
 } Option_t;
 
 #endif

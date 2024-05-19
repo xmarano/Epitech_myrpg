@@ -118,7 +118,8 @@ static void save_current_weapon(Global_t *m, FILE *file)
         }
         fprintf(file, "\n");
     }
-    printf("Game saved succesfully!\n");
+    m->o.is_saved = 1;
+    sfClock_restart(m->o.txt_clock);
 }
 
 void save_game(Global_t *m)
