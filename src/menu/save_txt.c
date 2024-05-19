@@ -14,7 +14,10 @@ void suite_ptr_saving(Global_t *m, sfTime elapsed, float seconds)
     seconds = sfTime_asSeconds(elapsed);
     if (seconds < 2.0f) {
         sfText_setFillColor(m->menu.save_txt, sfBlack);
-        sfText_setString(m->menu.save_txt, "Saving game...");
+        if (m->current == 0 || m->current == 9)
+            sfText_setString(m->menu.save_txt, "Auto saving game...");
+        else
+            sfText_setString(m->menu.save_txt, "Saving game...");
         sfRenderWindow_drawText(m->window, m->menu.save_txt, NULL);
     } else {
         m->o.is_saved = 2;

@@ -41,7 +41,7 @@ void init_menu_option(Global_t *m)
     check_globalbounds(m);
     m->menu.save_txt = sfText_create();
     sfText_setFont(m->menu.save_txt, m->dialogue.Font);
-    sfText_setPosition(m->menu.save_txt, (sfVector2f){1660, 1010});
+    sfText_setPosition(m->menu.save_txt, (sfVector2f){1610, 1010});
     sfText_setCharacterSize(m->menu.save_txt, 30);
 }
 
