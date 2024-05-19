@@ -14,7 +14,11 @@
 void draw_monde2(Global_t *m)
 {
     if (m->current == 2) {
-        return_and_old_current(m, 2);
+        sfRenderWindow_setView(m->window, m->zone2.view_w2);
+        sfRenderWindow_drawSprite(m->window, m->zone2.w2_map, NULL);
+        check_all_pose(m, m->zone2.tab_map, 2);
         move_game_cursor(m);
+        print_boss_barre(m, BOSS2, m->zone2.view_w2);
+        return_and_old_current(m, 2);
     }
 }

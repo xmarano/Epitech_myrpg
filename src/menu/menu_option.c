@@ -8,6 +8,14 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
+void return_and_old_current(Global_t *m, int value)
+{
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        m->old_current = value;
+        m->current = 20;
+    }
+}
+
 static void check_globalbounds(Global_t *m)
 {
     m->o.gb_b1 = sfRectangleShape_getGlobalBounds(m->o.button1);

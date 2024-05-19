@@ -11,22 +11,22 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-static void set_pose_perso(char **map, char ref, sfSprite *sprite, int i)
+static void init_other_sprites(Global_t *m)
 {
-    for (int y = 0; map[i][y] != '\0'; y++) {
-        if (map[i][y] == ref) {
-            sfSprite_setPosition(sprite,
-            (sfVector2f){(y - 1) * 40, (i - 1) * 40});
-        }
-    }
-}
-
-void check_position(char **map, char ref, sfSprite *sprite, Global_t *m)
-{
-    for (int i = 0; map[i] != NULL; i++) {
-        set_pose_perso(map, ref, sprite, i);
-    }
-    sfRenderWindow_drawSprite(m->window, sprite, NULL);
+    m->univ.barre_de_vie = sfRectangleShape_create();
+    sfRectangleShape_setSize(m->univ.barre_de_vie, (sfVector2f){400, 30});
+    sfRectangleShape_setFillColor(m->univ.barre_de_vie, sfColor_fromRGB(159, 5, 169));
+    m->univ.barre_fond = sfRectangleShape_create();
+    sfRectangleShape_setSize(m->univ.barre_fond, (sfVector2f){400, 30});
+    sfRectangleShape_setFillColor(m->univ.barre_fond, sfColor_fromRGB(128, 128, 128));
+    m->univ.boss_name = sfText_create();
+    sfText_setFont(m->univ.boss_name, m->setting.fontdi);
+    sfText_setCharacterSize(m->univ.boss_name, 25);
+    sfText_setFillColor(m->univ.boss_name, sfBlack);
+    m->univ.Image_barre = sfTexture_createFromFile("assets/fight/Barre_boss.png", NULL);
+    m->univ.image_barre = sfSprite_create();
+    sfSprite_setTexture(m->univ.image_barre, m->univ.Image_barre, sfFalse);
+    sfSprite_setScale(m->univ.image_barre, (sfVector2f){0.4, 0.4});
 }
 
 void load_texte_map(Global_t *m)
@@ -88,4 +88,5 @@ void init_w_sprite(Global_t *m)
     sfSprite_setScale(m->univ.map_cursor_sprite, (sfVector2f){1.29, 1.29});
     m->univ.clock_cursor = sfClock_create();
     init_sp_perso_boss(m);
+    init_other_sprites(m);
 }

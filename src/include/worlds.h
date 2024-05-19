@@ -131,6 +131,11 @@ typedef struct Zone {
     sfTexture *txr_emy2_sword;
     sfTexture *txr_emy3_sword;
     sfTexture *txr_emy_mage;
+    sfRectangleShape *barre_de_vie;
+    sfRectangleShape *barre_fond;
+    sfText *boss_name;
+    sfSprite *image_barre;
+    sfTexture *Image_barre;
 }ZoneUniversel_t;
 
 typedef struct Zone1 {

@@ -89,6 +89,13 @@ static void free_all_maptxt_and_view(Global_t *m)
     sfView_destroy(m->zone8.view_w8);
 }
 
+void destroy_other(Global_t *m)
+{
+    sfRectangleShape_destroy(m->univ.barre_de_vie);
+    sfRectangleShape_destroy(m->univ.barre_fond);
+    sfText_destroy(m->univ.boss_name);
+}
+
 void destory_all_w_maps(Global_t *m)
 {
     sfSprite_destroy(m->zone1.w1_map);
@@ -108,4 +115,5 @@ void destory_all_w_maps(Global_t *m)
     destory_boss_sprites(m);
     destory_enemy_sprites(m);
     free_all_maptxt_and_view(m);
+    destroy_other(m);
 }

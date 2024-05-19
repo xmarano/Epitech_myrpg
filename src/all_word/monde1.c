@@ -16,9 +16,9 @@ void draw_monde1(Global_t *m)
     if (m->current == 1) {
         sfRenderWindow_setView(m->window, m->zone1.view_w1);
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
-        check_position(m->zone1.tab_map, '0', m->univ.spr_roy, m);
-        check_position(m->zone1.tab_map, '1', m->univ.spr_xmara, m);
+        check_all_pose(m, m->zone1.tab_map, 1);
         move_game_cursor(m);
+        print_boss_barre(m, BOSS2, m->zone1.view_w1);
         return_and_old_current(m, 1);
     }
 }
