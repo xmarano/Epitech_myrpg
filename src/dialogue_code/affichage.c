@@ -68,26 +68,56 @@ void wordpt(char *str, RenderContext *context, const char *num, int position)
     free(phrase);
 }
 
+int verif_parse(char *line, RenderContext *context, int current_perso, char *last_speaker)
+{
+    if (strchr(line, '*') != NULL) {
+        return 1;
+    }
+
+    char *speaker = strtok(line, ":");
+    char *dialogue = strtok(NULL, "\n");
+
+    if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
+        strcpy(last_speaker, speaker);
+        int position = atoi(speaker) == current_perso ? 0 : 1;
+        wordpt(dialogue, context, last_speaker, position);
+    }
+    return 0;
+}
+void displayCharacterInfo(const char *speaker, int current_perso, RenderContext *context) {
+    int window_width = sfRenderWindow_getSize(context->window).x;
+    int window_height = sfRenderWindow_getSize(context->window).y;
+    
+    char speaker_text[50];
+    snprintf(speaker_text, sizeof(speaker_text), "Speaker: %s", speaker);
+    drawText(speaker_text, window_width - 200, window_height - 30, context);
+    
+    char perso_text[50];
+    snprintf(perso_text, sizeof(perso_text), "Current Perso: %d", current_perso);
+    drawText(perso_text, 0, window_height - 30, context);
+}
+
 void parseFile(const char *filename, RenderContext *context, int current_perso)
 {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Impossible d'ouvrir le fichier %s\n", filename);
         return;
     }
+
     char line[256];
     char last_speaker[256] = "";
+    char *speaker = NULL;
+
+    if (fgets(line, sizeof(line), file)) {
+        speaker = strtok(line, ":");
+        displayCharacterInfo(speaker, current_perso, context);
+    }
+
     while (fgets(line, sizeof(line), file)) {
-        if (strchr(line, '*') != NULL) {
+        if (verif_parse(line, context, current_perso, last_speaker)) {
             break;
         }
-        char *speaker = strtok(line, ":");
-        char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
-            strcpy(last_speaker, speaker);
-            int position = atoi(speaker) == current_perso ? 0 : 1;
-            wordpt(dialogue, context, last_speaker, position);
-        }
     }
+
     fclose(file);
 }
