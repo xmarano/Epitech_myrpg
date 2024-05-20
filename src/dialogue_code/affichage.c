@@ -83,7 +83,7 @@ int verif_parse(char *line, RenderContext *context, int current_perso, char *las
     return 0;
 }
 
-void parseFile(const char *filename, RenderContext *context, Global_t *m)
+void parseFile(const char *filename, RenderContext *context, int current_perso, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -98,9 +98,9 @@ void parseFile(const char *filename, RenderContext *context, Global_t *m)
         }
         char *speaker = strtok(line, ":");
         char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL && (atoi(speaker) == m->perso->current_perso || !isdigit(speaker[0]))) {
+        if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
             strcpy(last_speaker, speaker);
-            int position = atoi(speaker) == m->perso->current_perso ? 0 : 1;
+            int position = atoi(speaker) == current_perso ? 0 : 1;
             wordpt(dialogue, context, last_speaker, position);
         }
     }
