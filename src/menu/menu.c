@@ -46,6 +46,7 @@ static void check_hover(Global_t *m)
     hover(m, m->menu.button3, &m->menu.gb_b3);
     if (sfFloatRect_contains(&m->menu.gb_b3, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            m->old_current = m->current;
             m->current = 13;
             init_setting(m);
         }

@@ -89,9 +89,9 @@ void draw_menu_option(Global_t *m, hub_t *h)
         sfRenderWindow_drawRectangleShape(m->window, m->o.button1, NULL);
         sfRenderWindow_drawText(m->window, m->o.text1, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button2, NULL);
-        if (m->o.is_saved == 1) {
+        if (m->o.is_saved == 1)
             sfRenderWindow_drawText(m->window, m->o.text2_1, NULL);
-        } else
+        else
             sfRenderWindow_drawText(m->window, m->o.text2, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button3, NULL);
         sfRenderWindow_drawText(m->window, m->o.text3, NULL);
