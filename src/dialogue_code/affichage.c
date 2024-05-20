@@ -38,7 +38,6 @@ void wordpt(char *str, RenderContext *context, const char *num, int position)
 {
     char *phrase = malloc(strlen(str) + 1);
     strcpy(phrase, "");
-
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
 
@@ -70,13 +69,12 @@ void wordpt(char *str, RenderContext *context, const char *num, int position)
 
 int verif_parse(char *line, RenderContext *context, int current_perso, char *last_speaker)
 {
-    if (strchr(line, '*') != NULL) {
-        return 1;
-    }
-
     char *speaker = strtok(line, ":");
     char *dialogue = strtok(NULL, "\n");
 
+    if (strchr(line, '*') != NULL) {
+        return 1;
+    }
     if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
         strcpy(last_speaker, speaker);
         int position = atoi(speaker) == current_perso ? 0 : 1;
@@ -84,35 +82,20 @@ int verif_parse(char *line, RenderContext *context, int current_perso, char *las
     }
     return 0;
 }
-void displayCharacterInfo(const char *speaker, int current_perso, RenderContext *context) {
-    int window_width = sfRenderWindow_getSize(context->window).x;
-    int window_height = sfRenderWindow_getSize(context->window).y;
-    
-    char speaker_text[50];
-    snprintf(speaker_text, sizeof(speaker_text), "Speaker: %s", speaker);
-    drawText(speaker_text, window_width - 200, window_height - 30, context);
-    
-    char perso_text[50];
-    snprintf(perso_text, sizeof(perso_text), "Current Perso: %d", current_perso);
-    drawText(perso_text, 0, window_height - 30, context);
-}
 
 void parseFile(const char *filename, RenderContext *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        return;
-    }
-
     char line[256];
     char last_speaker[256] = "";
     char *speaker = NULL;
 
+    if (file == NULL) {
+        return;
+    }
     if (fgets(line, sizeof(line), file)) {
         speaker = strtok(line, ":");
-        displayCharacterInfo(speaker, m->perso->current_perso, context);
     }
-
     while (fgets(line, sizeof(line), file)) {
         if (verif_parse(line, context, m->perso->current_perso, last_speaker)) {
             break;
