@@ -97,7 +97,7 @@ void displayCharacterInfo(const char *speaker, int current_perso, RenderContext 
     drawText(perso_text, 0, window_height - 30, context);
 }
 
-void parseFile(const char *filename, RenderContext *context, int current_perso)
+void parseFile(const char *filename, RenderContext *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -110,14 +110,16 @@ void parseFile(const char *filename, RenderContext *context, int current_perso)
 
     if (fgets(line, sizeof(line), file)) {
         speaker = strtok(line, ":");
-        displayCharacterInfo(speaker, current_perso, context);
+        displayCharacterInfo(speaker, m->perso->current_perso, context);
     }
 
     while (fgets(line, sizeof(line), file)) {
-        if (verif_parse(line, context, current_perso, last_speaker)) {
+        if (verif_parse(line, context, m->perso->current_perso, last_speaker)) {
             break;
         }
     }
-
+    if (m->dialogue.start_dialogue = 1)
+        m->current = 1;
+    m->dialogue.start_dialogue = 0;
     fclose(file);
 }

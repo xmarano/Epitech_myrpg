@@ -33,6 +33,7 @@ typedef struct dial {
     bool waitForEnter;
     sfText *dia_name;
     sfFont *Font;
+    int start_dialogue;
 } Dialogue_t;
 
 typedef struct npc {

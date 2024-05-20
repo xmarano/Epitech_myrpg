@@ -9,6 +9,15 @@
 #include "include/menu.h"
 #include "my.h"
 
+static void what_world_dia(Global_t *m)
+{
+    RenderContext context = {m->window, m->setting.fontdi};
+
+    if (m->dialogue.start_dialogue == 1) {
+        parseFile("dialogue/chap1.txt", &context, m);
+    }
+}
+
 static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
 {
     m->show_mouse = true;
@@ -33,13 +42,7 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);
-    if (sfKeyboard_isKeyPressed(sfKeyU) == sfTrue && m->current != 100)
-        m->current = 100;
-    if (sfKeyboard_isKeyPressed(sfKeyW) == sfTrue) {
-        m->perso->current_perso = 3;
-        RenderContext context = {m->window, m->setting.fontdi};
-        parseFile("dialogue/chap1.txt", &context, m->perso->current_perso);
-    }
+    what_world_dia(m);
 }
 
 static void draw_mondes(Global_t *m, hub_t *h)

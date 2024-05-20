@@ -238,7 +238,7 @@ void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
 void wordpt(char *str, RenderContext *context, const char *num, int position);
-void parseFile(const char *filename, RenderContext *context, int current_perso);
+void parseFile(const char *filename, RenderContext *context, Global_t *m);
 void sentencept(char *phrase, RenderContext *context, int x, int y);
 void drawText(const char *str, int x, int y, RenderContext *context);
 void init_pouill_dialog(Global_t *m);

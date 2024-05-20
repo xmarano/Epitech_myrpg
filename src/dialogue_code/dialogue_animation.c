@@ -20,7 +20,7 @@ static void change_bool(Global_t *m, hub_t *hub, int word)
         return;
     }
     if (word == 1)
-        m->current = 1;
+        m->dialogue.start_dialogue = 1;
 }
 
 void readdialoguefromfile(Global_t *m, char *filename,
