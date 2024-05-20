@@ -84,6 +84,18 @@ int verif_parse(char *line, RenderContext *context, int current_perso, char *las
     }
     return 0;
 }
+void displayCharacterInfo(const char *speaker, int current_perso, RenderContext *context) {
+    int window_width = sfRenderWindow_getSize(context->window).x;
+    int window_height = sfRenderWindow_getSize(context->window).y;
+    
+    char speaker_text[50];
+    snprintf(speaker_text, sizeof(speaker_text), "Speaker: %s", speaker);
+    drawText(speaker_text, window_width - 200, window_height - 30, context);
+    
+    char perso_text[50];
+    snprintf(perso_text, sizeof(perso_text), "Current Perso: %d", current_perso);
+    drawText(perso_text, 0, window_height - 30, context);
+}
 
 void parseFile(const char *filename, RenderContext *context, int current_perso)
 {
@@ -94,6 +106,12 @@ void parseFile(const char *filename, RenderContext *context, int current_perso)
 
     char line[256];
     char last_speaker[256] = "";
+    char *speaker = NULL;
+
+    if (fgets(line, sizeof(line), file)) {
+        speaker = strtok(line, ":");
+        displayCharacterInfo(speaker, current_perso, context);
+    }
 
     while (fgets(line, sizeof(line), file)) {
         if (verif_parse(line, context, current_perso, last_speaker)) {
