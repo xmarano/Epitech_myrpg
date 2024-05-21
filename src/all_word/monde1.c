@@ -60,6 +60,8 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
                 m->univ.interface.who = 3;
             }
         }
+        for (int i = 0; map[i] != NULL; i++)
+            printf("%s\n", map[i]);
         m->univ.is_case_visible = 0;
         m->univ.interface.select_inteface = true;
         draw_player_interface(m);

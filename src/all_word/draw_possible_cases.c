@@ -19,10 +19,14 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map) {
     int sy = pos_0.y < pos_1.y ? 1 : -1; 
     int err = dx + dy, e2;
 
+    if (map[pos_1.y][pos_1.x] == 'L' ||
+        map[pos_1.y][pos_1.x] == 'X' ||
+        map[pos_1.y][pos_1.x] == 'M')
+            return 0;
     while (1) {
-        if (map[pos_0.y + 1][pos_0.x + 1] == 'L' ||
-        map[pos_0.y + 1][pos_0.x + 1] == 'R' ||
-        map[pos_0.y + 1][pos_0.x + 1] == 'M')
+        if (map[pos_0.y][pos_0.x] == 'L' ||
+        map[pos_0.y][pos_0.x] == 'X' ||
+        map[pos_0.y][pos_0.x] == 'M')
             return 0;
         if (pos_0.x == pos_1.x && pos_0.y == pos_1.y) break;
         e2 = 2 * err;
@@ -56,7 +60,7 @@ void mettre_en_evidence_cases(int x, int y, int i, Global_t *m)
             int nx = x + dx;
             int ny = y + dy;
             if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-                if (ligne_sans_obstacle((sfVector2i){x, y}, (sfVector2i){nx, ny}, m->zone1.tab_map)) {
+                if (ligne_sans_obstacle((sfVector2i){x + 1, y + 1}, (sfVector2i){nx + 1, ny + 1}, m->zone1.tab_map)) {
                     draw_squares(m, nx, ny);
                 }
             }
@@ -80,11 +84,11 @@ bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m)
     pos_obj.x = pos_obj.x / 40;
     pos_obj.y = pos_obj.y / 40;
     for (int dx = -i; dx <= i; dx++) {
+        int nx = pos_spr.x + dx;
         for (int dy = -i; dy <= i; dy++) {
-            int nx = pos_spr.x + dx;
             int ny = pos_spr.y + dy;
             if (nx == pos_obj.x && ny == pos_obj.y && abs(dx) + abs(dy) <= i) {
-                if (ligne_sans_obstacle((sfVector2i){pos_spr.x, pos_spr.y}, (sfVector2i){pos_obj.x, pos_obj.y}, m->zone1.tab_map))
+                if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_obj.x + 1, pos_obj.y + 1}, m->zone1.tab_map))
                     return true;
             }
         }

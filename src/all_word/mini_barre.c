@@ -34,5 +34,8 @@ void print_mini_barre(Global_t *m, fight_t *f)
 {
     init_mini_barre(m, f, m->univ.spr_roy, ROY);
     init_mini_barre(m, f, m->univ.spr_xmara, XMARANO);
+    init_mini_barre(m, f, m->univ.spr_pate, PATECARBO);
+    init_mini_barre(m, f, m->univ.spr_infe, INFENIUM);
+    init_mini_barre(m, f, m->univ.spr_raca, RACAILLOU);
     // autre
 }
