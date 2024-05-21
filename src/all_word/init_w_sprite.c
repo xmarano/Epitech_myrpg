@@ -87,6 +87,7 @@ void init_w_sprite(Global_t *m)
     m->univ.map_cursor_sprite, m->univ.map_cursor_text, sfFalse);
     sfSprite_setScale(m->univ.map_cursor_sprite, (sfVector2f){1.29, 1.29});
     m->univ.clock_cursor = sfClock_create();
+    m->univ.clock_select_perso = sfClock_create();
     m->univ.is_case_visible = 0;
     init_sp_perso_boss(m);
     init_other_sprites(m);

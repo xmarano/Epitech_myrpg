@@ -85,6 +85,7 @@ typedef struct Zone {
     sfTexture *map_cursor_text;
     sfBool is_case_visible;
     sfClock *clock_cursor;
+    sfClock *clock_select_perso;
     sfIntRect rect;
     sfSprite *spr_roy;
     sfSprite *spr_infe;
