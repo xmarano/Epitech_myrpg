@@ -37,10 +37,10 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
 void wordpt(char *str, RenderContext_t *context, const char *num, int position)
 {
     char *phrase = malloc(strlen(str) + 1);
-    strcpy(phrase, "");
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
 
+    strcpy(phrase, "");
     for (int i = 0; i < strlen(str); i++) {
         strncat(phrase, &str[i], 1);
         if (position == 0) {
@@ -71,13 +71,14 @@ int verif_parse(char *line, RenderContext_t *context, int current_perso, char *l
 {
     char *speaker = strtok(line, ":");
     char *dialogue = strtok(NULL, "\n");
+    int position;
 
     if (strchr(line, '*') != NULL) {
         return 1;
     }
     if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
         strcpy(last_speaker, speaker);
-        int position = atoi(speaker) == current_perso ? 0 : 1;
+        position = atoi(speaker) == current_perso ? 0 : 1;
         wordpt(dialogue, context, last_speaker, position);
     }
     return 0;
@@ -88,14 +89,17 @@ void parseFile(const char *filename, RenderContext_t *context, Global_t *m)
     FILE *file = fopen(filename, "r");
     char line[256];
     char last_speaker[256] = "";
-    
+
     if (file == NULL) {
         return;
     }
     while (fgets(line, sizeof(line), file)) {
-        verif_parse(line, context,  m->perso->current_perso, last_speaker);
+        if (verif_parse(line, context, m->perso->current_perso, last_speaker) == 1) {
+            break;
+        }
     }
     m->dialogue.start_dialogue = 0;
     m->current = 1;
     fclose(file);
 }
+
