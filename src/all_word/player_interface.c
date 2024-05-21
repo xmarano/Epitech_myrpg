@@ -13,7 +13,11 @@
 
 void dest_p_interface(Global_t *m)
 {
-    //,nest
+    sfSprite_destroy(m->univ.interface.fond_interf);
+    sfTexture_destroy(m->univ.interface.Fond_interf);
+    sfSprite_destroy(m->univ.interface.cursor);
+    sfTexture_destroy(m->univ.interface.Cursor);
+    sfClock_destroy(m->univ.interface.curs_clock);
 }
 
 void init_player_interface(Global_t *m)
@@ -25,6 +29,7 @@ void init_player_interface(Global_t *m)
     sfSprite_setTexture(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, sfFalse);
     sfSprite_setTexture(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
+    m->univ.interface.curs_clock = sfClock_create();
 }
 
 void place_interface(Global_t *m)
@@ -49,7 +54,7 @@ void place_interface(Global_t *m)
 
 void moove_cursor(Global_t *m)
 {
-    
+
 }
 
 void gest_cursor(Global_t *m)
@@ -59,46 +64,41 @@ void gest_cursor(Global_t *m)
     const int max_position = 2;
     const float y_increment = 48.0f;
     const float initial_y = 48.0f;
-    static sfClock *clock = NULL;
-    const float move_delay = 0.2f;
-    if (!clock)
-        clock = sfClock_create();
-    sfTime time = sfClock_getElapsedTime(clock);
+    sfTime time = sfClock_getElapsedTime(m->univ.interface.curs_clock);
     float elapsed_seconds = sfTime_asSeconds(time);
-    static int where = 0;
 
     pose_curs = sfSprite_getPosition(m->univ.interface.fond_interf);
     pose_curs.x += 18;
     pose_curs.y += initial_y + (cursor_position * y_increment);
-    if (elapsed_seconds > move_delay) {
+    if (elapsed_seconds > 0.2f) {
         if (sfKeyboard_isKeyPressed(sfKeyS)) {
             cursor_position++;
-            where++;
+            m->univ.interface.where++;
             if (cursor_position > max_position) {
                 cursor_position = 0;
-                where = 0;
+                m->univ.interface.where = 0;
             }
-            sfClock_restart(clock);
+            sfClock_restart(m->univ.interface.curs_clock);
         } else if (sfKeyboard_isKeyPressed(sfKeyZ)) {
             cursor_position--;
-            where++;
+            m->univ.interface.where++;
             if (cursor_position < 0) {
                 cursor_position = max_position;
             }
-            sfClock_restart(clock);
+            sfClock_restart(m->univ.interface.curs_clock);
         }
     }
     sfSprite_setPosition(m->univ.interface.cursor, pose_curs);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.cursor, NULL);
-    if (sfKeyboard_isKeyPressed(sfKeyEnter) && where == 0) {
+    if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         m->univ.interface.select_inteface = false;
-        m->perso->case_visble = false;
+        m->perso->case_visble = 0;
     }
 }
 
 void draw_player_interface(Global_t *m)
 {
-    if (m->univ.interface.select_inteface) {
+    if (m->univ.interface.select_inteface && m->current >= 1 && m->current <= 8) {
         place_interface(m);
         gest_cursor(m);
     }

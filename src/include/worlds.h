@@ -87,6 +87,8 @@ typedef struct interface {
     bool select_inteface;
     sfSprite *cursor;
     sfTexture *Cursor;
+    sfClock *curs_clock;
+    int where;
 }Interface_t;
 
 typedef struct Zone {

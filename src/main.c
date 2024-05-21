@@ -26,8 +26,8 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 0;
-            m->perso->current_perso = 1;
+            m->current = 1;
+            //m->perso->current_perso = 1;
         }
     }
 }
@@ -96,6 +96,7 @@ void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     destory_all_w_maps(m);
     destroy_loading(m);
     destroy_dialoque(m);
+    dest_p_interface(m);
 }
 
 static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
