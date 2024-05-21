@@ -13,6 +13,7 @@ void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
     sfText_setString(text, str);
     sfText_setFont(text, context->font);
     sfText_setCharacterSize(text, 30);
+    sfText_setColor(text, sfBlack);
     sfVector2f position = {x, y};
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
@@ -29,6 +30,7 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfText_setString(text, phrase);
     sfText_setFont(text, context->font);
     sfText_setCharacterSize(text, 30);
+     sfText_setColor(text, sfBlack);
     sfVector2f position = {x, y};
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
