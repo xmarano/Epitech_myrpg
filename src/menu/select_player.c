@@ -110,7 +110,7 @@ void init_select_perso(Global_t *m)
     m->s.p5_w = init_s_s(m, "assets/menu/r2_w.png", (sfVector2f){520, -145});
     m->s.p1_d = init_s_s(m, "assets/menu/r_d.png", (sfVector2f){0, 225});
     m->s.p2_d = init_s_s(m, "assets/menu/stat_x.png", (sfVector2f){0, 225});
-    m->s.p3_d = init_s_s(m, "assets/menu/p_d.png", (sfVector2f){0, 225});
+    m->s.p3_d = init_s_s(m, "assets/menu/stat_p.png", (sfVector2f){0, 225});
     m->s.p4_d = init_s_s(m, "assets/menu/stat_i.png", (sfVector2f){0, 225});
     m->s.p5_d = init_s_s(m, "assets/menu/stat_r2.png", (sfVector2f){0, 225});
     m->s.title = init_text(m, "SELECT  A  PLAYER", 100, 0);
