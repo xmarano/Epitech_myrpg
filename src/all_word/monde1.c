@@ -40,15 +40,15 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
         map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
         if (isdigit(map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1]) == 0) {
         if (strcmp(perso->name_perso, "ROY") == 0)
-            map[(int)pos_curs.y / 40][(int)pos_curs.x / 40 + 1] = '0';
+            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
         if (strcmp(perso->name_perso, "Infenium") == 0)
-            map[(int)pos_curs.y / 40][(int)pos_curs.x / 40 + 1] = '1';
+            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '1';
         if (strcmp(perso->name_perso, "Racaillou") == 0)
-            map[(int)pos_curs.y / 40][(int)pos_curs.x / 40 + 1] = '4';
+            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '4';
         if (strcmp(perso->name_perso, "PateCarbo") == 0)
-            map[(int)pos_curs.y / 40][(int)pos_curs.x / 40 + 1] = '2';
+            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '2';
         if (strcmp(perso->name_perso, "Xmarano") == 0)
-            map[(int)pos_curs.y / 40][(int)pos_curs.x / 40 + 1] = '3';
+            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
         }
         m->univ.is_case_visible = 0;
         draw_player_interface(m);
