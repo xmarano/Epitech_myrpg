@@ -10,6 +10,7 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 #include "../include/npc.h"
+#include <ctype.h>
 
 int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map) {
     int dx = abs(pos_1.x - pos_0.x);

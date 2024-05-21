@@ -35,24 +35,42 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso)
     sfVector2f pos_curs = sfSprite_getPosition(m->univ.map_cursor_sprite);
     sfVector2f pos_spr = sfSprite_getPosition(spr);
 
-    if (m->univ.is_case_visible == 1 && sfKeyboard_isKeyPressed(sfKeySpace) && check_cursor_on_sprite(m, spr) == 0 && is_movement_ok(pos_spr, pos_curs, perso->stat_p.mov, m) == true) {
+    if (perso->case_visble == 1 && sfKeyboard_isKeyPressed(sfKeySpace) && check_cursor_on_sprite(m, spr) == 0 && is_movement_ok(pos_spr, pos_curs, perso->stat_p.mov, m) == true) {
         m->zone1.tab_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
-        m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
+        if (strcmp(perso->name_perso, "ROY") == 0)
+            m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
+        if (strcmp(perso->name_perso, "Infenium") == 0)
+            m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '1';
+        if (strcmp(perso->name_perso, "Racaillou") == 0)
+            m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '4';
+        if (strcmp(perso->name_perso, "PateCarbo") == 0)
+            m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '2';
+        if (strcmp(perso->name_perso, "Xmarano") == 0)
+            m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
         sfSprite_setPosition(spr, pos_curs);
         m->univ.is_case_visible = 0;
     }
 }
 
+void draw_visible_cases(Global_t *m, sfSprite *spr, Perso_t *perso)
+{
+    if (perso->case_visble == 1)
+        draw_possible_movement(m, spr, perso);
+    if (check_cursor_on_sprite(m, spr) == 1) {
+        if (sfKeyboard_isKeyPressed(sfKeySpace) && perso->case_visble == 1)
+            perso->case_visble = 0;
+        else if (sfKeyboard_isKeyPressed(sfKeySpace) && perso->case_visble == 0)
+            perso->case_visble = 1;
+    }
+}
+
 void all_perso_movement(Global_t *m)
 {
-    if (m->univ.is_case_visible == 1)
-        draw_possible_movement(m, m->univ.spr_roy, &m->perso[ROY]);
-    if (check_cursor_on_sprite(m, m->univ.spr_roy) == 1 || check_cursor_on_sprite(m, m->univ.spr_raca) == 1 || check_cursor_on_sprite(m, m->univ.spr_xmara) == 1 || check_cursor_on_sprite(m, m->univ.spr_infe) == 1 || check_cursor_on_sprite(m, m->univ.spr_pate) == 1) {
-        if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 1)
-            m->univ.is_case_visible = 0;
-        else if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 0)
-            m->univ.is_case_visible = 1;
-    }
+    draw_visible_cases(m, m->univ.spr_roy, &m->perso[ROY]);
+    draw_visible_cases(m, m->univ.spr_xmara, &m->perso[XMARANO]);
+    draw_visible_cases(m, m->univ.spr_raca, &m->perso[RACAILLOU]);
+    draw_visible_cases(m, m->univ.spr_pate, &m->perso[PATECARBO]);
+    draw_visible_cases(m, m->univ.spr_infe, &m->perso[INFENIUM]);
     set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
     set_new_position(m, m->univ.spr_xmara, &m->perso[XMARANO]);
     set_new_position(m, m->univ.spr_raca, &m->perso[RACAILLOU]);
