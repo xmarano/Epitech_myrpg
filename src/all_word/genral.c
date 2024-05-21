@@ -60,6 +60,9 @@ void check_position(char **map, char ref, sfSprite *sprite, Global_t *m)
 void check_all_pose(Global_t *m, char **tab, int world)
 {
     check_position(tab, '0', m->univ.spr_roy, m);
+    check_position(tab, '1', m->univ.spr_infe, m);
+    check_position(tab, '2', m->univ.spr_pate, m);
+    check_position(tab, '4', m->univ.spr_raca, m);
     check_position(tab, '3', m->univ.spr_xmara, m);
     //a suivre
 }
