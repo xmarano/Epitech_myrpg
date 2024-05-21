@@ -38,7 +38,8 @@ void move_game_cursor(Global_t *m)
     float seconds = sfTime_asMilliseconds(time) / 1000.0;
 
     if (seconds > 0.05) {
-        update_move_cursor(pos_cursor, m);
+        if (!m->univ.interface.select_inteface)
+            update_move_cursor(pos_cursor, m);
         sfClock_restart(m->univ.clock_cursor);
     }
     sfRenderWindow_drawSprite(m->window, m->univ.map_cursor_sprite, NULL);

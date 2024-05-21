@@ -80,6 +80,12 @@ typedef struct Shop {
     int spacing_y;
 }Shop_t;
 
+typedef struct interface {
+    sfSprite *fond_interf;
+    sfTexture *Fond_interf;
+    bool select_inteface;
+}Interface_t;
+
 typedef struct Zone {
     sfSprite *map_cursor_sprite;
     sfTexture *map_cursor_text;
@@ -138,6 +144,7 @@ typedef struct Zone {
     sfText *boss_name;
     sfSprite *image_barre;
     sfTexture *Image_barre;
+    Interface_t interface;
 }ZoneUniversel_t;
 
 typedef struct Zone1 {

@@ -51,6 +51,7 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
             map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
         }
         m->univ.is_case_visible = 0;
+        m->univ.interface.select_inteface = true;
         draw_player_interface(m);
     }
     for (int i = 0; map[i] != NULL; i++) {
@@ -80,11 +81,13 @@ void draw_visible_cases(Global_t *m, sfSprite *spr, Perso_t *perso)
 
 void all_perso_movement(Global_t *m)
 {
-    draw_visible_cases(m, m->univ.spr_roy, &m->perso[ROY]);
-    draw_visible_cases(m, m->univ.spr_xmara, &m->perso[XMARANO]);
-    draw_visible_cases(m, m->univ.spr_raca, &m->perso[RACAILLOU]);
-    draw_visible_cases(m, m->univ.spr_pate, &m->perso[PATECARBO]);
-    draw_visible_cases(m, m->univ.spr_infe, &m->perso[INFENIUM]);
+    if (!m->univ.interface.select_inteface) {
+        draw_visible_cases(m, m->univ.spr_roy, &m->perso[ROY]);
+        draw_visible_cases(m, m->univ.spr_xmara, &m->perso[XMARANO]);
+        draw_visible_cases(m, m->univ.spr_raca, &m->perso[RACAILLOU]);
+        draw_visible_cases(m, m->univ.spr_pate, &m->perso[PATECARBO]);
+        draw_visible_cases(m, m->univ.spr_infe, &m->perso[INFENIUM]);
+    }
     set_new_position(m, m->univ.spr_roy, &m->perso[ROY], m->zone1.tab_map);
     set_new_position(m, m->univ.spr_xmara, &m->perso[XMARANO], m->zone1.tab_map);
     set_new_position(m, m->univ.spr_raca, &m->perso[RACAILLOU], m->zone1.tab_map);

@@ -57,17 +57,9 @@ typedef struct case_struct {
     int move_penalty;
 } case_t;
 
-typedef struct perso
-{
-    sfSprite *fond_interf;
-    sfTexture *Fond_interf;
-}Interface_t;
-
-
 typedef struct Perso {
     sfClock *swap_clock;
     int what_weapons_stat;
-    Interface_t interface;
     int current_perso; //perso designer
     int first_current_perso;
     char *name_perso; // nom du perso

@@ -26,8 +26,8 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 0;
-            m->perso->current_perso = 1;
+            m->current = 1;
+            // m->perso->current_perso = 1;
         }
     }
 }
@@ -57,6 +57,7 @@ static void draw_mondes(Global_t *m, fight_t *f)
     draw_monde6(m, f);
     draw_monde7(m, f);
     draw_monde8(m, f);
+    draw_player_interface(m);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
@@ -109,6 +110,7 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     init_shop(m);
     init_pose(m);
     init_loading(m);
+    init_player_interface(m);
     init_lifebars(f, m);
 }
 
