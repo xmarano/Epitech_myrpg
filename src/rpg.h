@@ -240,6 +240,7 @@ void verif_song(sfVector2i mouse, Global_t *m);
 void wordpt(char *str, RenderContext_t *context, const char *num, int position);
 void parse_file(const char *filename, RenderContext_t *context, Global_t *m);
 void sentencept(char *phrase, RenderContext_t *context, int x, int y);
+void print_mini_barre(Global_t *m);
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);

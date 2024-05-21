@@ -11,6 +11,11 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
+// void init_mini_barre(Global_t *m)
+// {
+    
+// }
+
 void print_mini_barre(Global_t *m)
 {
     
