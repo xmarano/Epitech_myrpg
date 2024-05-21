@@ -43,6 +43,23 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso)
     }
 }
 
+void all_perso_movement(Global_t *m)
+{
+    if (m->univ.is_case_visible == 1)
+        draw_possible_movement(m, m->univ.spr_roy, &m->perso[ROY]);
+    if (check_cursor_on_sprite(m, m->univ.spr_roy) == 1 || check_cursor_on_sprite(m, m->univ.spr_raca) == 1 || check_cursor_on_sprite(m, m->univ.spr_xmara) == 1 || check_cursor_on_sprite(m, m->univ.spr_infe) == 1 || check_cursor_on_sprite(m, m->univ.spr_pate) == 1) {
+        if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 1)
+            m->univ.is_case_visible = 0;
+        else if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 0)
+            m->univ.is_case_visible = 1;
+    }
+    set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
+    set_new_position(m, m->univ.spr_xmara, &m->perso[XMARANO]);
+    set_new_position(m, m->univ.spr_raca, &m->perso[RACAILLOU]);
+    set_new_position(m, m->univ.spr_pate, &m->perso[PATECARBO]);
+    set_new_position(m, m->univ.spr_infe, &m->perso[INFENIUM]);
+}
+
 void draw_monde1(Global_t *m, fight_t *f)
 {
     if (m->current == 1) {
@@ -50,14 +67,7 @@ void draw_monde1(Global_t *m, fight_t *f)
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
         check_all_pose(m, m->zone1.tab_map, 1);
         move_game_cursor(m);
-        if (m->univ.is_case_visible == 1)
-            draw_possible_movement(m, m->univ.spr_roy, &m->perso[ROY]);
-        if (check_cursor_on_sprite(m, m->univ.spr_roy) == 1) {
-            if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 1)
-                m->univ.is_case_visible = 0;
-            else if (sfKeyboard_isKeyPressed(sfKeySpace) && m->univ.is_case_visible == 0)
-                m->univ.is_case_visible = 1;
-        }
+        all_perso_movement(m);
         set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
         print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f);
