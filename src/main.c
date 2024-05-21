@@ -14,6 +14,7 @@ static void what_world_dia(Global_t *m)
     RenderContext context = {m->window, m->setting.fontdi};
 
     if (m->dialogue.start_dialogue == 1) {
+        m->perso->current_perso;
         printf("%d\n", m->perso->current_perso);
         parseFile("dialogue/chap1.txt", &context, m);
         return;
@@ -28,6 +29,7 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
             m->gold = 100000;
             m->hub.prologue_ok = true;
             m->current = 0;
+            m->perso->current_perso = 1;
         }
     }
 }

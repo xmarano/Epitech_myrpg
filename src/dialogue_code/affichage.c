@@ -86,23 +86,14 @@ int verif_parse(char *line, RenderContext *context, int current_perso, char *las
 void parseFile(const char *filename, RenderContext *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Impossible d'ouvrir le fichier %s\n", filename);
-        return;
-    }
     char line[256];
     char last_speaker[256] = "";
+    
+    if (file == NULL) {
+        return;
+    }
     while (fgets(line, sizeof(line), file)) {
-        if (strchr(line, '*') != NULL) {
-            break;
-        }
-        char *speaker = strtok(line, ":");
-        char *dialogue = strtok(NULL, "\n");
-        if (dialogue != NULL && (atoi(speaker) == m->perso->current_perso || !isdigit(speaker[0]))) {
-            strcpy(last_speaker, speaker);
-            int position = atoi(speaker) == m->perso->current_perso ? 0 : 1;
-            wordpt(dialogue, context, last_speaker, position);
-        }
+        verif_parse(line, context,  m->perso->current_perso, last_speaker);
     }
     m->dialogue.start_dialogue = 0;
     m->current = 1;
