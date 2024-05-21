@@ -39,7 +39,6 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map, Global_t
     int sy = pos_0.y < pos_1.y ? 1 : -1;
     int err = dx + dy, e2;
 
-    printf("%d\n", m->univ.interface.who);
     while (1) {
         // if (check2(map, pos_0.x, pos_0.y, m) == -1)
         //     return 0;
