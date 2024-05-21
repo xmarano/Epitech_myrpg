@@ -49,6 +49,7 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso)
             m->zone1.tab_map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
         sfSprite_setPosition(spr, pos_curs);
         m->univ.is_case_visible = 0;
+        draw_player_interface(m);
     }
 }
 
