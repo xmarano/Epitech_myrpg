@@ -37,8 +37,8 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
     sfVector2f pos_spr = sfSprite_getPosition(spr);
 
     if (perso->case_visble == 1 && sfKeyboard_isKeyPressed(sfKeySpace) && check_cursor_on_sprite(m, spr) == 0 && is_movement_ok(pos_spr, pos_curs, perso->stat_p.mov, m) == true) {
-        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
         if (isdigit(map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1]) == 0) {
+            map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
             if (strcmp(perso->name_perso, "ROY") == 0) {
                 map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
                 m->univ.interface.who = 0;
