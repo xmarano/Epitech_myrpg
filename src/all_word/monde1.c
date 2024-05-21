@@ -66,7 +66,7 @@ void draw_visible_cases(Global_t *m, sfSprite *spr, Perso_t *perso)
 
     if (perso->case_visble == 1)
         draw_possible_movement(m, spr, perso);
-    if (seconds > 0.05) {
+    if (seconds > 0.3) {
         if (check_cursor_on_sprite(m, spr) == 1) {
             if (sfKeyboard_isKeyPressed(sfKeySpace) && perso->case_visble == 1) {
                 perso->case_visble = 0;
