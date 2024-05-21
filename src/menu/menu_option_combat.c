@@ -65,6 +65,7 @@ static void check_hover(Global_t *m, hub_t *h)
     if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             load_game(m, h);
+            m->zone1.tab_map = m->current_map;
             m->current = m->old_current;
         }
     check_hover2(m);
