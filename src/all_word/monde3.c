@@ -22,6 +22,6 @@ void draw_monde3(Global_t *m, fight_t *f)
         //set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
         print_boss_barre(m, BOSS3, m->zone3.view_w3);
         //print_mini_barre(m, f);
-        return_and_old_current(m, 3);
+        return_and_old_current2(m, 3);
     }
 }

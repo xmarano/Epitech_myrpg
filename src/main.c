@@ -68,7 +68,8 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
         event_click(m, h, f);
     draw_menu(m);
     draw_select_perso(m);
-    draw_menu_option(m, h);
+    draw_menu_option_hub(m, h);
+    draw_menu_option_combat(m, h);
     draw_setting(m);
     draw_mondes(m, f);
     draw_shop(m);
@@ -89,7 +90,8 @@ void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     destroy_inventaire(m);
     destroy_menu(m);
     destroy_select_perso(m);
-    destroy_menu_option(m);
+    destroy_menu_option_hub(m);
+    destroy_menu_option_combat(m);
     destroy_shop(m);
     destory_all_w_maps(m);
     destroy_loading(m);
@@ -105,7 +107,8 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     init_w_sprite(m);
     init_menu(m);
     init_select_perso(m);
-    init_menu_option(m);
+    init_menu_option_hub(m);
+    init_menu_option_combat(m);
     init_inventaire(m);
     init_shop(m);
     init_pose(m);

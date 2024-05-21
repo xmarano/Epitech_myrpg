@@ -19,6 +19,6 @@ void draw_monde2(Global_t *m, fight_t *f)
         check_all_pose(m, m->zone2.tab_map, 2);
         move_game_cursor(m);
         print_boss_barre(m, BOSS2, m->zone2.view_w2);
-        return_and_old_current(m, 2);
+        return_and_old_current2(m, 2);
     }
 }

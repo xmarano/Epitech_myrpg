@@ -71,7 +71,7 @@ void gest_cursor(Global_t *m)
     pose_curs.x += 18;
     pose_curs.y += initial_y + (cursor_position * y_increment);
     if (elapsed_seconds > move_delay) {
-        if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+        if (sfKeyboard_isKeyPressed(sfKeyS)) {
             cursor_position++;
             where++;
             if (cursor_position > max_position) {
@@ -79,7 +79,7 @@ void gest_cursor(Global_t *m)
                 where = 0;
             }
             sfClock_restart(clock);
-        } else if (sfKeyboard_isKeyPressed(sfKeyUp)) {
+        } else if (sfKeyboard_isKeyPressed(sfKeyZ)) {
             cursor_position--;
             where++;
             if (cursor_position < 0) {

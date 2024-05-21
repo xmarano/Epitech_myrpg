@@ -103,7 +103,8 @@ typedef struct Glob {
     sfRenderWindow *window;
     Menu_t menu; /* Leo */
     S_t s; /* Leo */
-    Option_t o; /* Leo */
+    Option_hub_t o; /* Leo */
+    Option_combat_t o2; /* Leo */
     Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
@@ -146,9 +147,12 @@ void set_stats_b6(Perso_t *perso);
 void set_stats_b7(Perso_t *perso);
 void set_stats_b8(Perso_t *perso);
 int setup_stat(Global_t *m);
-void init_menu_option(Global_t *m);
-void draw_menu_option(Global_t *m, hub_t *hub);
-void destroy_menu_option(Global_t *m);
+void init_menu_option_hub(Global_t *m);
+void init_menu_option_combat(Global_t *m);
+void draw_menu_option_hub(Global_t *m, hub_t *hub);
+void draw_menu_option_combat(Global_t *m, hub_t *hub);
+void destroy_menu_option_hub(Global_t *m);
+void destroy_menu_option_combat(Global_t *m);
 void draw_stats_shop(Global_t *m);
 void init_menu(Global_t *m);
 void draw_menu(Global_t *m);
@@ -181,6 +185,7 @@ void click(Global_t *m, sfFloatRect *rect, int current);
 void init_setting(Global_t *m);
 void draw_setting(Global_t *m);
 void return_and_old_current(Global_t *m, int value);
+void return_and_old_current2(Global_t *m, int value);
 sfText *init_stats(Global_t *m, int w);
 void draw_inventaire(Global_t *m, hub_t *hub);
 void event_setting(sfEvent event, Global_t *m);

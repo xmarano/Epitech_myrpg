@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** B-MUL-200-MAR-2-1-myrpg-yanis.prevost
 ** File description:
-** menu_option.c
+** menu_option_hub.c
 */
 
 #include "../rpg.h"
@@ -24,7 +24,7 @@ static void check_globalbounds(Global_t *m)
     m->o.gb_b4 = sfRectangleShape_getGlobalBounds(m->o.button4);
 }
 
-void init_menu_option(Global_t *m)
+void init_menu_option_hub(Global_t *m)
 {
     m->o.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
     m->o.txt_clock = sfClock_create();
@@ -65,7 +65,7 @@ static void check_hover2(Global_t *m)
     }
 }
 
-static void check_hover(Global_t *m, hub_t *h)
+static void check_hover(Global_t *m)
 {
     hover(m, m->o.button1, &m->o.gb_b1);
     click(m, &m->o.gb_b1, 0);
@@ -80,10 +80,10 @@ static void check_hover(Global_t *m, hub_t *h)
     check_hover2(m);
 }
 
-void draw_menu_option(Global_t *m, hub_t *h)
+void draw_menu_option_hub(Global_t *m, hub_t *h)
 {
     if (m->current == 20) {
-        check_hover(m, h);
+        check_hover(m);
         sfRenderWindow_setView(m->window, h->normal_view);
         sfRenderWindow_drawSprite(m->window, m->o.fond, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button1, NULL);
@@ -97,14 +97,10 @@ void draw_menu_option(Global_t *m, hub_t *h)
         sfRenderWindow_drawText(m->window, m->o.text3, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button4, NULL);
         sfRenderWindow_drawText(m->window, m->o.text4, NULL);
-        if (sfKeyboard_isKeyPressed(sfKeyH)) {
-            sfRenderWindow_setView(m->window, h->view);
-            m->current = m->old_current;
-        }
     }
 }
 
-void destroy_menu_option(Global_t *m)
+void destroy_menu_option_hub(Global_t *m)
 {
     sfSprite_destroy(m->o.fond);
     sfRectangleShape_destroy(m->o.button1);

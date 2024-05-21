@@ -82,7 +82,7 @@ typedef struct S {
     int p5_select;
 } S_t;
 
-typedef struct Option {
+typedef struct Option_hub {
     sfSprite *fond;
     sfRectangleShape *button1;
     sfRectangleShape *button2;
@@ -100,6 +100,22 @@ typedef struct Option {
     int is_saved;
     int is_saved2;
     sfClock *txt_clock;
-} Option_t;
+} Option_hub_t;
+
+typedef struct Option_combat {
+    sfSprite *fond;
+    sfRectangleShape *button1;
+    sfRectangleShape *button2;
+    sfRectangleShape *button3;
+    sfRectangleShape *button4;
+    sfFloatRect gb_b1;
+    sfFloatRect gb_b2;
+    sfFloatRect gb_b3;
+    sfFloatRect gb_b4;
+    sfText *text1;
+    sfText *text2;
+    sfText *text3;
+    sfText *text4;
+} Option_combat_t;
 
 #endif
