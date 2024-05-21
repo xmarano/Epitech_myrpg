@@ -59,7 +59,7 @@ void draw_monde1(Global_t *m)
                 m->univ.is_case_visible = 1;
         }
         set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
-        print_boss_barre(m, BOSS2, m->zone1.view_w1);
+        print_boss_barre(m, BOSS1, m->zone1.view_w1);
         return_and_old_current(m, 1);
     }
 }

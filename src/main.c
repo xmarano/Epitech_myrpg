@@ -14,8 +14,6 @@ static void what_world_dia(Global_t *m)
     RenderContext_t context = {m->window, m->setting.fontdi};
 
     if (m->dialogue.start_dialogue == 1) {
-        m->perso->current_perso;
-        printf("%d\n", m->perso->current_perso);
         parse_file("dialogue/chap1.txt", &context, m);
         return;
     }
