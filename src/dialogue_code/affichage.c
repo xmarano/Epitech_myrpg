@@ -12,7 +12,7 @@ void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
     sfText *text = sfText_create();
     sfText_setString(text, str);
     sfText_setFont(text, context->font);
-    sfText_setCharacterSize(text, 20);
+    sfText_setCharacterSize(text, 30);
     sfVector2f position = {x, y};
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
@@ -21,18 +21,24 @@ void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 
 void sentencept(char *phrase, RenderContext_t *context, int x, int y)
 {
-    sfRenderWindow_clear(context->window, sfBlack);
+    sfTexture* texture = sfTexture_createFromFile("src/dialogue_code/walltom.png", NULL);
+    sfSprite* sprite = sfSprite_create();
+    sfSprite_setTexture(sprite, texture, sfTrue);
+    sfRenderWindow_drawSprite(context->window, sprite, NULL);
     sfText *text = sfText_create();
     sfText_setString(text, phrase);
     sfText_setFont(text, context->font);
-    sfText_setCharacterSize(text, 20);
+    sfText_setCharacterSize(text, 30);
     sfVector2f position = {x, y};
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
     sfRenderWindow_display(context->window);
     sfSleep(sfSeconds(0.1));
     sfText_destroy(text);
+    sfSprite_destroy(sprite);
+    sfTexture_destroy(texture);
 }
+
 
 void wordpt(char *str, RenderContext_t *context, const char *num, int position)
 {
@@ -44,19 +50,19 @@ void wordpt(char *str, RenderContext_t *context, const char *num, int position)
     for (int i = 0; i < strlen(str); i++) {
         strncat(phrase, &str[i], 1);
         if (position == 0) {
-            draw_dialogue(num, 0, window_height - 30, context);
-            sentencept(phrase, context, 0, 30);
+            draw_dialogue(num, 25, window_height - 30, context);
+            sentencept(phrase, context, 25, 950);
             if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-                sentencept(str, context, position, 30);
+                sentencept(str, context, 25, 950);
                 sfSleep(sfSeconds(1.0));
                 free(phrase);
                 return;
             }
         } else {
-            draw_dialogue(num, window_width - 600, window_height - 600, context);
-            sentencept(phrase, context, window_width - 600, 30);
+            draw_dialogue(num, window_width - 520, window_height - 520, context);
+            sentencept(phrase, context, window_width - 520, 950);
             if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-                sentencept(str, context, window_width - 600, 30);
+                sentencept(str, context, window_width - 520, 950);
                 sfSleep(sfSeconds(1.0));
                 free(phrase);
                 return;
