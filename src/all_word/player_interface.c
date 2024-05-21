@@ -22,12 +22,15 @@ void dest_p_interface(Global_t *m)
 
 void init_player_interface(Global_t *m)
 {
+    char *link1 = "assets/fight/fond_interface.png";
+    char *link2 = "assets/inv/cursor.png";
+
     m->univ.interface.fond_interf = sfSprite_create();
-    m->univ.interface.Fond_interf = sfTexture_createFromFile("assets/fight/fond_interface.png", NULL);
+    m->univ.interface.Fond_interf = sfTexture_createFromFile(link1, NULL);
     m->univ.interface.cursor = sfSprite_create();
-    m->univ.interface.Cursor =sfTexture_createFromFile("assets/inv/cursor.png", NULL);
-    sfSprite_setTexture(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, sfFalse);
-    sfSprite_setTexture(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
+    m->univ.interface.Cursor =sfTexture_createFromFile(link2, NULL);
+    sp_txr(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, 0);
+    sp_txr(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
     m->univ.interface.curs_clock = sfClock_create();
 }
@@ -52,14 +55,29 @@ void place_interface(Global_t *m)
     sfRenderWindow_drawSprite(m->window, m->univ.interface.fond_interf, NULL);
 }
 
-void moove_cursor(Global_t *m)
+static void eventup(Global_t *m, int *cursor_position, int max_position)
 {
-
+    (*cursor_position)--;
+    m->univ.interface.where++;
+    if (*cursor_position < 0) {
+        *cursor_position = max_position;
+    }
+    sfClock_restart(m->univ.interface.curs_clock);
 }
 
-void gest_cursor(Global_t *m)
+static void eventdown(Global_t *m, int *cursor_position, int max_position)
 {
-    sfVector2f pose_curs;
+    (*cursor_position)++;
+    m->univ.interface.where++;
+    if (*cursor_position > max_position) {
+        *cursor_position = 0;
+        m->univ.interface.where = 0;
+    }
+    sfClock_restart(m->univ.interface.curs_clock);
+}
+
+void moove_cursor(Global_t *m, sfVector2f pose_curs)
+{
     static int cursor_position = 0;
     const int max_position = 2;
     const float y_increment = 48.0f;
@@ -71,28 +89,29 @@ void gest_cursor(Global_t *m)
     pose_curs.x += 18;
     pose_curs.y += initial_y + (cursor_position * y_increment);
     if (elapsed_seconds > 0.2f) {
-        if (sfKeyboard_isKeyPressed(sfKeyS)) {
-            cursor_position++;
-            m->univ.interface.where++;
-            if (cursor_position > max_position) {
-                cursor_position = 0;
-                m->univ.interface.where = 0;
-            }
-            sfClock_restart(m->univ.interface.curs_clock);
-        } else if (sfKeyboard_isKeyPressed(sfKeyZ)) {
-            cursor_position--;
-            m->univ.interface.where++;
-            if (cursor_position < 0) {
-                cursor_position = max_position;
-            }
-            sfClock_restart(m->univ.interface.curs_clock);
-        }
+        if (sfKeyboard_isKeyPressed(sfKeyS))
+            eventdown(m, &cursor_position, max_position);
+        if (sfKeyboard_isKeyPressed(sfKeyZ))
+            eventup(m, &cursor_position, max_position);
     }
     sfSprite_setPosition(m->univ.interface.cursor, pose_curs);
+}
+
+void gest_cursor(Global_t *m)
+{
+    sfVector2f pose_curs;
+
+    moove_cursor(m, pose_curs);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.cursor, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
-        m->univ.interface.select_inteface = false;
-        m->perso->case_visble = 0;
+        if (m->univ.interface.where == 0) {
+            m->univ.interface.select_inteface = false;
+            m->perso->case_visble = 0;
+        }
+        // if (m->univ.interface.where == 1)
+        //     //hp_up();
+        // if (m->univ.interface.where == 2)
+            //attack();
     }
 }
 
