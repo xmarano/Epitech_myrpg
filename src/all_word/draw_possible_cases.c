@@ -84,8 +84,8 @@ bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m)
     pos_obj.x = pos_obj.x / 40;
     pos_obj.y = pos_obj.y / 40;
     for (int dx = -i; dx <= i; dx++) {
+        int nx = pos_spr.x + dx;
         for (int dy = -i; dy <= i; dy++) {
-            int nx = pos_spr.x + dx;
             int ny = pos_spr.y + dy;
             if (nx == pos_obj.x && ny == pos_obj.y && abs(dx) + abs(dy) <= i) {
                 if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_obj.x + 1, pos_obj.y + 1}, m->zone1.tab_map))
