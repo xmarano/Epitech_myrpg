@@ -47,9 +47,9 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
     what_world_dia(m);
 }
 
-static void draw_mondes(Global_t *m, hub_t *h)
+static void draw_mondes(Global_t *m, fight_t *f)
 {
-    draw_monde1(m);
+    draw_monde1(m, f);
     draw_monde2(m);
     draw_monde3(m);
     draw_monde4(m);
@@ -69,7 +69,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_select_perso(m);
     draw_menu_option(m, h);
     draw_setting(m);
-    draw_mondes(m, h);
+    draw_mondes(m, f);
     draw_shop(m);
     draw_hub(m, h);
     save_auto(m);
