@@ -39,23 +39,30 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
     if (perso->case_visble == 1 && sfKeyboard_isKeyPressed(sfKeySpace) && check_cursor_on_sprite(m, spr) == 0 && is_movement_ok(pos_spr, pos_curs, perso->stat_p.mov, m) == true) {
         map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
         if (isdigit(map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1]) == 0) {
-        if (strcmp(perso->name_perso, "ROY") == 0)
-            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
-        if (strcmp(perso->name_perso, "Infenium") == 0)
-            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '1';
-        if (strcmp(perso->name_perso, "Racaillou") == 0)
-            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '4';
-        if (strcmp(perso->name_perso, "PateCarbo") == 0)
-            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '2';
-        if (strcmp(perso->name_perso, "Xmarano") == 0)
-            map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
+            if (strcmp(perso->name_perso, "ROY") == 0) {
+                map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
+                m->univ.interface.who = 0;
+            }
+            if (strcmp(perso->name_perso, "Infenium") == 0) {
+                map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '1';
+                m->univ.interface.who = 1;
+            }
+            if (strcmp(perso->name_perso, "Racaillou") == 0) {
+                map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '4';
+                m->univ.interface.who = 4;
+            }
+            if (strcmp(perso->name_perso, "PateCarbo") == 0) {
+                map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '2';
+                m->univ.interface.who = 2;
+            }
+            if (strcmp(perso->name_perso, "Xmarano") == 0) {
+                map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '3';
+                m->univ.interface.who = 3;
+            }
         }
         m->univ.is_case_visible = 0;
         m->univ.interface.select_inteface = true;
         draw_player_interface(m);
-    }
-    for (int i = 0; map[i] != NULL; i++) {
-        printf("%s\n", map[i]);
     }
 }
 

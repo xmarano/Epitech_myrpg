@@ -140,6 +140,7 @@ void set_stats_b1(Perso_t *perso);
 void set_stats_b2(Perso_t *perso);
 void set_stats_b3(Perso_t *perso);
 void set_stats_b4(Perso_t *perso);
+void dest_p_interface(Global_t *m);
 void set_stats_b5(Perso_t *perso);
 void set_stats_b6(Perso_t *perso);
 void set_stats_b7(Perso_t *perso);

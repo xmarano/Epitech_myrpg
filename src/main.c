@@ -23,7 +23,7 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
 {
     m->show_mouse = true;
     if (argc == 2) {
-        if (strcmp(argv[1], "dev") == 0) {
+        if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
             m->current = 1;

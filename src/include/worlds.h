@@ -81,9 +81,12 @@ typedef struct Shop {
 }Shop_t;
 
 typedef struct interface {
+    int who;
     sfSprite *fond_interf;
     sfTexture *Fond_interf;
     bool select_inteface;
+    sfSprite *cursor;
+    sfTexture *Cursor;
 }Interface_t;
 
 typedef struct Zone {
