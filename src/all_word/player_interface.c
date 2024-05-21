@@ -49,7 +49,10 @@ void place_interface(Global_t *m)
         pose_sp = sfSprite_getPosition(m->univ.spr_xmara);
     if (m->univ.interface.who == 4)
         pose_sp = sfSprite_getPosition(m->univ.spr_raca);
-    pose_sp.x += 50;
+    if (pose_sp.x > 1000)
+        pose_sp.x -= 150;
+    else
+        pose_sp.x += 50;
     pose_sp.y -= 90;
     sfSprite_setPosition(m->univ.interface.fond_interf, pose_sp);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.fond_interf, NULL);
@@ -109,7 +112,7 @@ void gest_cursor(Global_t *m)
             m->perso->case_visble = 0;
         }
         // if (m->univ.interface.where == 1)
-        //     //hp_up();
+        //     hp_up(m);
         // if (m->univ.interface.where == 2)
             //attack();
     }

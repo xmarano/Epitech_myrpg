@@ -35,6 +35,7 @@ SRCNAME	=	src/*.c	\
 			src/dialogue_code/*.c	\
 			src/hub/*.c	\
 			src/all_word/*.c	\
+			src/gameplay/*.c	\
 
 LIB 	= 	libmy.a
 
