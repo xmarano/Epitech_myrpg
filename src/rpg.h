@@ -250,13 +250,6 @@ void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
 void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
-void draw_monde2(Global_t *m);
-void draw_monde3(Global_t *m);
-void draw_monde4(Global_t *m);
-void draw_monde5(Global_t *m);
-void draw_monde6(Global_t *m);
-void draw_monde7(Global_t *m);
-void draw_monde8(Global_t *m);
 void init_w_sprite(Global_t *m);
 void destory_all_w_maps(Global_t *m);
 void check_position(char **map, char ref, sfSprite *sprite, Global_t *m);
@@ -272,5 +265,12 @@ bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m);
 void draw_monde1(Global_t *m, fight_t *f);
 void print_mini_barre(Global_t *m, fight_t *f);
 void print_mini_barre(Global_t *m, fight_t *f);
+void draw_monde2(Global_t *m, fight_t *f);
+void draw_monde3(Global_t *m, fight_t *f);
+void draw_monde4(Global_t *m, fight_t *f);
+void draw_monde5(Global_t *m, fight_t *f);
+void draw_monde6(Global_t *m, fight_t *f);
+void draw_monde7(Global_t *m, fight_t *f);
+void draw_monde8(Global_t *m, fight_t *f);
 
 #endif

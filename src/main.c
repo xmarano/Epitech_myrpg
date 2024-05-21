@@ -50,13 +50,13 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
 static void draw_mondes(Global_t *m, fight_t *f)
 {
     draw_monde1(m, f);
-    draw_monde2(m);
-    draw_monde3(m);
-    draw_monde4(m);
-    draw_monde5(m);
-    draw_monde6(m);
-    draw_monde7(m);
-    draw_monde8(m);
+    draw_monde2(m, f);
+    draw_monde3(m, f);
+    draw_monde4(m, f);
+    draw_monde5(m, f);
+    draw_monde6(m, f);
+    draw_monde7(m, f);
+    draw_monde8(m, f);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
