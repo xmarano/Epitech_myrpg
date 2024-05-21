@@ -60,6 +60,7 @@ static void draw_mondes(Global_t *m, fight_t *f)
     draw_monde7(m, f);
     draw_monde8(m, f);
     draw_player_interface(m);
+    attack(m);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)

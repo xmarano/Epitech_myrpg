@@ -12,21 +12,38 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
-int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map) {
+static int check3(char tab[4], int x, int y, char **map)
+{
+    for (int i = 0; i < strlen(tab); i++) {
+        if (map[x][y] == tab[i])
+            return 1;
+    }
+    return 0;
+}
+
+static int check2(char **map, int y, int x, Global_t *m)
+{
+    char *tab = NULL;
+
+    tab = "1234";
+    if (check3(tab, x, y, map))
+        return -1;
+    return 0;
+}
+
+int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map, Global_t *m)
+{
     int dx = abs(pos_1.x - pos_0.x);
     int sx = pos_0.x < pos_1.x ? 1 : -1;
     int dy = -abs(pos_1.y - pos_0.y);
     int sy = pos_0.y < pos_1.y ? 1 : -1;
     int err = dx + dy, e2;
 
-    if (map[pos_1.y][pos_1.x] == 'L' ||
-        map[pos_1.y][pos_1.x] == 'X' ||
-        map[pos_1.y][pos_1.x] == 'M')
-            return 0;
+    printf("%d\n", m->univ.interface.who);
     while (1) {
-        if (map[pos_0.y][pos_0.x] == 'L' ||
-        map[pos_0.y][pos_0.x] == 'X' ||
-        map[pos_0.y][pos_0.x] == 'M')
+        // if (check2(map, pos_0.x, pos_0.y, m) == -1)
+        //     return 0;
+        if (map[pos_0.y][pos_0.x] == 'L' || map[pos_0.y][pos_0.x] == 'X' || map[pos_0.y][pos_0.x] == 'M')
             return 0;
         if (pos_0.x == pos_1.x && pos_0.y == pos_1.y) break;
         e2 = 2 * err;
@@ -36,7 +53,8 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map) {
     return 1;
 }
 
-int est_dans_grille(int x, int y) {
+int est_dans_grille(int x, int y)
+{
     return x >= 0 && x < 30 && y >= 0 && y < 20;
 }
 
@@ -53,14 +71,18 @@ void draw_squares(Global_t *m, int nx, int ny)
     sfRectangleShape_destroy(rect);
 }
 
-void mettre_en_evidence_cases(int x, int y, int i, Global_t *m, char **map)
+void draw_possible_movement(int i, Global_t *m, char **map, sfSprite *spr)
 {
+    sfVector2f pos = sfSprite_getPosition(spr);
+
+    pos.x /= 40;
+    pos.y /= 40;
     for (int dx = -i; dx <= i; dx++) {
         for (int dy = -i; dy <= i; dy++) {
-            int nx = x + dx;
-            int ny = y + dy;
+            int nx = pos.x + dx;
+            int ny = pos.y + dy;
             if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-                if (ligne_sans_obstacle((sfVector2i){x + 1, y + 1}, (sfVector2i){nx + 1, ny + 1}, map)) {
+                if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, map, m)) {
                     draw_squares(m, nx, ny);
                 }
             }
@@ -68,27 +90,21 @@ void mettre_en_evidence_cases(int x, int y, int i, Global_t *m, char **map)
     }
 }
 
-void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
+bool is_movement_ok(sfSprite *spr, int i, char **map, Global_t *m)
 {
-    sfVector2f pos = sfSprite_getPosition(spr);
+    sfVector2f pos_curs = sfSprite_getPosition(m->univ.map_cursor_sprite);
+    sfVector2f pos_spr = sfSprite_getPosition(spr);
 
-    pos.x /= 40;
-    pos.y /= 40;
-    mettre_en_evidence_cases(pos.x, pos.y, perso->stat_p.mov, m, map);
-}
-
-bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m, char **map)
-{
     pos_spr.x = pos_spr.x / 40;
     pos_spr.y = pos_spr.y / 40;
-    pos_obj.x = pos_obj.x / 40;
-    pos_obj.y = pos_obj.y / 40;
+    pos_curs.x = pos_curs.x / 40;
+    pos_curs.y = pos_curs.y / 40;
     for (int dx = -i; dx <= i; dx++) {
         int nx = pos_spr.x + dx;
         for (int dy = -i; dy <= i; dy++) {
             int ny = pos_spr.y + dy;
-            if (nx == pos_obj.x && ny == pos_obj.y && abs(dx) + abs(dy) <= i) {
-                if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_obj.x + 1, pos_obj.y + 1}, map))
+            if (nx == pos_curs.x && ny == pos_curs.y && abs(dx) + abs(dy) <= i) {
+                if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_curs.x + 1, pos_curs.y + 1}, map, m))
                     return true;
             }
         }

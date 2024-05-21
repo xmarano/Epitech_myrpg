@@ -264,11 +264,12 @@ void load_game(Global_t *m, hub_t *hub);
 void save_game(Global_t *m);
 void update_move_cursor(sfVector2f pos_cursor, Global_t *m);
 void move_game_cursor(Global_t *m);
-void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso, char **map);
-bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m, char **map);
+void draw_possible_movement(int i, Global_t *m, char **map, sfSprite *spr);
+bool is_movement_ok(sfSprite *spr, int i, char **map, Global_t *m);
 void draw_player_interface(Global_t *m);
 void init_player_interface(Global_t *m);
 void dest_p_interface(Global_t *m);
+void attack(Global_t *m);
 
     #include "include/fight.h"
 

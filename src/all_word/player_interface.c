@@ -122,17 +122,13 @@ void gest_cursor(Global_t *m)
     moove_cursor(m, pose_curs);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.cursor, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
-        if (m->univ.interface.where == 0) {
-            m->univ.interface.select_inteface = false;
-        }
-        if (m->univ.interface.where == 1) {
+        if (m->univ.interface.where == 1)
             hp_up(m);
-            m->univ.interface.select_inteface = false;
-        }
-        //if (m->univ.interface.where == 2)
-            //attack(m);
+        if (m->univ.interface.where == 2)
+            m->univ.interface.attack_gpy = true;
+        m->univ.interface.select_inteface = false;
+        m->univ.interface.where = 0;
     }
-    //m->univ.interface.where = 0;
 }
 
 void draw_player_interface(Global_t *m)
@@ -140,6 +136,7 @@ void draw_player_interface(Global_t *m)
     if (m->univ.interface.select_inteface && m->current >= 1 && m->current <= 8) {
         place_interface(m);
         gest_cursor(m);
-        m->perso->case_visble = false;
+        for (int i = 0; i < 5; i++)
+            m->perso[i].case_visble = false;
     }
 }

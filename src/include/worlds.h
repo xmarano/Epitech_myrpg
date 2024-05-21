@@ -89,6 +89,7 @@ typedef struct interface {
     sfTexture *Cursor;
     sfClock *curs_clock;
     int where;
+    bool attack_gpy;
 }Interface_t;
 
 typedef struct Zone {

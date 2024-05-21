@@ -31,3 +31,12 @@ void hp_up(Global_t *m)
         }
     }
 }
+
+void attack(Global_t *m)
+{
+    if (m->univ.interface.attack_gpy == true) {
+        printf("caca\n");
+        m->univ.interface.attack_gpy = false;
+    }
+    return;
+}
