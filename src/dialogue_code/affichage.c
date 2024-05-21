@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include <ctype.h>
 
-void drawText(const char *str, int x, int y, RenderContext *context)
+void drawText(const char *str, int x, int y, RenderContext_t *context)
 {
     sfText *text = sfText_create();
     sfText_setString(text, str);
@@ -19,7 +19,7 @@ void drawText(const char *str, int x, int y, RenderContext *context)
     sfText_destroy(text);
 }
 
-void sentencept(char *phrase, RenderContext *context, int x, int y)
+void sentencept(char *phrase, RenderContext_t *context, int x, int y)
 {
     sfRenderWindow_clear(context->window, sfBlack);
     sfText *text = sfText_create();
@@ -34,7 +34,7 @@ void sentencept(char *phrase, RenderContext *context, int x, int y)
     sfText_destroy(text);
 }
 
-void wordpt(char *str, RenderContext *context, const char *num, int position)
+void wordpt(char *str, RenderContext_t *context, const char *num, int position)
 {
     char *phrase = malloc(strlen(str) + 1);
     strcpy(phrase, "");
@@ -67,7 +67,7 @@ void wordpt(char *str, RenderContext *context, const char *num, int position)
     free(phrase);
 }
 
-int verif_parse(char *line, RenderContext *context, int current_perso, char *last_speaker)
+int verif_parse(char *line, RenderContext_t *context, int current_perso, char *last_speaker)
 {
     char *speaker = strtok(line, ":");
     char *dialogue = strtok(NULL, "\n");
@@ -83,7 +83,7 @@ int verif_parse(char *line, RenderContext *context, int current_perso, char *las
     return 0;
 }
 
-void parseFile(const char *filename, RenderContext *context, Global_t *m)
+void parseFile(const char *filename, RenderContext_t *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
     char line[256];

@@ -11,7 +11,7 @@
 
 static void what_world_dia(Global_t *m)
 {
-    RenderContext context = {m->window, m->setting.fontdi};
+    RenderContext_t context = {m->window, m->setting.fontdi};
 
     if (m->dialogue.start_dialogue == 1) {
         m->perso->current_perso;
