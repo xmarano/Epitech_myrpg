@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include <ctype.h>
 
-const char* hero_wall(int current_perso) {
+/*const char* hero_wall(int current_perso) {
     switch (current_perso) {
         case 0: return "assets/perso/dialogue/hero/Infenium_dialogue.png";
         case 1: return "assets/perso/dialogue/hero/Patecarbo_dialogue.png";
@@ -28,7 +28,7 @@ const char* hero_wall(int current_perso) {
         case 11: return "assets/perso/dialogue/boss/Racaillou_dialogue.png";
         case 12: return "assets/perso/dialogue/boss/Roy_dialogue.png";
     }
-}*/
+}
 
 void affichage_hero(Global_t *m, RenderContext_t *context)
 {
@@ -47,7 +47,7 @@ void affichage_hero(Global_t *m, RenderContext_t *context)
 
     sfSprite_destroy(sprite2);
     sfTexture_destroy(texture2);
-}
+}*/
 
 void affichage_mechant(Global_t *m, RenderContext_t *context)
 {
@@ -101,7 +101,6 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfSprite_destroy(sprite);
     sfTexture_destroy(texture);
 }
-
 
 void wordpt(char *str, RenderContext_t *context, const char *num, int position)
 {
