@@ -265,6 +265,8 @@ void load_game(Global_t *m, hub_t *hub);
 void save_game(Global_t *m);
 void update_move_cursor(sfVector2f pos_cursor, Global_t *m);
 void move_game_cursor(Global_t *m);
+void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso);
+bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m);
 
     #include "include/fight.h"
 
