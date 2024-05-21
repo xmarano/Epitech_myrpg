@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include <ctype.h>
 
-void drawText(const char *str, int x, int y, RenderContext_t *context)
+void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 {
     sfText *text = sfText_create();
     sfText_setString(text, str);
@@ -44,7 +44,7 @@ void wordpt(char *str, RenderContext_t *context, const char *num, int position)
     for (int i = 0; i < strlen(str); i++) {
         strncat(phrase, &str[i], 1);
         if (position == 0) {
-            drawText(num, 0, window_height - 30, context);
+            draw_dialogue(num, 0, window_height - 30, context);
             sentencept(phrase, context, 0, 30);
             if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
                 sentencept(str, context, position, 30);
@@ -53,7 +53,7 @@ void wordpt(char *str, RenderContext_t *context, const char *num, int position)
                 return;
             }
         } else {
-            drawText(num, window_width - 600, window_height - 600, context);
+            draw_dialogue(num, window_width - 600, window_height - 600, context);
             sentencept(phrase, context, window_width - 600, 30);
             if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
                 sentencept(str, context, window_width - 600, 30);
@@ -76,7 +76,8 @@ int verif_parse(char *line, RenderContext_t *context, int current_perso, char *l
     if (strchr(line, '*') != NULL) {
         return 1;
     }
-    if (dialogue != NULL && (atoi(speaker) == current_perso || !isdigit(speaker[0]))) {
+    if (dialogue != NULL && (atoi(speaker) == current_perso ||
+    !isdigit(speaker[0]))) {
         strcpy(last_speaker, speaker);
         position = atoi(speaker) == current_perso ? 0 : 1;
         wordpt(dialogue, context, last_speaker, position);
@@ -84,7 +85,7 @@ int verif_parse(char *line, RenderContext_t *context, int current_perso, char *l
     return 0;
 }
 
-void parseFile(const char *filename, RenderContext_t *context, Global_t *m)
+void parse_file(const char *filename, RenderContext_t *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
     char line[256];
@@ -102,4 +103,3 @@ void parseFile(const char *filename, RenderContext_t *context, Global_t *m)
     m->current = 1;
     fclose(file);
 }
-

@@ -16,7 +16,7 @@ static void what_world_dia(Global_t *m)
     if (m->dialogue.start_dialogue == 1) {
         m->perso->current_perso;
         printf("%d\n", m->perso->current_perso);
-        parseFile("dialogue/chap1.txt", &context, m);
+        parse_file("dialogue/chap1.txt", &context, m);
         return;
     }
 }
