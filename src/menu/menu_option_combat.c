@@ -26,15 +26,15 @@ static void check_globalbounds(Global_t *m)
 
 void init_menu_option_combat(Global_t *m)
 {
-    m->o2.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
+    m->o2.fond = init_sprite("assets/menu/option.png", (sfVector2f){0, 0});
     m->o2.button1 = init_button(m, (sfVector2f){325, 100}, 295);
     m->o2.button2 = init_button(m, (sfVector2f){325, 100}, 445);
     m->o2.button3 = init_button(m, (sfVector2f){325, 100}, 595);
     m->o2.button4 = init_button(m, (sfVector2f){400, 100}, 745);
     m->o2.text1 = init_text(m, "RESUME", 60, 300);
-    m->o2.text2 = init_text(m, "SAVE", 60, 450);
+    m->o2.text2 = init_text(m, "RESTART", 60, 450);
     m->o2.text3 = init_text(m, "SETTINGS", 60, 600);
-    m->o2.text4 = init_text(m, "SAVE & QUIT", 60, 750);
+    m->o2.text4 = init_text(m, "EXIT", 60, 750);
     check_globalbounds(m);
 }
 
@@ -51,41 +51,38 @@ static void check_hover2(Global_t *m)
     hover(m, m->o2.button4, &m->o2.gb_b4);
     if (sfFloatRect_contains(&m->o2.gb_b4, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            save_game(m);
             usleep(1000000);
-            m->current = 10;
+            m->current = 0;
         }
     }
 }
 
-static void check_hover(Global_t *m)
+static void check_hover(Global_t *m, hub_t *h)
 {
     hover(m, m->o2.button1, &m->o2.gb_b1);
-    click(m, &m->o2.gb_b1, 0);
+    click(m, &m->o2.gb_b1, m->current_combat);
     hover(m, m->o2.button2, &m->o2.gb_b2);
-    if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y)) {
+    if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfRectangleShape_setOutlineColor(m->o2.button2, sfWhite);
-            save_game(m);
-        } else
-            sfRectangleShape_setOutlineColor(m->o2.button2, sfBlack);
-    }
+            load_game(m, h);
+            m->current = m->old_current;
+        }
     check_hover2(m);
 }
 
 void draw_menu_option_combat(Global_t *m, hub_t *h)
 {
     if (m->current == 21) {
-        check_hover(m);
+        check_hover(m, h);
         sfRenderWindow_setView(m->window, h->normal_view);
         sfRenderWindow_drawSprite(m->window, m->o2.fond, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button1, NULL);
-        sfRenderWindow_drawText(m->window, m->o2.text1, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button2, NULL);
-        sfRenderWindow_drawText(m->window, m->o2.text2, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button3, NULL);
-        sfRenderWindow_drawText(m->window, m->o2.text3, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button4, NULL);
+        sfRenderWindow_drawText(m->window, m->o2.text1, NULL);
+        sfRenderWindow_drawText(m->window, m->o2.text2, NULL);
+        sfRenderWindow_drawText(m->window, m->o2.text3, NULL);
         sfRenderWindow_drawText(m->window, m->o2.text4, NULL);
     }
 }

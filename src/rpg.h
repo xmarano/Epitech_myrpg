@@ -96,6 +96,7 @@ typedef struct {
 typedef struct Glob {
     int current;
     int old_current;
+    int current_combat;
     int gold;
     bool load_game_called;
     sfVector2i mouse;
