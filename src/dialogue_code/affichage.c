@@ -47,7 +47,7 @@ void affichage_hero(Global_t *m, RenderContext_t *context)
 
     sfSprite_destroy(sprite2);
     sfTexture_destroy(texture2);
-}*/
+}
 
 void affichage_mechant(Global_t *m, RenderContext_t *context)
 {
@@ -66,7 +66,7 @@ void affichage_mechant(Global_t *m, RenderContext_t *context)
 
     sfSprite_destroy(sprite2);
     sfTexture_destroy(texture2);
-}
+}*/
 
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 {
