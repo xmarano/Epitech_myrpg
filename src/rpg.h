@@ -240,7 +240,6 @@ void verif_song(sfVector2i mouse, Global_t *m);
 void wordpt(char *str, RenderContext_t *context, const char *num, int position);
 void parse_file(const char *filename, RenderContext_t *context, Global_t *m);
 void sentencept(char *phrase, RenderContext_t *context, int x, int y);
-void print_mini_barre(Global_t *m);
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);
@@ -251,7 +250,6 @@ void passages_mondes6(Global_t *m, hub_t *hub);
 void passages_mondes7(Global_t *m, hub_t *hub);
 void passages_mondes8(Global_t *m, hub_t *hub);
 void what_dialogue(Global_t *m, int word, hub_t *hub, sfVector2f pose);
-void draw_monde1(Global_t *m);
 void draw_monde2(Global_t *m);
 void draw_monde3(Global_t *m);
 void draw_monde4(Global_t *m);
@@ -270,5 +268,9 @@ void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso);
 bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m);
 
     #include "include/fight.h"
+
+void draw_monde1(Global_t *m, fight_t *f);
+void print_mini_barre(Global_t *m, fight_t *f);
+void print_mini_barre(Global_t *m, fight_t *f);
 
 #endif

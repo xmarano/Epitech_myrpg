@@ -43,7 +43,7 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso)
     }
 }
 
-void draw_monde1(Global_t *m)
+void draw_monde1(Global_t *m, fight_t *f)
 {
     if (m->current == 1) {
         sfRenderWindow_setView(m->window, m->zone1.view_w1);
@@ -60,7 +60,7 @@ void draw_monde1(Global_t *m)
         }
         set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
         print_boss_barre(m, BOSS1, m->zone1.view_w1);
-        print_mini_barre(m);
+        print_mini_barre(m, f);
         return_and_old_current(m, 1);
     }
 }
