@@ -60,6 +60,7 @@ void draw_monde1(Global_t *m)
         }
         set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
         print_boss_barre(m, BOSS1, m->zone1.view_w1);
+        print_mini_barre();
         return_and_old_current(m, 1);
     }
 }
