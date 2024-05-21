@@ -13,14 +13,26 @@
 
 static void change_bool(Global_t *m, hub_t *hub, int word)
 {
-    hub->is_talking = false;
-    m->dialogue.currentLine = 0;
     if (word == 0) {
         m->hub.prologue_ok = true;
         return;
     }
     if (word == 1)
         m->dialogue.start_dialogue = 1;
+    if (word == 2)
+        m->dialogue.start_dialogue = 2;
+    if (word == 3)
+        m->dialogue.start_dialogue = 3;
+    if (word == 4)
+        m->dialogue.start_dialogue = 4;
+    if (word == 5)
+        m->dialogue.start_dialogue = 5;
+    if (word == 6)
+        m->dialogue.start_dialogue = 6;
+    if (word == 7)
+        m->dialogue.start_dialogue = 7;
+    if (word == 8)
+        m->dialogue.start_dialogue = 8;
 }
 
 void readdialoguefromfile(Global_t *m, char *filename,
@@ -93,6 +105,8 @@ void displaydialogue(Global_t *m, hub_t *hub, int word,
     && sfKeyboard_isKeyPressed(sfKeyEnter)) {
         sfClock_destroy(clock);
         clock = NULL;
+        hub->is_talking = false;
+        m->dialogue.currentLine = 0;
         change_bool(m, hub, word);
     }
 }

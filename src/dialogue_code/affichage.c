@@ -170,6 +170,6 @@ void parse_file(const char *filename, RenderContext_t *context, Global_t *m)
             break;
     }
     m->dialogue.start_dialogue = 0;
-    m->current = 1;
+    m->current = 2;
     fclose(file);
 }

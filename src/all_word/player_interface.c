@@ -35,6 +35,27 @@ void init_player_interface(Global_t *m)
     m->univ.interface.curs_clock = sfClock_create();
 }
 
+static void gest_err_pose(Global_t *m, sfVector2f pose_sp)
+{
+    if (pose_sp.x > 1000) {
+        pose_sp.x -= 150;
+        pose_sp.y -= 90;
+    } else {
+        pose_sp.x += 50;
+        pose_sp.y -= 90;
+    }
+    if (pose_sp.y > 600) {
+        pose_sp.y -= 150;
+        pose_sp.x -= 100;
+    }
+    if (pose_sp.y < 20) {
+        pose_sp.y += 150;
+        pose_sp.x -= 100;
+    }
+    sfSprite_setPosition(m->univ.interface.fond_interf, pose_sp);
+    sfRenderWindow_drawSprite(m->window, m->univ.interface.fond_interf, NULL);
+}
+
 void place_interface(Global_t *m)
 {
     sfVector2f pose_sp;
@@ -49,13 +70,7 @@ void place_interface(Global_t *m)
         pose_sp = sfSprite_getPosition(m->univ.spr_xmara);
     if (m->univ.interface.who == 4)
         pose_sp = sfSprite_getPosition(m->univ.spr_raca);
-    if (pose_sp.x > 1000)
-        pose_sp.x -= 150;
-    else
-        pose_sp.x += 50;
-    pose_sp.y -= 90;
-    sfSprite_setPosition(m->univ.interface.fond_interf, pose_sp);
-    sfRenderWindow_drawSprite(m->window, m->univ.interface.fond_interf, NULL);
+    gest_err_pose(m, pose_sp);
 }
 
 static void eventup(Global_t *m, int *cursor_position, int max_position)
@@ -109,13 +124,15 @@ void gest_cursor(Global_t *m)
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         if (m->univ.interface.where == 0) {
             m->univ.interface.select_inteface = false;
-            m->perso->case_visble = 0;
         }
-        // if (m->univ.interface.where == 1)
-        //     hp_up(m);
-        // if (m->univ.interface.where == 2)
-            //attack();
+        if (m->univ.interface.where == 1) {
+            hp_up(m);
+            m->univ.interface.select_inteface = false;
+        }
+        //if (m->univ.interface.where == 2)
+            //attack(m);
     }
+    //m->univ.interface.where = 0;
 }
 
 void draw_player_interface(Global_t *m)
@@ -123,5 +140,6 @@ void draw_player_interface(Global_t *m)
     if (m->univ.interface.select_inteface && m->current >= 1 && m->current <= 8) {
         place_interface(m);
         gest_cursor(m);
+        m->perso->case_visble = false;
     }
 }

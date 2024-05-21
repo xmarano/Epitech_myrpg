@@ -16,7 +16,7 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map) {
     int dx = abs(pos_1.x - pos_0.x);
     int sx = pos_0.x < pos_1.x ? 1 : -1;
     int dy = -abs(pos_1.y - pos_0.y);
-    int sy = pos_0.y < pos_1.y ? 1 : -1; 
+    int sy = pos_0.y < pos_1.y ? 1 : -1;
     int err = dx + dy, e2;
 
     if (map[pos_1.y][pos_1.x] == 'L' ||
@@ -53,14 +53,14 @@ void draw_squares(Global_t *m, int nx, int ny)
     sfRectangleShape_destroy(rect);
 }
 
-void mettre_en_evidence_cases(int x, int y, int i, Global_t *m)
+void mettre_en_evidence_cases(int x, int y, int i, Global_t *m, char **map)
 {
     for (int dx = -i; dx <= i; dx++) {
         for (int dy = -i; dy <= i; dy++) {
             int nx = x + dx;
             int ny = y + dy;
             if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-                if (ligne_sans_obstacle((sfVector2i){x + 1, y + 1}, (sfVector2i){nx + 1, ny + 1}, m->zone1.tab_map)) {
+                if (ligne_sans_obstacle((sfVector2i){x + 1, y + 1}, (sfVector2i){nx + 1, ny + 1}, map)) {
                     draw_squares(m, nx, ny);
                 }
             }
@@ -68,16 +68,16 @@ void mettre_en_evidence_cases(int x, int y, int i, Global_t *m)
     }
 }
 
-void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso)
+void draw_possible_movement(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
 {
     sfVector2f pos = sfSprite_getPosition(spr);
 
     pos.x /= 40;
     pos.y /= 40;
-    mettre_en_evidence_cases(pos.x, pos.y, perso->stat_p.mov, m);
+    mettre_en_evidence_cases(pos.x, pos.y, perso->stat_p.mov, m, map);
 }
 
-bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m)
+bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m, char **map)
 {
     pos_spr.x = pos_spr.x / 40;
     pos_spr.y = pos_spr.y / 40;
@@ -88,7 +88,7 @@ bool is_movement_ok(sfVector2f pos_spr, sfVector2f pos_obj, int i, Global_t *m)
         for (int dy = -i; dy <= i; dy++) {
             int ny = pos_spr.y + dy;
             if (nx == pos_obj.x && ny == pos_obj.y && abs(dx) + abs(dy) <= i) {
-                if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_obj.x + 1, pos_obj.y + 1}, m->zone1.tab_map))
+                if (ligne_sans_obstacle((sfVector2i){pos_spr.x + 1, pos_spr.y + 1}, (sfVector2i){pos_obj.x + 1, pos_obj.y + 1}, map))
                     return true;
             }
         }

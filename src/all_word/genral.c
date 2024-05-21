@@ -10,7 +10,7 @@
 
 static void draw(Global_t *m)
 {
-    sfRenderWindow_drawText(m->window, m->univ.boss_name, NULL);
+    //sfRenderWindow_drawText(m->window, m->univ.boss_name, NULL);
     sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_fond, NULL);
     sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_de_vie, NULL);
     sfRenderWindow_drawSprite(m->window, m->univ.image_barre, NULL);
@@ -23,16 +23,12 @@ void print_boss_barre(Global_t *m, int who, sfView *view)
     sfVector2f veiw_size = sfView_getSize(view);
     sfVector2f barres_position;
 
-    barres_position.x = (veiw_size.x - 80) / 2;
-    barres_position.y = 20;
-    sfText_setString(m->univ.boss_name, m->perso[who].name_perso);
-    sfText_setPosition(m->univ.boss_name, barres_position);
     barres_position.x = (veiw_size.x - 400) / 2;
-    barres_position.y = 56;
+    barres_position.y = 36;
     sfRectangleShape_setPosition(m->univ.barre_de_vie, barres_position);
     sfRectangleShape_setPosition(m->univ.barre_fond, barres_position);
     barres_position.x = (veiw_size.x - 505) / 2;
-    barres_position.y = 26;
+    barres_position.y = 6;
     sfSprite_setPosition(m->univ.image_barre, barres_position);
     sfRectangleShape_setSize(m->univ.barre_de_vie,
     (sfVector2f){400 * pourcentage_vie, 30});
@@ -57,12 +53,12 @@ void check_position(char **map, char ref, sfSprite *sprite, Global_t *m)
     sfRenderWindow_drawSprite(m->window, sprite, NULL);
 }
 
-void check_all_pose(Global_t *m, char **tab, int world)
+void check_all_pose(Global_t *m, char **tab)
 {
     check_position(tab, '0', m->univ.spr_roy, m);
     check_position(tab, '1', m->univ.spr_infe, m);
     check_position(tab, '2', m->univ.spr_pate, m);
-    check_position(tab, '4', m->univ.spr_raca, m);
     check_position(tab, '3', m->univ.spr_xmara, m);
+    check_position(tab, '4', m->univ.spr_raca, m);
     //a suivre
 }
