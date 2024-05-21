@@ -112,6 +112,6 @@ void draw_monde1(Global_t *m, fight_t *f)
         all_perso_movement(m);
         print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f);
-        return_and_old_current(m, 1);
+        return_and_old_current2(m, 1);
     }
 }

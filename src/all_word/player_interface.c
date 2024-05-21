@@ -49,6 +49,11 @@ void place_interface(Global_t *m)
 
 void moove_cursor(Global_t *m)
 {
+    
+}
+
+void gest_cursor(Global_t *m)
+{
     sfVector2f pose_curs;
     static int cursor_position = 0;
     const int max_position = 2;
@@ -95,6 +100,6 @@ void draw_player_interface(Global_t *m)
 {
     if (m->univ.interface.select_inteface) {
         place_interface(m);
-        moove_cursor(m);
+        gest_cursor(m);
     }
 }
