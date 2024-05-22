@@ -91,6 +91,8 @@ enum WHAT_WEAPONS {
 typedef struct {
     sfRenderWindow *window;
     sfFont *font;
+    int current_boss;
+    int current_hero;
 } RenderContext_t;
 
 typedef struct Glob {

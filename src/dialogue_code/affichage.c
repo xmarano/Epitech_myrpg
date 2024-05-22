@@ -7,37 +7,19 @@
 #include "../rpg.h"
 #include <ctype.h>
 
-/*const char* ennemi_wall(int current_ennemi) {
-    switch (current_perso) {
-        case 5: return "assets/perso/dialogue/boss/Infenium_dialogue.png";
-        case 6: return "assets/perso/dialogue/boss/Patecarbo_dialogue.png";
-        case 7: return "assets/perso/dialogue/boss/Racaillou_dialogue.png";
-        case 8: return "assets/perso/dialogue/boss/Roy_dialogue.png";
-        case 9: return "assets/perso/dialogue/boss/Xmarano_dialogue.png";
-        case 10: return "assets/perso/dialogue/boss/Patecarbo_dialogue.png";
-        case 11: return "assets/perso/dialogue/boss/Racaillou_dialogue.png";
-        case 12: return "assets/perso/dialogue/boss/Roy_dialogue.png";
+const char* ennemi_wall(int current_ennemi) {
+    switch (current_ennemi) {
+        case 5: return "assets/perso/dialogue/boss/Boss1_dialogue.png";
+        case 6: return "assets/perso/dialogue/boss/Boss2_dialogue.png";
+        case 7: return "assets/perso/dialogue/boss/Boss3_dialogue.png";
+        case 8: return "assets/perso/dialogue/boss/Boss4_dialogue.png";
+        case 9: return "assets/perso/dialogue/boss/Boss5_dialogue.png";
+        case 10: return "assets/perso/dialogue/boss/Boss6_dialogue.png";
+        case 11: return "assets/perso/dialogue/boss/Boss7_dialogue.png";
+        case 12: return "assets/perso/dialogue/boss/Boss8_dialogue.png";
+        default: return NULL;
     }
 }
-
-void affichage_mechant(Global_t *m, RenderContext_t *context)
-{
-    const char* filename2 = hero_wall(m->perso->current_perso);
-
-    sfTexture* texture2 = sfTexture_createFromFile(filename2, NULL);
-    sfSprite* sprite2 = sfSprite_create();
-    sfSprite_setTexture(sprite2, texture2, sfTrue);
-    sfVector2f position_sprite2 = {400, 667};
-    sfSprite_setPosition(sprite2, position_sprite2);
-    sfIntRect base = {0, 0, 91, 80};
-    sfSprite_setTextureRect(sprite2, base);
-    sfVector2f scale = {3, 3};
-    sfSprite_setScale(sprite2, scale);
-    sfRenderWindow_drawSprite(context->window, sprite2, NULL);
-
-    sfSprite_destroy(sprite2);
-    sfTexture_destroy(texture2);
-}*/
 
 const char* hero_wall(int current_perso) {
     switch (current_perso) {
@@ -46,26 +28,51 @@ const char* hero_wall(int current_perso) {
         case 2: return "assets/perso/dialogue/hero/Racaillou_dialogue.png";
         case 3: return "assets/perso/dialogue/hero/Roy_dialogue.png";
         case 4: return "assets/perso/dialogue/hero/Xmarano_dialogue.png";
+        default: return NULL;
     }
 }
 
-void affichage_hero(Global_t *m, RenderContext_t *context)
+void affichage_mechant(RenderContext_t *context)
 {
-    const char* filename2 = hero_wall(m->perso->current_perso);
+    context->current_boss = 5;
+    const char* filename3 = ennemi_wall(context->current_boss);
 
-    sfTexture* texture2 = sfTexture_createFromFile(filename2, NULL);
-    sfSprite* sprite2 = sfSprite_create();
-    sfSprite_setTexture(sprite2, texture2, sfTrue);
-    sfVector2f position_sprite2 = {400, 667};
-    sfSprite_setPosition(sprite2, position_sprite2);
-    sfIntRect base = {0, 0, 91, 80};
-    sfSprite_setTextureRect(sprite2, base);
-    sfVector2f scale = {3, 3};
-    sfSprite_setScale(sprite2, scale);
-    sfRenderWindow_drawSprite(context->window, sprite2, NULL);
+    if (filename3) {
+        sfTexture* texture3 = sfTexture_createFromFile(filename3, NULL);
+        sfSprite* sprite3 = sfSprite_create();
+        sfSprite_setTexture(sprite3, texture3, sfTrue);
+        sfVector2f position_sprite3 = {1200, 667};
+        sfSprite_setPosition(sprite3, position_sprite3);
+        sfIntRect base = {0, 0, 91, 80};
+        sfSprite_setTextureRect(sprite3, base);
+        sfVector2f scale = {3, 3};
+        sfSprite_setScale(sprite3, scale);
+        sfRenderWindow_drawSprite(context->window, sprite3, NULL);
 
-    sfSprite_destroy(sprite2);
-    sfTexture_destroy(texture2);
+        sfSprite_destroy(sprite3);
+        sfTexture_destroy(texture3);
+    }
+}
+
+void affichage_hero(RenderContext_t *context)
+{
+    const char* filename2 = hero_wall(context->current_hero);
+
+    if (filename2) {
+        sfTexture* texture2 = sfTexture_createFromFile(filename2, NULL);
+        sfSprite* sprite2 = sfSprite_create();
+        sfSprite_setTexture(sprite2, texture2, sfTrue);
+        sfVector2f position_sprite2 = {400, 667};
+        sfSprite_setPosition(sprite2, position_sprite2);
+        sfIntRect base = {0, 0, 91, 80};
+        sfSprite_setTextureRect(sprite2, base);
+        sfVector2f scale = {3, 3};
+        sfSprite_setScale(sprite2, scale);
+        sfRenderWindow_drawSprite(context->window, sprite2, NULL);
+
+        sfSprite_destroy(sprite2);
+        sfTexture_destroy(texture2);
+    }
 }
 
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
@@ -86,17 +93,19 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfTexture* texture = sfTexture_createFromFile("src/dialogue_code/walltom.png", NULL);
     sfSprite* sprite = sfSprite_create();
     sfSprite_setTexture(sprite, texture, sfTrue);
+    sfRenderWindow_clear(context->window, sfWhite);
     sfRenderWindow_drawSprite(context->window, sprite, NULL);
+    affichage_hero(context);
+    affichage_mechant(context);
     sfText *text = sfText_create();
     sfText_setString(text, phrase);
     sfText_setFont(text, context->font);
     sfText_setCharacterSize(text, 30);
-     sfText_setColor(text, sfBlack);
+    sfText_setColor(text, sfBlack);
     sfVector2f position = {x, y};
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
     sfRenderWindow_display(context->window);
-    //affichage_hero()
     sfSleep(sfSeconds(0.1));
     sfText_destroy(text);
     sfSprite_destroy(sprite);
