@@ -11,23 +11,30 @@ int skip_ennemy(char *phrase, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
+    int x_pos = window_width * 0.7;
+    int y_pos = window_height * 0.97;
 
     if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-        sentencept(phrase, context, window_width - 520, 950);
+        sentencept(phrase, context, x_pos, y_pos);
         sfSleep(sfSeconds(0.01));
         return 1;
     }
     return 0;
 }
 
+
 void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
+    int dialogue_x_pos = window_width * 0.7;
+    int dialogue_y_pos = window_height * 0.87;
+    int text_y_pos = window_height * 0.97;
 
-    draw_dialogue(num, window_width - 520, window_height - 520, context);
-    sentencept(phrase, context, window_width - 520, 950);
+    draw_dialogue(num, dialogue_x_pos, dialogue_y_pos, context);
+    sentencept(phrase, context, dialogue_x_pos, text_y_pos);
 }
+
 
 int skip_hero(char *phrase, RenderContext_t *context)
 {

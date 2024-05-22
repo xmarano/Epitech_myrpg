@@ -15,7 +15,7 @@ static void what_world_dia(Global_t *m)
 
     if (m->dialogue.start_dialogue == 1) {
         m->current_combat = 1;
-        m->current_boss = 12;
+        m->current_boss = 5;
         m->old_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         parse_file("dialogue/chap1.txt", &context, m);
@@ -30,7 +30,7 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 1;
+            m->current = 0;
             m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
             m->perso->current_perso = 2;
         }

@@ -14,9 +14,9 @@ void diff_size(sfVector2i mouse, Global_t *m)
     sfFloatRect littlezBounds = sfText_getGlobalBounds(m->setting.littlez);
 
     if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
-        m->window);
-        sfRenderWindow_setSize(m->window, (sfVector2u){800, 600});
+        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
+        sfVideoMode mode = sfVideoMode_getDesktopMode();
+        m->window = sfRenderWindow_create(mode, "MY_RPG", sfFullscreen, NULL);
     }
     if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
         sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
