@@ -66,7 +66,7 @@ static void attack3(Global_t *m, int i, int j, fight_t *f)
     }
 }
 
-static void attack2(Global_t *m , int i, fight_t *f)
+static void attack2(Global_t *m, int i, fight_t *f)
 {
     for (int j = 0; m->current_map[i][j] != '\0'; j++) {
         if (m->current_map[i][j] == (m->univ.interface.who + 48)) {

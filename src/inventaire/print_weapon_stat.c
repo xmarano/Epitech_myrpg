@@ -15,10 +15,12 @@ static void event(Global_t *m, int index)
 
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
-        memcpy(&m->perso[who].current_weapon, &m->perso[who].inv_weapon[index], sizeof(Weapons_t));
+        memcpy(&m->perso[who].current_weapon,
+        &m->perso[who].inv_weapon[index], sizeof(Weapons_t));
     }
     if (sfKeyboard_isKeyPressed(sfKeyS)) {
-        if (strcmp(m->perso[who].current_weapon->name, m->perso[who].inv_weapon[index].name) == 0) {
+        if (strcmp(m->perso[who].current_weapon->name,
+        m->perso[who].inv_weapon[index].name) == 0) {
             memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));
             m->perso[who].current_weapon->idx_weap = -1;
         }

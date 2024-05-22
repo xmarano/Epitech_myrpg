@@ -28,6 +28,7 @@
     #define REFUND 40
     #define SET_TX sfTexture_createFromFile
     #define SP_TXR sfSprite_setTexture
+    #define ATOI my_inttostr
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
@@ -254,7 +255,8 @@ void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
 void parse_file(char *filename, RenderContext_t *context, Global_t *m);
-void wordpt(char *str, RenderContext_t *context, const char *num, int position);
+void wordpt(char *str, RenderContext_t *context,
+    const char *num, int position);
 void hero_speak(char *phrase, const char *num, RenderContext_t *context);
 int skip_hero(char *phrase, RenderContext_t *context);
 void ennemy_speak(char *phrase, const char *num, RenderContext_t *context);
@@ -302,7 +304,8 @@ void draw_monde7(Global_t *m, fight_t *f);
 void draw_monde8(Global_t *m, fight_t *f);
 void init_lifebars2(fight_t *fight, Global_t *m);
 void check_target_ennemy_turn(int i, Global_t *m, sfSprite *spr, char patern);
-int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map, Global_t *m);
+int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
+    char **map, Global_t *m);
 int est_dans_grille(int x, int y);
 void all_ennemy_movement(Global_t *m, char **tab);
 

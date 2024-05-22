@@ -14,8 +14,8 @@ void init_lifebars2(fight_t *fight, Global_t *m)
     fight->hero_lifebar_sprite2 = sfSprite_create();
     fight->ennemy_bar_sprite2 = sfSprite_create();
     sfSprite_setScale(fight->empty_bar_sprite2, (sfVector2f){8, 8});
-    sfSprite_setTexture(fight->empty_bar_sprite2, fight->globat_texture, sfFalse);
+    SP_TXR(fight->empty_bar_sprite2, fight->globat_texture, sfFalse);
     sfSprite_setTextureRect(fight->empty_bar_sprite2, fight->rect_empty_bar2);
-    sfSprite_setTexture(fight->ennemy_bar_sprite2, fight->globat_texture, sfFalse);
-    sfSprite_setTexture(fight->hero_lifebar_sprite2, fight->globat_texture, sfFalse);
+    SP_TXR(fight->ennemy_bar_sprite2, fight->globat_texture, sfFalse);
+    SP_TXR(fight->hero_lifebar_sprite2, fight->globat_texture, sfFalse);
 }

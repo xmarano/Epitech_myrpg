@@ -93,7 +93,8 @@ static void initinfenium(Perso_t *perso, char *name, Weapons_t weapon[])
     set_empty(perso);
 }
 
-static void initroy(Perso_t *perso, char *name, Weapons_t weapon[], Global_t *m)
+static void initroy(Perso_t *perso, char *name,
+    Weapons_t weapon[], Global_t *m)
 {
     char *link_text = "assets/weapons/Roy_sword.png";
     char *link_dia = "assets/perso/dialogue/hero/Roy_dialogue.png";

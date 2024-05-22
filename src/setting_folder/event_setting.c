@@ -7,24 +7,25 @@
 #include "../rpg.h"
 #include <SFML/Graphics.h>
 
-void diff_size(sfVector2i mouse, Global_t *m)
+void diff_size(sfVector2i mu, Global_t *m)
 {
     sfFloatRect bigzBounds = sfText_getGlobalBounds(m->setting.bigz);
     sfFloatRect mediumzBounds = sfText_getGlobalBounds(m->setting.mediumz);
     sfFloatRect littlezBounds = sfText_getGlobalBounds(m->setting.littlez);
+    sfVideoMode mode;
 
-    if (sfFloatRect_contains(&littlezBounds, mouse.x, mouse.y)) {
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y}, m->window);
-        sfVideoMode mode = sfVideoMode_getDesktopMode();
+    if (sfFloatRect_contains(&littlezBounds, mu.x, mu.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y}, m->window);
+        mode = sfVideoMode_getDesktopMode();
         m->window = sfRenderWindow_create(mode, "MY_RPG", sfFullscreen, NULL);
     }
-    if (sfFloatRect_contains(&mediumzBounds, mouse.x, mouse.y)) {
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+    if (sfFloatRect_contains(&mediumzBounds, mu.x, mu.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y},
         m->window);
         sfRenderWindow_setSize(m->window, (sfVector2u){1280, 720});
     }
-    if (sfFloatRect_contains(&bigzBounds, mouse.x, mouse.y)) {
-        sfMouse_setPositionRenderWindow((sfVector2i){mouse.x, mouse.y},
+    if (sfFloatRect_contains(&bigzBounds, mu.x, mu.y)) {
+        sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y},
         m->window);
         sfRenderWindow_setSize(m->window, (sfVector2u){1920, 1080});
     }

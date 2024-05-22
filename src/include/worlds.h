@@ -7,7 +7,7 @@
 
 #ifndef WORLDS_H
     #define WORLDS_H
-    #define get_size sfView_getSize
+    #define GET_SIZE sfView_getSize
     #include "../rpg.h"
 
 typedef struct hub {

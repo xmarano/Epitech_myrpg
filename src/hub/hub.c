@@ -11,6 +11,7 @@
 
 static void reading(Global_t *m)
 {
+    m->dialogue.pro_dia = sfText_create();
     readdialoguefromfile(m, "dialogue/prologue.txt", m->dialogue.lines);
     readdialoguefromfile(m, "dialogue/pou1.txt", m->dialogue.lines_w1);
     readdialoguefromfile(m, "dialogue/pou2.txt", m->dialogue.lines_w2);
@@ -32,9 +33,8 @@ static void init_hub2(Global_t *m, hub_t *h)
     m->dialogue.Font = sfFont_createFromFile("assets/dialogue_font.ttf");
     sfText_setFont(m->dialogue.dia_name, m->dialogue.Font);
     m->hub.cadre = sfSprite_create();
-    m->hub.Cadre = sfTexture_createFromFile(link_dia_b, NULL);
-    m->hub.Cadre2 = sfTexture_createFromFile(link_dia_b2, NULL);
-    m->dialogue.pro_dia = sfText_create();
+    m->hub.Cadre = SET_TX(link_dia_b, NULL);
+    m->hub.Cadre2 = SET_TX(link_dia_b2, NULL);
     reading(m);
     sfSprite_setTexture(h->bulle, h->Bulle, sfFalse);
     sfSprite_setScale(h->bulle, (sfVector2f){0.07, 0.07});
@@ -55,29 +55,29 @@ void init_hub(hub_t *h, Global_t *m)
     h->view = sfView_createFromRect((sfFloatRect){0, 0, 1408, 800});
     h->rect = (sfIntRect){0, 512 + 65 * 2, 65, 65};
     h->sprite_perso = sfSprite_create();
-    h->texture_hub = sfTexture_createFromFile("maps/map.png", NULL);
-    h->texture_hub_night = sfTexture_createFromFile("maps/map_night.png", NULL);
+    h->texture_hub = SET_TX("maps/map.png", NULL);
+    h->texture_hub_night = SET_TX("maps/map_night.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->sprite_hub_night = sfSprite_create();
     h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/map_d.png");
     h->pouilleux = sfSprite_create();
-    h->Pouilleux = sfTexture_createFromFile(link_pou, NULL);
+    h->Pouilleux = SET_TX(link_pou, NULL);
     h->bulle = sfSprite_create();
-    h->Bulle = sfTexture_createFromFile(link_bull, NULL);
+    h->Bulle = SET_TX(link_bull, NULL);
     init_hub2(m, h);
 }
 
 void vision(Global_t *m, hub_t *h)
 {
     if (m->perso->is_visible) {
-        if (get_size(h->view).x < 1920 || get_size(h->view).y < 1080)
+        if (GET_SIZE(h->view).x < 1920 || GET_SIZE(h->view).y < 1080)
             sfView_zoom(h->view, 1.05f);
         sfRenderWindow_setView(m->window, h->normal_view);
     }
     if (!m->perso->is_visible) {
-        if (get_size(h->view).x > 860 || get_size(h->view).y > 800)
+        if (GET_SIZE(h->view).x > 860 || GET_SIZE(h->view).y > 800)
             sfView_zoom(h->view, 0.95f);
         sfRenderWindow_setView(m->window, h->view);
     }
@@ -105,7 +105,7 @@ void draw_hub(Global_t *m, hub_t *h)
             sfTexture_destroy(h->texture_perso);
             h->texture_perso = NULL;
         }
-        h->texture_perso = sfTexture_createFromFile(perso, NULL);
+        h->texture_perso = SET_TX(perso, NULL);
         sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
         sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
         draw_night(m, h);

@@ -37,7 +37,7 @@ void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 
 void sentencept(char *phrase, RenderContext_t *context, int x, int y)
 {
-    sfTexture* texture = sfTexture_createFromFile("src/dialogue_code/wall.png", NULL);
+    sfTexture* texture = SET_TX("src/dialogue_code/wall.png", NULL);
     sfSprite* sprite = sfSprite_create();
     sfVector2f position = {x, y};
 
@@ -55,7 +55,8 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfTexture_destroy(texture);
 }
 
-int verif_parse(char *line, RenderContext_t *context, int current_perso, char *last_speaker)
+int verif_parse(char *line, RenderContext_t *context,
+    int current_perso, char *last_speaker)
 {
     char *speaker = strtok(line, ":");
     char *dialogue = strtok(NULL, "\n");

@@ -26,8 +26,7 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         if (atk->stat_p.current_hp < 0)
             atk->stat_p.current_hp = 0;
         f->is_fight = sfFalse;
-    }
-    if (seconds >= 6 && f->has_def_attacked == sfFalse) {
+    } else if (seconds >= 6 && f->has_def_attacked == sfFalse) {
         printf("here2\n");
         if (def->stat_p.mag > def->stat_p.str)
             atk->stat_p.current_hp -= damage_magical(def, atk);
@@ -39,5 +38,6 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
             atk->stat_p.current_hp = 0;
         f->has_def_attacked = sfTrue;
         get_fight_exp(atk, def);
+        m->univ.interface.go_fight = false;
     }
 }

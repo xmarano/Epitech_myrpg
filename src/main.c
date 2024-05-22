@@ -30,7 +30,7 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 0;
+            m->current = 1;
             m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
             m->perso->current_perso = 2;
         }
@@ -140,7 +140,7 @@ int main(int argc, char **argv)
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     init_dev(argc, argv, &m, &h);
     while (sfRenderWindow_isOpen(m.window)) {
-       rpg(&m, &h, &f);
+        rpg(&m, &h, &f);
     }
     annihilateur2sprite(&m, &h, &f);
     sfRenderWindow_destroy(m.window);
