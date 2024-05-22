@@ -32,12 +32,53 @@ void hp_up(Global_t *m)
     }
 }
 
+void import_emy_in_battle(Global_t *m, int k)
+{
+    k += 5;
+    printf("%s\n", m->perso[m->univ.interface.who].name_perso);
+    printf("%s\n", m->perso[k].name_perso);
+}
+
+static void attack3(Global_t *m, int i, int j)
+{
+    char *liste_emy = "PQRSTUWYZGLDJMEK/*";
+
+    for (int k = 0; liste_emy[k] != '\0'; k++) {
+        if (m->zone1.tab_map[i + 1][j] == liste_emy[k]) {
+            import_emy_in_battle(m, liste_emy[k]);
+            return;
+        }
+        if (m->zone1.tab_map[i - 1][j] == liste_emy[k]) {
+            import_emy_in_battle(m, k);
+            return;
+        }
+        if (m->zone1.tab_map[i][j + 1] == liste_emy[k]) {
+            import_emy_in_battle(m, k);
+            return;
+        }
+        if (m->zone1.tab_map[i][j - 1] == liste_emy[k]) {
+            import_emy_in_battle(m, k);
+            return;
+        }
+    }
+}
+
+static void attack2(Global_t *m , int i)
+{
+    for (int j = 0; m->zone1.tab_map[i][j] != '\0'; j++) {
+        if (m->zone1.tab_map[i][j] == (m->univ.interface.who + 48)) {
+            attack3(m, i, j);
+        }
+    }
+    return;
+}
+
 void attack(Global_t *m)
 {
     if (m->univ.interface.attack_gpy == true) {
-        printf("%d\n", m->univ.interface.who);
-        for (int i = 0; m->zone1.tab_map[i] != NULL; i++)
-            my_printf("\x1b[38;5;21m" "%s\n" "\x1b[0m", m->zone1.tab_map[i]);
+        for (int i = 0; m->zone1.tab_map[i] != NULL; i++) {
+            attack2(m, i);
+        }
         m->univ.interface.attack_gpy = false;
     }
     return;

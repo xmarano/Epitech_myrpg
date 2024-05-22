@@ -111,6 +111,7 @@ void moove_cursor(Global_t *m, sfVector2f pose_curs)
             eventdown(m, &cursor_position, max_position);
         if (sfKeyboard_isKeyPressed(sfKeyZ))
             eventup(m, &cursor_position, max_position);
+        //printf("%d\n", m->univ.interface.where);
     }
     sfSprite_setPosition(m->univ.interface.cursor, pose_curs);
 }

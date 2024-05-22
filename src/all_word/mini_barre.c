@@ -69,5 +69,4 @@ void print_mini_barre(Global_t *m, fight_t *f, int word)
         init_mini_barre(m, f, m->univ.spr_emy3_sword, ENEMY3_SWORD);
         init_mini_barre(m, f, m->univ.spr_emy_mage, ENEMY_MAGE);
     }
-    // autre
 }
