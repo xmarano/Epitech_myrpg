@@ -94,7 +94,7 @@ typedef struct {
     int current_boss;
     int current_hero;
     char *name_hero;
-    char *name_ennemy
+    char *name_ennemy;
 } RenderContext_t;
 
 typedef struct Glob {

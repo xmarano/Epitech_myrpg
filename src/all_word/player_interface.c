@@ -73,61 +73,63 @@ void place_interface(Global_t *m)
     gest_err_pose(m, pose_sp);
 }
 
-static void eventup(Global_t *m, int *cursor_position, int max_position)
+static void eventup(Global_t *m, int max_position)
 {
-    (*cursor_position)--;
-    m->univ.interface.where++;
-    if (*cursor_position < 0) {
-        *cursor_position = max_position;
+    m->univ.interface.cursor_position--;
+    m->univ.interface.where--;
+    if (m->univ.interface.cursor_position < 0) {
+        m->univ.interface.cursor_position = max_position;
+        m->univ.interface.where = 2;
     }
+    printf("%d\n", m->univ.interface.where);
     sfClock_restart(m->univ.interface.curs_clock);
 }
 
-static void eventdown(Global_t *m, int *cursor_position, int max_position)
+static void eventdown(Global_t *m, int max_position)
 {
-    (*cursor_position)++;
+    m->univ.interface.cursor_position++;
     m->univ.interface.where++;
-    if (*cursor_position > max_position) {
-        *cursor_position = 0;
+    if (m->univ.interface.cursor_position > max_position) {
+        m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
     }
+    printf("%d\n", m->univ.interface.where);
     sfClock_restart(m->univ.interface.curs_clock);
 }
 
-void moove_cursor(Global_t *m, sfVector2f pose_curs)
+void moove_cursor(Global_t *m)
 {
-    static int cursor_position = 0;
     const int max_position = 2;
     const float y_increment = 48.0f;
     const float initial_y = 48.0f;
     sfTime time = sfClock_getElapsedTime(m->univ.interface.curs_clock);
     float elapsed_seconds = sfTime_asSeconds(time);
 
-    pose_curs = sfSprite_getPosition(m->univ.interface.fond_interf);
-    pose_curs.x += 18;
-    pose_curs.y += initial_y + (cursor_position * y_increment);
+    m->univ.interface.pose_curs = sfSprite_getPosition(m->univ.interface.fond_interf);
+    m->univ.interface.pose_curs.x += 18;
+    m->univ.interface.pose_curs.y += initial_y + (m->univ.interface.cursor_position * y_increment);
     if (elapsed_seconds > 0.2f) {
         if (sfKeyboard_isKeyPressed(sfKeyS))
-            eventdown(m, &cursor_position, max_position);
+            eventdown(m, max_position);
         if (sfKeyboard_isKeyPressed(sfKeyZ))
-            eventup(m, &cursor_position, max_position);
+            eventup(m, max_position);
         //printf("%d\n", m->univ.interface.where);
     }
-    sfSprite_setPosition(m->univ.interface.cursor, pose_curs);
+    sfSprite_setPosition(m->univ.interface.cursor, m->univ.interface.pose_curs);
 }
 
 void gest_cursor(Global_t *m)
 {
-    sfVector2f pose_curs;
-
-    moove_cursor(m, pose_curs);
+    moove_cursor(m);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.cursor, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         if (m->univ.interface.where == 1)
             hp_up(m);
         if (m->univ.interface.where == 2)
             m->univ.interface.attack_gpy = true;
+        printf("here\n");
         m->univ.interface.select_inteface = false;
+        m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
     }
 }
