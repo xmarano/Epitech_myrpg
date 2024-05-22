@@ -18,14 +18,9 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
     if (f->is_fight == sfTrue && seconds > 2) {
         if (atk->stat_p.mag > atk->stat_p.str)
-            def->stat_p.current_hp -= damage_magical(atk, def);
+            f->dmg_def_received = damage_magical(atk, def);
         else
-            def->stat_p.current_hp -= damage_physical(atk, def);
-        /*if (def->stat_p.current_hp > 0)
-            if (def->stat_p.mag > def->stat_p.str)
-                atk->stat_p.current_hp -= damage_magical(def, atk);
-            else
-                atk->stat_p.current_hp -= damage_physical(def, atk);*/
+            f->dmg_def_received = damage_physical(atk, def);
         if (def->stat_p.current_hp < 0)
             def->stat_p.current_hp = 0;
         if (atk->stat_p.current_hp < 0)
@@ -33,11 +28,10 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         f->is_fight = sfFalse;
     }
     if (seconds > 6 && f->has_def_attacked == sfFalse) {
-            if (def->stat_p.current_hp > 0)
-            if (def->stat_p.mag > def->stat_p.str)
-                atk->stat_p.current_hp -= damage_magical(def, atk);
-            else
-                atk->stat_p.current_hp -= damage_physical(def, atk);
+        if (def->stat_p.mag > def->stat_p.str)
+            f->dmg_atk_received = damage_magical(def, atk);
+        else
+            f->dmg_atk_received = damage_physical(def, atk);
         if (def->stat_p.current_hp < 0)
             def->stat_p.current_hp = 0;
         if (atk->stat_p.current_hp < 0)

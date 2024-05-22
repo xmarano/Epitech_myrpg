@@ -41,11 +41,11 @@ void import_emy_in_battle(Global_t *m, int k)
 
 static void attack3(Global_t *m, int i, int j)
 {
-    char *liste_emy = "PQRSTUWYZGLDJMEK/*";
+    char *liste_emy = "PQRSTUWYMGLDJEZK/*";
 
     for (int k = 0; liste_emy[k] != '\0'; k++) {
         if (m->zone1.tab_map[i + 1][j] == liste_emy[k]) {
-            import_emy_in_battle(m, liste_emy[k]);
+            import_emy_in_battle(m, k);
             return;
         }
         if (m->zone1.tab_map[i - 1][j] == liste_emy[k]) {
