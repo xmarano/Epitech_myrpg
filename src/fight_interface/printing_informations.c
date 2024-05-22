@@ -22,6 +22,20 @@ int set_dmg(fight_t *fight, Global_t *m, Perso_t *atk, Perso_t *def)
         fight->dmg_def = get_damage_magical(def, atk);
 }
 
+void reset_hp_barre(fight_t *fight, Global_t *m)
+{
+    sfSprite_setScale(fight->combat_scene, (sfVector2f){8, 6.25});
+    sfSprite_setScale(fight->empty_bar_sprite, (sfVector2f){8, 8});
+    sfSprite_setTexture(fight->empty_bar_sprite, fight->globat_texture, sfFalse);
+    sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
+    sfSprite_setTexture(fight->ennemy_bar_sprite, fight->globat_texture, sfFalse);
+    sfSprite_setPosition(fight->ennemy_bar_sprite, (sfVector2f){1075, 900});
+    sfSprite_setScale(fight->ennemy_bar_sprite, (sfVector2f){8, 8});
+    sfSprite_setTexture(fight->hero_lifebar_sprite, fight->globat_texture, sfFalse);
+    sfSprite_setPosition(fight->hero_lifebar_sprite, (sfVector2f){100, 900});
+    sfSprite_setScale(fight->hero_lifebar_sprite, (sfVector2f){8, 8});
+}
+
 void init_lifebars(fight_t *fight, Global_t *m)
 {
     fight->globat_texture = sfTexture_createFromFile("assets/fight/combat_visualize.png", NULL);
@@ -34,16 +48,7 @@ void init_lifebars(fight_t *fight, Global_t *m)
     fight->is_fight = sfTrue;
     fight->clock_lifebar = sfClock_create();
     sfSprite_setTexture(fight->combat_scene, sfTexture_createFromFile("assets/fight/battle_scene.png", NULL), sfFalse);
-    sfSprite_setScale(fight->combat_scene, (sfVector2f){8, 6.25});
-    sfSprite_setScale(fight->empty_bar_sprite, (sfVector2f){8, 8});
-    sfSprite_setTexture(fight->empty_bar_sprite, fight->globat_texture, sfFalse);
-    sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
-    sfSprite_setTexture(fight->ennemy_bar_sprite, fight->globat_texture, sfFalse);
-    sfSprite_setPosition(fight->ennemy_bar_sprite, (sfVector2f){1075, 900});
-    sfSprite_setScale(fight->ennemy_bar_sprite, (sfVector2f){8, 8});
-    sfSprite_setTexture(fight->hero_lifebar_sprite, fight->globat_texture, sfFalse);
-    sfSprite_setPosition(fight->hero_lifebar_sprite, (sfVector2f){100, 900});
-    sfSprite_setScale(fight->hero_lifebar_sprite, (sfVector2f){8, 8});
+    reset_hp_barre(fight, m);
 }
 
 void draw_text(sfVector2f pos, char *msg, Global_t *m, fight_t *f)

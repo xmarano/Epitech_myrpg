@@ -33,7 +33,7 @@ void init_player_interface(Global_t *m)
     sp_txr(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
     m->univ.interface.curs_clock = sfClock_create();
-    m->univ.interface.limite_tour = 4;
+    m->univ.interface.limite_tour = 5;
     m->univ.interface.tour = sfText_create();
     sfText_setFont(m->univ.interface.tour, m->dialogue.Font);
     sfText_setFillColor(m->univ.interface.tour, sfBlack);

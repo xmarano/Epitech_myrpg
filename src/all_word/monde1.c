@@ -19,7 +19,7 @@ void draw_monde1(Global_t *m, fight_t *f)
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
         check_all_pose(m, m->current_map, 1);
         move_game_cursor(m);
-        if (m->univ.interface.limite_tour >= 0)
+        if (m->univ.interface.limite_tour > 0)
             all_perso_movement(m, m->current_map);
         //print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f, 1);
