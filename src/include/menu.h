@@ -15,6 +15,7 @@
     #define MENU_H
 
 typedef struct Menu {
+    sfMusic* music;
     sfVector2u wsize;
     sfClock *save_auto_clk;
     sfSprite *map;

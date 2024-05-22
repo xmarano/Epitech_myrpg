@@ -34,8 +34,6 @@ void draw_setting(Global_t *m)
         m->setting.buttonretour, NULL);
         sfRenderWindow_drawRectangleShape(m->window,
         m->setting.buttonwindow, NULL);
-        sfRenderWindow_drawRectangleShape(m->window,
-        m->setting.buttonsett, NULL);
         text_setting(m);
         verif_thing(m);
     }

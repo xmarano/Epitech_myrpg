@@ -12,15 +12,10 @@ void hover_rectangle(Global_t *m, sfRectangleShape *shape)
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect bounds = sfRectangleShape_getGlobalBounds(shape);
 
-    if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
-        sfRectangleShape_setOutlineColor(shape,
-        sfColor_fromRGB(255, 255, 255));
-        sfRectangleShape_setOutlineThickness(shape, 5);
-    } else {
-        sfRectangleShape_setOutlineColor(shape,
-        sfColor_fromRGB(0, 0, 0));
-        sfRectangleShape_setOutlineThickness(shape, 0);
-    }
+    if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y))
+        sfRectangleShape_setOutlineColor(shape, sfWhite);
+    else
+        sfRectangleShape_setOutlineColor(shape, sfBlack);
 }
 
 void hover_text(Global_t *m, sfText *text)

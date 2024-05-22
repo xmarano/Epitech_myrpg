@@ -140,8 +140,10 @@ void check_hover_select(Global_t *m)
     racaillou_select(m);
     hover(m, m->s.play, &m->s.gb_play);
     if (sfFloatRect_contains(&m->s.gb_play, m->mouse.x, m->mouse.y))
-        if (sfMouse_isButtonPressed(sfMouseLeft))
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+            sfMusic_pause(m->menu.music);
             m->current = 14;
+        }
     hover(m, m->s.back, &m->s.gb_back);
     if (sfFloatRect_contains(&m->s.gb_back, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {

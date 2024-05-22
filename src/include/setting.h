@@ -49,7 +49,6 @@ typedef struct setting {
     sfRectangleShape *buttonvolum;
     sfRectangleShape *buttonretour;
     sfRectangleShape *buttonwindow;
-    sfRectangleShape *buttonsett;
 
     sfRectangleShape *coversynop;
     sfRectangleShape *covercredit;

@@ -13,8 +13,8 @@ sfRectangleShape *init_button2(Global_t *m, sfVector2f size, sfVector2f pos)
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setFillColor(shape, sfColor_fromRGB(245, 178, 49));
-    sfRectangleShape_setOutlineThickness(shape, 7);
-    sfRectangleShape_setOutlineColor(shape, sfColor_fromRGB(0, 0, 0));
+    sfRectangleShape_setOutlineThickness(shape, 5);
+    sfRectangleShape_setOutlineColor(shape, sfBlack);
     sfRectangleShape_setPosition(shape, pos);
     return shape;
 }
@@ -41,11 +41,11 @@ void init_setting3(Global_t *m)
     "1920 x 1080", 50, (sfVector2f){600, 460});
     m->setting.volumeclicked = false;
     m->setting.volumeb = init_text2(m->setting.font,
-    "dicrease volume", 50, (sfVector2f){570, 690});
+    "Volume Up", 50, (sfVector2f){570, 690});
     m->setting.volumeh = init_text2(m->setting.font,
-    "increase volume", 50, (sfVector2f){570, 750});
+    "Volume Down", 50, (sfVector2f){570, 750});
     m->setting.cvolume = init_text2(m->setting.font,
-    "volume cut", 50, (sfVector2f){570, 810});
+    "Stop Music", 50, (sfVector2f){570, 810});
 }
 
 void init_setting2(Global_t *m)
@@ -72,13 +72,12 @@ void init_setting(Global_t *m)
     m->setting.background_s = init_sprite("assets/setting/background.png"
     , (sfVector2f){0, 0});
     m->setting.retour = init_text2(m->setting.font,
-    "retour", 50, (sfVector2f){50, 25});
+    "back", 50, (sfVector2f){70, 22});
     m->setting.buttonretour = init_button2(m,
     (sfVector2f){170, 60}, (sfVector2f){30, 30});
-    m->setting.titre = init_text(m, "Settings", 110, 10);
-    m->setting.buttonsett = init_button(m, (sfVector2f){430, 120}, 35);
+    m->setting.titre = init_text(m, "SETTINGS", 135, 10);
     m->setting.credit = init_text2(m->setting.font,
-    "credit", 50, (sfVector2f){192, 600});
+    "credits", 50, (sfVector2f){182, 600});
     m->setting.buttoncred = init_button2(m,
     (sfVector2f){200, 58}, (sfVector2f){150, 610});
     init_setting2(m);

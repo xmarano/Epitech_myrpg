@@ -22,7 +22,6 @@ void destroy_all2(Global_t *m)
     sfRectangleShape_destroy(m->setting.buttonvolum);
     sfRectangleShape_destroy(m->setting.buttonretour);
     sfRectangleShape_destroy(m->setting.buttonwindow);
-    sfRectangleShape_destroy(m->setting.buttonsett);
     sfRectangleShape_destroy(m->setting.coversynop);
     sfRectangleShape_destroy(m->setting.covercredit);
 }

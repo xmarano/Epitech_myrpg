@@ -9,26 +9,24 @@
 
 void max_volume(Global_t *m)
 {
-    float volume = sfMusic_getVolume(m->setting.music);
+    float volume = sfMusic_getVolume(m->menu.music);
 
-    if (volume + 10 < 100) {
+    if (volume + 10 < 100)
         volume = volume + 10;
-    } else {
+    else
         volume = 100;
-    }
-    sfMusic_setVolume(m->setting.music, volume);
+    sfMusic_setVolume(m->menu.music, volume);
 }
 
 void min_volume(Global_t *m)
 {
-    float volume = sfMusic_getVolume(m->setting.music);
+    float volume = sfMusic_getVolume(m->menu.music);
 
-    if (volume - 10 > 0) {
+    if (volume - 10 > 0)
         volume = volume - 10;
-    } else {
+    else
         volume = 0;
-    }
-    sfMusic_setVolume(m->setting.music, volume);
+    sfMusic_setVolume(m->menu.music, volume);
 }
 
 void stop_song(Global_t *m)
@@ -36,11 +34,9 @@ void stop_song(Global_t *m)
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
     sfFloatRect bounds = sfText_getGlobalBounds(m->setting.cvolume);
 
-    if (m->setting.cvolume != NULL) {
-        if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y)) {
-            sfMusic_setVolume(m->setting.music, 0);
-        }
-    }
+    if (m->setting.cvolume != NULL)
+        if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y))
+            sfMusic_setVolume(m->menu.music, 0);
 }
 
 void verif_song(sfVector2i mouse, Global_t *m)
