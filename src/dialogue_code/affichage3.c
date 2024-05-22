@@ -39,7 +39,7 @@ const char *hero_wall(int current_perso)
         case 1:
             return "assets/perso/dialogue/hero/Infenium_dialogue.png";
         case 2:
-            return " assets/perso/dialogue/hero/Patecarbo_dialogue.png";
+            return "assets/perso/dialogue/hero/Patecarbo_dialogue.png";
         case 3:
             return "assets/perso/dialogue/hero/Xmarano_dialogue.png";
         case 4:
