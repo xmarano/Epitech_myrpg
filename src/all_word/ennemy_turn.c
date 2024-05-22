@@ -23,19 +23,19 @@ void set_previous_case_ennemy(Global_t *m, sfVector2f pos_spr, char **map)
 
 void move_ennemy(Global_t *m, sfVector2i previous_pos, sfVector2i pos_target, char patern)
 {
-    if (m->current_map[pos_target.y][pos_target.x + 1] != 'X') {
+    if (m->current_map[pos_target.y][pos_target.x + 1] != 'X' && !isdigit(m->current_map[pos_target.y][pos_target.x + 1])) {
         m->current_map[pos_target.y][pos_target.x + 1] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y][pos_target.x - 1] != 'X') {
+    } else if (m->current_map[pos_target.y][pos_target.x - 1] != 'X' && !isdigit(m->current_map[pos_target.y][pos_target.x - 1])) {
         m->current_map[pos_target.y][pos_target.x - 1] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y + 1][pos_target.x] != 'X') {
+    } else if (m->current_map[pos_target.y + 1][pos_target.x] != 'X' && !isdigit(m->current_map[pos_target.y + 1][pos_target.x])) {
         m->current_map[pos_target.y + 1][pos_target.x] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y - 1][pos_target.x] != 'X') {
+    } else if (m->current_map[pos_target.y - 1][pos_target.x] != 'X' && !isdigit(m->current_map[pos_target.y - 1][pos_target.x + 1])) {
         m->current_map[pos_target.y - 1][pos_target.x] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
