@@ -91,6 +91,20 @@ void affichage_hero(RenderContext_t *context)
     }
 }
 
+void draw_dialogue2(const char *str, int x, int y, RenderContext_t *context)
+{
+    sfText *text = sfText_create();
+    sfVector2f position = {x, y};
+
+    sfText_setString(text, str);
+    sfText_setFont(text, context->font);
+    sfText_setCharacterSize(text, 30);
+    sfText_setColor(text, sfWhite);
+    sfText_setPosition(text, position);
+    sfRenderWindow_drawText(context->window, text, NULL);
+    sfText_destroy(text);
+}
+
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 {
     sfText *text = sfText_create();
@@ -110,22 +124,17 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfTexture* texture = sfTexture_createFromFile("src/dialogue_code/wall.png", NULL);
     sfSprite* sprite = sfSprite_create();
     sfVector2f position = {x, y};
-    sfText *text = sfText_create();
 
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfRenderWindow_clear(context->window, sfWhite);
     sfRenderWindow_drawSprite(context->window, sprite, NULL);
     affichage_hero(context);
     affichage_mechant(context);
-    sfText_setString(text, phrase);
-    sfText_setFont(text, context->font);
-    sfText_setCharacterSize(text, 30);
-    sfText_setColor(text, sfBlack);
-    sfText_setPosition(text, position);
-    sfRenderWindow_drawText(context->window, text, NULL);
+    draw_dialogue(phrase, x, y, context);
+    draw_dialogue2(context->name_ennemy, 1625, 882, context);
+    draw_dialogue2(context->name_hero, 170, 882, context);
     sfRenderWindow_display(context->window);
-    sfSleep(sfSeconds(0.001));
-    sfText_destroy(text);
+    sfSleep(sfSeconds(0.01));
     sfSprite_destroy(sprite);
     sfTexture_destroy(texture);
 }
@@ -158,11 +167,8 @@ void parse_file(char *filename, RenderContext_t *context, Global_t *m)
         return;
     context->current_boss = m->current_boss;
     context->current_hero = m->perso->current_perso;
-    m->perso[m->current_boss].name_perso;
-    m->perso[m->perso->current_perso].name_perso;
-    printf("Valeur de name_perso pour m->perso[m->current_boss]: %s\n", m->perso[m->current_boss].name_perso);
-    printf("Valeur de name_perso pour m->perso[m->perso->current_perso]: %s\n", m->perso[m->perso->current_perso].name_perso);
-    printf("Valeur de current_boss : %d\n", context->current_boss);
+    context->name_ennemy = m->perso[m->current_boss].name_perso;
+    context->name_hero = m->perso[m->perso->current_perso].name_perso;
     while (fgets(line, sizeof(line), file)) {
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             break;
