@@ -30,7 +30,7 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 0;
+            m->current = 1;
             m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
             m->perso->current_perso = 2;
         }
@@ -63,7 +63,7 @@ static void draw_mondes(Global_t *m, fight_t *f)
     draw_monde7(m, f);
     draw_monde8(m, f);
     draw_player_interface(m);
-    attack(m);
+    attack(m, f);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
@@ -83,6 +83,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     save_auto(m);
     draw_inventaire(m, h);
     draw_mouse(m);
+    print_fight_scene(m, f);
     print_save_txt(m);
     loading_screen(m);
     sfRenderWindow_display(m->window);
@@ -121,6 +122,7 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     init_loading(m);
     init_player_interface(m);
     init_lifebars(f, m);
+    init_lifebars2(f, m);
 }
 
 int main(int argc, char **argv)

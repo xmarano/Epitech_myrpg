@@ -94,6 +94,9 @@ typedef struct interface {
     int cursor_position;
     int limite_tour;
     sfText *tour;
+    bool go_fight;
+    int attacker;
+    int defender;
 }Interface_t;
 
 typedef struct Zone {

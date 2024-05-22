@@ -264,7 +264,6 @@ const char *ennemi_wall(int current_ennemi);
 const char *hero_wall(int current_perso);
 void affichage_mechant(RenderContext_t *context);
 void affichage_hero(RenderContext_t *context);
-
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);
@@ -287,11 +286,11 @@ bool is_movement_ok(sfSprite *spr, int i, char **map, Global_t *m);
 void draw_player_interface(Global_t *m);
 void init_player_interface(Global_t *m);
 void dest_p_interface(Global_t *m);
-void attack(Global_t *m);
 
     #include "include/fight.h"
 
 void reset_hp_barre(fight_t *fight, Global_t *m);
+void attack(Global_t *m, fight_t *f);
 void draw_monde1(Global_t *m, fight_t *f);
 void print_mini_barre(Global_t *m, fight_t *f, int word);
 void draw_monde2(Global_t *m, fight_t *f);
@@ -301,5 +300,6 @@ void draw_monde5(Global_t *m, fight_t *f);
 void draw_monde6(Global_t *m, fight_t *f);
 void draw_monde7(Global_t *m, fight_t *f);
 void draw_monde8(Global_t *m, fight_t *f);
+void init_lifebars2(fight_t *fight, Global_t *m);
 
 #endif
