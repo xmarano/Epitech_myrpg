@@ -92,6 +92,8 @@ typedef struct interface {
     bool attack_gpy;
     sfVector2f pose_curs;
     int cursor_position;
+    int limite_tour;
+    sfText *tour;
 }Interface_t;
 
 typedef struct Zone {

@@ -30,6 +30,16 @@ void init_mini_barre(Global_t *m, fight_t *f, sfSprite *sprite, int who)
     sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite, NULL);
 }
 
+static void print_tour(Global_t *m)
+{
+    char test[20];
+
+    sprintf(test, "Turn Left:  %d", m->univ.interface.limite_tour);
+    sfText_setString(m->univ.interface.tour, test);
+    sfText_setPosition(m->univ.interface.tour, (sfVector2f){10, 20});
+    sfRenderWindow_drawText(m->window, m->univ.interface.tour, NULL);
+}
+
 void print_boss_barre3(Global_t *m, fight_t *f, int word)
 {
     if (word >= 7 && word <= 8) {
@@ -78,5 +88,6 @@ void print_mini_barre(Global_t *m, fight_t *f, int word)
         init_mini_barre(m, f, m->univ.spr_emy1_spear, ENEMY1_SPEAR);
         init_mini_barre(m, f, m->univ.spr_emy1_sword, ENEMY1_SWORD);
     }
+    print_tour(m);
     print_boss_barre2(m, f, word);
 }
