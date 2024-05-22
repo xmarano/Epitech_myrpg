@@ -259,6 +259,11 @@ int skip_hero(char *phrase, RenderContext_t *context);
 void ennemy_speak(char *phrase, const char *num, RenderContext_t *context);
 int skip_ennemy(char *phrase, RenderContext_t *context);
 void sentencept(char *phrase, RenderContext_t *context, int x, int y);
+const char *ennemi_wall(int current_ennemi);
+const char *hero_wall(int current_perso);
+void affichage_mechant(RenderContext_t *context);
+void affichage_hero(RenderContext_t *context);
+
 void draw_dialogue(const char *str, int x, int y, RenderContext_t *context);
 void init_pouill_dialog(Global_t *m);
 void draw_pouill_dia(Global_t *m, int word, sfVector2f pose, hub_t *hub);
