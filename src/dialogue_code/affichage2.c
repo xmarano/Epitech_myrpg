@@ -34,7 +34,6 @@ void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
     sentencept(phrase, context, dialogue_x_pos, text_y_pos);
 }
 
-
 int skip_hero(char *phrase, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
