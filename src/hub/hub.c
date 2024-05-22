@@ -83,7 +83,7 @@ void vision(Global_t *m, hub_t *h)
     }
 }
 
-static draw_night(Global_t *m, hub_t *h)
+static void draw_night(Global_t *m, hub_t *h)
 {
     time_t rawtime;
     struct tm *timeinfo;

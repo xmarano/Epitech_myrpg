@@ -166,9 +166,11 @@ void print_fight_scene(Global_t *m, fight_t *fight)
         draw_text((sfVector2f){1525, 50}, def->name_perso, m, fight);
         draw_stats(atk, def, m, fight);
         print_sprites(atk, def, m, fight);
-        if (sfKeyboard_isKeyPressed(sfKeyS)) {
-            m->univ.interface.go_fight = false;
-        }
+        //printf("atk = %d, def = %d\n", atk->stat_p.current_hp, def->stat_p.current_hp);
+        // if (atk->stat_p.current_hp <= 0 || def->stat_p.current_hp <= 0) {
+        // printf("fight end\n");
+        //     //m->univ.interface.go_fight = false;
+        // }
     }
 }
 

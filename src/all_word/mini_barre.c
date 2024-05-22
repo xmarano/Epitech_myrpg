@@ -66,51 +66,71 @@ static void print_tour(Global_t *m)
 void print_boss_barre3(Global_t *m, fight_t *f, int word)
 {
     if (word >= 7 && word <= 8) {
-        if (word == 7)
+        if (word == 7 && m->perso[BOSS7].stat_p.current_hp > 0)
             init_mini_barre_emy(m, f, m->univ.spr_Boss7, BOSS7);
-        if (word == 8)
+        if (word == 8 && m->perso[BOSS8].stat_p.current_hp > 0)
             init_mini_barre_emy(m, f, m->univ.spr_Boss8, BOSS8);
-        init_mini_barre_emy(m, f, m->univ.spr_emy3_axe, ENEMY3_AXE);
-        init_mini_barre_emy(m, f, m->univ.spr_emy3_spear, ENEMY3_SPEAR);
-        init_mini_barre_emy(m, f, m->univ.spr_emy3_sword, ENEMY3_SWORD);
-        init_mini_barre_emy(m, f, m->univ.spr_emy_mage, ENEMY_MAGE);
+        if (m->perso[ENEMY3_AXE].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy3_axe, ENEMY3_AXE);
+        if (m->perso[ENEMY3_SPEAR].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy3_spear, ENEMY3_SPEAR);
+        if (m->perso[ENEMY3_SWORD].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy3_sword, ENEMY3_SWORD);
+        if (m->perso[ENEMY_MAGE].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy_mage, ENEMY_MAGE);
     }
 }
 
 void print_boss_barre2(Global_t *m, fight_t *f, int word)
 {
     if (word >= 4 && word <= 6) {
-        if (word == 4)
+        if (word == 4 && m->perso[BOSS4].stat_p.current_hp > 0)
             init_mini_barre_emy(m, f, m->univ.spr_Boss4, BOSS4);
-        if (word == 5)
+        if (word == 5 && m->perso[BOSS5].stat_p.current_hp > 0)
             init_mini_barre_emy(m, f, m->univ.spr_Boss5, BOSS5);
-        if (word == 6)
+        if (word == 6 && m->perso[BOSS6].stat_p.current_hp > 0)
             init_mini_barre_emy(m, f, m->univ.spr_Boss6, BOSS6);
-        init_mini_barre_emy(m, f, m->univ.spr_emy2_axe, ENEMY2_AXE);
-        init_mini_barre_emy(m, f, m->univ.spr_emy2_spear, ENEMY2_SPEAR);
-        init_mini_barre_emy(m, f, m->univ.spr_emy2_sword, ENEMY2_SWORD);
+        if (m->perso[ENEMY2_AXE].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy2_axe, ENEMY2_AXE);
+        if (m->perso[ENEMY2_SPEAR].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy2_spear, ENEMY2_SPEAR);
+        if (m->perso[ENEMY2_SWORD].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy2_sword, ENEMY2_SWORD);
     }
     print_boss_barre3(m, f, word);
 }
 
+static void print_mini_barre2_1(Global_t *m, fight_t *f, int word)
+{
+    if (word >= 1 && word <= 3) {
+        if (word == 1 && m->perso[BOSS1].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_Boss1, BOSS1);
+        if (word == 2 && m->perso[BOSS2].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_Boss2, BOSS2);
+        if (word == 3 && m->perso[BOSS3].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_Boss3, BOSS3);
+        if (m->perso[ENEMY1_AXE].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy1_axe, ENEMY1_AXE);
+        if (m->perso[ENEMY1_SPEAR].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy1_spear, ENEMY1_SPEAR);
+        if (m->perso[ENEMY1_SWORD].stat_p.current_hp > 0)
+            init_mini_barre_emy(m, f, m->univ.spr_emy1_sword, ENEMY1_SWORD);
+    }
+}
+
 void print_mini_barre(Global_t *m, fight_t *f, int word)
 {
-    init_mini_barre(m, f, m->univ.spr_roy, ROY);
-    init_mini_barre(m, f, m->univ.spr_xmara, XMARANO);
-    init_mini_barre(m, f, m->univ.spr_pate, PATECARBO);
-    init_mini_barre(m, f, m->univ.spr_infe, INFENIUM);
-    init_mini_barre(m, f, m->univ.spr_raca, RACAILLOU);
-    if (word >= 1 && word <= 3) {
-        if (word == 1)
-            init_mini_barre_emy(m, f, m->univ.spr_Boss1, BOSS1);
-        if (word == 2)
-            init_mini_barre_emy(m, f, m->univ.spr_Boss2, BOSS2);
-        if (word == 3)
-            init_mini_barre_emy(m, f, m->univ.spr_Boss3, BOSS3);
-        init_mini_barre_emy(m, f, m->univ.spr_emy1_axe, ENEMY1_AXE);
-        init_mini_barre_emy(m, f, m->univ.spr_emy1_spear, ENEMY1_SPEAR);
-        init_mini_barre_emy(m, f, m->univ.spr_emy1_sword, ENEMY1_SWORD);
-    }
+    if (m->perso[ROY].stat_p.current_hp > 0)
+        init_mini_barre(m, f, m->univ.spr_roy, ROY);
+    if (m->perso[XMARANO].stat_p.current_hp > 0)
+        init_mini_barre(m, f, m->univ.spr_xmara, XMARANO);
+    if (m->perso[PATECARBO].stat_p.current_hp > 0)
+        init_mini_barre(m, f, m->univ.spr_pate, PATECARBO);
+    if (m->perso[INFENIUM].stat_p.current_hp > 0)
+        init_mini_barre(m, f, m->univ.spr_infe, INFENIUM);
+    if (m->perso[RACAILLOU].stat_p.current_hp > 0)
+        init_mini_barre(m, f, m->univ.spr_raca, RACAILLOU);
+    print_mini_barre2_1(m, f, word);
     print_tour(m);
     print_boss_barre2(m, f, word);
 }

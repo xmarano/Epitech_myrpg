@@ -12,22 +12,14 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
-static int check3(char tab[4], int x, int y, char **map)
-{
-    for (int i = 0; i < strlen(tab); i++) {
-        if (map[x][y] == tab[i])
-            return 1;
-    }
-    return 0;
-}
-
 static int check2(char **map, int y, int x, Global_t *m)
 {
-    char *tab = NULL;
+    char *tab = "PQRSTUWYLM/GJKZDE*";
 
-    tab = "1234";
-    if (check3(tab, x, y, map))
-        return -1;
+    for (int i = 0; i < strlen(tab); i++) {
+        if (map[x][y] == tab[i])
+            return -1;
+    }
     return 0;
 }
 
@@ -40,8 +32,8 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map, Global_t
     int err = dx + dy, e2;
 
     while (1) {
-        // if (check2(map, pos_0.x, pos_0.y, m) == -1)
-        //     return 0;
+        if (check2(map, pos_0.x, pos_0.y, m) == -1)
+            return 0;
         if (map[pos_0.y][pos_0.x] == 'X')
             return 0;
         if (pos_0.x == pos_1.x && pos_0.y == pos_1.y) break;
