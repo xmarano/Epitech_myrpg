@@ -35,7 +35,9 @@ void hp_up(Global_t *m)
 void attack(Global_t *m)
 {
     if (m->univ.interface.attack_gpy == true) {
-        
+        printf("%d\n", m->univ.interface.who);
+        for (int i = 0; m->zone1.tab_map[i] != NULL; i++)
+            my_printf("\x1b[38;5;21m" "%s\n" "\x1b[0m", m->zone1.tab_map[i]);
         m->univ.interface.attack_gpy = false;
     }
     return;
