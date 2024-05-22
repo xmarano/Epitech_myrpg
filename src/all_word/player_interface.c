@@ -33,6 +33,11 @@ void init_player_interface(Global_t *m)
     sp_txr(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
     m->univ.interface.curs_clock = sfClock_create();
+    m->univ.interface.limite_tour = 4;
+    m->univ.interface.tour = sfText_create();
+    sfText_setFont(m->univ.interface.tour, m->dialogue.Font);
+    sfText_setFillColor(m->univ.interface.tour, sfBlack);
+    sfText_setCharacterSize(m->univ.interface.tour, 20);
 }
 
 static void gest_err_pose(Global_t *m, sfVector2f pose_sp)
@@ -81,7 +86,6 @@ static void eventup(Global_t *m, int max_position)
         m->univ.interface.cursor_position = max_position;
         m->univ.interface.where = 2;
     }
-    printf("%d\n", m->univ.interface.where);
     sfClock_restart(m->univ.interface.curs_clock);
 }
 
@@ -93,7 +97,6 @@ static void eventdown(Global_t *m, int max_position)
         m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
     }
-    printf("%d\n", m->univ.interface.where);
     sfClock_restart(m->univ.interface.curs_clock);
 }
 
@@ -113,7 +116,6 @@ void moove_cursor(Global_t *m)
             eventdown(m, max_position);
         if (sfKeyboard_isKeyPressed(sfKeyZ))
             eventup(m, max_position);
-        //printf("%d\n", m->univ.interface.where);
     }
     sfSprite_setPosition(m->univ.interface.cursor, m->univ.interface.pose_curs);
 }
@@ -127,10 +129,10 @@ void gest_cursor(Global_t *m)
             hp_up(m);
         if (m->univ.interface.where == 2)
             m->univ.interface.attack_gpy = true;
-        printf("here\n");
         m->univ.interface.select_inteface = false;
         m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
+        m->univ.interface.limite_tour -= 1;
     }
 }
 
