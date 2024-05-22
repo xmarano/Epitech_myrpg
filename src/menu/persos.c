@@ -117,6 +117,15 @@ static void racaillou_select(Global_t *m)
     }
 }
 
+static void all_deselect(Global_t *m)
+{
+    m->s.p1_select = 0;
+    m->s.p2_select = 0;
+    m->s.p3_select = 0;
+    m->s.p4_select = 0;
+    m->s.p5_select = 0;
+}
+
 void check_hover_select(Global_t *m)
 {
     hover(m, m->s.button1, &m->s.gb_b1);
@@ -135,6 +144,8 @@ void check_hover_select(Global_t *m)
             m->current = 14;
     hover(m, m->s.back, &m->s.gb_back);
     if (sfFloatRect_contains(&m->s.gb_back, m->mouse.x, m->mouse.y))
-        if (sfMouse_isButtonPressed(sfMouseLeft))
+        if (sfMouse_isButtonPressed(sfMouseLeft)) {
             m->current = 10;
+            all_deselect(m);
+        }
 }

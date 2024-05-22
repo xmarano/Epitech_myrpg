@@ -105,9 +105,9 @@ static void draw_name(Global_t *m, sfVector2f pose)
         sfSprite_setTexture(m->hub.cadre, m->hub.Cadre2, sfFalse);
     sfRenderWindow_drawSprite(m->window, m->hub.dia_pouill, NULL);
     sfRenderWindow_drawSprite(m->window, m->hub.cadre, NULL);
-    pose.x += 110;
+    pose.x += 120;
     pose.y += 17;
-    sfText_setString(m->dialogue.dia_name, "Guide ambulant");
+    sfText_setString(m->dialogue.dia_name, "Random Guide");
     sfText_setScale(m->dialogue.dia_name, (sfVector2f){0.6, 0.6});
     sfText_setPosition(m->dialogue.dia_name, pose);
     sfRenderWindow_drawText(m->window, m->dialogue.dia_name, NULL);
