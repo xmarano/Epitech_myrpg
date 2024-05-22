@@ -98,6 +98,7 @@ typedef struct Glob {
     int old_current;
     int current_combat;
     char **current_map;
+    int current_boss;
     int gold;
     bool load_game_called;
     sfVector2i mouse;
