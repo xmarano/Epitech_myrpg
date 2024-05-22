@@ -16,6 +16,7 @@ static void what_world_dia(Global_t *m)
     if (m->dialogue.start_dialogue == 1) {
         m->current_combat = 1;
         m->current_boss = 12;
+        m->old_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         parse_file("dialogue/chap1.txt", &context, m);
         return;

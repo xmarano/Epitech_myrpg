@@ -44,19 +44,19 @@ static void attack3(Global_t *m, int i, int j)
     char *liste_emy = "PQRSTUWYLM/GJKZDE*";
 
     for (int k = 0; liste_emy[k] != '\0'; k++) {
-        if (m->zone1.tab_map[i + 1][j] == liste_emy[k]) {
+        if (m->current_map[i + 1][j] == liste_emy[k]) {
             import_emy_in_battle(m, k);
             return;
         }
-        if (m->zone1.tab_map[i - 1][j] == liste_emy[k]) {
+        if (m->current_map[i - 1][j] == liste_emy[k]) {
             import_emy_in_battle(m, k);
             return;
         }
-        if (m->zone1.tab_map[i][j + 1] == liste_emy[k]) {
+        if (m->current_map[i][j + 1] == liste_emy[k]) {
             import_emy_in_battle(m, k);
             return;
         }
-        if (m->zone1.tab_map[i][j - 1] == liste_emy[k]) {
+        if (m->current_map[i][j - 1] == liste_emy[k]) {
             import_emy_in_battle(m, k);
             return;
         }
@@ -65,8 +65,8 @@ static void attack3(Global_t *m, int i, int j)
 
 static void attack2(Global_t *m , int i)
 {
-    for (int j = 0; m->zone1.tab_map[i][j] != '\0'; j++) {
-        if (m->zone1.tab_map[i][j] == (m->univ.interface.who + 48)) {
+    for (int j = 0; m->current_map[i][j] != '\0'; j++) {
+        if (m->current_map[i][j] == (m->univ.interface.who + 48)) {
             attack3(m, i, j);
         }
     }
@@ -76,7 +76,7 @@ static void attack2(Global_t *m , int i)
 void attack(Global_t *m)
 {
     if (m->univ.interface.attack_gpy == true) {
-        for (int i = 0; m->zone1.tab_map[i] != NULL; i++) {
+        for (int i = 0; m->current_map[i] != NULL; i++) {
             attack2(m, i);
         }
         m->univ.interface.attack_gpy = false;
