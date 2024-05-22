@@ -14,8 +14,8 @@ XFXXXXXXXXXXXXF IF XXXXXXFI    X
 XB XXXXXXXXXXXFF     F   FI    X
 X   XXXXXXXXXF   XXX       F   X
 X   XXXXXXXXF    XXX       FF  X
-X    XXXF FFFXXBFXXX           X
-X XX XFXX                 XXX  X
+X    XXXF FFFXXBFXXX   P    L  X
+X XX XFXX           Z  G  XXX  X
 XXFF         XXXFF  B B   XXX BX
 XFFF  F      XXX    F     XCX  X
 XFFFFF  F    XXX        F      X

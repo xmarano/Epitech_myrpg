@@ -138,7 +138,7 @@ void infe_stats(Perso_t *perso);
 void raca_stats(Perso_t *perso);
 int import_weapons_stats(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
-void check_all_pose(Global_t *m, char **tab);
+void check_all_pose(Global_t *m, char **tab, int i);
 bool is_empty_slot(Weapons_t *weapon_slo);
 void set_stats_b1(Perso_t *perso);
 void set_stats_b2(Perso_t *perso);
@@ -282,8 +282,7 @@ void attack(Global_t *m);
     #include "include/fight.h"
 
 void draw_monde1(Global_t *m, fight_t *f);
-void print_mini_barre(Global_t *m, fight_t *f);
-void print_mini_barre(Global_t *m, fight_t *f);
+void print_mini_barre(Global_t *m, fight_t *f, int word);
 void draw_monde2(Global_t *m, fight_t *f);
 void draw_monde3(Global_t *m, fight_t *f);
 void draw_monde4(Global_t *m, fight_t *f);

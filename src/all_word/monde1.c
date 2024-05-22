@@ -17,11 +17,11 @@ void draw_monde1(Global_t *m, fight_t *f)
     if (m->current == 1) {
         sfRenderWindow_setView(m->window, m->zone1.view_w1);
         sfRenderWindow_drawSprite(m->window, m->zone1.w1_map, NULL);
-        check_all_pose(m, m->zone1.tab_map);
+        check_all_pose(m, m->zone1.tab_map, 1);
         move_game_cursor(m);
         all_perso_movement(m, m->zone1.tab_map);
         //print_boss_barre(m, BOSS1, m->zone1.view_w1);
-        print_mini_barre(m, f);
+        print_mini_barre(m, f, 1);
         return_and_old_current2(m, 1);
     }
 }

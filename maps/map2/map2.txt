@@ -12,10 +12,10 @@ X   2  4                       X
 XXXXXXXXXXX      F             X
 X            XXXXXXXX     F    X
 X                F             X
-X                F XXX         X
+X                F XXX   G  Q  X
 X     F            XXX     F   X
-X    F   XXX                XXXX
-X  F                           X
+X    F   XXX           Z    XXXX
+X  F              L            X
 XF              XXX       F   XX
 XXXX            XXX      F     X
 XXXX       XXX                 X
