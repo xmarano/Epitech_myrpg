@@ -29,8 +29,8 @@ void init_player_interface(Global_t *m)
     m->univ.interface.Fond_interf = sfTexture_createFromFile(link1, NULL);
     m->univ.interface.cursor = sfSprite_create();
     m->univ.interface.Cursor =sfTexture_createFromFile(link2, NULL);
-    sp_txr(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, 0);
-    sp_txr(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
+    SP_TXR(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, 0);
+    SP_TXR(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
     m->univ.interface.curs_clock = sfClock_create();
     m->univ.interface.limite_tour = 5;

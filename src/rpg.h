@@ -26,8 +26,8 @@
     #define TABS_5 "\t\t\t\t\t"
     #define DELAY_BETWEEN_BUYS 100
     #define REFUND 40
-    #define set_tx sfTexture_createFromFile
-    #define sp_txr sfSprite_setTexture
+    #define SET_TX sfTexture_createFromFile
+    #define SP_TXR sfSprite_setTexture
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
@@ -291,6 +291,7 @@ void attack(Global_t *m);
 
     #include "include/fight.h"
 
+void reset_hp_barre(fight_t *fight, Global_t *m);
 void draw_monde1(Global_t *m, fight_t *f);
 void print_mini_barre(Global_t *m, fight_t *f, int word);
 void draw_monde2(Global_t *m, fight_t *f);

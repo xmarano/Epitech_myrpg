@@ -75,17 +75,17 @@ static void set_scale_perso_boss(Global_t *m)
 
 static void set_texture_enemy(Global_t *m)
 {
-    m->univ.txr_emy_mage = set_tx(m->perso[ENEMY_MAGE].texture_battle, NULL);
-    sp_txr(m->univ.spr_emy1_axe, m->univ.txr_emy1_axe, sfTrue);
-    sp_txr(m->univ.spr_emy2_axe, m->univ.txr_emy2_axe, sfTrue);
-    sp_txr(m->univ.spr_emy3_axe, m->univ.txr_emy3_axe, sfTrue);
-    sp_txr(m->univ.spr_emy1_sword, m->univ.txr_emy1_sword, sfTrue);
-    sp_txr(m->univ.spr_emy2_sword, m->univ.txr_emy2_sword, sfTrue);
-    sp_txr(m->univ.spr_emy3_sword, m->univ.txr_emy3_sword, sfTrue);
-    sp_txr(m->univ.spr_emy1_spear, m->univ.txr_emy1_spear, sfTrue);
-    sp_txr(m->univ.spr_emy2_spear, m->univ.txr_emy2_spear, sfTrue);
-    sp_txr(m->univ.spr_emy3_spear, m->univ.txr_emy3_spear, sfTrue);
-    sp_txr(m->univ.spr_emy_mage, m->univ.txr_emy_mage, sfTrue);
+    m->univ.txr_emy_mage = SET_TX(m->perso[ENEMY_MAGE].texture_battle, NULL);
+    SP_TXR(m->univ.spr_emy1_axe, m->univ.txr_emy1_axe, sfTrue);
+    SP_TXR(m->univ.spr_emy2_axe, m->univ.txr_emy2_axe, sfTrue);
+    SP_TXR(m->univ.spr_emy3_axe, m->univ.txr_emy3_axe, sfTrue);
+    SP_TXR(m->univ.spr_emy1_sword, m->univ.txr_emy1_sword, sfTrue);
+    SP_TXR(m->univ.spr_emy2_sword, m->univ.txr_emy2_sword, sfTrue);
+    SP_TXR(m->univ.spr_emy3_sword, m->univ.txr_emy3_sword, sfTrue);
+    SP_TXR(m->univ.spr_emy1_spear, m->univ.txr_emy1_spear, sfTrue);
+    SP_TXR(m->univ.spr_emy2_spear, m->univ.txr_emy2_spear, sfTrue);
+    SP_TXR(m->univ.spr_emy3_spear, m->univ.txr_emy3_spear, sfTrue);
+    SP_TXR(m->univ.spr_emy_mage, m->univ.txr_emy_mage, sfTrue);
 }
 
 static void set_texture_boss(Global_t *m)
@@ -112,15 +112,15 @@ void init_sp_texture_enemy(Global_t *m)
     m->univ.spr_emy2_spear = sfSprite_create();
     m->univ.spr_emy3_spear = sfSprite_create();
     m->univ.spr_emy_mage = sfSprite_create();
-    m->univ.txr_emy1_axe = set_tx(m->perso[19].texture_battle, NULL);
-    m->univ.txr_emy2_axe = set_tx(m->perso[20].texture_battle, NULL);
-    m->univ.txr_emy3_axe = set_tx(m->perso[21].texture_battle, NULL);
-    m->univ.txr_emy1_sword = set_tx(m->perso[13].texture_battle, NULL);
-    m->univ.txr_emy2_sword = set_tx(m->perso[14].texture_battle, NULL);
-    m->univ.txr_emy3_sword = set_tx(m->perso[15].texture_battle, NULL);
-    m->univ.txr_emy1_spear = set_tx(m->perso[16].texture_battle, NULL);
-    m->univ.txr_emy2_spear = set_tx(m->perso[17].texture_battle, NULL);
-    m->univ.txr_emy3_spear = set_tx(m->perso[18].texture_battle, NULL);
+    m->univ.txr_emy1_axe = SET_TX(m->perso[19].texture_battle, NULL);
+    m->univ.txr_emy2_axe = SET_TX(m->perso[20].texture_battle, NULL);
+    m->univ.txr_emy3_axe = SET_TX(m->perso[21].texture_battle, NULL);
+    m->univ.txr_emy1_sword = SET_TX(m->perso[13].texture_battle, NULL);
+    m->univ.txr_emy2_sword = SET_TX(m->perso[14].texture_battle, NULL);
+    m->univ.txr_emy3_sword = SET_TX(m->perso[15].texture_battle, NULL);
+    m->univ.txr_emy1_spear = SET_TX(m->perso[16].texture_battle, NULL);
+    m->univ.txr_emy2_spear = SET_TX(m->perso[17].texture_battle, NULL);
+    m->univ.txr_emy3_spear = SET_TX(m->perso[18].texture_battle, NULL);
     set_texture_enemy(m);
 }
 
@@ -134,14 +134,14 @@ void init_sp_texture_boss(Global_t *m)
     m->univ.spr_Boss6 = sfSprite_create();
     m->univ.spr_Boss7 = sfSprite_create();
     m->univ.spr_Boss8 = sfSprite_create();
-    m->univ.txr_Boss1 = set_tx(m->perso[BOSS1].texture_battle, NULL);
-    m->univ.txr_Boss2 = set_tx(m->perso[BOSS2].texture_battle, NULL);
-    m->univ.txr_Boss3 = set_tx(m->perso[BOSS3].texture_battle, NULL);
-    m->univ.txr_Boss4 = set_tx(m->perso[BOSS4].texture_battle, NULL);
-    m->univ.txr_Boss5 = set_tx(m->perso[BOSS5].texture_battle, NULL);
-    m->univ.txr_Boss6 = set_tx(m->perso[BOSS6].texture_battle, NULL);
-    m->univ.txr_Boss7 = set_tx(m->perso[BOSS7].texture_battle, NULL);
-    m->univ.txr_Boss8 = set_tx(m->perso[BOSS8].texture_battle, NULL);
+    m->univ.txr_Boss1 = SET_TX(m->perso[BOSS1].texture_battle, NULL);
+    m->univ.txr_Boss2 = SET_TX(m->perso[BOSS2].texture_battle, NULL);
+    m->univ.txr_Boss3 = SET_TX(m->perso[BOSS3].texture_battle, NULL);
+    m->univ.txr_Boss4 = SET_TX(m->perso[BOSS4].texture_battle, NULL);
+    m->univ.txr_Boss5 = SET_TX(m->perso[BOSS5].texture_battle, NULL);
+    m->univ.txr_Boss6 = SET_TX(m->perso[BOSS6].texture_battle, NULL);
+    m->univ.txr_Boss7 = SET_TX(m->perso[BOSS7].texture_battle, NULL);
+    m->univ.txr_Boss8 = SET_TX(m->perso[BOSS8].texture_battle, NULL);
     set_texture_boss(m);
 }
 
@@ -152,11 +152,11 @@ void init_sp_texture_perso(Global_t *m)
     m->univ.spr_xmara = sfSprite_create();
     m->univ.spr_pate = sfSprite_create();
     m->univ.spr_raca = sfSprite_create();
-    m->univ.txr_roy = set_tx(m->perso[ROY].texture_battle, NULL);
-    m->univ.txr_infe = set_tx(m->perso[INFENIUM].texture_battle, NULL);
-    m->univ.txr_xmara = set_tx(m->perso[XMARANO].texture_battle, NULL);
-    m->univ.txr_pate = set_tx(m->perso[PATECARBO].texture_battle, NULL);
-    m->univ.txr_raca = set_tx(m->perso[RACAILLOU].texture_battle, NULL);
+    m->univ.txr_roy = SET_TX(m->perso[ROY].texture_battle, NULL);
+    m->univ.txr_infe = SET_TX(m->perso[INFENIUM].texture_battle, NULL);
+    m->univ.txr_xmara = SET_TX(m->perso[XMARANO].texture_battle, NULL);
+    m->univ.txr_pate = SET_TX(m->perso[PATECARBO].texture_battle, NULL);
+    m->univ.txr_raca = SET_TX(m->perso[RACAILLOU].texture_battle, NULL);
     sfSprite_setTexture(m->univ.spr_roy, m->univ.txr_roy, sfTrue);
     sfSprite_setTexture(m->univ.spr_infe, m->univ.txr_infe, sfTrue);
     sfSprite_setTexture(m->univ.spr_xmara, m->univ.txr_xmara, sfTrue);
