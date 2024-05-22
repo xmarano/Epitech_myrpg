@@ -28,6 +28,7 @@ void draw_monde1(Global_t *m, fight_t *f)
             m->zone1.is_w1_clear = true;
             m->current = 0;
         }
+        check_target_ennemy_turn(m->perso[ENEMY1_AXE].stat_p.mov, m, m->current_map, m->univ.spr_emy1_axe);
         return_and_old_current2(m, 1);
     }
 }
