@@ -36,18 +36,18 @@ void check_target_ennemy_turn(int i, Global_t *m, char **map, sfSprite *spr)
 {
     sfVector2f pos = sfSprite_getPosition(spr);
 
-    // pos.x /= 40;
-    // pos.y /= 40;
-    // for (int dx = -i; dx <= i; dx++) {
-    //     for (int dy = -i; dy <= i; dy++) {
-    //         int nx = pos.x + dx;
-    //         int ny = pos.y + dy;
-    //         if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-    //             if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, map, m) && isdigit(map[ny + 1][nx + 1])) {
-    //                 printf("%i %i\n", nx, ny);
-    //                 move_ennemy(m, map, (sfVector2i){(int)pos.x, (int)pos.y}, (sfVector2i){nx, ny});
-    //             }
-    //         }
-    //     }
-    // }
+    pos.x /= 40;
+    pos.y /= 40;
+    for (int dx = -i; dx <= i; dx++) {
+        for (int dy = -i; dy <= i; dy++) {
+            int nx = pos.x + dx;
+            int ny = pos.y + dy;
+            if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
+                if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, map, m) && isdigit(map[ny + 1][nx + 1])) {
+                    printf("%i %i\n", nx, ny);
+                    move_ennemy(m, map, (sfVector2i){(int)pos.x, (int)pos.y}, (sfVector2i){nx, ny});
+                }
+            }
+        }
+    }
 }
