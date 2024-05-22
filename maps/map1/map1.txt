@@ -15,8 +15,8 @@ XB XXXXXXXXXXXFF     F   FI    X
 X   XXXXXXXXXF   XXX       F   X
 X   XXXXXXXXF    XXX       FF  X
 X    XXXF FFFXXBFXXX           X
-X XX XFXX                 CCC  X
-XXFF         XXXFF  B B   CCC BX
-XFFF  F      XXX    F     CCC  X
+X XX XFXX                 XXX  X
+XXFF         XXXFF  B B   XXX BX
+XFFF  F      XXX    F     XCX  X
 XFFFFF  F    XXX        F      X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
