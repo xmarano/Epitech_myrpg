@@ -51,20 +51,19 @@ const char *hero_wall(int current_perso)
 
 void affichage_mechant(RenderContext_t *context)
 {
-    const char* filename3 = ennemi_wall(context->current_boss);
+    const char *filename3 = ennemi_wall(context->current_boss);
+    sfTexture *texture3 = sfTexture_createFromFile(filename3, NULL);
+    sfSprite *sprite3 = sfSprite_create();
+    sfVector2f position_sprite3 = {1200, 667};
+    sfIntRect base = {0, 0, 91, 80};
+    sfVector2f scale = {3, 3};
 
     if (filename3) {
-        sfTexture* texture3 = sfTexture_createFromFile(filename3, NULL);
-        sfSprite* sprite3 = sfSprite_create();
         sfSprite_setTexture(sprite3, texture3, sfTrue);
-        sfVector2f position_sprite3 = {1200, 667};
         sfSprite_setPosition(sprite3, position_sprite3);
-        sfIntRect base = {0, 0, 91, 80};
         sfSprite_setTextureRect(sprite3, base);
-        sfVector2f scale = {3, 3};
         sfSprite_setScale(sprite3, scale);
         sfRenderWindow_drawSprite(context->window, sprite3, NULL);
-
         sfSprite_destroy(sprite3);
         sfTexture_destroy(texture3);
     }
@@ -72,20 +71,19 @@ void affichage_mechant(RenderContext_t *context)
 
 void affichage_hero(RenderContext_t *context)
 {
-    const char* filename2 = hero_wall(context->current_hero);
+    const char *filename2 = hero_wall(context->current_hero);
+    sfTexture *texture2 = sfTexture_createFromFile(filename2, NULL);
+    sfSprite *sprite2 = sfSprite_create();
+    sfVector2f position_sprite2 = {400, 667};
+    sfIntRect base = {0, 0, 91, 80};
+    sfVector2f scale = {3, 3};
 
     if (filename2) {
-        sfTexture* texture2 = sfTexture_createFromFile(filename2, NULL);
-        sfSprite* sprite2 = sfSprite_create();
         sfSprite_setTexture(sprite2, texture2, sfTrue);
-        sfVector2f position_sprite2 = {400, 667};
         sfSprite_setPosition(sprite2, position_sprite2);
-        sfIntRect base = {0, 0, 91, 80};
         sfSprite_setTextureRect(sprite2, base);
-        sfVector2f scale = {3, 3};
         sfSprite_setScale(sprite2, scale);
         sfRenderWindow_drawSprite(context->window, sprite2, NULL);
-
         sfSprite_destroy(sprite2);
         sfTexture_destroy(texture2);
     }
