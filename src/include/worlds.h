@@ -16,7 +16,9 @@ typedef struct hub {
     sfSprite *sprite_perso;
     sfTexture *texture_perso;
     sfTexture *texture_hub;
+    sfTexture *texture_hub_night;
     sfSprite *sprite_hub;
+    sfSprite *sprite_hub_night;
     sfVector2f movement;
     sfTime time;
     sfImage *hitbox;
