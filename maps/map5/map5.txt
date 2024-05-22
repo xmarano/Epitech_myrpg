@@ -1,22 +1,22 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X   LLLLLL  LL   LLLLLLLLLL    X
-X   LLLLLLLLLL    LLLLLLLLLL   X
-X    LLLLLLLLL    LLLLLLLLLL   X
-X     LLLLLLLL    LLLLLLLLLL   X
-X      LL LLLL    LLLLLLLLLL LLX
-X   MMM    LLL     LLLLLLLLL LLX
-X  MMMMM    LL     LLLLL LL   LX
-X  MMMMM      VVV  LLL         X
-X   MMM       VVV LLL          X
-X             VVV LLL      MMMMX
-X      M    B    MLLL      MMMMX
-X       B  LLL B           MMMMX
-X          LLL     A     CCC   X
-X     M  LLLL            CCC   X
-X       LLLLL B          CCC   X
-X      LLLLL      VVV        LLX
-X    M LLL   B  M VVV   LLLLLLLX
-X     M    FF     VVV  LLLLLLLLX
-XL  M      FFF        LLLLLLLLLX
-X L  M             LLLLLLLLLLLLX
+X   XXXXXX  XX   XXXXXXXXXX    X
+X   XXXXXXXXXX    XXXXXXXXXX   X
+X    XXXXXXXXX    XXXXXXXXXX   X
+X     XXXXXXXX    XXXXXXXXXX   X
+X      XX XXXX    XXXXXXXXXX XXX
+X   XXX    XXX     XXXXXXXXX XXX
+X  XXXXX    XX     XXXXX XX   XX
+X  XXXXX      VVV  XXX         X
+X   XXX       VVV XXX          X
+X             VVV XXX      XXXXX
+X      X    B    XXXX      XXXXX
+X       B  XXX B           XXXXX
+X          XXX     A     XXX   X
+X     X  XXXX            XXX   X
+X       XXXXX B          XCX   X
+X      XXXXX      VVV        XXX
+X    X XXX   B  X VVV   XXXXXXXX
+X     X    FF     VVV  XXXXXXXXX
+XX  X      FFF        XXXXXXXXXX
+X X  X             XXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

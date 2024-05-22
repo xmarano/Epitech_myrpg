@@ -1,22 +1,22 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X    D                  UUU D  X
-X    D                      DDDX
-X    D                        FX
-X    D             UUU        FX
-X   DD             UUU      DDDX
-X                         F D  X
-X                           DDDX
+X    X                  XXX X  X
+X    X                      XXXX
+X    X                        FX
+X    X             XXX        FX
+X   XX             XXX      XXXX
+X                         F X  X
+X                           XXXX
 X  3  1                        X
-X   0                      DDDDX
+X   0                      XXXXX
 X   2  4                       X
-XDDDDDDDDDD      F             X
-X            DDDDDDDD     F    X
+XXXXXXXXXXX      F             X
+X            XXXXXXXX     F    X
 X                F             X
-X                F UUU         X
-X     F            UUU     F   X
-X    F   DDD                DDDX
+X                F XXX         X
+X     F            XXX     F   X
+X    F   XXX                XXXX
 X  F                           X
-XF              UUU       F   DX
-XDDD            UUU      F     X
-XDDD       uuu                 X
+XF              XXX       F   XX
+XXXX            XXX      F     X
+XXXX       XXX                 X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
