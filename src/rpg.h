@@ -29,6 +29,7 @@
     #define SET_TX sfTexture_createFromFile
     #define SP_TXR sfSprite_setTexture
     #define ATOI my_inttostr
+    #define TAR_EM check_target_ennemy_turn
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,
@@ -98,6 +99,25 @@ typedef struct {
     char *name_ennemy;
 } RenderContext_t;
 
+typedef struct Coding_style {
+    int dx;
+    int dy;
+    char patern;
+    sfVector2f pos;
+    sfVector2f pos_curs;
+    sfVector2f pos_spr;
+    int nx;
+}Check_depl_t;
+
+typedef struct code {
+    int dx;
+    int sx;
+    int dy;
+    int sy;
+    int err;
+    int e2;
+}Coding_style_t;
+
 typedef struct Glob {
     int current;
     int old_current;
@@ -124,6 +144,8 @@ typedef struct Glob {
     Dialogue_t dialogue;
     Shop_t shop; /*Yanis*/
     ZoneUniversel_t univ;
+    Check_depl_t codi;
+    Coding_style_t codi2;
     Zone1_t zone1;
     Zone2_t zone2;
     Zone3_t zone3;
@@ -288,6 +310,9 @@ bool is_movement_ok(sfSprite *spr, int i, char **map, Global_t *m);
 void draw_player_interface(Global_t *m);
 void init_player_interface(Global_t *m);
 void dest_p_interface(Global_t *m);
+void set_previous_case(Global_t *m, sfVector2f pos_spr, char **map);
+int check_cursor_on_sprite(Global_t *m, sfSprite *spr);
+void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map);
 
     #include "include/fight.h"
 

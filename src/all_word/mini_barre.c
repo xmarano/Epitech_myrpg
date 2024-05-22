@@ -1,5 +1,5 @@
 /*
-** EP PROJECT, 2023
+** EPITECH PROJECT, 2023
 ** B-MUL-200-MAR-2-1-myrpg-yanis.prevost
 ** File description:
 ** mini_barre.c
@@ -15,8 +15,9 @@
 void init_mini_barre_emy(Global_t *m, fight_t *f, sfSprite *sprite, int who)
 {
     sfVector2f pose;
-    int maxhp =  m->perso[who].stat_p.max_hp;
+    int maxhp = m->perso[who].stat_p.max_hp;
     int currhp = m->perso[who].stat_p.current_hp;
+
     pose = sfSprite_getPosition(sprite);
     pose.x += 6;
     pose.y -= 7;
@@ -35,7 +36,7 @@ void init_mini_barre_emy(Global_t *m, fight_t *f, sfSprite *sprite, int who)
 void init_mini_barre(Global_t *m, fight_t *f, sfSprite *sprite, int who)
 {
     sfVector2f pose;
-    int maxhp =  m->perso[who].stat_p.max_hp;
+    int maxhp = m->perso[who].stat_p.max_hp;
     int currhp = m->perso[who].stat_p.current_hp;
 
     pose = sfSprite_getPosition(sprite);

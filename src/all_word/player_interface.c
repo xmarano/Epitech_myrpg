@@ -28,7 +28,7 @@ void init_player_interface(Global_t *m)
     m->univ.interface.fond_interf = sfSprite_create();
     m->univ.interface.Fond_interf = sfTexture_createFromFile(link1, NULL);
     m->univ.interface.cursor = sfSprite_create();
-    m->univ.interface.Cursor =sfTexture_createFromFile(link2, NULL);
+    m->univ.interface.Cursor = sfTexture_createFromFile(link2, NULL);
     SP_TXR(m->univ.interface.fond_interf, m->univ.interface.Fond_interf, 0);
     SP_TXR(m->univ.interface.cursor, m->univ.interface.Cursor, sfFalse);
     sfSprite_setScale(m->univ.interface.cursor, (sfVector2f){0.2, 0.2});
@@ -61,7 +61,7 @@ static void gest_err_pose(Global_t *m, sfVector2f pose_sp)
     sfRenderWindow_drawSprite(m->window, m->univ.interface.fond_interf, NULL);
 }
 
-void place_interface(Global_t *m)
+static void place_interface(Global_t *m)
 {
     sfVector2f pose_sp;
 
@@ -108,19 +108,22 @@ void moove_cursor(Global_t *m)
     sfTime time = sfClock_getElapsedTime(m->univ.interface.curs_clock);
     float elapsed_seconds = sfTime_asSeconds(time);
 
-    m->univ.interface.pose_curs = sfSprite_getPosition(m->univ.interface.fond_interf);
+    m->univ.interface.pose_curs =
+    sfSprite_getPosition(m->univ.interface.fond_interf);
     m->univ.interface.pose_curs.x += 18;
-    m->univ.interface.pose_curs.y += initial_y + (m->univ.interface.cursor_position * y_increment);
+    m->univ.interface.pose_curs.y +=
+    initial_y + (m->univ.interface.cursor_position * y_increment);
     if (elapsed_seconds > 0.2f) {
         if (sfKeyboard_isKeyPressed(sfKeyS))
             eventdown(m, max_position);
         if (sfKeyboard_isKeyPressed(sfKeyZ))
             eventup(m, max_position);
     }
-    sfSprite_setPosition(m->univ.interface.cursor, m->univ.interface.pose_curs);
+    sfSprite_setPosition(m->univ.interface.cursor,
+    m->univ.interface.pose_curs);
 }
 
-void gest_cursor(Global_t *m)
+static void gest_cursor(Global_t *m)
 {
     moove_cursor(m);
     sfRenderWindow_drawSprite(m->window, m->univ.interface.cursor, NULL);
@@ -138,7 +141,8 @@ void gest_cursor(Global_t *m)
 
 void draw_player_interface(Global_t *m)
 {
-    if (m->univ.interface.select_inteface && m->current >= 1 && m->current <= 8) {
+    if (m->univ.interface.select_inteface
+        && m->current >= 1 && m->current <= 8) {
         place_interface(m);
         gest_cursor(m);
         for (int i = 0; i < 5; i++)

@@ -101,6 +101,11 @@ typedef struct interface {
     int defender;
 }Interface_t;
 
+typedef struct {
+    int x;
+    int y;
+}Position_t;
+
 typedef struct Zone {
     sfSprite *map_cursor_sprite;
     sfTexture *map_cursor_text;

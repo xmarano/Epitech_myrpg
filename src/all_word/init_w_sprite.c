@@ -15,15 +15,17 @@ static void init_other_sprites(Global_t *m)
 {
     m->univ.barre_de_vie = sfRectangleShape_create();
     sfRectangleShape_setSize(m->univ.barre_de_vie, (sfVector2f){400, 30});
-    sfRectangleShape_setFillColor(m->univ.barre_de_vie, sfColor_fromRGB(159, 5, 169));
+    sfRectangleShape_setFillColor(m->univ.barre_de_vie,
+    sfColor_fromRGB(159, 5, 169));
     m->univ.barre_fond = sfRectangleShape_create();
     sfRectangleShape_setSize(m->univ.barre_fond, (sfVector2f){400, 30});
-    sfRectangleShape_setFillColor(m->univ.barre_fond, sfColor_fromRGB(128, 128, 128));
+    sfRectangleShape_setFillColor(m->univ.barre_fond,
+    sfColor_fromRGB(128, 128, 128));
     m->univ.boss_name = sfText_create();
     sfText_setFont(m->univ.boss_name, m->setting.fontdi);
     sfText_setCharacterSize(m->univ.boss_name, 25);
     sfText_setFillColor(m->univ.boss_name, sfBlack);
-    m->univ.Image_barre = sfTexture_createFromFile("assets/fight/Barre_boss.png", NULL);
+    m->univ.Image_barre = SET_TX("assets/fight/Barre_boss.png", NULL);
     m->univ.image_barre = sfSprite_create();
     sfSprite_setTexture(m->univ.image_barre, m->univ.Image_barre, sfFalse);
     sfSprite_setScale(m->univ.image_barre, (sfVector2f){0.4, 0.4});
@@ -52,23 +54,23 @@ void load_texte_map(Global_t *m)
 void load_sprite_map(Global_t *m)
 {
     m->zone1.w1_map = sfSprite_create();
-    m->zone1.w1_Map = sfTexture_createFromFile("maps/map1/map1.png", NULL);
+    m->zone1.w1_Map = SET_TX("maps/map1/map1.png", NULL);
     m->zone2.w2_map = sfSprite_create();
-    m->zone2.w2_Map = sfTexture_createFromFile("maps/map2/map2.png", NULL);
+    m->zone2.w2_Map = SET_TX("maps/map2/map2.png", NULL);
     m->zone3.w3_map = sfSprite_create();
-    m->zone3.w3_Map = sfTexture_createFromFile("maps/map3/map3.png", NULL);
+    m->zone3.w3_Map = SET_TX("maps/map3/map3.png", NULL);
     m->zone4.w4_map = sfSprite_create();
-    m->zone4.w4_Map = sfTexture_createFromFile("maps/map4/map4.png", NULL);
+    m->zone4.w4_Map = SET_TX("maps/map4/map4.png", NULL);
     m->zone5.w5_map = sfSprite_create();
-    m->zone5.w5_Map = sfTexture_createFromFile("maps/map5/map5.png", NULL);
+    m->zone5.w5_Map = SET_TX("maps/map5/map5.png", NULL);
     m->zone6.w6_map = sfSprite_create();
-    m->zone6.w6_Map = sfTexture_createFromFile("maps/map6/map6.png", NULL);
+    m->zone6.w6_Map = SET_TX("maps/map6/map6.png", NULL);
     m->zone7.w7_map = sfSprite_create();
-    m->zone7.w7_Map = sfTexture_createFromFile("maps/map7/map7.png", NULL);
+    m->zone7.w7_Map = SET_TX("maps/map7/map7.png", NULL);
     m->zone8.w8_map = sfSprite_create();
-    m->zone8.w8_Map = sfTexture_createFromFile("maps/map8/map8.png", NULL);
+    m->zone8.w8_Map = SET_TX("maps/map8/map8.png", NULL);
     m->univ.map_cursor_sprite = sfSprite_create();
-    m->univ.map_cursor_text = sfTexture_createFromFile("maps/cursor_map.png", NULL);
+    m->univ.map_cursor_text = SET_TX("maps/cursor_map.png", NULL);
 }
 
 void init_w_sprite(Global_t *m)

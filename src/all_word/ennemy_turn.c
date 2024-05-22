@@ -12,52 +12,85 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
+
 void set_previous_case_ennemy(Global_t *m, sfVector2f pos_spr, char **map)
 {
-    if (m->current_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] != 'Z')
-        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = m->old_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
+    if (m->current_map[(int)pos_spr.y / 40 + 1]
+    [(int)pos_spr.x / 40 + 1] != 'Z')
+        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] =
+        m->old_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
     else {
         map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
     }
 }
 
-void move_ennemy(Global_t *m, sfVector2i previous_pos, sfVector2i pos_target, char patern)
+static void moove_emy2(Global_t *m, sfVector2i previous_pos,
+    sfVector2i pos_target, char patern)
 {
-    if (m->current_map[pos_target.y][pos_target.x + 1] != 'X' && !isdigit(m->current_map[pos_target.y][pos_target.x + 1])) {
-        m->current_map[pos_target.y][pos_target.x + 1] = patern;
-        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
-            m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y][pos_target.x - 1] != 'X' && !isdigit(m->current_map[pos_target.y][pos_target.x - 1])) {
-        m->current_map[pos_target.y][pos_target.x - 1] = patern;
-        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
-            m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y + 1][pos_target.x] != 'X' && !isdigit(m->current_map[pos_target.y + 1][pos_target.x])) {
+    if (m->current_map[pos_target.y + 1][pos_target.x] != 'X' &&
+    !isdigit(m->current_map[pos_target.y + 1][pos_target.x])) {
         m->current_map[pos_target.y + 1][pos_target.x] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
-    } else if (m->current_map[pos_target.y - 1][pos_target.x] != 'X' && !isdigit(m->current_map[pos_target.y - 1][pos_target.x + 1])) {
+        return;
+    }
+    if (m->current_map[pos_target.y - 1][pos_target.x] != 'X' &&
+    !isdigit(m->current_map[pos_target.y - 1][pos_target.x + 1])) {
         m->current_map[pos_target.y - 1][pos_target.x] = patern;
         if (m->current_map[previous_pos.y][previous_pos.x] == patern)
             m->current_map[previous_pos.y][previous_pos.x] = ' ';
+        return;
+    }
+}
+
+void move_ennemy(Global_t *m, sfVector2i previous_pos,
+    sfVector2i pos_target, char patern)
+{
+    if (m->current_map[pos_target.y][pos_target.x + 1] != 'X' &&
+    !isdigit(m->current_map[pos_target.y][pos_target.x + 1])) {
+        m->current_map[pos_target.y][pos_target.x + 1] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+        return;
+    }
+    if (m->current_map[pos_target.y][pos_target.x - 1] != 'X' &&
+    !isdigit(m->current_map[pos_target.y][pos_target.x - 1])) {
+        m->current_map[pos_target.y][pos_target.x - 1] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+        return;
+    }
+    moove_emy2(m, previous_pos, pos_target, patern);
+}
+
+static void taget_emy2(Global_t *m, int i, int dx, int dy)
+{
+    int nx;
+    int ny;
+
+    nx = m->codi.pos.x + dx;
+    ny = m->codi.pos.y + dy;
+    if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
+        if (ligne_sans_obstacle((sfVector2i){m->codi.pos.x + 1,
+        m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) &&
+        isdigit(m->current_map[ny + 1][nx + 1])) {
+            move_ennemy(m, (sfVector2i){(int)m->codi.pos.x + 1,
+            (int)m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1},
+            m->codi.patern);
+            return;
+        }
     }
 }
 
 void check_target_ennemy_turn(int i, Global_t *m, sfSprite *spr, char patern)
 {
-    sfVector2f pos = sfSprite_getPosition(spr);
-
-    pos.x /= 40;
-    pos.y /= 40;
+    m->codi.pos = sfSprite_getPosition(spr);
+    m->codi.pos.x /= 40;
+    m->codi.pos.y /= 40;
+    m->codi.patern = patern;
     for (int dx = -i; dx <= i; dx++) {
         for (int dy = -i; dy <= i; dy++) {
-            int nx = pos.x + dx;
-            int ny = pos.y + dy;
-            if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-                if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) && isdigit(m->current_map[ny + 1][nx + 1])) {
-                    move_ennemy(m, (sfVector2i){(int)pos.x + 1, (int)pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, patern);
-                    return;
-                }
-            }
+            taget_emy2(m, i, dx, dy);
         }
     }
 }
