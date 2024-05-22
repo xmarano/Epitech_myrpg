@@ -51,7 +51,6 @@ const char *hero_wall(int current_perso)
 
 void affichage_mechant(RenderContext_t *context)
 {
-    context->current_boss = 5;
     const char* filename3 = ennemi_wall(context->current_boss);
 
     if (filename3) {
@@ -157,6 +156,9 @@ void parse_file(char *filename, RenderContext_t *context, Global_t *m)
 
     if (file == NULL)
         return;
+    context->current_boss = m->current_boss;
+    context->current_hero = m->perso->current_perso;
+    printf("Valeur de current_boss : %d\n", context->current_boss);
     while (fgets(line, sizeof(line), file)) {
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             break;

@@ -29,9 +29,9 @@ static void init_dev(int argc, char **argv, Global_t *m, hub_t *h)
         if (strcmp(argv[1], "-dev") == 0) {
             m->gold = 100000;
             m->hub.prologue_ok = true;
-            m->current = 0;
+            m->current = 1;
             m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
-            m->perso->current_perso = 1;
+            //m->perso->current_perso = 1;
         }
     }
 }
