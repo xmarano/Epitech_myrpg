@@ -22,7 +22,7 @@ void draw_monde1(Global_t *m, fight_t *f)
             move_game_cursor(m);
         if (m->univ.interface.limite_tour > 0 && !m->univ.interface.go_fight)
             all_perso_movement(m, m->current_map);
-        else
+        if (m->univ.interface.limite_tour == 0 && !m->univ.interface.go_fight)
             all_ennemy_movement(m, m->current_map);
         //print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f, 1);

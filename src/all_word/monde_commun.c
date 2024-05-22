@@ -39,27 +39,45 @@ static void draw_visible2(Global_t *m, sfSprite *spr, Perso_t *perso)
     }
 }
 
-static void draw_visible_cases(Global_t *m, sfSprite *spr, Perso_t *perso,
-    char **map)
+static void ridicule(Global_t *m, int i, int j, char c)
+{
+    if (m->current_map[i][j] == c)
+        m->current_map[i][j] = ' ';
+}
+
+static void delet_from_map(Global_t *m, char c)
+{
+    for (int i = 0; m->current_map[i] != NULL; i++) {
+        for (int j = 0; m->current_map[i][j] != '\0'; j++) {
+            ridicule(m, i, j, c);
+        }
+    }
+}
+
+static void draw_visible_cases(Global_t *m, sfSprite *spr, int who, char c)
 {
     sfTime time = sfClock_getElapsedTime(m->univ.clock_select_perso);
     float seconds = sfTime_asMilliseconds(time) / 1000.0;
 
-    if (perso->case_visble == 1)
-        draw_possible_movement(perso->stat_p.mov, m, map, spr);
-    if (seconds > 0.3) {
-        draw_visible2(m, spr, perso);
-    }
+    if (m->perso[who].stat_p.current_hp > 0) {
+        if (m->perso[who].case_visble == 1)
+            draw_possible_movement(m->perso[who].stat_p.mov,
+            m, m->current_map, spr);
+        if (seconds > 0.3) {
+            draw_visible2(m, spr, &m->perso[who]);
+        }
+    } else
+        delet_from_map(m, c);
 }
 
 void all_perso_movement(Global_t *m, char **tab)
 {
     if (!m->univ.interface.select_inteface) {
-        draw_visible_cases(m, m->univ.spr_roy, &m->perso[ROY], tab);
-        draw_visible_cases(m, m->univ.spr_xmara, &m->perso[XMARANO], tab);
-        draw_visible_cases(m, m->univ.spr_raca, &m->perso[RACAILLOU], tab);
-        draw_visible_cases(m, m->univ.spr_pate, &m->perso[PATECARBO], tab);
-        draw_visible_cases(m, m->univ.spr_infe, &m->perso[INFENIUM], tab);
+        draw_visible_cases(m, m->univ.spr_roy, ROY, '0');
+        draw_visible_cases(m, m->univ.spr_xmara, XMARANO, '3');
+        draw_visible_cases(m, m->univ.spr_raca, RACAILLOU, '4');
+        draw_visible_cases(m, m->univ.spr_pate, PATECARBO, '2');
+        draw_visible_cases(m, m->univ.spr_infe, INFENIUM, '1');
     }
     set_new_position(m, m->univ.spr_roy, &m->perso[ROY], tab);
     set_new_position(m, m->univ.spr_xmara, &m->perso[XMARANO], tab);

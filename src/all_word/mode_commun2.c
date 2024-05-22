@@ -58,8 +58,8 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
     check_cursor_on_sprite(m, spr) == 0 &&
     is_movement_ok(spr, perso->stat_p.mov, map, m) == true) {
         set_previous_case(m, pos_spr, map);
-        if (isdigit(map[(int)pos_curs.y / 40 + 1]
-        [(int)pos_curs.x / 40 + 1]) == 0) {
+        if (isdigit(map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1])
+        == 0 && m->perso->stat_p.current_hp > 0) {
             placement(m, perso, map, pos_curs);
         }
         m->univ.interface.select_inteface = true;
