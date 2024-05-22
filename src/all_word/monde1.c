@@ -22,13 +22,14 @@ void draw_monde1(Global_t *m, fight_t *f)
             move_game_cursor(m);
         if (m->univ.interface.limite_tour > 0 && !m->univ.interface.go_fight)
             all_perso_movement(m, m->current_map);
+        else
+            all_ennemy_movement(m, m->current_map);
         //print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f, 1);
         if (m->perso[BOSS1].stat_p.current_hp <= 0) {
             m->zone1.is_w1_clear = true;
             m->current = 0;
         }
-        check_target_ennemy_turn(m->perso[ENEMY1_AXE].stat_p.mov, m, m->current_map, m->univ.spr_emy1_axe);
         return_and_old_current2(m, 1);
     }
 }

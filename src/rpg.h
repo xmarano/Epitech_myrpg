@@ -301,8 +301,9 @@ void draw_monde6(Global_t *m, fight_t *f);
 void draw_monde7(Global_t *m, fight_t *f);
 void draw_monde8(Global_t *m, fight_t *f);
 void init_lifebars2(fight_t *fight, Global_t *m);
-void check_target_ennemy_turn(int i, Global_t *m, char **map, sfSprite *spr);
+void check_target_ennemy_turn(int i, Global_t *m, sfSprite *spr, char patern);
 int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1, char **map, Global_t *m);
 int est_dans_grille(int x, int y);
+void all_ennemy_movement(Global_t *m, char **tab);
 
 #endif

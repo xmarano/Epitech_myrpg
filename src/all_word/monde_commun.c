@@ -60,8 +60,6 @@ void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
                 m->univ.interface.who = 3;
             }
         }
-        // for (int i = 0; map[i] != NULL; i++)
-        //     printf("%s\n", map[i]);
         m->univ.interface.select_inteface = true;
     }
 }
@@ -102,4 +100,26 @@ void all_perso_movement(Global_t *m, char **tab)
     set_new_position(m, m->univ.spr_raca, &m->perso[RACAILLOU], tab);
     set_new_position(m, m->univ.spr_pate, &m->perso[PATECARBO], tab);
     set_new_position(m, m->univ.spr_infe, &m->perso[INFENIUM], tab);
+}
+
+void all_ennemy_movement(Global_t *m, char **tab)
+{
+    check_target_ennemy_turn(m->perso[BOSS1].stat_p.mov, m, m->univ.spr_Boss1, 'P');
+    check_target_ennemy_turn(m->perso[BOSS2].stat_p.mov, m, m->univ.spr_Boss2, 'Q');
+    check_target_ennemy_turn(m->perso[BOSS3].stat_p.mov, m, m->univ.spr_Boss3, 'R');
+    check_target_ennemy_turn(m->perso[BOSS4].stat_p.mov, m, m->univ.spr_Boss4, 'S');
+    check_target_ennemy_turn(m->perso[BOSS5].stat_p.mov, m, m->univ.spr_Boss5, 'T');
+    check_target_ennemy_turn(m->perso[BOSS6].stat_p.mov, m, m->univ.spr_Boss6, 'U');
+    check_target_ennemy_turn(m->perso[BOSS7].stat_p.mov, m, m->univ.spr_Boss7, 'W');
+    check_target_ennemy_turn(m->perso[BOSS8].stat_p.mov, m, m->univ.spr_Boss8, 'Y');
+    check_target_ennemy_turn(m->perso[ENEMY1_SWORD].stat_p.mov, m, m->univ.spr_emy1_sword, 'L');
+    check_target_ennemy_turn(m->perso[ENEMY2_SWORD].stat_p.mov, m, m->univ.spr_emy2_sword, 'M');
+    check_target_ennemy_turn(m->perso[ENEMY3_SWORD].stat_p.mov, m, m->univ.spr_emy3_sword, '/');
+    check_target_ennemy_turn(m->perso[ENEMY1_SPEAR].stat_p.mov, m, m->univ.spr_emy1_spear, 'G');
+    check_target_ennemy_turn(m->perso[ENEMY2_SPEAR].stat_p.mov, m, m->univ.spr_emy2_spear, 'J');
+    check_target_ennemy_turn(m->perso[ENEMY3_SPEAR].stat_p.mov, m, m->univ.spr_emy3_spear, 'K');
+    check_target_ennemy_turn(m->perso[ENEMY1_AXE].stat_p.mov, m, m->univ.spr_emy1_axe, 'Z');
+    check_target_ennemy_turn(m->perso[ENEMY2_AXE].stat_p.mov, m, m->univ.spr_emy2_axe, 'D');
+    check_target_ennemy_turn(m->perso[ENEMY3_AXE].stat_p.mov, m, m->univ.spr_emy3_axe, 'E');
+    check_target_ennemy_turn(m->perso[ENEMY_MAGE].stat_p.mov, m, m->univ.spr_emy_mage, '*');
 }

@@ -12,27 +12,37 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
-void move_ennemy(Global_t *m, char **map, sfVector2i previous_pos, sfVector2i pos_target)
+void set_previous_case_ennemy(Global_t *m, sfVector2f pos_spr, char **map)
 {
-    if (map[pos_target.y][pos_target.x + 1] != 'X') {
-        map[pos_target.y][pos_target.x + 1] = map[previous_pos.y + 1][previous_pos.x + 1];
-        map[previous_pos.y + 1][previous_pos.x + 1] = m->old_map[previous_pos.y + 1][previous_pos.x + 1];
-    }
-    else if (map[pos_target.y][pos_target.x - 1] != 'X') {
-        map[pos_target.y][pos_target.x - 1] = map[previous_pos.y + 1][previous_pos.x + 1];
-        map[previous_pos.y + 1][previous_pos.x + 1] = m->old_map[previous_pos.y + 1][previous_pos.x + 1];
-    }
-    else if (map[pos_target.y + 1][pos_target.x] != 'X') {
-        map[pos_target.y + 1][pos_target.x] = map[previous_pos.y + 1][previous_pos.x + 1];
-        map[previous_pos.y + 1][previous_pos.x + 1] = m->old_map[previous_pos.y + 1][previous_pos.x + 1];
-    }
-    else if (map[pos_target.y - 1][pos_target.x] != 'X') {
-        map[pos_target.y - 1][pos_target.x] = map[previous_pos.y + 1][previous_pos.x + 1];
-        map[previous_pos.y + 1][previous_pos.x + 1] = m->old_map[previous_pos.y + 1][previous_pos.x + 1];
+    if (m->current_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] != 'Z')
+        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = m->old_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
+    else {
+        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
     }
 }
 
-void check_target_ennemy_turn(int i, Global_t *m, char **map, sfSprite *spr)
+void move_ennemy(Global_t *m, sfVector2i previous_pos, sfVector2i pos_target, char patern)
+{
+    if (m->current_map[pos_target.y][pos_target.x + 1] != 'X') {
+        m->current_map[pos_target.y][pos_target.x + 1] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+    } else if (m->current_map[pos_target.y][pos_target.x - 1] != 'X') {
+        m->current_map[pos_target.y][pos_target.x - 1] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+    } else if (m->current_map[pos_target.y + 1][pos_target.x] != 'X') {
+        m->current_map[pos_target.y + 1][pos_target.x] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+    } else if (m->current_map[pos_target.y - 1][pos_target.x] != 'X') {
+        m->current_map[pos_target.y - 1][pos_target.x] = patern;
+        if (m->current_map[previous_pos.y][previous_pos.x] == patern)
+            m->current_map[previous_pos.y][previous_pos.x] = ' ';
+    }
+}
+
+void check_target_ennemy_turn(int i, Global_t *m, sfSprite *spr, char patern)
 {
     sfVector2f pos = sfSprite_getPosition(spr);
 
@@ -43,9 +53,9 @@ void check_target_ennemy_turn(int i, Global_t *m, char **map, sfSprite *spr)
             int nx = pos.x + dx;
             int ny = pos.y + dy;
             if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-                if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, map, m) && isdigit(map[ny + 1][nx + 1])) {
-                    printf("%i %i\n", nx, ny);
-                    move_ennemy(m, map, (sfVector2i){(int)pos.x, (int)pos.y}, (sfVector2i){nx, ny});
+                if (ligne_sans_obstacle((sfVector2i){pos.x + 1, pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) && isdigit(m->current_map[ny + 1][nx + 1])) {
+                    move_ennemy(m, (sfVector2i){(int)pos.x + 1, (int)pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, patern);
+                    return;
                 }
             }
         }
