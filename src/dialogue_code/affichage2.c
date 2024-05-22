@@ -22,7 +22,6 @@ int skip_ennemy(char *phrase, RenderContext_t *context)
     return 0;
 }
 
-
 void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
