@@ -22,13 +22,22 @@ int check_cursor_on_sprite(Global_t *m, sfSprite *spr)
     return 0;
 }
 
+void set_previous_case(Global_t *m, sfVector2f pos_spr, char **map)
+{
+    if (isdigit(m->current_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1]) == 0)
+        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = m->current_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
+    else {
+        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = ' ';
+    }
+}
+
 void set_new_position(Global_t *m, sfSprite *spr, Perso_t *perso, char **map)
 {
     sfVector2f pos_curs = sfSprite_getPosition(m->univ.map_cursor_sprite);
     sfVector2f pos_spr = sfSprite_getPosition(spr);
 
     if (perso->case_visble == 1 && sfKeyboard_isKeyPressed(sfKeySpace) && check_cursor_on_sprite(m, spr) == 0 && is_movement_ok(spr, perso->stat_p.mov, map, m) == true) {
-        map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] = m->current_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
+        set_previous_case(m, pos_spr, map);
         if (isdigit(map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1]) == 0) {
             if (strcmp(perso->name_perso, "ROY") == 0) {
                 map[(int)pos_curs.y / 40 + 1][(int)pos_curs.x / 40 + 1] = '0';
