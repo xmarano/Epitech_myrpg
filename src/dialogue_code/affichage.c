@@ -35,15 +35,15 @@ const char *hero_wall(int current_perso)
 {
     switch (current_perso) {
         case 0:
-            return "assets/perso/dialogue/hero/Infenium_dialogue.png";
-        case 1:
-            return "assets/perso/dialogue/hero/Patecarbo_dialogue.png";
-        case 2:
-            return "assets/perso/dialogue/hero/Racaillou_dialogue.png";
-        case 3:
             return "assets/perso/dialogue/hero/Roy_dialogue.png";
-        case 4:
+        case 1:
+            return "assets/perso/dialogue/hero/Infenium_dialogue.png";
+        case 2:
+            return " assets/perso/dialogue/hero/Patecarbo_dialogue.png";
+        case 3:
             return "assets/perso/dialogue/hero/Xmarano_dialogue.png";
+        case 4:
+            return "assets/perso/dialogue/hero/Racaillou_dialogue.png";
         default:
             return NULL;
     }
@@ -158,6 +158,10 @@ void parse_file(char *filename, RenderContext_t *context, Global_t *m)
         return;
     context->current_boss = m->current_boss;
     context->current_hero = m->perso->current_perso;
+    m->perso[m->current_boss].name_perso;
+    m->perso[m->perso->current_perso].name_perso;
+    printf("Valeur de name_perso pour m->perso[m->current_boss]: %s\n", m->perso[m->current_boss].name_perso);
+    printf("Valeur de name_perso pour m->perso[m->perso->current_perso]: %s\n", m->perso[m->perso->current_perso].name_perso);
     printf("Valeur de current_boss : %d\n", context->current_boss);
     while (fgets(line, sizeof(line), file)) {
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
