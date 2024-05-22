@@ -5,18 +5,18 @@ XXXX   X         XXXXXX  X     X
 X      X     XXXXXXXXXX       XX
 X      X    XXXXXXX      X    XX
 X    X   H  XXXXXXX   X  X  H XX
-X H  X      X     XWWWX        X
+X H  X      X     X   X        X
 X   X                      X   X
 X   X                      X   X
 XXX X     X      X            XX
 XXXXXXX   X   XXXX            XX
 XXXXXXX   X   XXXX            XX
-XXXXXXXWWWXWWWXXXX             X
+XXXXXXX   X   XXXX             X
 X               X   X  X   H   X
 XX    XXXXXX    X   X  X       X
 XX X  XXXXXX    X   X  X  X    X
 XX X  XXXXXX    X H X     X  XXX
 X  X X          X   X     X  XXX
 X  X X   XXXXXXXX   X     X    X
-X  X XWWWXXXXXXXXN NXXX   X    X
+X  X X   XXXXXXXX   XXX   X    X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
