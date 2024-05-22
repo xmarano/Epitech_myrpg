@@ -30,6 +30,36 @@ void init_mini_barre(Global_t *m, fight_t *f, sfSprite *sprite, int who)
     sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite, NULL);
 }
 
+void print_boss_barre3(Global_t *m, fight_t *f, int word)
+{
+    if (word >= 7 && word <= 8) {
+        if (word == 7)
+            init_mini_barre(m, f, m->univ.spr_Boss7, BOSS7);
+        if (word == 8)
+            init_mini_barre(m, f, m->univ.spr_Boss8, BOSS8);
+        init_mini_barre(m, f, m->univ.spr_emy3_axe, ENEMY3_AXE);
+        init_mini_barre(m, f, m->univ.spr_emy3_spear, ENEMY3_SPEAR);
+        init_mini_barre(m, f, m->univ.spr_emy3_sword, ENEMY3_SWORD);
+        init_mini_barre(m, f, m->univ.spr_emy_mage, ENEMY_MAGE);
+    }
+}
+
+void print_boss_barre2(Global_t *m, fight_t *f, int word)
+{
+    if (word >= 4 && word <= 6) {
+        if (word == 4)
+            init_mini_barre(m, f, m->univ.spr_Boss4, BOSS4);
+        if (word == 5)
+            init_mini_barre(m, f, m->univ.spr_Boss5, BOSS5);
+        if (word == 6)
+            init_mini_barre(m, f, m->univ.spr_Boss6, BOSS6);
+        init_mini_barre(m, f, m->univ.spr_emy2_axe, ENEMY2_AXE);
+        init_mini_barre(m, f, m->univ.spr_emy2_spear, ENEMY2_SPEAR);
+        init_mini_barre(m, f, m->univ.spr_emy2_sword, ENEMY2_SWORD);
+    }
+    print_boss_barre3(m, f, word);
+}
+
 void print_mini_barre(Global_t *m, fight_t *f, int word)
 {
     init_mini_barre(m, f, m->univ.spr_roy, ROY);
@@ -48,25 +78,5 @@ void print_mini_barre(Global_t *m, fight_t *f, int word)
         init_mini_barre(m, f, m->univ.spr_emy1_spear, ENEMY1_SPEAR);
         init_mini_barre(m, f, m->univ.spr_emy1_sword, ENEMY1_SWORD);
     }
-    if (word >= 4 && word <= 6) {
-        if (word == 4)
-            init_mini_barre(m, f, m->univ.spr_Boss4, BOSS4);
-        if (word == 5)
-            init_mini_barre(m, f, m->univ.spr_Boss5, BOSS5);
-        if (word == 6)
-            init_mini_barre(m, f, m->univ.spr_Boss6, BOSS6);
-        init_mini_barre(m, f, m->univ.spr_emy2_axe, ENEMY2_AXE);
-        init_mini_barre(m, f, m->univ.spr_emy2_spear, ENEMY2_SPEAR);
-        init_mini_barre(m, f, m->univ.spr_emy2_sword, ENEMY2_SWORD);
-    }
-    if (word >= 7 && word <= 8) {
-        if (word == 7)
-            init_mini_barre(m, f, m->univ.spr_Boss7, BOSS7);
-        if (word == 8)
-            init_mini_barre(m, f, m->univ.spr_Boss8, BOSS8);
-        init_mini_barre(m, f, m->univ.spr_emy3_axe, ENEMY3_AXE);
-        init_mini_barre(m, f, m->univ.spr_emy3_spear, ENEMY3_SPEAR);
-        init_mini_barre(m, f, m->univ.spr_emy3_sword, ENEMY3_SWORD);
-        init_mini_barre(m, f, m->univ.spr_emy_mage, ENEMY_MAGE);
-    }
+    print_boss_barre2(m, f, word);
 }
