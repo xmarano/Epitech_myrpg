@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include <ctype.h>
 
-int skip_ennemy(const char *phrase, RenderContext_t *context)
+int skip_ennemy(char *phrase, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
@@ -20,7 +20,7 @@ int skip_ennemy(const char *phrase, RenderContext_t *context)
     return 0;
 }
 
-void ennemy_speak(const char *phrase, const char *num, RenderContext_t *context)
+void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
@@ -29,7 +29,7 @@ void ennemy_speak(const char *phrase, const char *num, RenderContext_t *context)
     sentencept(phrase, context, window_width - 520, 950);
 }
 
-int skip_hero(const char *phrase, RenderContext_t *context)
+int skip_hero(char *phrase, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
@@ -42,7 +42,7 @@ int skip_hero(const char *phrase, RenderContext_t *context)
     return 0;
 }
 
-void hero_speak(const char *phrase, const char *num, RenderContext_t *context)
+void hero_speak(char *phrase, const char *num, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;

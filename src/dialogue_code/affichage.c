@@ -121,7 +121,7 @@ int verif_parse(char *line, RenderContext_t *context, int current_perso, char *l
     return 0;
 }
 
-void parse_file(const char *filename, RenderContext_t *context, Global_t *m)
+void parse_file(char *filename, RenderContext_t *context, Global_t *m)
 {
     FILE *file = fopen(filename, "r");
     char line[256];
@@ -137,6 +137,6 @@ void parse_file(const char *filename, RenderContext_t *context, Global_t *m)
             break;
     }
     m->dialogue.start_dialogue = 0;
-    m->current = 2;
+    m->current = 1;
     fclose(file);
 }
