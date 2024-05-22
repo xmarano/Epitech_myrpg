@@ -26,6 +26,8 @@ typedef struct fight_struct {
     sfFont *font;
     int dmg_atk;
     int dmg_def;
+    int dmg_atk_received;
+    int dmg_def_received;
     sfSprite *sprite_atk;
     sfSprite *sprite_def;
     sfTexture *texture_atk;
