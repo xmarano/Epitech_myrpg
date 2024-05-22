@@ -83,3 +83,15 @@ void level_up(stchar_t *stats)
             stats->spd += 1;
     }
 }
+
+void get_fight_exp(Perso_t *atk, Perso_t *def)
+{
+    if (atk->is_hero == true) {
+        atk->stat_p.xp += 31 + def->stat_p.level - atk->stat_p.level;
+        level_up(&atk->stat_p);
+    }
+    if (def->is_hero == true) {
+        def->stat_p.xp += 10 + atk->stat_p.level;
+        level_up(&def->stat_p);
+    }
+}

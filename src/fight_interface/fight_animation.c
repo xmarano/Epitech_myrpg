@@ -38,5 +38,6 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
             atk->stat_p.current_hp = 0;
         sfClock_restart(f->clock_lifebar);
         f->has_def_attacked = sfTrue;
+        get_fight_exp(atk, def);
     }
 }

@@ -56,5 +56,6 @@ int get_damage_magical(Perso_t *attacker, Perso_t *defender);
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f);
 void destroy_fight_sprites(fight_t *f);
 void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m);
+void get_fight_exp(Perso_t *atk, Perso_t *def);
 
 #endif
