@@ -125,7 +125,7 @@ void sentencept(char *phrase, RenderContext_t *context, int x, int y)
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(context->window, text, NULL);
     sfRenderWindow_display(context->window);
-    sfSleep(sfSeconds(0.1));
+    sfSleep(sfSeconds(0.001));
     sfText_destroy(text);
     sfSprite_destroy(sprite);
     sfTexture_destroy(texture);

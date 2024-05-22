@@ -14,7 +14,7 @@ int skip_ennemy(char *phrase, RenderContext_t *context)
 
     if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
         sentencept(phrase, context, window_width - 520, 950);
-        sfSleep(sfSeconds(0.1));
+        sfSleep(sfSeconds(0.001));
         return 1;
     }
     return 0;
@@ -36,7 +36,7 @@ int skip_hero(char *phrase, RenderContext_t *context)
 
     if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
         sentencept(phrase, context, 25, 950);
-        sfSleep(sfSeconds(0.1));
+        sfSleep(sfSeconds(0.001));
         return 1;
     }
     return 0;
