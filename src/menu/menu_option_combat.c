@@ -66,6 +66,7 @@ static void check_hover(Global_t *m, hub_t *h)
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             load_game(m, h);
             m->current_map = m->old_map;
+            m->univ.interface.limite_tour = 5;
             m->current = m->old_current;
         }
     check_hover2(m);
