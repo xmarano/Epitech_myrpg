@@ -20,16 +20,16 @@ void init_mini_barre_emy(Global_t *m, fight_t *f, sfSprite *sprite, int who)
     pose = sfSprite_getPosition(sprite);
     pose.x += 6;
     pose.y -= 7;
-    f->rect_empty_bar = (sfIntRect){2, 99, maxhp * 2 + 1, 7};
-    sfSprite_setTextureRect(f->empty_bar_sprite, f->rect_empty_bar);
-    sfSprite_setPosition(f->empty_bar_sprite, pose);
-    sfSprite_setScale(f->empty_bar_sprite, (sfVector2f){0.7, 0.7});
-    sfRenderWindow_drawSprite(m->window, f->empty_bar_sprite, NULL);
-    f->rect_ennemy_bar = (sfIntRect){2, 91, currhp * 2 + 1, 7};
-    sfSprite_setTextureRect(f->hero_lifebar_sprite, f->rect_ennemy_bar);
-    sfSprite_setPosition(f->hero_lifebar_sprite, pose);
-    sfSprite_setScale(f->hero_lifebar_sprite, (sfVector2f){0.7, 0.7});
-    sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite, NULL);
+    f->rect_empty_bar2 = (sfIntRect){2, 99, maxhp * 2 + 1, 7};
+    sfSprite_setTextureRect(f->empty_bar_sprite2, f->rect_empty_bar2);
+    sfSprite_setPosition(f->empty_bar_sprite2, pose);
+    sfSprite_setScale(f->empty_bar_sprite2, (sfVector2f){0.7, 0.7});
+    sfRenderWindow_drawSprite(m->window, f->empty_bar_sprite2, NULL);
+    f->rect_ennemy_bar2 = (sfIntRect){2, 91, currhp * 2 + 1, 7};
+    sfSprite_setTextureRect(f->hero_lifebar_sprite2, f->rect_ennemy_bar2);
+    sfSprite_setPosition(f->hero_lifebar_sprite2, pose);
+    sfSprite_setScale(f->hero_lifebar_sprite2, (sfVector2f){0.7, 0.7});
+    sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite2, NULL);
 }
 
 void init_mini_barre(Global_t *m, fight_t *f, sfSprite *sprite, int who)
@@ -41,16 +41,16 @@ void init_mini_barre(Global_t *m, fight_t *f, sfSprite *sprite, int who)
     pose = sfSprite_getPosition(sprite);
     pose.x += 6;
     pose.y -= 7;
-    f->rect_empty_bar = (sfIntRect){2, 99, maxhp * 2 + 1, 7};
-    sfSprite_setTextureRect(f->empty_bar_sprite, f->rect_empty_bar);
-    sfSprite_setPosition(f->empty_bar_sprite, pose);
-    sfSprite_setScale(f->empty_bar_sprite, (sfVector2f){0.7, 0.7});
-    sfRenderWindow_drawSprite(m->window, f->empty_bar_sprite, NULL);
-    f->rect_hero_bar = (sfIntRect){2, 83, currhp * 2 + 1, 7};
-    sfSprite_setTextureRect(f->hero_lifebar_sprite, f->rect_hero_bar);
-    sfSprite_setPosition(f->hero_lifebar_sprite, pose);
-    sfSprite_setScale(f->hero_lifebar_sprite, (sfVector2f){0.7, 0.7});
-    sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite, NULL);
+    f->rect_empty_bar2 = (sfIntRect){2, 99, maxhp * 2 + 1, 7};
+    sfSprite_setTextureRect(f->empty_bar_sprite2, f->rect_empty_bar2);
+    sfSprite_setPosition(f->empty_bar_sprite2, pose);
+    sfSprite_setScale(f->empty_bar_sprite2, (sfVector2f){0.7, 0.7});
+    sfRenderWindow_drawSprite(m->window, f->empty_bar_sprite2, NULL);
+    f->rect_ennemy_bar2 = (sfIntRect){2, 83, currhp * 2 + 1, 7};
+    sfSprite_setTextureRect(f->hero_lifebar_sprite2, f->rect_ennemy_bar2);
+    sfSprite_setPosition(f->hero_lifebar_sprite2, pose);
+    sfSprite_setScale(f->hero_lifebar_sprite2, (sfVector2f){0.7, 0.7});
+    sfRenderWindow_drawSprite(m->window, f->hero_lifebar_sprite2, NULL);
 }
 
 static void print_tour(Global_t *m)

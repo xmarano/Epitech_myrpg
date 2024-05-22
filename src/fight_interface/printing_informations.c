@@ -8,8 +8,6 @@
 #include "../include/perso.h"
 #include "../rpg.h"
 
-// SPRITE DE BASE: 40 HP
-
 int set_dmg(fight_t *fight, Global_t *m, Perso_t *atk, Perso_t *def)
 {
     if (atk->stat_p.str >= atk->stat_p.mag)
@@ -143,27 +141,35 @@ void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     draw_weapon_advantage_def(atk, def, f, m);
 }
 
-void print_fight_scene(Global_t *m, fight_t *fight, Perso_t *atk, Perso_t *def)
+void print_fight_scene(Global_t *m, fight_t *fight)
 {
-    sfRenderWindow_drawSprite(m->window, fight->combat_scene, NULL);
-    sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){100, 900});
-    fight->rect_empty_bar = (sfIntRect){1, 26, atk->stat_p.max_hp * 2 + 1, 7};
-    sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
-    sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
-    sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){1075, 900});
-    fight->rect_empty_bar = (sfIntRect){1, 26, def->stat_p.max_hp * 2 + 1, 7};
-    sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
-    sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
-    fight->rect_ennemy_bar = (sfIntRect){1, 58, def->stat_p.current_hp * 2 + 1, 7};
-    sfSprite_setTextureRect(fight->ennemy_bar_sprite, fight->rect_ennemy_bar);
-    sfRenderWindow_drawSprite(m->window, fight->ennemy_bar_sprite, NULL);
-    fight->rect_hero_bar = (sfIntRect){1, 50, atk->stat_p.current_hp * 2 + 1, 7};
-    sfSprite_setTextureRect(fight->hero_lifebar_sprite, fight->rect_hero_bar);
-    sfRenderWindow_drawSprite(m->window, fight->hero_lifebar_sprite, NULL);
-    draw_text((sfVector2f){25, 50}, atk->name_perso, m, fight);
-    draw_text((sfVector2f){1525, 50}, def->name_perso, m, fight);
-    draw_stats(atk, def, m, fight);
-    print_sprites(atk, def, m, fight);
+    Perso_t *atk = &m->perso[m->univ.interface.attacker];
+    Perso_t *def = &m->perso[m->univ.interface.defender];
+
+    if (m->univ.interface.go_fight == true) {
+        sfRenderWindow_drawSprite(m->window, fight->combat_scene, NULL);
+        sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){100, 900});
+        fight->rect_empty_bar = (sfIntRect){1, 26, atk->stat_p.max_hp * 2 + 1, 7};
+        sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
+        sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
+        sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){1075, 900});
+        fight->rect_empty_bar = (sfIntRect){1, 26, def->stat_p.max_hp * 2 + 1, 7};
+        sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
+        sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
+        fight->rect_ennemy_bar = (sfIntRect){1, 58, def->stat_p.current_hp * 2 + 1, 7};
+        sfSprite_setTextureRect(fight->ennemy_bar_sprite, fight->rect_ennemy_bar);
+        sfRenderWindow_drawSprite(m->window, fight->ennemy_bar_sprite, NULL);
+        fight->rect_hero_bar = (sfIntRect){1, 50, atk->stat_p.current_hp * 2 + 1, 7};
+        sfSprite_setTextureRect(fight->hero_lifebar_sprite, fight->rect_hero_bar);
+        sfRenderWindow_drawSprite(m->window, fight->hero_lifebar_sprite, NULL);
+        draw_text((sfVector2f){25, 50}, atk->name_perso, m, fight);
+        draw_text((sfVector2f){1525, 50}, def->name_perso, m, fight);
+        draw_stats(atk, def, m, fight);
+        print_sprites(atk, def, m, fight);
+        if (sfKeyboard_isKeyPressed(sfKeyS)) {
+            m->univ.interface.go_fight = false;
+        }
+    }
 }
 
 void destroy_fight_struct(fight_t *fight)
@@ -174,4 +180,7 @@ void destroy_fight_struct(fight_t *fight)
     sfSprite_destroy(fight->combat_scene);
     sfSprite_destroy(fight->ennemy_bar_sprite);
     sfFont_destroy(fight->font);
+    sfSprite_destroy(fight->empty_bar_sprite2);
+    sfSprite_destroy(fight->hero_lifebar_sprite2);
+    sfSprite_destroy(fight->ennemy_bar_sprite2);
 }

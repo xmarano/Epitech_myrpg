@@ -12,12 +12,20 @@
     #define FIGHT_H
 
 typedef struct fight_struct {
+
     sfSprite *empty_bar_sprite;
     sfIntRect rect_empty_bar;
     sfSprite *hero_lifebar_sprite;
     sfIntRect rect_hero_bar;
     sfSprite *ennemy_bar_sprite;
     sfIntRect rect_ennemy_bar;
+
+    sfSprite *empty_bar_sprite2;
+    sfSprite *ennemy_bar_sprite2;
+    sfIntRect rect_empty_bar2;
+    sfIntRect rect_ennemy_bar2;
+    sfSprite *hero_lifebar_sprite2;
+
     sfSprite *weapon_advantage;
     sfIntRect weapon_advantage_rect;
     sfTexture *globat_texture;
@@ -38,7 +46,7 @@ typedef struct fight_struct {
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);
-void print_fight_scene(Global_t *m, fight_t *fight, Perso_t *atk, Perso_t *def);
+void print_fight_scene(Global_t *m, fight_t *fight);
 void destroy_fight_struct(fight_t *fight);
 int is_weapon_advantage(Weapons_t *weapon_atk, Weapons_t *weapon_def);
 int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
