@@ -13,13 +13,20 @@
 
 static void import_emy_in_battle(Global_t *m, int k, fight_t *f)
 {
-    printf("target -> %d\n", k);
-    printf("attaquant = %d\n", m->codi.patern);
-    // init_fight_sprites(&m->perso[atoi(k)], &m->perso[m->codi.patern], f, m);
-    // set_dmg(f, m, &m->perso[m->univ.interface.who], &m->perso[k]);
-    // m->univ.interface.attacker = m->univ.interface.who;
-    // m->univ.interface.defender = k;
-    // m->univ.interface.go_fight = true;
+    char *liste = ENNEMY_CODE;
+    int i = 0;
+
+    for (i; liste[i] != '\0'; i++) {
+        if (liste[i] == m->univ.interface.current_emy) {
+            break;
+        }
+    }
+    i+= 5;
+    init_fight_sprites(&m->perso[i], &m->perso[k], f, m);
+    set_dmg(f, m, &m->perso[m->univ.interface.who], &m->perso[k]);
+    m->univ.interface.attacker = i;
+    m->univ.interface.defender = k;
+    m->univ.interface.go_fight = true;
 }
 
 static void attack3(Global_t *m, int i, int j, fight_t *f)

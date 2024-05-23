@@ -125,6 +125,7 @@ void print_fight_scene(Global_t *m, fight_t *fight)
     Perso_t *def = &m->perso[m->univ.interface.defender];
 
     if (m->univ.interface.go_fight && (m->current >= 1 && m->current <= 8)) {
+        sfRenderWindow_setView(m->window, m->hub.normal_view);
         sfRenderWindow_drawSprite(m->window, fight->combat_scene, NULL);
         sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){100, 900});
         fight->rect_empty_bar = (sfIntRect){1, 26,

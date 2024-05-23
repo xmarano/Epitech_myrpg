@@ -11,17 +11,32 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
+static void part2(Global_t *m)
+{
+    if (m->perso[BOSS4].stat_p.current_hp <= 0 &&
+    !m->univ.interface.go_fight) {
+        m->zone4.is_w4_clear = true;
+        look_win(m);
+    }
+    look_loose(m);
+}
+
 void draw_monde4(Global_t *m, fight_t *f)
 {
     if (m->current == 4) {
         sfRenderWindow_setView(m->window, m->zone4.view_w4);
         sfRenderWindow_drawSprite(m->window, m->zone4.w4_map, NULL);
-        //check_all_pose(m, m->zone1.tab_map, 1);
-        move_game_cursor(m);
-        //all_perso_movement(m);
-        //set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
-        //print_boss_barre(m, BOSS4, m->zone4.view_w4);
-        //print_mini_barre(m, f);
+        check_all_pose(m, m->current_map, 4);
+        if (!m->univ.interface.go_fight)
+            move_game_cursor(m);
+        if (m->univ.interface.limite_tour > 0 && !m->univ.interface.go_fight)
+            all_perso_movement(m, m->current_map);
+        if (m->univ.interface.limite_tour == 0 && !m->univ.interface.go_fight)
+            all_ennemy_movement(m, m->current_map);
+        print_mini_barre(m, f, 4);
+        if (m->perso[BOSS4].stat_p.current_hp > 0)
+            print_boss_barre(m, BOSS4, m->univ.spr_Boss4);
+        part2(m);
         return_and_old_current2(m, 4);
     }
 }

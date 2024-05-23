@@ -52,7 +52,6 @@ int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
     //+ defense->current_case->esq_bonus;
 
     accuracy = accuracy - avoid;
-    printf("numbers: %i accuracy: %i\n", ((nb1 + nb2) / 2), accuracy);
     if (accuracy <= 0) {
         return 0;
     }

@@ -64,16 +64,16 @@ void infe_stats(Perso_t *perso)
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 22;
-    perso->stat_p.max_hp = 22;
+    perso->stat_p.current_hp = 60;
+    perso->stat_p.max_hp = 60;
     perso->stat_p.lck = 10;
     perso->stat_p.skl = 14;
-    perso->stat_p.mag = 9;
+    perso->stat_p.mag = 25;
     perso->stat_p.def = 9;
     perso->stat_p.res = 8;
     perso->stat_p.str = 1;
     perso->stat_p.spd = 11;
-    perso->stat_p.mov = 8;
+    perso->stat_p.mov = 15;
 }
 
 void roy_stats(Perso_t *perso)

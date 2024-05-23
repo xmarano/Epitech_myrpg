@@ -13,8 +13,8 @@ void set_stats_b8(Perso_t *perso)
 {
     perso->stat_p.level = 20;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 60;
-    perso->stat_p.max_hp = 60;
+    perso->stat_p.current_hp = 6;
+    perso->stat_p.max_hp = 40;
     perso->stat_p.mag = 1;
     perso->stat_p.lck = 21;
     perso->stat_p.skl = 10;
@@ -29,9 +29,9 @@ void set_stats_b7(Perso_t *perso)
 {
     perso->stat_p.level = 18;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 56;
+    perso->stat_p.current_hp = 5;
     perso->stat_p.mag = 1;
-    perso->stat_p.max_hp = 56;
+    perso->stat_p.max_hp = 36;
     perso->stat_p.lck = 19;
     perso->stat_p.skl = 9;
     perso->stat_p.def = 16;
@@ -45,8 +45,8 @@ void set_stats_b6(Perso_t *perso)
 {
     perso->stat_p.level = 16;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 50;
-    perso->stat_p.max_hp = 50;
+    perso->stat_p.current_hp = 5;
+    perso->stat_p.max_hp = 33;
     perso->stat_p.lck = 16;
     perso->stat_p.mag = 13;
     perso->stat_p.skl = 6;
@@ -61,8 +61,8 @@ void set_stats_b5(Perso_t *perso)
 {
     perso->stat_p.level = 13;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 41;
-    perso->stat_p.max_hp = 41;
+    perso->stat_p.current_hp = 1;
+    perso->stat_p.max_hp = 30;
     perso->stat_p.lck = 12;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 6;

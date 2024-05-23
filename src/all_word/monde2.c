@@ -11,6 +11,16 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
+static void part2(Global_t *m)
+{
+    if (m->perso[BOSS2].stat_p.current_hp <= 0 &&
+    !m->univ.interface.go_fight) {
+        m->zone2.is_w2_clear = true;
+        look_win(m);
+    }
+    look_loose(m);
+}
+
 void draw_monde2(Global_t *m, fight_t *f)
 {
     if (m->current == 2) {
@@ -26,11 +36,7 @@ void draw_monde2(Global_t *m, fight_t *f)
         print_mini_barre(m, f, 2);
         if (m->perso[BOSS2].stat_p.current_hp > 0)
             print_boss_barre(m, BOSS2, m->univ.spr_Boss2);
-        if (m->perso[BOSS2].stat_p.current_hp <= 0 && !m->univ.interface.go_fight) {
-            m->zone2.is_w2_clear = true;
-            look_win(m);
-        }
-        look_loose(m);
+        part2(m);
         return_and_old_current2(m, 2);
     }
 }
