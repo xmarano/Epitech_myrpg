@@ -36,3 +36,5 @@ ennemy : it is the end for you.
 3: It is the end of your reign
 4: It is what they all said before
 5: I am going to end yoour reign
+
+*
