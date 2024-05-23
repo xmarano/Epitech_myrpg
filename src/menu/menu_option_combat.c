@@ -52,6 +52,8 @@ static void check_hover2(Global_t *m)
     if (sfFloatRect_contains(&m->o2.gb_b4, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             usleep(1000000);
+            sfMusic_pause(m->setting.music);
+            sfMusic_play(m->hub.music);
             m->current = 0;
         }
     }

@@ -90,6 +90,8 @@ void draw_menu(Global_t *m)
 void destroy_menu(Global_t *m)
 {
     sfMusic_destroy(m->menu.music);
+    sfMusic_destroy(m->hub.music);
+    sfMusic_destroy(m->setting.music);
     sfSprite_destroy(m->menu.cursor);
     sfSprite_destroy(m->menu.map);
     sfText_destroy(m->menu.title);

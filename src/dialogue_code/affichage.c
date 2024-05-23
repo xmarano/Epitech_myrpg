@@ -112,6 +112,8 @@ void parse_file(char *filename, RenderContext_t *context,
             break;
     }
     m->dialogue.start_dialogue = 0;
+    sfMusic_pause(m->hub.music);
+    sfMusic_play(m->setting.music);
     m->current = curr;
     fclose(file);
 }
