@@ -45,7 +45,7 @@ void init_setting3(Global_t *m)
     m->setting.volumeh = init_text2(m->setting.font,
     "Volume Down", 50, (sfVector2f){570, 750});
     m->setting.cvolume = init_text2(m->setting.font,
-    "Stop Music", 50, (sfVector2f){570, 810});
+    "Mute Music", 50, (sfVector2f){570, 810});
 }
 
 void init_setting2(Global_t *m)

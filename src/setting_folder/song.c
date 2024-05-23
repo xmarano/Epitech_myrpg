@@ -7,36 +7,58 @@
 #include "../rpg.h"
 #include <SFML/Graphics.h>
 
-void max_volume(Global_t *m)
+void up_volume(Global_t *m, int v1, int v2, int v3)
 {
-    float volume = sfMusic_getVolume(m->menu.music);
-
-    if (volume + 10 < 100)
-        volume = volume + 10;
+    if (v1 + 10 < 100)
+        v1 = v1 + 10;
     else
-        volume = 100;
-    sfMusic_setVolume(m->menu.music, volume);
+        v1 = 100;
+    if (v2 + 10 < 100)
+        v2 = v2 + 10;
+    else
+        v2 = 100;
+    if (v3 + 10 < 100)
+        v3 = v3 + 10;
+    else
+        v3 = 100;
+    sfMusic_setVolume(m->menu.music, v1);
+    sfMusic_setVolume(m->hub.music, v2);
+    sfMusic_setVolume(m->setting.music, v3);
 }
 
-void min_volume(Global_t *m)
+void down_volume(Global_t *m, int v1, int v2, int v3)
 {
-    float volume = sfMusic_getVolume(m->menu.music);
-
-    if (volume - 10 > 0)
-        volume = volume - 10;
+    if (v1 - 10 > 0)
+        v1 = v1 - 10;
     else
-        volume = 0;
-    sfMusic_setVolume(m->menu.music, volume);
+        v1 = 0;
+    if (v2 - 10 > 0)
+        v2 = v2 - 10;
+    else
+        v2 = 0;
+    if (v3 - 10 > 0)
+        v3 = v3 - 10;
+    else
+        v3 = 0;
+    sfMusic_setVolume(m->menu.music, v1);
+    sfMusic_setVolume(m->hub.music, v2);
+    sfMusic_setVolume(m->setting.music, v3);
 }
 
-void stop_song(Global_t *m)
+void mute_volume(Global_t *m, int v1, int v2, int v3)
 {
-    sfVector2i mousePos = sfMouse_getPositionRenderWindow(m->window);
-    sfFloatRect bounds = sfText_getGlobalBounds(m->setting.cvolume);
-
-    if (m->setting.cvolume != NULL)
-        if (sfFloatRect_contains(&bounds, mousePos.x, mousePos.y))
-            sfMusic_setVolume(m->menu.music, 0);
+    if (v1 == 0)
+        sfMusic_setVolume(m->menu.music, 100);
+    else
+        sfMusic_setVolume(m->menu.music, 0);
+    if (v2 == 0)
+        sfMusic_setVolume(m->hub.music, 100);
+    else
+        sfMusic_setVolume(m->hub.music, 0);
+    if (v3 == 0)
+        sfMusic_setVolume(m->setting.music, 100);
+    else
+        sfMusic_setVolume(m->setting.music, 0);
 }
 
 void verif_song(sfVector2i mouse, Global_t *m)
@@ -45,11 +67,14 @@ void verif_song(sfVector2i mouse, Global_t *m)
     sfFloatRect downvol = sfText_getGlobalBounds(m->setting.volumeb);
     sfFloatRect upvol = sfText_getGlobalBounds(m->setting.volumeh);
     sfFloatRect coupvol = sfText_getGlobalBounds(m->setting.cvolume);
+    int volume1 = sfMusic_getVolume(m->menu.music);
+    int volume2 = sfMusic_getVolume(m->hub.music);
+    int volume3 = sfMusic_getVolume(m->setting.music);
 
     if (sfFloatRect_contains(&downvol, mousePos.x, mousePos.y))
-        max_volume(m);
+        up_volume(m, volume1, volume2, volume3);
     if (sfFloatRect_contains(&upvol, mousePos.x, mousePos.y))
-        min_volume(m);
+        down_volume(m, volume1, volume2, volume3);
     if (sfFloatRect_contains(&coupvol, mousePos.x, mousePos.y))
-        stop_song(m);
+        mute_volume(m, volume1, volume2, volume3);
 }

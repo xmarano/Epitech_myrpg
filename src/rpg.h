@@ -191,6 +191,7 @@ void destroy_menu_option_hub(Global_t *m);
 void destroy_menu_option_combat(Global_t *m);
 void draw_stats_shop(Global_t *m);
 void init_menu(Global_t *m);
+void init_music(Global_t *m);
 void draw_menu(Global_t *m);
 void import_weapon_inv(Global_t *m, int w);
 void destroy_menu(Global_t *m);

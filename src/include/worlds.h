@@ -11,6 +11,7 @@
     #include "../rpg.h"
 
 typedef struct hub {
+    sfMusic* music;
     sfIntRect rect;
     sfClock *clock_hub;
     sfSprite *sprite_perso;

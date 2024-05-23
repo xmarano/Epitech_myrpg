@@ -50,7 +50,6 @@ static void draw_mondes(Global_t *m, fight_t *f)
     draw_monde8(m, f);
     draw_player_interface(m);
     attack(m, f);
-    attack_ally(m, f);
 }
 
 void rpg(Global_t *m, hub_t *h, fight_t *f)
@@ -100,6 +99,7 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     setup_stat(m);
     init_w_sprite(m);
     init_menu(m);
+    init_music(m);
     init_select_perso(m);
     init_menu_option_hub(m);
     init_menu_option_combat(m);

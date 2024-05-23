@@ -131,6 +131,7 @@ static void hover_select2(Global_t *m)
     if (sfFloatRect_contains(&m->s.gb_play, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_pause(m->menu.music);
+            sfMusic_play(m->hub.music);
             m->current = 14;
         }
     hover(m, m->s.back, &m->s.gb_back);

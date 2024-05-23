@@ -6,6 +6,17 @@
 */
 #include "../rpg.h"
 
+void init_music(Global_t *m)
+{
+    m->menu.music = sfMusic_createFromFile("assets/music/music_menu.ogg");
+    m->hub.music = sfMusic_createFromFile("assets/music/music_hub.ogg");
+    m->setting.music = sfMusic_createFromFile("assets/music/music_combat.ogg");
+    sfMusic_play(m->menu.music);
+    sfMusic_setLoop(m->menu.music, sfTrue);
+    sfMusic_setLoop(m->hub.music, sfTrue);
+    sfMusic_setLoop(m->setting.music, sfTrue);
+}
+
 static void check_globalbounds(Global_t *m)
 {
     m->menu.gb_b1 = sfRectangleShape_getGlobalBounds(m->menu.button1);
@@ -17,8 +28,6 @@ static void check_globalbounds(Global_t *m)
 void init_menu(Global_t *m)
 {
     sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
-    m->menu.music = sfMusic_createFromFile("assets/music/music_menu.ogg");
-    sfMusic_play(m->menu.music);
     m->menu.save_auto_clk = sfClock_create();
     m->current = 10;
     m->hub.clock = sfClock_create();
@@ -47,6 +56,7 @@ static void check_hover(Global_t *m)
     if (sfFloatRect_contains(&m->menu.gb_b2, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_pause(m->menu.music);
+            sfMusic_play(m->hub.music);
             m->current = 12;
         }
     hover(m, m->menu.button3, &m->menu.gb_b3);

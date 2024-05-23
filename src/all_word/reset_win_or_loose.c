@@ -16,6 +16,8 @@ void look_win(Global_t *m)
     for (int i = 0; i < 5; i++) {
         m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
     }
+    sfMusic_pause(m->setting.music);
+    sfMusic_play(m->hub.music);
     m->current = 0; // a deplacer chez leo, curr 23!
 }
 
@@ -32,4 +34,7 @@ void look_loose(Global_t *m)
             m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
         m->univ.interface.limite_tour = 5;
     }
+    sfMusic_pause(m->setting.music);
+    sfMusic_play(m->hub.music);
+    m->current = 0; // a deplacer chez leo, curr 23!
 }
