@@ -77,6 +77,22 @@ int verif_parse(char *line, RenderContext_t *context,
     return 0;
 }
 
+static int verif_polle(Global_t *m, FILE *file, int curr)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_pollEvent(m->window, &event)) {
+        if (event.type == sfEvtClosed) {
+            sfRenderWindow_close(m->window);
+            return 1;
+        }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void parse_file(char *filename, RenderContext_t *context,
     Global_t *m, int curr)
 {
@@ -84,21 +100,17 @@ void parse_file(char *filename, RenderContext_t *context,
     char line[256];
     char last_speaker[256] = "";
 
-    if (file == NULL)
-        return;
     context->current_boss = m->current_boss;
     context->current_hero = m->perso->current_perso;
     context->name_ennemy = m->perso[m->current_boss].name_perso;
     context->name_hero = m->perso[m->perso->current_perso].name_perso;
     while (fgets(line, sizeof(line), file)) {
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+        if (verif_polle(m, file, curr) == 1)
             break;
-        if (verif_parse(line, context, m->perso->current_perso, last_speaker)
-        == 1)
+        if (verif_parse(line, context, m->perso->current_perso,
+        last_speaker) == 1)
             break;
     }
-    sfMusic_pause(m->hub.music);
-    sfMusic_play(m->setting.music);
     m->dialogue.start_dialogue = 0;
     m->current = curr;
     fclose(file);
