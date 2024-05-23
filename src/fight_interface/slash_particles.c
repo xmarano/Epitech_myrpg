@@ -10,10 +10,9 @@
 #include "../include/menu.h"
 #include "../include/worlds.h"
 
-void init_s_Particle(slash_t* particle)
+static void init_s_particle(slash_t *particle)
 {
-    particle->texture = sfTexture_createFromFile
-    ("assets/fight/slash_particle.png", NULL);
+    particle->texture = SET_TX("assets/fight/slash_particle.png", NULL);
     particle->spr = sfSprite_create();
     sfSprite_setTexture(particle->spr, particle->texture, sfFalse);
     sfSprite_setScale(particle->spr, (sfVector2f){2, 2});
@@ -23,7 +22,7 @@ void init_s_Particle(slash_t* particle)
     particle->life_duration = 1 * 5;
 }
 
-void update_s_Particle(slash_t* particle, float deltaTime)
+void update_s_particle(slash_t *particle, float deltaTime)
 {
     particle->position.x = 1225 - rand() % 100 + 100 - (125);
     particle->position.y = 450 - rand() % 30 + 30 - (150);
@@ -33,7 +32,7 @@ void update_s_Particle(slash_t* particle, float deltaTime)
 void init_slash(Global_t *m, fight_t *f)
 {
     for (int i = 0; i < S_PARTICLES; ++i) {
-        init_s_Particle(&f->s_particles[i]);
+        init_s_particle(&f->s_particles[i]);
     }
     f->slash_clock = sfClock_create();
 }
@@ -64,7 +63,7 @@ int draw_slash(Global_t *m, fight_t *f)
     for (int i = 0; i < S_PARTICLES; ++i) {
         if (deltaTime < f->s_particles->life_duration)
             sfRenderWindow_drawSprite(m->window, f->s_particles[i].spr, NULL);
-        update_s_Particle(&f->s_particles[i], deltaTime);
+        update_s_particle(&f->s_particles[i], deltaTime);
     }
     sfClock_restart(f->slash_clock);
 }

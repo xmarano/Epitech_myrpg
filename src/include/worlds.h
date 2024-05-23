@@ -114,6 +114,7 @@ typedef struct interface {
     int attacker;
     int defender;
     char current_emy;
+    int heal_capa;
 }Interface_t;
 
 typedef struct {

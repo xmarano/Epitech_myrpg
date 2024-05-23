@@ -11,7 +11,7 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-void add_hp(Global_t *m, int who)
+static void add_hp(Global_t *m, int who)
 {
     m->perso[who].stat_p.current_hp += 10;
     if (m->perso[who].stat_p.current_hp > m->perso[who].stat_p.max_hp)
@@ -76,9 +76,27 @@ static void attack2(Global_t *m, int i, fight_t *f)
     return;
 }
 
+static void heal_all(Global_t *m)
+{
+    for (int i = 0; i < 5; i++) {
+        if (m->perso[i].stat_p.current_hp > 0 &&
+        m->univ.interface.heal_capa > 0)
+            m->perso[i].stat_p.current_hp += 4;
+        if (m->perso[i].stat_p.current_hp > m->perso[i].stat_p.max_hp)
+            m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
+    }
+    if (m->univ.interface.heal_capa != 0)
+        m->univ.interface.heal_capa -= 1;
+    m->univ.interface.attack_gpy = false;
+}
+
 void attack(Global_t *m, fight_t *f)
 {
     if (m->univ.interface.attack_gpy == true) {
+        if (m->univ.interface.who == INFENIUM &&
+        strcmp(m->perso[INFENIUM].current_weapon->name, "Heal") == 0) {
+            return heal_all(m);
+        }
         for (int i = 0; m->current_map[i] != NULL; i++) {
             attack2(m, i, f);
         }

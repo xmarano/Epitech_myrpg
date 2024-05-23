@@ -107,6 +107,7 @@ static void draw_stats(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 
 static void set_emy_ba(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *fight)
 {
+    fight->rect_empty_bar = (sfIntRect){1, 26, def->stat_p.max_hp * 2 + 1, 7};
     sfSprite_setTextureRect(fight->empty_bar_sprite, fight->rect_empty_bar);
     sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
     fight->rect_ennemy_bar = (sfIntRect){1, 58,
@@ -134,8 +135,6 @@ void print_fight_scene(Global_t *m, fight_t *fight)
         fight->rect_empty_bar);
         sfRenderWindow_drawSprite(m->window, fight->empty_bar_sprite, NULL);
         sfSprite_setPosition(fight->empty_bar_sprite, (sfVector2f){1075, 900});
-        fight->rect_empty_bar = (sfIntRect){1, 26,
-        def->stat_p.max_hp * 2 + 1, 7};
         set_emy_ba(atk, def, m, fight);
         draw_text((sfVector2f){25, 50}, atk->name_perso, m, fight);
         draw_text((sfVector2f){1525, 50}, def->name_perso, m, fight);

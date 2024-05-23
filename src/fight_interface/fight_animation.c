@@ -37,6 +37,7 @@ static void print1(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 
 static void reset(Global_t *m, fight_t *f, sfClock *clock)
 {
+    destroy_fight_sprites(f);
     m->univ.interface.go_fight = false;
     f->is_fight = true;
     f->has_def_attacked = false;
@@ -73,9 +74,7 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         print2(atk, def, m, f);
     if (seconds > 5.0f) {
         reset(m, f, clock);
-        sfClock_restart(clock);
         sfClock_destroy(clock);
-        destroy_fight_sprites(f);
         clock = NULL;
     }
 }

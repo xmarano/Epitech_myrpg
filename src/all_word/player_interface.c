@@ -38,6 +38,7 @@ void init_player_interface(Global_t *m)
     sfText_setFont(m->univ.interface.tour, m->dialogue.Font);
     sfText_setFillColor(m->univ.interface.tour, sfBlack);
     sfText_setCharacterSize(m->univ.interface.tour, 20);
+    m->univ.interface.heal_capa = 5;
 }
 
 static void gest_err_pose(Global_t *m, sfVector2f pose_sp)
@@ -136,6 +137,7 @@ static void gest_cursor(Global_t *m)
         m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
         m->univ.interface.limite_tour -= 1;
+        passif_infenium(m);
     }
 }
 

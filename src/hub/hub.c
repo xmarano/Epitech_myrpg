@@ -59,7 +59,8 @@ void init_hub(hub_t *h, Global_t *m)
     h->texture_hub_night = SET_TX("maps/map_night.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->sprite_hub_night = sfSprite_create();
-    m->hub.normal_view  = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
+    m->hub.normal_view = sfView_createFromRect((sfFloatRect)
+    {0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/map_d.png");
     h->pouilleux = sfSprite_create();

@@ -13,6 +13,10 @@
 
 static void part2(Global_t *m)
 {
+    if (m->perso[ENEMY_MAGE].stat_p.current_hp > 0
+    && m->univ.interface.limite_tour == 0) {
+        passif_mage(m);
+    }
     if (m->perso[BOSS8].stat_p.current_hp <= 0 &&
     !m->univ.interface.go_fight) {
         m->zone8.is_w8_clear = true;
