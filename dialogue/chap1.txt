@@ -1,10 +1,10 @@
-1 : So the king is in his castle 
-3 : So he is probably this way ?
-2 : I need to explore to find the king
-4 : So he is probably in this castle 
-0 : So I need to find the king of Elae
+1: So the king is in his castle 
+3: So he is probably this way ?
+2: I need to explore to find the king
+4: So he is probably in this castle 
+0: So I need to find the king of Elae
 
-ennemy : it is the property of the Aixus king
+ennemy: It is the property of the Aixus king
 
 1 : I thought this was the kingdoms of Edgar
 3 : This is not the Edgar kingdom ?

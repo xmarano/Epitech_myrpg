@@ -15,6 +15,10 @@ static void what_world_dia3(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 7) {
         m->current_combat = 7;
         m->current_boss = 11;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map7/map7.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map7/map7.txt"));
         parse_file("dialogue/chap7.txt", &context, m, 7);
@@ -23,6 +27,10 @@ static void what_world_dia3(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 8) {
         m->current_combat = 8;
         m->current_boss = 12;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map8/map8.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map8/map8.txt"));
         parse_file("dialogue/chap8.txt", &context, m, 8);
@@ -35,6 +43,10 @@ static void what_world_dia2(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 5) {
         m->current_combat = 5;
         m->current_boss = 9;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map5/map5.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map5/map5.txt"));
         parse_file("dialogue/chap5.txt", &context, m, 5);
@@ -43,6 +55,10 @@ static void what_world_dia2(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 6) {
         m->current_combat = 6;
         m->current_boss = 10;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map6/map6.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map6/map6.txt"));
         parse_file("dialogue/chap6.txt", &context, m, 6);
@@ -56,6 +72,10 @@ static void what_world_dia1(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 3) {
         m->current_combat = 3;
         m->current_boss = 7;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map3/map3.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map3/map3.txt"));
         parse_file("dialogue/chap3.txt", &context, m, 3);
@@ -64,6 +84,10 @@ static void what_world_dia1(Global_t *m, RenderContext_t context)
     if (m->dialogue.start_dialogue == 4) {
         m->current_combat = 4;
         m->current_boss = 8;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map4/map4.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map4/map4.txt"));
         parse_file("dialogue/chap4.txt", &context, m, 4);
@@ -79,6 +103,10 @@ void what_world_dia(Global_t *m)
     if (m->dialogue.start_dialogue == 1) {
         m->current_combat = 1;
         m->current_boss = 5;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         parse_file("dialogue/chap1.txt", &context, m, 1);
@@ -87,6 +115,10 @@ void what_world_dia(Global_t *m)
     if (m->dialogue.start_dialogue == 2) {
         m->current_combat = 2;
         m->current_boss = 6;
+        context.current_boss = m->current_boss;
+        context.current_hero = m->perso->current_perso;
+        context.name_ennemy = m->perso[m->current_boss].name_perso;
+        context.name_hero = m->perso[m->perso->current_perso].name_perso;
         m->old_map = str_to_word_array(get_buff("maps/map2/map2.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map2/map2.txt"));
         parse_file("dialogue/chap2.txt", &context, m, 2);
