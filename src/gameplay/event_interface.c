@@ -44,7 +44,7 @@ void import_emy_in_battle(Global_t *m, int k, fight_t *f)
 
 static void attack3(Global_t *m, int i, int j, fight_t *f)
 {
-    char *liste_emy = "PQRSTUWYLM/GJKZDE*";
+    char *liste_emy = ENNEMY_CODE;
 
     for (int k = 0; liste_emy[k] != '\0'; k++) {
         if (m->current_map[i + 1][j] == liste_emy[k]) {

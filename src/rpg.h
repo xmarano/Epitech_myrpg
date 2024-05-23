@@ -30,6 +30,7 @@
     #define SP_TXR sfSprite_setTexture
     #define ATOI my_inttostr
     #define TAR_EM check_target_ennemy_turn
+    #define ENNEMY_CODE "PQRSTUWYLM/GJKZDE*"
 
 enum WHO_IS_HE {
     ROY_SWORD, ROY = 0,

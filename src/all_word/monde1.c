@@ -40,7 +40,7 @@ void draw_monde1(Global_t *m, fight_t *f)
         print_mini_barre(m, f, 1);
         if (m->perso[BOSS1].stat_p.current_hp > 0)
             print_boss_barre(m, BOSS1, m->univ.spr_Boss1);
-        if (m->perso[BOSS1].stat_p.current_hp <= 0) {
+        if (m->perso[BOSS1].stat_p.current_hp <= 0 && m->univ.interface.go_fight == false) {
             m->zone1.is_w1_clear = true;
             m->current = 0; // a deplacer chez leo, curr 23!
         }
