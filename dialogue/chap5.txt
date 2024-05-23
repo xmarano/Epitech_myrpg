@@ -1,41 +1,35 @@
-//Chapitre 5//
-
-Arriving on solid ground after the boat ride
-
-1: The earth beneath my feet has never felt so comforting.
-3: Finally, we’ve arrived. This land… it has a mystical aura.
-2: It’s a new world opening up to us.
+1: The earth beneath my feet has never 
+1: felt so comforting.
+3: Finally, we have arrived. This land… 
+3: it has a mystical aura.
+2: It is a new world opening up to us.
 4: I sense a different energy here.
-0: We’ve crossed the sea, now it’s time for the land.
+0: We have ve crossed the sea, now 
+0: it is time for the land.
 
-*Dialogue with a villager*
-
-Villager: Who are you? We haven’t seen strangers in a long time.
-
-1: We come seeking help. We’ve faced the maritime chief. 
-3: And we’ve heard about your king. We need to meet him. 
-2: Our journey is urgent, and time is against us.
-4: Can you guide us to your king or someone who can help?
-0: We mean no harm, our intentions are pure.
-
-*Arrival at the castle*
-
-Boss5: Halt! Who dares to approach the 0al grounds without permission?!
+ennemy : Halt! Who dares to approach 
+ennemy : the grounds without permission?!
 
 1: We mean no harm. We seek an audience with the king.
-3: We’ve traveled far and faced many dangers. We won’t be stopped now.
+3: We have traveled far and faced many dangers. 
+3: We would not be stopped now.
 2: We have proven our worth time and again. Let us pass.
 4: Your king needs to hear what we have to say.
 
-Boss5: None shall pass without proving their worth! Prepare yourselves!
+ennemy : None shall pass without proving 
 
-After a fierce battle, the 0al Guard is defeated
+1: It is urgent.
+3: He destroy our fields we need to talk to him
+3: We ca not go back now.
+2: We just want the peace in our country.
+4: Please let’s us talk.
 
-Boss5: You… you’ve proven your strength. The king… he resides in secrecy.
-There’s a hidden path behind the throne room. Now leave me be!
+ennemy : The king receives no one.
 
-1: Thank you for your guidance; we shall proceed with caution.
-3: Every step brings us closer to unraveling this mystery.
-2: May our paths cross again under friendlier skies.
-4: Your strength is admirable; may peace find you.
-0: In another life, we could have been allies.
+1: So we must defeat you.
+3: We would nott let it happen.
+3: We will not give up.
+2: So we need to kil you.
+4: I will destroy you.
+
+ennemy : bring yourself back
