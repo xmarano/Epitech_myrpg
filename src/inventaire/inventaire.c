@@ -42,7 +42,7 @@ static void inventaire1(Global_t *m)
 void draw_inventaire(Global_t *m, hub_t *hub)
 {
     if (m->current == 0 || m->current == 1) { // a modifier
-        sfRenderWindow_setView(m->window, hub->normal_view);
+        sfRenderWindow_setView(m->window, m->hub.normal_view);
         if (m->perso->is_visible) {
             swap_current(m);
             inventaire1(m);

@@ -75,6 +75,7 @@ void move_ennemy(Global_t *m, sfVector2i previous_pos,
         return;
     }
     moove_emy2(m, previous_pos, pos_target, patern);
+    //m->univ.interface.attack_gpy2 = true;
 }
 
 static void taget_emy2(Global_t *m, int i, int dx, int dy)
@@ -85,12 +86,9 @@ static void taget_emy2(Global_t *m, int i, int dx, int dy)
     nx = m->codi.pos.x + dx;
     ny = m->codi.pos.y + dy;
     if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-        if (ligne_sans_obstacle((sfVector2i){m->codi.pos.x + 1,
-        m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) &&
-        isdigit(m->current_map[ny + 1][nx + 1])) {
-            move_ennemy(m, (sfVector2i){(int)m->codi.pos.x + 1,
-            (int)m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1},
-            m->codi.patern);
+        if (ligne_sans_obstacle((sfVector2i){m->codi.pos.x + 1, m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) && isdigit(m->current_map[ny + 1][nx + 1])) {
+            move_ennemy(m, (sfVector2i){(int)m->codi.pos.x + 1, (int)m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->codi.patern);
+            printf("%c\n", m->codi.patern);
             return;
         }
     }

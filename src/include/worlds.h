@@ -92,6 +92,7 @@ typedef struct interface {
     sfClock *curs_clock;
     int where;
     bool attack_gpy;
+    bool attack_gpy2;
     sfVector2f pose_curs;
     int cursor_position;
     int limite_tour;

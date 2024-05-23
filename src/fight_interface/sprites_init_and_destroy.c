@@ -14,9 +14,6 @@ void destroy_fight_sprites(fight_t *f)
     sfSprite_destroy(f->sprite_def);
     sfTexture_destroy(f->texture_atk);
     sfTexture_destroy(f->texture_def);
-    sfSprite_destroy(f->dead_head);
-    sfSprite_destroy(f->dead_head2);
-    sfTexture_destroy(f->Dead_head);
 }
 
 static void suitte(fight_t *f)
@@ -37,9 +34,6 @@ void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
     f->sprite_def = sfSprite_create();
     f->texture_def = sfTexture_createFromFile(def->texture_battle, NULL);
     f->has_def_attacked = sfFalse;
-    f->dead_head = sfSprite_create();
-    f->Dead_head = sfTexture_createFromFile("assets/fight/skull.png", NULL);
-    f->dead_head2 = sfSprite_create();
     sfSprite_setTexture(f->sprite_atk, f->texture_atk, sfFalse);
     sfSprite_setTexture(f->dead_head, f->Dead_head, sfFalse);
     sfSprite_setTexture(f->dead_head2, f->Dead_head, sfFalse);

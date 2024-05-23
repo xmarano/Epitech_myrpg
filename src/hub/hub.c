@@ -59,7 +59,7 @@ void init_hub(hub_t *h, Global_t *m)
     h->texture_hub_night = SET_TX("maps/map_night.png", NULL);
     h->sprite_hub = sfSprite_create();
     h->sprite_hub_night = sfSprite_create();
-    h->normal_view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
+    m->hub.normal_view  = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     h->movement = (sfVector2f){0, 0};
     h->hitbox = sfImage_createFromFile("maps/map_d.png");
     h->pouilleux = sfSprite_create();
@@ -74,7 +74,7 @@ void vision(Global_t *m, hub_t *h)
     if (m->perso->is_visible) {
         if (GET_SIZE(h->view).x < 1920 || GET_SIZE(h->view).y < 1080)
             sfView_zoom(h->view, 1.05f);
-        sfRenderWindow_setView(m->window, h->normal_view);
+        sfRenderWindow_setView(m->window, m->hub.normal_view);
     }
     if (!m->perso->is_visible) {
         if (GET_SIZE(h->view).x > 860 || GET_SIZE(h->view).y > 800)
@@ -136,4 +136,6 @@ void destroy_hub(Global_t *m, hub_t *h)
     sfFont_destroy(m->dialogue.Font);
     sfTexture_destroy(m->hub.Cadre2);
     sfClock_destroy(m->hub.swap_clock);
+    sfView_destroy(m->hub.normal_view);
+    sfView_destroy(h->view);
 }

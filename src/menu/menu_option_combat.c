@@ -76,7 +76,7 @@ void draw_menu_option_combat(Global_t *m, hub_t *h)
 {
     if (m->current == 21) {
         check_hover(m, h);
-        sfRenderWindow_setView(m->window, h->normal_view);
+        sfRenderWindow_setView(m->window, m->hub.normal_view);
         sfRenderWindow_drawSprite(m->window, m->o2.fond, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button1, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o2.button2, NULL);

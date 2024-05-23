@@ -324,6 +324,7 @@ void attack(Global_t *m, fight_t *f);
 void draw_monde1(Global_t *m, fight_t *f);
 void print_mini_barre(Global_t *m, fight_t *f, int word);
 void draw_monde2(Global_t *m, fight_t *f);
+void attack_ally(Global_t *m, fight_t *f);
 void draw_monde3(Global_t *m, fight_t *f);
 void draw_monde4(Global_t *m, fight_t *f);
 void draw_monde5(Global_t *m, fight_t *f);

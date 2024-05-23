@@ -18,4 +18,7 @@ void init_lifebars2(fight_t *fight, Global_t *m)
     sfSprite_setTextureRect(fight->empty_bar_sprite2, fight->rect_empty_bar2);
     SP_TXR(fight->ennemy_bar_sprite2, fight->globat_texture, sfFalse);
     SP_TXR(fight->hero_lifebar_sprite2, fight->globat_texture, sfFalse);
+    fight->dead_head = sfSprite_create();
+    fight->Dead_head = sfTexture_createFromFile("assets/fight/skull.png", NULL);
+    fight->dead_head2 = sfSprite_create();
 }

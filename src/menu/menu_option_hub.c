@@ -85,7 +85,7 @@ void draw_menu_option_hub(Global_t *m, hub_t *h)
 {
     if (m->current == 20) {
         check_hover(m);
-        sfRenderWindow_setView(m->window, h->normal_view);
+        sfRenderWindow_setView(m->window, m->hub.normal_view);
         sfRenderWindow_drawSprite(m->window, m->o.fond, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button1, NULL);
         sfRenderWindow_drawText(m->window, m->o.text1, NULL);

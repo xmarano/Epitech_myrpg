@@ -73,6 +73,7 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         reset(m, f, clock);
         sfClock_restart(clock);
         sfClock_destroy(clock);
+        destroy_fight_sprites(f);
         clock = NULL;
     }
 }
