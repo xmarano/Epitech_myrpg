@@ -27,10 +27,10 @@ ennemy : WHY ARE YOU THERE ??!
 ennemy : No one can hurt him
 
 1 : That what you said
-3 : 
-2 : 
-4 : 
-0 : 
+3 : Haha you really think that
+2 : No one is invicible
+4 : I will kill him
+0 : It
 
 *
 
