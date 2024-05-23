@@ -61,7 +61,7 @@ void set_stats_b1(Perso_t *perso)
 {
     perso->stat_p.level = 2;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 20;
+    perso->stat_p.current_hp = 6;
     perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 7;
     perso->stat_p.skl = 3;
