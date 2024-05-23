@@ -1,46 +1,40 @@
-//Chapitre 6//
+1: This throne room… there’s a malevolent
+3: Something’s not right here. 
+2: We need to hurry. There’s 
+4: The throne… it’s radiating a 
+0: The throne is the source of this
 
-*Spawn at the throne room*
+1 : aura emanating from the throne.
+2 : an evil presence around the throne. 
+3 : Can you feel it?  
+3 : It’s coming from the throne.
+4 : wicked energy. We must act quickly. 
+0 : dark aura. We need to move fast.
 
-1: This throne room… there’s a malevolent aura emanating from the throne. 
-3: Something’s not right here. Can you feel it? It’s coming from the throne. 
-2: We need to hurry. There’s an evil presence around the throne. 
-4: The throne… it’s radiating a wicked energy. We must act quickly. 
-0: The throne is the source of this dark aura. We need to move fast.
+ennemy : So, you’ve made it this far. 
+ennemy : But you will go no further!
 
-*Encounter the boss*
+1 : We’ve come for the king. If you
+3 : We’re not afraid of you, old 
+2 : We’re prepared to do whatever it 
+4 : You might be strong, but we’ve got 
+0 : We’re here for the king. And 
 
-Boss6: So, you’ve made it this far. But you will go no further!
+1 : stand in our way, we will fight. 
+2 : takes. We won’t be stopped here. 
+3 : man. We’ve faced your kind before. 
+4 : omething you don’t have... determination. 
+0 : W won’t let you or anyone else stop us.
 
-1: We’ve come for the king. If you stand in our way, we will fight. 
-3: We’re not afraid of you, old man. We’ve faced your kind before. 
-2: We’re prepared to do whatever it takes. We won’t be stopped here. 
-4: You might be strong, but we’ve got something you don’t - determination. 
-0: We’re here for the king. And we won’t let you or anyone else stop us.
+ennemy : You’re brave, I’ll give you 
+ennemy : that. But bravery alone won’t save you.
 
-Boss6: You’re brave, I’ll give you that. But bravery alone won’t save you.
+1 : We’ve got more than bravery on 
+3 : And we’ve got a reason to fight. 
+2 : We’re not just fighting for ourselves. 
+4 : And we won’t back down. Not now, not ever. 
+0 : So come on then. Let’s see what you’ve got.
 
-1: We’ve got more than bravery on our side. We’ve got each other. 
-3: And we’ve got a reason to fight. That’s more than you can say. 
-2: We’re not just fighting for ourselves. We’re fighting for everyone you’ve threatened. 
-4: And we won’t back down. Not now, not ever. 
-0: So come on then. Let’s see what you’ve got.
-
-*Fight part*
-
-Boss6: How… how did you defeat me?
-
-1: Tell us where to find the king. Now. 
-3: We’ve won. Now, where is the king? 
-2: We’re not leaving until you tell us where the king is. 
-4: You’ve lost. Now, where’s the king? 
-0: We’ve beaten you. Now tell us where to find the king.
-
-Boss6: Underneath this throne… there’s a path… to the king’s village… a frozen kingdom…
-
-
-1: We need to move. The king’s village awaits. 
-3: A frozen kingdom… Let’s go. 
-2: We’ve got no time to waste. To the king’s village. 
-4: A frozen kingdom… Sounds interesting. Let’s go. 
-0: The king’s village… Let’s move out.
+1 : our side. We’ve got each other. 
+2 : We’re fighting for everyone you’ve threatened. 
+3 : That’s more than you can say.
