@@ -47,11 +47,11 @@ void draw_spr(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     if (atk->stat_p.current_hp > 0)
         sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
     else
-        ;
+        sfRenderWindow_drawSprite(m->window, f->dead_head, NULL);
     if (def->stat_p.current_hp > 0)
         sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
     else
-        ;
+        sfRenderWindow_drawSprite(m->window, f->dead_head2, NULL);
 }
 
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)

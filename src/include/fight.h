@@ -42,6 +42,7 @@ typedef struct fight_struct {
     sfBool has_def_attacked;
     sfSprite *dead_head;
     sfTexture *Dead_head;
+    sfSprite *dead_head2;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);

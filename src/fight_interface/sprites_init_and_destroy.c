@@ -14,6 +14,9 @@ void destroy_fight_sprites(fight_t *f)
     sfSprite_destroy(f->sprite_def);
     sfTexture_destroy(f->texture_atk);
     sfTexture_destroy(f->texture_def);
+    sfSprite_destroy(f->dead_head);
+    sfSprite_destroy(f->dead_head2);
+    sfTexture_destroy(f->Dead_head);
 }
 
 void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
@@ -25,12 +28,21 @@ void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
     f->sprite_def = sfSprite_create();
     f->texture_def = sfTexture_createFromFile(def->texture_battle, NULL);
     f->has_def_attacked = sfFalse;
+    f->dead_head = sfSprite_create();
+    f->Dead_head = sfTexture_createFromFile("assets/fight/skull.png", NULL);
+    f->dead_head2 = sfSprite_create();
     sfSprite_setTexture(f->sprite_atk, f->texture_atk, sfFalse);
+    sfSprite_setTexture(f->dead_head, f->Dead_head, sfFalse);
+    sfSprite_setTexture(f->dead_head2, f->Dead_head, sfFalse);
     sfSprite_setTextureRect(f->sprite_atk, sprite_atkrect);
     sfSprite_setPosition(f->sprite_atk, (sfVector2f){500, 450});
+    sfSprite_setPosition(f->dead_head, (sfVector2f){500, 450});
     sfSprite_setScale(f->sprite_atk, (sfVector2f){3, 3});
     sfSprite_setTexture(f->sprite_def, f->texture_def, sfFalse);
     sfSprite_setTextureRect(f->sprite_def, (sfIntRect){0, 511 + 65, 65, 65});
     sfSprite_setPosition(f->sprite_def, (sfVector2f){1225, 450});
+    sfSprite_setPosition(f->dead_head2, (sfVector2f){1225, 450});
     sfSprite_setScale(f->sprite_def, (sfVector2f){3, 3});
+    sfSprite_setScale(f->dead_head, (sfVector2f){0.4, 0.4});
+    sfSprite_setScale(f->dead_head2, (sfVector2f){0.4, 0.4});
 }

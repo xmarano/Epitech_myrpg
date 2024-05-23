@@ -29,21 +29,13 @@ static void init_other_sprites(Global_t *m)
 void load_texte_map(Global_t *m)
 {
     m->zone1.view_w1 = sfView_createFromRect((sfFloatRect){0, 0, 1203, 802});
-    //m->zone1.tab_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
     m->zone2.view_w2 = sfView_createFromRect((sfFloatRect){0, 0, 1204, 799});
-    m->zone2.tab_map = str_to_word_array(get_buff("maps/map2/map2.txt"));
     m->zone3.view_w3 = sfView_createFromRect((sfFloatRect){0, 0, 1204, 802});
-    m->zone3.tab_map = str_to_word_array(get_buff("maps/map3/map3.txt"));
     m->zone4.view_w4 = sfView_createFromRect((sfFloatRect){0, 0, 1205, 800});
-    m->zone4.tab_map = str_to_word_array(get_buff("maps/map4/map4.txt"));
     m->zone5.view_w5 = sfView_createFromRect((sfFloatRect){0, 0, 1205, 800});
-    m->zone5.tab_map = str_to_word_array(get_buff("maps/map5/map5.txt"));
     m->zone6.view_w6 = sfView_createFromRect((sfFloatRect){0, 0, 1207, 799});
-    m->zone6.tab_map = str_to_word_array(get_buff("maps/map6/map6.txt"));
     m->zone7.view_w7 = sfView_createFromRect((sfFloatRect){0, 0, 1205, 800});
-    m->zone7.tab_map = str_to_word_array(get_buff("maps/map7/map7.txt"));
     m->zone8.view_w8 = sfView_createFromRect((sfFloatRect){0, 0, 1200, 801});
-    m->zone8.tab_map = str_to_word_array(get_buff("maps/map8/map8.txt"));
 }
 
 void load_sprite_map(Global_t *m)
