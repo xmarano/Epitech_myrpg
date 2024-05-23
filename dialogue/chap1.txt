@@ -1,109 +1,67 @@
-
 1 : So the king is probably in his castle 
 3 : So he is probably this way ?
 2 : I need to explore to find the king
 4 : So he is probably in this castle 
 0 : ok, so I need to find the king of Elae
 
-1 : Why do you attack me ?
-3 : AAAARGH why you attack me ? @#9E8##
-2 : Seriously ?
-4 : Go away I do not want to fight
-0 : Want to fight ? Come on
+ennemy : it is the property of the Aixus king
 
-Ennemy : hahaha all for the real king !!!
+1 : I thought this was the kingdoms of Edgar
+3 : This is not the Edgar kingdom ?
+2 : Where can we find Edgar ?
+4 : It is not the Edgar's kingdom?
+0 : Can you tell me where is Edgar please 
 
-1 : The real king ?
-3 : what are you talking about ?
-2 : what ?
-4 : I do not know what your talking about 
-0 : I do not know who you are but no one hurt my friend
+ennemy : Edgar is not in this world anymore
 
-*Enter in the castle*
+1 : Why ??!!
+3 : What did you do ?!!
+2 : How it is possible ?
+4 : No, I do not believe you
+0 : Why ? It's not possible
 
-1 : here we go …
-3 : finally
-2 : So finally I he is here
-4 : So king he is here ?
-0 : *Smile* finally Edgar : Welcome, who are you ?
+ennemy : HAHAHA I kill him with my sword
 
+1 : I will make you regret it
+3 : How did you dare ???!
+2 : I will make you pay that !!
+4 : it 's time for you to die now
+0 : arrrgh I hate people like you
 
-1 : I’m Infenium and this is my friends Xmarano, Pate carbo , Le racaillou and Roy  you need  us do not you ?
-3 : I’m Xmarano and this is my friends infenium, Pate carbo , Le racaillou and Roy you need  us do not you ?
-2 : I’m Pate carbo and this is my friends Xmarano, infenium, Le racaillou and Roy you need  us do not you ?
-4 : I’m Le racaillou and this is my friends Xmarano, Pate carbo , infenium and Roy you need  us do not you ?
-0 : I’m Roy and this is my friends Xmarano, Pate carbo , Le racaillou and infenium  you need  us do not you ?
+1 : Why did you do that ?
+3 : For who you work ?
+2 : Why ?
+4 : For who you did that ?
+0 : Who say you to do that ?
 
-Edgar : Yes, a new king from the neighboring kingdom Aixus wants to
-take control of the entire country and proclaims himself as the true king
+ennemy : I do that for the Aixus king 
 
-1 : Oh that why some bandit attack me , what do you want ?
-3 : Oh I understand, why do you want from us ?
-2 : Ok, what you want us to do ?
-4 : Ok what you want ?
-0 : Ok sir, I understand the situation so what you want from us ?
+1 : Where he is ? why he make you do that ?
+3 : Where can I find him and why he do that ?
+2 : I will kill him, why he do all this carnage ?
+4 : Why he do that ?
+0 : Why is he so mean, where is he?
 
+Ennemy : He is superior to all 
 
-King : Thank you for coming, I need you to defeat the king of Aixus
-for stop his desire of destruction and take over everything
+Ennemy : He gonna conquer this world !
 
-1 : Where do we need to go first ?
-3 : Where we need to go ?
-2 : So I need to go where then ?
-4 : where are we going then ?
-0 : Ok I will help sir , where we need to go first ?
+Ennemy : He is the god of this world 
 
+1 : He is just a fool 
+3 : He disgust me
+2 : That pathetic
+4 : You digusst me with your speech
+0 : Stop say that I will make you regret
 
-Edgar : You need to go first at the desert to defeat his first general and obtain information of the king 
+Ennemy : I wait you come fight me
 
-1 : Ok, we gonna protect the kingdom for you 
-3 : Ok, the kingdom is safe with us
-2 : Of courses I will help you 
-4 : do not worry I will help you 
-0 : I’m gonna help you 
+Ennemy : At last if you not die before
 
-*Encounter the boss*
+1 : I come to end you madness
+3 : You are just a stupid slave of a fool
+2 : I come to kill now
+4 : I will defeat you now
+0 : It is the end for you 
 
-Boss1 : WHERE IS EDGAR???!!!
-
-1 : We are the the soldier of the king Edgar we gonna defend him do not approach him
-3 : We are here to defend the kingdom of Elae , we gonna defend him so  do not approach him
-2 : We need to defend Edgar we gonna defeat you  
-4 :we gonna defend him.
-0 : Hi, we gonna defeat you and after ask you some questions
-
-Boss1 : I am the chief of the west army, I will Kill you before killing Edgar 
-
-1 : I’m 1 and with my friend we are gonna defeat you and your soldiers
-3 : I do not need a name to defeat you 
-2 : Pfff come on you talk to much 
-4 : I will make you speak 
-0 : I will defeat you with my team come here
-
-
-*Fight part*
-
-Boss1 : Howw…how…how do you defeat me and my soldier ?
-
-1 : No one can defeat us, answer my questions now 
-3 : You do not have any chance to us, answer my questions 
-2 : You can’t defeat us, now answer my question
-4 : Now you gonna answer our questions 
-0 : say me all the answer I need now Boss1 : okay say me what you want *bleed*
-
-1 : Where can I find your king ?
-3 : Where is your king ?
-2 : Where is the king of Aixus ?
-4 : where is the king of your kingdom?
-0 : Give me the place of your kingdom 
-
-Boss2  : He is in the north of the continent but you need to go to the dock to take a boat and 
-go in his kingdom but no one can defeat he is the strongest in the planet he is the more intelligent 
-
-*Go away*
-
-1 : We need to go to the desert before
-3 : We need to go to the desert before
-2 :  We need to go to the desert before
-4 : We need to go to the desert before
-0 : We need to go to the desert before
+*
