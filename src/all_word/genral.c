@@ -8,14 +8,6 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
-static void draw(Global_t *m)
-{
-    //sfRenderWindow_drawText(m->window, m->univ.boss_name, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_fond, NULL);
-    sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_de_vie, NULL);
-    sfRenderWindow_drawSprite(m->window, m->univ.image_barre, NULL);
-}
-
 void print_boss_barre(Global_t *m, int who, sfSprite *spr)
 {
     float pourcentage_vie = (float)m->perso[who].stat_p.current_hp
@@ -28,11 +20,14 @@ void print_boss_barre(Global_t *m, int who, sfSprite *spr)
     pose.x -= 13;
     pose.y -= 6.5;
     sfSprite_setPosition(m->univ.image_barre, pose);
-    sfRectangleShape_setScale(m->univ.barre_de_vie,(sfVector2f){0.1, 0.3});
-    sfRectangleShape_setScale(m->univ.barre_fond,(sfVector2f){0.1, 0.3});
+    sfRectangleShape_setScale(m->univ.barre_de_vie, (sfVector2f){0.1, 0.3});
+    sfRectangleShape_setScale(m->univ.barre_fond, (sfVector2f){0.1, 0.3});
     sfSprite_setScale(m->univ.image_barre, (sfVector2f){0.1, 0.1});
-    sfRectangleShape_setSize(m->univ.barre_de_vie,(sfVector2f){400 * pourcentage_vie, 30});
-    draw(m);
+    sfRectangleShape_setSize(m->univ.barre_de_vie,
+    (sfVector2f){400 * pourcentage_vie, 30});
+    sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_fond, NULL);
+    sfRenderWindow_drawRectangleShape(m->window, m->univ.barre_de_vie, NULL);
+    sfRenderWindow_drawSprite(m->window, m->univ.image_barre, NULL);
 }
 
 static void set_pose_perso(char **map, char ref, sfSprite *sprite, int i)

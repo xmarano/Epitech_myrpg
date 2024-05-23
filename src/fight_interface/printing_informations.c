@@ -123,7 +123,6 @@ void print_fight_scene(Global_t *m, fight_t *fight)
 {
     Perso_t *atk = &m->perso[m->univ.interface.attacker];
     Perso_t *def = &m->perso[m->univ.interface.defender];
-    printf("%s vs %s\n", m->perso[m->univ.interface.attacker].name_perso, m->perso[m->univ.interface.defender].name_perso);
 
     if (m->univ.interface.go_fight == true) {
         sfRenderWindow_drawSprite(m->window, fight->combat_scene, NULL);

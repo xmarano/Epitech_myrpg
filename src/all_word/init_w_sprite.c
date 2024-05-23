@@ -21,10 +21,6 @@ static void init_other_sprites(Global_t *m)
     sfRectangleShape_setSize(m->univ.barre_fond, (sfVector2f){400, 30});
     sfRectangleShape_setFillColor(m->univ.barre_fond,
     sfColor_fromRGB(128, 128, 128));
-    m->univ.boss_name = sfText_create();
-    sfText_setFont(m->univ.boss_name, m->setting.fontdi);
-    sfText_setCharacterSize(m->univ.boss_name, 25);
-    sfText_setFillColor(m->univ.boss_name, sfBlack);
     m->univ.Image_barre = SET_TX("assets/fight/Barre_boss.png", NULL);
     m->univ.image_barre = sfSprite_create();
     sfSprite_setTexture(m->univ.image_barre, m->univ.Image_barre, sfFalse);

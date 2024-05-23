@@ -42,7 +42,6 @@ void diff_size(sfVector2i mu, Global_t *m)
     }
 }
 
-
 void modify_size(sfVector2i mouse, Global_t *m)
 {
     if (m->setting.displaySizeOptions) {
@@ -50,14 +49,14 @@ void modify_size(sfVector2i mouse, Global_t *m)
     }
 }
 
-void modify_song(sfVector2i mouse, Global_t *m)
+static void modify_song(sfVector2i mouse, Global_t *m)
 {
     if (m->setting.displaySizeOptions) {
         verif_song(mouse, m);
     }
 }
 
-void other_option(sfVector2i mouse, Global_t *m)
+static void other_option(sfVector2i mouse, Global_t *m)
 {
     sfFloatRect crb = sfRectangleShape_getGlobalBounds(m->setting.buttoncred);
     sfFloatRect rt = sfRectangleShape_getGlobalBounds(m->setting.buttonretour);

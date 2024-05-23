@@ -270,14 +270,13 @@ void init_setting(Global_t *m);
 void print_save_txt(Global_t *m);
 void diff_size(sfVector2i mouse, Global_t *m);
 void modify_size(sfVector2i mouse, Global_t *m);
-void other_option(sfVector2i mouse, Global_t *m);
 void event_setting(sfEvent event, Global_t *m);
 void verif_other(Global_t *m);
 void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
-void parse_file(char *filename, RenderContext_t *context, Global_t *m, int curr);
+void parse_file(char *filename, RenderContext_t *context, Global_t *m, int c);
 void wordpt(char *str, RenderContext_t *context,
     const char *num, int position);
 void hero_speak(char *phrase, const char *num, RenderContext_t *context);

@@ -95,7 +95,6 @@ void destroy_other(Global_t *m)
 {
     sfRectangleShape_destroy(m->univ.barre_de_vie);
     sfRectangleShape_destroy(m->univ.barre_fond);
-    sfText_destroy(m->univ.boss_name);
 }
 
 void destory_all_w_maps(Global_t *m)

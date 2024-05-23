@@ -42,8 +42,7 @@ void draw_monde1(Global_t *m, fight_t *f)
             print_boss_barre(m, BOSS1, m->univ.spr_Boss1);
         if (m->perso[BOSS1].stat_p.current_hp <= 0) {
             m->zone1.is_w1_clear = true;
-            m->current = 0; // a deplacer chez leo !
-            // ecran win de leo current 23
+            m->current = 0; // a deplacer chez leo, curr 23!
         }
         look_loose(m);
         return_and_old_current2(m, 1);

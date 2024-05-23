@@ -74,7 +74,8 @@ int verif_parse(char *line, RenderContext_t *context,
     return 0;
 }
 
-void parse_file(char *filename, RenderContext_t *context, Global_t *m, int curr)
+void parse_file(char *filename, RenderContext_t *context,
+    Global_t *m, int curr)
 {
     FILE *file = fopen(filename, "r");
     char line[256];
