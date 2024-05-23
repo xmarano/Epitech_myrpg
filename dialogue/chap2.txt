@@ -30,7 +30,11 @@ ennemy : No one can hurt him
 3 : Haha you really think that
 2 : No one is invicible
 4 : I will kill him
-0 : It
+0 : It not possible that 
+
+ennemy : If you try to hit him
+
+ennemy : I will 
 
 *
 

@@ -85,6 +85,7 @@ static int verif_polle(Global_t *m, FILE *file)
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
             fclose(file);
+            m->current = curr;
             return 1;
         }
     }
