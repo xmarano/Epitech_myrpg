@@ -121,16 +121,30 @@ static void init_shop_part3(Global_t *m, sfVector2f pose)
     m->shop.is_select = -1;
 }
 
+static void set_fond_shop(Global_t *m, sfVector2f two)
+{
+    time_t rawtime;
+    struct tm *timeinfo;
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    if (timeinfo->tm_hour >= 12 || timeinfo->tm_hour < 10)
+        m->shop.fond = init_spritee(m, "assets/shop/shop_fond_night.png",
+        two, (sfVector2f){1, 1});
+    else
+        m->shop.fond = init_spritee(m, "assets/shop/shop_fond.png",
+        two, (sfVector2f){1, 1});
+}
+
 static void preshot(Global_t *m, sfVector2f size, sfVector2f pose)
 {
     sfVector2f two = {0, 0};
     sfVector2f three = {-300, -300};
     sfVector2f four = {170, 83};
-    char *fond = "assets/shop/shop_fond.png";
     char *lock = "assets/shop/lock.png";
     char *contour = "assets/shop/contour.png";
 
-    m->shop.fond = init_spritee(m, fond, two, (sfVector2f){1, 1});
+    set_fond_shop(m, two);
     m->shop.lock = init_spritee(m, lock, three, (sfVector2f){0.5, 0.5});
     m->shop.contour = init_spritee(m, contour, four, (sfVector2f){0.52, 0.52});
     m->shop.gold = init_gold(m, (sfVector2f){578, 193});
