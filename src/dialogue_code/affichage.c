@@ -74,7 +74,7 @@ int verif_parse(char *line, RenderContext_t *context,
     return 0;
 }
 
-static int verif_polle(Global_t *m, FILE *file)
+static int verif_polle(Global_t *m, FILE *file, int curr)
 {
     sfEvent event;
 
@@ -84,8 +84,6 @@ static int verif_polle(Global_t *m, FILE *file)
             return 1;
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
-            fclose(file);
-            m->current = curr;
             return 1;
         }
     }
@@ -106,7 +104,7 @@ void parse_file(char *filename, RenderContext_t *context,
     context->name_ennemy = m->perso[m->current_boss].name_perso;
     context->name_hero = m->perso[m->perso->current_perso].name_perso;
     while (fgets(line, sizeof(line), file)) {
-        if (verif_polle(m, file) == 1)
+        if (verif_polle(m, file, curr) == 1)
             break;
         if (verif_parse(line, context, m->perso->current_perso,
         last_speaker) == 1)
