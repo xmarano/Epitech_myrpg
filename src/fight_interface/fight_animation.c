@@ -42,6 +42,18 @@ static void reset(Global_t *m, fight_t *f, sfClock *clock)
     f->has_def_attacked = false;
 }
 
+void draw_spr(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
+{
+    if (atk->stat_p.current_hp > 0)
+        sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
+    else
+        ;
+    if (def->stat_p.current_hp > 0)
+        sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
+    else
+        ;
+}
+
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 {
     static sfClock *clock = NULL;
@@ -52,8 +64,7 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         clock = sfClock_create();
     time = sfClock_getElapsedTime(clock);
     seconds = sfTime_asSeconds(time);
-    sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
-    sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
+    draw_spr(atk, def, m, f);
     if (seconds > 1.3f && f->is_fight == sfTrue)
         print1(atk, def, m, f);
     if (seconds > 3.0f && f->has_def_attacked == sfFalse)

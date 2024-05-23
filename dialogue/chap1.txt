@@ -42,11 +42,11 @@ ennemy : I do that for the Aixus king
 4 : Why he do that ?
 0 : Why is he so mean, where is he?
 
-Ennemy : He is superior to all 
+ennemy : He is superior to all 
 
-Ennemy : He is going to conquer this world !
+ennemy : He is going to conquer this world !
 
-Ennemy : He is the god of this world 
+ennemy : He is the god of this world 
 
 1 : He is just a fool 
 3 : He disgust me
@@ -54,9 +54,9 @@ Ennemy : He is the god of this world
 4 : You digusst me with your speech
 0 : Stop say that I will make you regret
 
-Ennemy : I wait you come fight me
+ennemy : I wait you come fight me
 
-Ennemy : At last if you not die before
+ennemy : At last if you not die before
 
 1 : We come to end you madness
 3 : You are just a stupid slave of a fool
