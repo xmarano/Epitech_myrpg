@@ -19,6 +19,15 @@ void destroy_fight_sprites(fight_t *f)
     sfTexture_destroy(f->Dead_head);
 }
 
+static void suitte(fight_t *f)
+{
+    sfSprite_setPosition(f->sprite_def, (sfVector2f){1225, 450});
+    sfSprite_setPosition(f->dead_head2, (sfVector2f){1210, 450});
+    sfSprite_setScale(f->sprite_def, (sfVector2f){3, 3});
+    sfSprite_setScale(f->dead_head, (sfVector2f){0.4, 0.4});
+    sfSprite_setScale(f->dead_head2, (sfVector2f){0.4, 0.4});
+}
+
 void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
 {
     sfIntRect sprite_atkrect = {0, 511 + 65 * 3, 65, 65};
@@ -40,9 +49,5 @@ void init_fight_sprites(Perso_t *atk, Perso_t *def, fight_t *f, Global_t *m)
     sfSprite_setScale(f->sprite_atk, (sfVector2f){3, 3});
     sfSprite_setTexture(f->sprite_def, f->texture_def, sfFalse);
     sfSprite_setTextureRect(f->sprite_def, (sfIntRect){0, 511 + 65, 65, 65});
-    sfSprite_setPosition(f->sprite_def, (sfVector2f){1225, 450});
-    sfSprite_setPosition(f->dead_head2, (sfVector2f){1225, 450});
-    sfSprite_setScale(f->sprite_def, (sfVector2f){3, 3});
-    sfSprite_setScale(f->dead_head, (sfVector2f){0.4, 0.4});
-    sfSprite_setScale(f->dead_head2, (sfVector2f){0.4, 0.4});
+    suitte(f);
 }

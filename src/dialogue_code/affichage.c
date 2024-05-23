@@ -89,6 +89,7 @@ static int verif_polle(Global_t *m, FILE *file)
 
 void parse_file(char *filename, RenderContext_t *context,
     Global_t *m, int curr) {
+
     FILE *file = fopen(filename, "r");
     char line[256];
     char last_speaker[256] = "";
@@ -102,7 +103,8 @@ void parse_file(char *filename, RenderContext_t *context,
     while (fgets(line, sizeof(line), file)) {
         if (verif_polle(m, file) == 1)
             break;
-        if (verif_parse(line, context, m->perso->current_perso, last_speaker) == 1)
+        if (verif_parse(line, context, m->perso->current_perso,
+        last_speaker) == 1)
             break;
     }
     m->dialogue.start_dialogue = 0;
