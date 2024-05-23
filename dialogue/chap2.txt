@@ -41,3 +41,5 @@ ennemy : I will you all
 2 : It is the end for you 
 4 : I will silence you
 0 : It's time to end it
+
+*

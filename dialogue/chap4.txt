@@ -1,15 +1,11 @@
-//Chapitre 4//
-
-*take the boat*
-
-
 1 : Wow , the sea is beautiful 
 3 : I can see a beautiful fish 
 2 : Wow I love the sea
 4 : Why does a boat come to us
-0 : it seem too calm here *encounter the boss*
+0 : it seem too calm here
 
-Boss4 : You really thinks that you can kill chief of our army like it’s nothing ?
+ennemy : You really thinks that you can kill 
+ennemy : a chief of our army like it’s nothing ?
 
 1 : Who are you ?
 3 : Why do you attack us ?
@@ -17,28 +13,23 @@ Boss4 : You really thinks that you can kill chief of our army like it’s nothin
 4 : Why you attack us ?
 0 : What are you talking about ?
 
-Boss4 : I’m the Maritime chief of the south sea , you try to defeat our army by killing our soldat so now I will make all of you regret
+ennemy : I am the Maritime chief of the south sea 
+ennemy : you try to defeat our army by killing our 
+ennemy : soldat so now I will make all of you regret
 
-1 : We just want to discuss with you king that dest0 our fields
+1 : We just want to discuss with you king 
+1 : that destreoy our fields
 3 : It’s you that attack us 
 2 : Don’t say that, you thatattack us with our army
 4 : No , it’s you that try to dest0 our country
 0 : We just defend ourself from you army 
 
-Boss4 : Don’t try to lie 
+ennemy : Don’t try to lie 
 
-1 :Enough talk, let’s defend ourselves! 
+1 : Enough talk, let’s defend ourselves! 
 3 : For our country, we won’t back down! 
 2 : You’ve made a mistake challenging us! 
-4 :  Let’s show him what we’re made of!
-0 :  Prepare yourself 
+4 : Let’s show him what we’re made of!
+0 : Prepare yourself 
 
-Boss4 : You’ll regret this! 
-
-*fight*
-
-1 : We did it… we actually did it! 
-3 : That was for our country! 
-2 : He won’t be bothering us anymore. 
-4 : That’s what happens when you mess with us!
-0 : Let’s continue, our people are waiting for us
+ennemy : You’ll regret this! 
