@@ -48,9 +48,8 @@ static void attack3(Global_t *m, int i, int j, fight_t *f)
 
 static void attack2(Global_t *m, int i, fight_t *f)
 {
-    printf("(%c)\n", m->codi.patern);
     for (int j = 0; m->current_map[i][j] != '\0'; j++) {
-        if (m->current_map[i][j] == m->codi.patern) {
+        if (m->current_map[i][j] == m->univ.interface.current_emy) {
             attack3(m, i, j, f);
         }
     }
@@ -60,11 +59,9 @@ static void attack2(Global_t *m, int i, fight_t *f)
 void attack_ally(Global_t *m, fight_t *f)
 {
     if (m->univ.interface.attack_gpy2 == true) {
-        //printf("(%c)\n", m->codi.patern);
-        printf("here\n");
-        // for (int i = 0; m->current_map[i] != NULL; i++) {
-        //     attack2(m, i, f);
-        // }
+        for (int i = 0; m->current_map[i] != NULL; i++) {
+            attack2(m, i, f);
+        }
         m->univ.interface.attack_gpy2 = false;
     }
     return;

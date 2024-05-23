@@ -101,6 +101,7 @@ typedef struct interface {
     bool go_fight;
     int attacker;
     int defender;
+    char current_emy;
 }Interface_t;
 
 typedef struct {
