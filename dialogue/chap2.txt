@@ -24,6 +24,14 @@ ennemy : WHY ARE YOU THERE ??!
 4 : We are going to kill Aixus king
 0 : We are going to end the terror
 
+ennemy : No one can hurt him
+
+1 : That what you said
+3 : 
+2 : 
+4 : 
+0 : 
+
 *
 
 1 : 
