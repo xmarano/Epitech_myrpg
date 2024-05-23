@@ -35,15 +35,15 @@ const char *hero_wall(int current_perso)
 {
     switch (current_perso) {
         case 0:
-            return "assets/perso/dialogue/hero/Roy_dialogue.png";
+            return "assets/perso/dialogue/hero/dialogue_roy.png";
         case 1:
-            return "assets/perso/dialogue/hero/Infenium_dialogue.png";
+            return "assets/perso/dialogue/hero/dialogue_infenium.png";
         case 2:
-            return "assets/perso/dialogue/hero/Patecarbo_dialogue.png";
+            return "assets/perso/dialogue/hero/dialogue_patecarbo.png";
         case 3:
-            return "assets/perso/dialogue/hero/Xmarano_dialogue.png";
+            return "assets/perso/dialogue/hero/dialogue_xmarano.png";
         case 4:
-            return "assets/perso/dialogue/hero/Racaillou_dialogue.png";
+            return "assets/perso/dialogue/hero/dialogue_racaillou.png";
         default:
             return NULL;
     }
