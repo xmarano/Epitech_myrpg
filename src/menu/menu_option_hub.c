@@ -25,9 +25,22 @@ static void check_globalbounds(Global_t *m)
     m->o.gb_help = sfRectangleShape_getGlobalBounds(m->o.help);
 }
 
+static void set_fond_option(Global_t *m)
+{
+    time_t rawtime;
+    struct tm *timeinfo;
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10)
+        m->o.fond = init_sprite("maps/hub_night_blurry.png", (sfVector2f){0, 0});
+    else
+        m->o.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
+}
+
 void init_menu_option_hub(Global_t *m)
 {
-    m->o.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
+    set_fond_option(m);
     m->o.txt_clock = sfClock_create();
     m->o.button1 = init_button(m, (sfVector2f){325, 100}, 295);
     m->o.button2 = init_button(m, (sfVector2f){325, 100}, 445);
