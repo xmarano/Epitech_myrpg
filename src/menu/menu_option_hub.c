@@ -60,7 +60,7 @@ static void check_hover2(Global_t *m)
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             save_game(m);
             usleep(1000000);
-            sfMusic_play(m->menu.music);
+            //sfMusic_play(m->menu.music);
             m->current = 10;
         }
     }

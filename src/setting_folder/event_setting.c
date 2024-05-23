@@ -15,7 +15,7 @@ void big_size(sfVector2i mu, Global_t *m)
     mode.bitsPerPixel = 32;
     sfRenderWindow_close(m->window);
     m->window = sfRenderWindow_create(mode, "MY_RPG", sfResize | sfClose, NULL);
-    sfMouse_setPosition((sfVector2i){mu.x, mu.y}, m->window);
+    sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y}, m->window);
 }
 
 void diff_size(sfVector2i mu, Global_t *m)
@@ -29,14 +29,14 @@ void diff_size(sfVector2i mu, Global_t *m)
         mode = sfVideoMode_getDesktopMode();
         sfRenderWindow_close(m->window);
         m->window = sfRenderWindow_create(mode, "MY_RPG", sfFullscreen, NULL);
-        sfMouse_setPosition((sfVector2i){mu.x, mu.y}, m->window);
+        sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y}, m->window);
     } else if (sfFloatRect_contains(&mediumzBounds, mu.x, mu.y)) {
         mode.width = 1280;
         mode.height = 720;
         mode.bitsPerPixel = 32;
         sfRenderWindow_close(m->window);
         m->window = sfRenderWindow_create(mode, "MY_RPG", sfResize | sfClose, NULL);
-        sfMouse_setPosition((sfVector2i){mu.x, mu.y}, m->window);
+        sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y}, m->window);
     } else if (sfFloatRect_contains(&bigzBounds, mu.x, mu.y)) {
         big_size(mu, m);
     }

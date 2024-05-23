@@ -159,7 +159,7 @@ typedef struct Glob {
 void swap_current(Global_t *m);
 void draw_mouse(Global_t *m);
 void roy_stats(Perso_t *perso);
-void print_boss_barre(Global_t *m, int who, sfView *view);
+void print_boss_barre(Global_t *m, int who, sfSprite *spr);
 void xmarano_stats(Perso_t *perso);
 void pate_stats(Perso_t *perso);
 void infe_stats(Perso_t *perso);
@@ -200,6 +200,7 @@ void init_loading(Global_t *m);
 void loading_screen(Global_t *m);
 void save_auto(Global_t *m);
 void draw_shop(Global_t *m);
+void what_world_dia(Global_t *m);
 void init_shop(Global_t *m);
 void empty_slot(Global_t *m, sfVector2f pose_sp, sfVector2f pose_txt);
 void destroy_shop(Global_t *m);
@@ -276,7 +277,7 @@ void verif_thing(Global_t *m);
 void synopsis_bool(Global_t *m);
 void destroy_all(Global_t *m);
 void verif_song(sfVector2i mouse, Global_t *m);
-void parse_file(char *filename, RenderContext_t *context, Global_t *m);
+void parse_file(char *filename, RenderContext_t *context, Global_t *m, int curr);
 void wordpt(char *str, RenderContext_t *context,
     const char *num, int position);
 void hero_speak(char *phrase, const char *num, RenderContext_t *context);

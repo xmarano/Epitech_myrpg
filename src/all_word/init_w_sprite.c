@@ -28,7 +28,6 @@ static void init_other_sprites(Global_t *m)
     m->univ.Image_barre = SET_TX("assets/fight/Barre_boss.png", NULL);
     m->univ.image_barre = sfSprite_create();
     sfSprite_setTexture(m->univ.image_barre, m->univ.Image_barre, sfFalse);
-    sfSprite_setScale(m->univ.image_barre, (sfVector2f){0.4, 0.4});
 }
 
 void load_texte_map(Global_t *m)

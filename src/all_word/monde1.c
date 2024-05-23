@@ -12,6 +12,19 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
+static void look_loose(Global_t *m)
+{
+    int nbr = 0;
+
+    for (int i = 0; i < 5; i++) {
+        if (m->perso[i].stat_p.current_hp <= 0)
+            nbr++;
+    }
+    if (nbr == 5) {
+        // m->current = 22;
+    }
+}
+
 void draw_monde1(Global_t *m, fight_t *f)
 {
     if (m->current == 1) {
@@ -24,12 +37,14 @@ void draw_monde1(Global_t *m, fight_t *f)
             all_perso_movement(m, m->current_map);
         if (m->univ.interface.limite_tour == 0 && !m->univ.interface.go_fight)
             all_ennemy_movement(m, m->current_map);
-        //print_boss_barre(m, BOSS1, m->zone1.view_w1);
         print_mini_barre(m, f, 1);
+        print_boss_barre(m, BOSS1, m->univ.spr_Boss1);
         if (m->perso[BOSS1].stat_p.current_hp <= 0) {
             m->zone1.is_w1_clear = true;
-            m->current = 0;
+            m->current = 0; // a deplacer chez leo !
+            // ecran win de leo current 23
         }
+        look_loose(m);
         return_and_old_current2(m, 1);
     }
 }
