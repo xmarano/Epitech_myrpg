@@ -135,6 +135,7 @@ typedef struct Glob {
     S_t s; /* Leo */
     Option_hub_t o; /* Leo */
     Option_combat_t o2; /* Leo */
+    Help_t help; /* Leo */
     Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
@@ -167,8 +168,6 @@ void pate_stats(Perso_t *perso);
 void infe_stats(Perso_t *perso);
 void raca_stats(Perso_t *perso);
 int import_weapons_stats(Global_t *m);
-void passif_infenium(Global_t *m);
-void passif_mage(Global_t *m);
 void look_loose(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
 void check_all_pose(Global_t *m, char **tab, int i);
@@ -185,6 +184,11 @@ void set_stats_b6(Perso_t *perso);
 void set_stats_b7(Perso_t *perso);
 void set_stats_b8(Perso_t *perso);
 int setup_stat(Global_t *m);
+sfText *init_t_s(Global_t *m, char *str, int size, sfVector2f pos);
+sfRectangleShape *init_b_s(Global_t *m, sfVector2f size, sfVector2f pos);
+void init_help(Global_t *m);
+void draw_help(Global_t *m);
+void destroy_help(Global_t *m);
 void init_menu_option_hub(Global_t *m);
 void init_menu_option_combat(Global_t *m);
 void draw_menu_option_hub(Global_t *m, hub_t *hub);
@@ -340,13 +344,13 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
     char **map, Global_t *m);
 int est_dans_grille(int x, int y);
 void all_ennemy_movement(Global_t *m, char **tab);
-void initParticle(rain_t *particle);
-void updateParticle(rain_t *particle, float deltaTime);
+void initParticle(rain_t* particle);
+void updateParticle(rain_t* particle, float deltaTime);
 void init_rain(Global_t *m);
 void free_rain(Global_t *m);
 int draw_rain(Global_t *m);
-void init_s_Particle(slash_t *particle);
-void update_s_Particle(slash_t *particle, float deltaTime);
+void init_s_Particle(slash_t* particle);
+void update_s_Particle(slash_t* particle, float deltaTime);
 void init_slash(Global_t *m, fight_t *f);
 void free_slash(fight_t *f);
 int draw_slash(Global_t *m, fight_t *f);

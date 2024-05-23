@@ -14,6 +14,14 @@
 #ifndef MENU_H
     #define MENU_H
 
+typedef struct Help {
+    sfSprite *hub;
+    sfSprite *combat;
+    sfRectangleShape *exit;
+    sfFloatRect gb_exit;
+    sfText *text_exit;
+} Help_t;
+
 typedef struct Menu {
     sfMusic* music;
     sfVector2u wsize;

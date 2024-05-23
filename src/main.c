@@ -59,6 +59,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     sfRenderWindow_clear(m->window, sfBlack);
     while (sfRenderWindow_pollEvent(m->window, &m->event))
         event_click(m, h, f);
+    draw_help(m);
     draw_menu(m);
     draw_select_perso(m);
     draw_menu_option_hub(m, h);
@@ -81,6 +82,7 @@ void annihilateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     destroy_hub(m, h);
     destroy_fight_struct(f);
     destroy_inventaire(m);
+    destroy_help(m);
     destroy_menu(m);
     destroy_select_perso(m);
     destroy_menu_option_hub(m);
@@ -99,6 +101,7 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     init_hub(h, m);
     setup_stat(m);
     init_w_sprite(m);
+    init_help(m);
     init_menu(m);
     init_music(m);
     init_select_perso(m);

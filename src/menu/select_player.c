@@ -7,7 +7,7 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
-static sfRectangleShape *init_b_s(Global_t *m, sfVector2f size, sfVector2f pos)
+sfRectangleShape *init_b_s(Global_t *m, sfVector2f size, sfVector2f pos)
 {
     sfRectangleShape *shape = sfRectangleShape_create();
     sfFloatRect rect_pos;
