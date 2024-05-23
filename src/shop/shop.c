@@ -128,7 +128,7 @@ static void set_fond_shop(Global_t *m, sfVector2f two)
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    if (timeinfo->tm_hour >= 12 || timeinfo->tm_hour < 10)
+    if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10)
         m->shop.fond = init_spritee(m, "assets/shop/shop_fond_night.png",
         two, (sfVector2f){1, 1});
     else

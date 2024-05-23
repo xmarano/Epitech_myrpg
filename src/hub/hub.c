@@ -90,7 +90,7 @@ static void draw_night(Global_t *m, hub_t *h)
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    if (timeinfo->tm_hour >= 12 || timeinfo->tm_hour < 10)
+    if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10)
         sfRenderWindow_drawSprite(m->window, h->sprite_hub_night, NULL);
 }
 
