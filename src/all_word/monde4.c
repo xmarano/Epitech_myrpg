@@ -20,7 +20,7 @@ void draw_monde4(Global_t *m, fight_t *f)
         move_game_cursor(m);
         //all_perso_movement(m);
         //set_new_position(m, m->univ.spr_roy, &m->perso[ROY]);
-        print_boss_barre(m, BOSS4, m->zone4.view_w4);
+       // print_boss_barre(m, BOSS4, m->zone4.view_w4);
         //print_mini_barre(m, f);
         return_and_old_current2(m, 4);
     }

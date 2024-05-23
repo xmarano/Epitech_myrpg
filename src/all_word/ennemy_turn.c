@@ -16,7 +16,7 @@
 void set_previous_case_ennemy(Global_t *m, sfVector2f pos_spr, char **map)
 {
     if (m->current_map[(int)pos_spr.y / 40 + 1]
-    [(int)pos_spr.x / 40 + 1] != 'Z')
+    [(int)pos_spr.x / 40 + 1] != m->codi.patern)
         map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1] =
         m->old_map[(int)pos_spr.y / 40 + 1][(int)pos_spr.x / 40 + 1];
     else {

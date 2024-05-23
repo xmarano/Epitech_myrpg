@@ -1,6 +1,5 @@
 //Chapitre 2//
 
-*Speak to the seller second times*
 
 Seller : Hi you finally come again, what do you need now ?
 

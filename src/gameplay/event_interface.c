@@ -50,16 +50,13 @@ static void attack3(Global_t *m, int i, int j, fight_t *f)
         if (m->current_map[i + 1][j] == liste_emy[k]) {
             import_emy_in_battle(m, k, f);
             return;
-        }
-        if (m->current_map[i - 1][j] == liste_emy[k]) {
+        } else if (m->current_map[i - 1][j] == liste_emy[k]) {
             import_emy_in_battle(m, k, f);
             return;
-        }
-        if (m->current_map[i][j + 1] == liste_emy[k]) {
+        } else if (m->current_map[i][j + 1] == liste_emy[k]) {
             import_emy_in_battle(m, k, f);
             return;
-        }
-        if (m->current_map[i][j - 1] == liste_emy[k]) {
+        } else if (m->current_map[i][j - 1] == liste_emy[k]) {
             import_emy_in_battle(m, k, f);
             return;
         }

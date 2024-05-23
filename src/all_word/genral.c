@@ -16,22 +16,22 @@ static void draw(Global_t *m)
     sfRenderWindow_drawSprite(m->window, m->univ.image_barre, NULL);
 }
 
-void print_boss_barre(Global_t *m, int who, sfView *view)
+void print_boss_barre(Global_t *m, int who, sfSprite *spr)
 {
     float pourcentage_vie = (float)m->perso[who].stat_p.current_hp
     / (float)m->perso[who].stat_p.max_hp;
-    sfVector2f veiw_size = sfView_getSize(view);
-    sfVector2f barres_position;
+    sfVector2f pose = sfSprite_getPosition(spr);
 
-    barres_position.x = (veiw_size.x - 400) / 2;
-    barres_position.y = 36;
-    sfRectangleShape_setPosition(m->univ.barre_de_vie, barres_position);
-    sfRectangleShape_setPosition(m->univ.barre_fond, barres_position);
-    barres_position.x = (veiw_size.x - 505) / 2;
-    barres_position.y = 6;
-    sfSprite_setPosition(m->univ.image_barre, barres_position);
-    sfRectangleShape_setSize(m->univ.barre_de_vie,
-    (sfVector2f){400 * pourcentage_vie, 30});
+    pose.y -= 10;
+    sfRectangleShape_setPosition(m->univ.barre_de_vie, pose);
+    sfRectangleShape_setPosition(m->univ.barre_fond, pose);
+    pose.x -= 13;
+    pose.y -= 6.5;
+    sfSprite_setPosition(m->univ.image_barre, pose);
+    sfRectangleShape_setScale(m->univ.barre_de_vie,(sfVector2f){0.1, 0.3});
+    sfRectangleShape_setScale(m->univ.barre_fond,(sfVector2f){0.1, 0.3});
+    sfSprite_setScale(m->univ.image_barre, (sfVector2f){0.1, 0.1});
+    sfRectangleShape_setSize(m->univ.barre_de_vie,(sfVector2f){400 * pourcentage_vie, 30});
     draw(m);
 }
 

@@ -98,6 +98,7 @@ void draw_mouse(Global_t *m)
 {
     sfVector2f pos_c = {m->mouse.x, m->mouse.y};
 
+    sfRenderWindow_setMouseCursorVisible(m->window, sfFalse);
     sfSprite_setPosition(m->menu.cursor, pos_c);
     if (m->show_mouse == true && m->mouse.y > -1 &&
     m->mouse.x > -1 && m->current == 10 || m->current == 11 ||
