@@ -83,6 +83,11 @@ static int verif_polle(Global_t *m, FILE *file)
             sfRenderWindow_close(m->window);
             return 1;
         }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyP) {
+            fclose(file);
+            m->current = curr;
+            return 1;
+        }
     }
     return 0;
 }
