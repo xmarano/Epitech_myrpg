@@ -34,7 +34,7 @@ sfText *init_text2(sfFont *font, const char *str, int size, sfVector2f pos)
 void init_setting3(Global_t *m)
 {
     m->setting.littlez = init_text2(m->setting.font,
-    "800 x 600", 50, (sfVector2f){600, 340});
+    "Full screen", 50, (sfVector2f){600, 340});
     m->setting.mediumz = init_text2(m->setting.font,
     "1280 x 720", 50, (sfVector2f){600, 400});
     m->setting.bigz = init_text2(m->setting.font,
