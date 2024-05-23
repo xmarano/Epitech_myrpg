@@ -22,6 +22,7 @@ static void check_globalbounds(Global_t *m)
     m->o.gb_b2 = sfRectangleShape_getGlobalBounds(m->o.button2);
     m->o.gb_b3 = sfRectangleShape_getGlobalBounds(m->o.button3);
     m->o.gb_b4 = sfRectangleShape_getGlobalBounds(m->o.button4);
+    m->o.gb_help = sfRectangleShape_getGlobalBounds(m->o.help);
 }
 
 void init_menu_option_hub(Global_t *m)
@@ -32,11 +33,13 @@ void init_menu_option_hub(Global_t *m)
     m->o.button2 = init_button(m, (sfVector2f){325, 100}, 445);
     m->o.button3 = init_button(m, (sfVector2f){325, 100}, 595);
     m->o.button4 = init_button(m, (sfVector2f){400, 100}, 745);
+    m->o.help = init_button(m, (sfVector2f){150, 75}, 100);
     m->o.text1 = init_text(m, "RESUME", 60, 300);
     m->o.text2 = init_text(m, "SAVE", 60, 450);
     m->o.text2_1 = init_text(m, "SAVED", 60, 450);
     m->o.text3 = init_text(m, "SETTINGS", 60, 600);
     m->o.text4 = init_text(m, "SAVE & QUIT", 60, 750);
+    m->o.text_help = init_text(m, "HELP", 50, 100);
     sfText_setColor(m->o.text2_1, sfColor_fromRGB(0, 125, 0));
     check_globalbounds(m);
     m->menu.save_txt = sfText_create();
@@ -65,6 +68,8 @@ static void check_hover2(Global_t *m)
             m->current = 10;
         }
     }
+    hover(m, m->o.help, &m->o.gb_help);
+    click(m, &m->o.gb_help, 22);
 }
 
 static void check_hover(Global_t *m)
@@ -99,6 +104,8 @@ void draw_menu_option_hub(Global_t *m, hub_t *h)
         sfRenderWindow_drawText(m->window, m->o.text3, NULL);
         sfRenderWindow_drawRectangleShape(m->window, m->o.button4, NULL);
         sfRenderWindow_drawText(m->window, m->o.text4, NULL);
+        sfRenderWindow_drawRectangleShape(m->window, m->o.help, NULL);
+        sfRenderWindow_drawText(m->window, m->o.text_help, NULL);
     }
 }
 
@@ -109,11 +116,13 @@ void destroy_menu_option_hub(Global_t *m)
     sfRectangleShape_destroy(m->o.button2);
     sfRectangleShape_destroy(m->o.button3);
     sfRectangleShape_destroy(m->o.button4);
+    sfRectangleShape_destroy(m->o.help);
     sfText_destroy(m->o.text1);
     sfText_destroy(m->o.text2);
     sfText_destroy(m->o.text2_1);
     sfText_destroy(m->o.text3);
     sfText_destroy(m->o.text4);
+    sfText_destroy(m->o.text_help);
     sfText_destroy(m->menu.save_txt);
     sfClock_destroy(m->o.txt_clock);
 }
