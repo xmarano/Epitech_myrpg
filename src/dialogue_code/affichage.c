@@ -91,14 +91,12 @@ static int verif_polle(Global_t *m, FILE *file, int curr)
 }
 
 void parse_file(char *filename, RenderContext_t *context,
-    Global_t *m, int curr) {
-
+    Global_t *m, int curr)
+{
     FILE *file = fopen(filename, "r");
     char line[256];
     char last_speaker[256] = "";
 
-    if (file == NULL)
-        return;
     context->current_boss = m->current_boss;
     context->current_hero = m->perso->current_perso;
     context->name_ennemy = m->perso[m->current_boss].name_perso;

@@ -159,6 +159,7 @@ typedef struct Glob {
 
 void swap_current(Global_t *m);
 void draw_mouse(Global_t *m);
+void look_win(Global_t *m);
 void roy_stats(Perso_t *perso);
 void print_boss_barre(Global_t *m, int who, sfSprite *spr);
 void xmarano_stats(Perso_t *perso);
@@ -166,6 +167,7 @@ void pate_stats(Perso_t *perso);
 void infe_stats(Perso_t *perso);
 void raca_stats(Perso_t *perso);
 int import_weapons_stats(Global_t *m);
+void look_loose(Global_t *m);
 void equiped_weapon(Global_t *m, int who);
 void check_all_pose(Global_t *m, char **tab, int i);
 bool is_empty_slot(Weapons_t *weapon_slo);
