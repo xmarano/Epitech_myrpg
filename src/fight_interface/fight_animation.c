@@ -20,7 +20,7 @@ static void print2(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         atk->stat_p.current_hp = 0;
     f->has_def_attacked = sfTrue;
     get_fight_exp(atk, def);
-    m->univ.interface.go_fight = false;
+    //m->univ.interface.go_fight = false;
 }
 
 static void print1(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
@@ -38,14 +38,27 @@ static void print1(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 {
-    sfTime elapsed = sfClock_getElapsedTime(f->clock_lifebar);
-    float seconds = sfTime_asSeconds(elapsed);
+    static sfClock *clock = NULL;
+    sfTime time;
+    float seconds;
 
+    if (clock == NULL)
+        clock = sfClock_create();
+    time = sfClock_getElapsedTime(clock);
+    seconds = sfTime_asSeconds(time);
     sfRenderWindow_drawSprite(m->window, f->sprite_atk, NULL);
     sfRenderWindow_drawSprite(m->window, f->sprite_def, NULL);
-    if (seconds >= 3 && f->is_fight == sfTrue) {
+    if (seconds > 1.3f && f->is_fight == sfTrue) {
         print1(atk, def, m, f);
-    } else if (seconds >= 6 && f->has_def_attacked == sfFalse) {
+        return;
+    }
+    if (seconds > 3.0f && f->has_def_attacked == sfFalse) {
         print2(atk, def, m, f);
+        return;
+    }
+    if (seconds > 5.0f) {
+        m->univ.interface.go_fight = false;
+        sfClock_restart(clock);
+        return;
     }
 }

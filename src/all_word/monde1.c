@@ -38,7 +38,8 @@ void draw_monde1(Global_t *m, fight_t *f)
         if (m->univ.interface.limite_tour == 0 && !m->univ.interface.go_fight)
             all_ennemy_movement(m, m->current_map);
         print_mini_barre(m, f, 1);
-        print_boss_barre(m, BOSS1, m->univ.spr_Boss1);
+        if (m->perso[BOSS1].stat_p.current_hp > 0)
+            print_boss_barre(m, BOSS1, m->univ.spr_Boss1);
         if (m->perso[BOSS1].stat_p.current_hp <= 0) {
             m->zone1.is_w1_clear = true;
             m->current = 0; // a deplacer chez leo !
