@@ -338,5 +338,16 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
     char **map, Global_t *m);
 int est_dans_grille(int x, int y);
 void all_ennemy_movement(Global_t *m, char **tab);
+void initParticle(rain_t* particle);
+void updateParticle(rain_t* particle, float deltaTime);
+void init_rain(Global_t *m);
+void free_rain(Global_t *m);
+int draw_rain(Global_t *m);
+void init_s_Particle(slash_t* particle);
+void update_s_Particle(slash_t* particle, float deltaTime);
+void init_slash(Global_t *m, fight_t *f);
+void free_slash(fight_t *f);
+int draw_slash(Global_t *m, fight_t *f);
+void draw_white_screen(Global_t *m);
 
 #endif

@@ -65,6 +65,8 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     time = sfClock_getElapsedTime(clock);
     seconds = sfTime_asSeconds(time);
     draw_spr(atk, def, m, f);
+    if (seconds > 1.3f && seconds < 1.6f)
+        draw_slash(m, f);
     if (seconds > 1.3f && f->is_fight == sfTrue)
         print1(atk, def, m, f);
     if (seconds > 3.0f && f->has_def_attacked == sfFalse)

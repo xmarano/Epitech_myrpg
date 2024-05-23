@@ -10,6 +10,14 @@
 
 #ifndef FIGHT_H
     #define FIGHT_H
+    #define S_PARTICLES 10
+
+typedef struct {
+    sfVector2f position;
+    float life_duration;
+    sfSprite *spr;
+    sfTexture *texture;
+} slash_t;
 
 typedef struct fight_struct {
     sfSprite *empty_bar_sprite;
@@ -43,6 +51,9 @@ typedef struct fight_struct {
     sfSprite *dead_head;
     sfTexture *Dead_head;
     sfSprite *dead_head2;
+    sfClock *slash_clock;
+    slash_t s_particles[S_PARTICLES];
+    int is_white;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);

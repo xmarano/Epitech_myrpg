@@ -158,4 +158,5 @@ void destroy_fight_struct(fight_t *fight)
     sfSprite_destroy(fight->dead_head);
     sfSprite_destroy(fight->dead_head2);
     sfTexture_destroy(fight->Dead_head);
+    free_slash(fight);
 }

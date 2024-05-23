@@ -66,6 +66,7 @@ void init_hub(hub_t *h, Global_t *m)
     h->Pouilleux = SET_TX(link_pou, NULL);
     h->bulle = sfSprite_create();
     h->Bulle = SET_TX(link_bull, NULL);
+    init_rain(m);
     init_hub2(m, h);
 }
 
@@ -114,6 +115,7 @@ void draw_hub(Global_t *m, hub_t *h)
         h->pos_sprite = sfSprite_getPosition(h->sprite_perso);
         h->color = sfImage_getPixel(h->hitbox, (h->pos_sprite.x +
         h->movement.x + 20), (h->pos_sprite.y + h->movement.y + 37));
+        draw_rain(m);
     }
 }
 
@@ -138,4 +140,5 @@ void destroy_hub(Global_t *m, hub_t *h)
     sfClock_destroy(m->hub.swap_clock);
     sfView_destroy(m->hub.normal_view);
     sfView_destroy(h->view);
+    free_rain(m);
 }

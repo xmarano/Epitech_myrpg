@@ -9,6 +9,15 @@
     #define WORLDS_H
     #define GET_SIZE sfView_getSize
     #include "../rpg.h"
+    #define NUM_PARTICLES 2000
+    #define RAIN_SPEED 500.0f
+    #define WINDOW_WIDTH 1920
+    #define WINDOW_HEIGHT 1080
+
+typedef struct {
+    sfVector2f position;
+    sfVector2f speed;
+} rain_t;
 
 typedef struct hub {
     sfMusic* music;
@@ -43,6 +52,9 @@ typedef struct hub {
     bool prologue_ok;
     sfClock *swap_clock;
     int what_word;
+    sfClock *rain_clock;
+    rain_t particles[NUM_PARTICLES];
+    sfVertexArray *vertexArray;
 } hub_t;
 
 typedef struct Loading {
