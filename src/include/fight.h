@@ -12,20 +12,17 @@
     #define FIGHT_H
 
 typedef struct fight_struct {
-
     sfSprite *empty_bar_sprite;
     sfIntRect rect_empty_bar;
     sfSprite *hero_lifebar_sprite;
     sfIntRect rect_hero_bar;
     sfSprite *ennemy_bar_sprite;
     sfIntRect rect_ennemy_bar;
-
     sfSprite *empty_bar_sprite2;
     sfSprite *ennemy_bar_sprite2;
     sfIntRect rect_empty_bar2;
     sfIntRect rect_ennemy_bar2;
     sfSprite *hero_lifebar_sprite2;
-
     sfSprite *weapon_advantage;
     sfIntRect weapon_advantage_rect;
     sfTexture *globat_texture;
@@ -43,6 +40,8 @@ typedef struct fight_struct {
     sfBool is_fight;
     sfClock *clock_lifebar;
     sfBool has_def_attacked;
+    sfSprite *dead_head;
+    sfTexture *Dead_head;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);
