@@ -38,3 +38,5 @@ ennemy : that. But bravery alone won’t save you.
 1 : our side. We’ve got each other. 
 2 : We’re fighting for everyone you’ve threatened. 
 3 : That’s more than you can say.
+
+*

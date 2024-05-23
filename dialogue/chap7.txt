@@ -1,50 +1,35 @@
-//Chapitre 7//
+ennemy : Stop !! What do you 
+ennemy : want from our king ?
 
-Arriving in the Ice Kingdom
+1 : We are the soldier of Edgar and we 
+3 : You’re king attack us with all your 
+2 : We come in peace, we just want 
+4 : We just want the peace , let’s 
+0 : We need need to talk at your king 
 
-1 : Wow it’s very cold here
-3 : I never see snow before
-2 : I can see the castle from here !!!
-4 : Wow it’s cold 
-0 : I hope we can finally found the king here 
+1 : want to make the peace in our country/
+3 : soldier and chief we want to make the peace.
+2 : to make the peace here.
+4 : us talk to your king.
+0 : about your attack.
 
-*talk to villager*
+ennemy : Our king don’t talk to stranger get 
+ennemy : out there or I will kill you all.
 
-Villager : … we don’t talk to stranger here
+1 : Come on so.
+3 : So come to fight.
+2 : If it’s the only solution. 
+2 : to make peace come here.
+4 : Come fight with us.
+0 : We gonna defeat you.
 
-1 : We just want the peace 
-3 : We will help you don’t worry 
-2 : I know your afraid don’t worry we gonna help you 
-4 : we gonna help you don’t worry 
-0 : We come in peace don’t worry we will help you all
+ennemy : It is time to finsish you story
+ennemy : poor fool !
 
-Villager : Thank you please make the kingdom free
+1 : It is time to end this madness.
+2 : It won't be the end.
+3 : We won't let you destroy our world.
+4 : It is not the end for us !
+0 : It will not be the end.
 
-*enter in the castle*
-
-Boss7 : Stop !! What do you want from our king ?
-
-1 : We are the soldier of Edgar and we want to make the peace in our country 
-3 : You’re king attack us with all your soldier and chief we want to make the peace 
-2 : We come in peace, we just want to make the peace here
-4 : We just want the peace , let’s us talk to your king
-0 : We need need to talk at your king about your attack
-
-Boss7 : Our king don’t talk to stranger get out there or I will kill you all 
-
-1 : Come on so
-3 : So come to fight
-2 : If it’s the only solution to make peace come here
-4 : Come fight with us
-0 : We gonna defeat you
-
-
-*after the fight*
-
-Boss7 : your determination is incredible , you are very strong
-
-1 : We just want the peace
-3 : Our determination is to have the peace in the world
-2 : We only want to make the peace
-4 : Our strength come from our determination that why
-0 : The only reason we fight is to make the peace
+*
