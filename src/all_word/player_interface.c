@@ -137,7 +137,7 @@ static void gest_cursor(Global_t *m)
         m->univ.interface.cursor_position = 0;
         m->univ.interface.where = 0;
         m->univ.interface.limite_tour -= 1;
-        passif_infenium(m);
+        //passif_infenium(m);
     }
 }
 
