@@ -2,19 +2,19 @@
 3 : WHAAA there is a arena I want to go in 
 2 : What’s the big thing over there it seems to be an arena
 4 : The dock seems a little bit suspicious 
-0 : I hope he don’t lie to us 
+5 : I hope he don’t lie to us 
 
 1 : //met an ladie//
 3 : //met an ladie//
 2 : //met an ladie// 
 4 : //met an ladie//
-0 : //met an ladie//
+5 : //met an ladie//
 
 1 : Hello do you have a boat so with my friends we can go to the Aixus kingdom
 3 : Hey , do you have boat for us ?
 2 : We need to go to the Aixus kingdom do you a boat for us 
 4 : we need to travel the sea to go to the kingdom aixus do you sell anything?
-0 : Hi sir, I search a boat to go in the Aixus kingdom what are you selling ?
+5 : Hi sir, I search a boat to go in the Aixus kingdom what are you selling ?
 
 ennemy : ..... .... ..... ......
 ennemy : .... ..... .. .....  .
@@ -26,7 +26,7 @@ ennemy : YOU WANT TO DIE ????!!!!!!!!!!!!!
 3 : My bad I don’t see well, who are you ?
 2 : Serious ? I’m so sorry, who are you then ?
 4 : I’m very sorry , but who are you ? 
-0 : I’m very sorry , who are please 
+5 : I’m very sorry , who are please 
 
 ennemy : You make me mad now ... I’m the  
 ennemy : maritime chief for the Aixus king,
@@ -38,7 +38,7 @@ ennemy : the new king of the world
 2 : So that why there is no one in the dock 
 2 : , where are they ?! 
 4 : where the inhabitant went ?
-0 : So what do you do of the villagers ?! 
+5 : So what do you do of the villagers ?! 
 
 ennemy : The villagers ? HAHAHA I kill them all there
 ennemy: is no survivors here now it’s the place of the 

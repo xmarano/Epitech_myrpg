@@ -2,7 +2,7 @@
 3 : I can see a beautiful fish 
 2 : Wow I love the sea
 4 : Why does a boat come to us
-0 : it seem too calm here
+5 : it seem too calm here
 
 ennemy : You really thinks that you can kill 
 ennemy : a chief of our army like it’s nothing ?
@@ -11,7 +11,7 @@ ennemy : a chief of our army like it’s nothing ?
 3 : Why do you attack us ?
 2 : Why do you want from us ?
 4 : Why you attack us ?
-0 : What are you talking about ?
+5 : What are you talking about ?
 
 ennemy : I am the Maritime chief of the south sea 
 ennemy : you try to defeat our army by killing our 
@@ -21,8 +21,8 @@ ennemy : soldat so now I will make all of you regret
 1 : that destreoy our fields
 3 : It’s you that attack us 
 2 : Don’t say that, you thatattack us with our army
-4 : No , it’s you that try to dest0 our country
-0 : We just defend ourself from you army 
+4 : No , it’s you that try to destroy our country
+5 : We just defend ourself from you army 
 
 ennemy : Don’t try to lie 
 
@@ -30,7 +30,7 @@ ennemy : Don’t try to lie
 3 : For our country, we won’t back down! 
 2 : You’ve made a mistake challenging us! 
 4 : Let’s show him what we’re made of!
-0 : Prepare yourself 
+5 : Prepare yourself 
 
 ennemy : You’ll regret this! 
 

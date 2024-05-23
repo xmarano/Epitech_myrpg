@@ -2,14 +2,14 @@
 3: Something’s not right here. 
 2: We need to hurry. There’s 
 4: The throne… it’s radiating a 
-0: The throne is the source of this
+5: The throne is the source of this
 
 1 : aura emanating from the throne.
 2 : an evil presence around the throne. 
 3 : Can you feel it?  
 3 : It’s coming from the throne.
 4 : wicked energy. We must act quickly. 
-0 : dark aura. We need to move fast.
+5 : dark aura. We need to move fast.
 
 ennemy : So, you’ve made it this far. 
 ennemy : But you will go no further!
@@ -18,13 +18,13 @@ ennemy : But you will go no further!
 3 : We’re not afraid of you, old 
 2 : We’re prepared to do whatever it 
 4 : You might be strong, but we’ve got 
-0 : We’re here for the king. And 
+5 : We’re here for the king. And 
 
 1 : stand in our way, we will fight. 
 2 : takes. We won’t be stopped here. 
 3 : man. We’ve faced your kind before. 
 4 : omething you don’t have... determination. 
-0 : W won’t let you or anyone else stop us.
+5 : W won’t let you or anyone else stop us.
 
 ennemy : You’re brave, I’ll give you 
 ennemy : that. But bravery alone won’t save you.
@@ -33,7 +33,7 @@ ennemy : that. But bravery alone won’t save you.
 3 : And we’ve got a reason to fight. 
 2 : We’re not just fighting for ourselves. 
 4 : And we won’t back down. Not now, not ever. 
-0 : So come on then. Let’s see what you’ve got.
+5 : So come on then. Let’s see what you’ve got.
 
 1 : our side. We’ve got each other. 
 2 : We’re fighting for everyone you’ve threatened. 

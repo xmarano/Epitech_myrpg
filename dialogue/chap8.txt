@@ -2,7 +2,7 @@
 3 : We gonna attain the peace
 2 : The king is just there
 4 : the end is within reach
-0 : The king is over there
+5 : The king is over there
 
 ennemy : Who bothers me during my sleep ?!!
 
@@ -10,7 +10,7 @@ ennemy : Who bothers me during my sleep ?!!
 3: Your time is up, King. We’re here to restore peace.
 2: King, your reign ends here and now.
 4: We’ve come to put a stop to your plans, King.
-0: King, your rule ends today.
+5: King, your rule ends today.
 
 ennemy: You dare to challenge me? I will conquer 
 ennemy: the world and destroy Edgar’s kingdom.
@@ -20,19 +20,19 @@ ennemy: I will shatter the peace and spread war!
 3: We’re not afraid of you. 
 2: We’re ready to fight. 
 4: We’re stronger than you think.
-0: We’re determined to stop you. 
+5: We’re determined to stop you. 
 
 1 : We’re here to fight for peace.
 3 : We’ll do whatever it takes to stop you.
 2 : We won’t let you destroy the peace.
 4 :  We won’t let you spread war.
-0 : We won’t let you conquer the world.
+5 : We won’t let you conquer the world.
 
 ennemy : No one can defeat me
 ennemy : it is the end for you.
 
 1: It is time to stop this destruction
 2: We are going to destroy you.
-3: It is the end of your reign.
-4: It is what they all said before.
-0: you will beg me to let you live
+3: It is the end of your reign
+4: It is what they all said before
+5: I am going to end yoour reign

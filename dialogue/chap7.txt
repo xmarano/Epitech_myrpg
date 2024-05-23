@@ -5,13 +5,13 @@ ennemy : want from our king ?
 3 : You’re king attack us with all your 
 2 : We come in peace, we just want 
 4 : We just want the peace , let’s 
-0 : We need need to talk at your king 
+5 : We need need to talk at your king 
 
 1 : want to make the peace in our country/
 3 : soldier and chief we want to make the peace.
 2 : to make the peace here.
 4 : us talk to your king.
-0 : about your attack.
+5 : about your attack.
 
 ennemy : Our king don’t talk to stranger get 
 ennemy : out there or I will kill you all.
@@ -21,7 +21,7 @@ ennemy : out there or I will kill you all.
 2 : If it’s the only solution. 
 2 : to make peace come here.
 4 : Come fight with us.
-0 : We gonna defeat you.
+5 : We gonna defeat you.
 
 ennemy : It is time to finsish you story
 ennemy : poor fool !
@@ -30,6 +30,6 @@ ennemy : poor fool !
 2 : It won't be the end.
 3 : We won't let you destroy our world.
 4 : It is not the end for us !
-0 : It will not be the end.
+5 : It will not be the end.
 
 *
