@@ -22,11 +22,11 @@ ennemy : Edgar is not in this world anymore
 
 ennemy : HAHAHA I kill him with my sword
 
-1 : I will make you regret it
+1 : We will make you regret it
 3 : How did you dare ???!
-2 : I will make you pay that !!
-4 : it 's time for you to die now
-0 : arrrgh I hate people like you
+2 : We will make you pay that !!
+4 : It 's time for you to die now
+0 : Arrrgh we hate people like you
 
 1 : Why did you do that ?
 3 : For who you work ?
@@ -44,7 +44,7 @@ ennemy : I do that for the Aixus king
 
 Ennemy : He is superior to all 
 
-Ennemy : He gonna conquer this world !
+Ennemy : He is going to conquer this world !
 
 Ennemy : He is the god of this world 
 
@@ -58,7 +58,7 @@ Ennemy : I wait you come fight me
 
 Ennemy : At last if you not die before
 
-1 : I come to end you madness
+1 : We come to end you madness
 3 : You are just a stupid slave of a fool
 2 : I come to kill now
 4 : I will defeat you now

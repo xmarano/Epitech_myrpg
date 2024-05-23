@@ -8,10 +8,26 @@ ennemy : 'try to hit the hero'
 
 ennemy : What are you doing there 
 
+1 : Wow, are you fool ?
+3 : Why did you attack me ?
+2 : You afraid me !
+4 : You are very strange
+0 : How did you dare 
+
+ennemy : Respond to me
+
+ennemy : WHY ARE YOU THERE ??!
+
+1 : We want to venge Edgar dead
+3 : We are here to take a revenge
+2 : We take a revenge
+4 : We is going  kill the Aixus king
+0 : We gon
+
+*
+
 1 : 
 3 : 
 2 : 
 4 : 
 0 : 
-
-ennemy :

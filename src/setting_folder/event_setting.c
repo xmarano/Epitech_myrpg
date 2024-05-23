@@ -15,7 +15,8 @@ void big_size(sfVector2i mu, Global_t *m)
     mode.height = 1080;
     mode.bitsPerPixel = 32;
     sfRenderWindow_close(m->window);
-    m->window = sfRenderWindow_create(mode, "MY_RPG", sfResize | sfClose, NULL);
+    m->window = sfRenderWindow_create(mode, "MY_RPG", sfResize |
+    sfClose, NULL);
     sfMouse_setPositionRenderWindow((sfVector2i){mu.x, mu.y}, m->window);
 }
 
