@@ -24,7 +24,6 @@ static void import_emy_in_battle(Global_t *m, int k, fight_t *f)
     i += 5;
     if (m->perso[i].stat_p.current_hp <= 0)
         return;
-    my_printf("%s vs %s\n", m->perso[i].name_perso, m->perso[k].name_perso);
     init_fight_sprites(&m->perso[i], &m->perso[k], f, m);
     set_dmg(f, m, &m->perso[m->univ.interface.who], &m->perso[k]);
     m->univ.interface.attacker = i;

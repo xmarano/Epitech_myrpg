@@ -131,7 +131,6 @@ int main(int argc, char **argv)
     m.window = sfRenderWindow_create(mode, "My Rpg", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(m.window, 60);
     initalisateur2sprite(&m, &h, &f);
-    set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     init_dev(argc, argv, &m, &h);
     while (sfRenderWindow_isOpen(m.window)) {
         m.mouse = sfMouse_getPositionRenderWindow(m.window);
