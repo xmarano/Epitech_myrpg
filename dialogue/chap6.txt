@@ -1,4 +1,5 @@
-1: This throne room… there is a malevolent
+1: This throne room... there 
+1 : is a malevolent.
 3: Something is not right here. 
 2: We need to hurry. There is 
 4: The throne... it is radiating a 
