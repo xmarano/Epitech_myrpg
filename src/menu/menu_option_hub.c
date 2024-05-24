@@ -65,17 +65,17 @@ void init_menu_option_hub(Global_t *m)
 static void check_hover2(Global_t *m)
 {
     hover(m, m->o.button3, &m->o.gb_b3);
-    if (sfFloatRect_contains(&m->o.gb_b3, m->mouse.x, m->mouse.y)) {
+    if (sfFloatRect_contains(&m->o.gb_b3, m->mouse.x, m->mouse.y))
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             m->old_current = m->current;
             m->current = 13;
             init_setting(m);
         }
-    }
     hover(m, m->o.button4, &m->o.gb_b4);
     if (sfFloatRect_contains(&m->o.gb_b4, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             save_game(m);
+            m->is_a_save = true;
             usleep(1000000);
             sfMusic_pause(m->hub.music);
             sfMusic_play(m->menu.music);
@@ -95,6 +95,7 @@ static void check_hover(Global_t *m)
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfRectangleShape_setOutlineColor(m->o.button2, sfWhite);
             save_game(m);
+            m->is_a_save = true;
         } else
             sfRectangleShape_setOutlineColor(m->o.button2, sfBlack);
     }

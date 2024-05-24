@@ -120,6 +120,7 @@ typedef struct code {
 }Coding_style_t;
 
 typedef struct Glob {
+    bool is_a_save;
     int current;
     int old_current;
     int current_combat;

@@ -27,6 +27,7 @@ typedef struct Menu {
     sfVector2u wsize;
     sfClock *save_auto_clk;
     sfSprite *map;
+    sfSprite *lock;
     sfSprite *cursor;
     sfText *title;
     sfText *new_game;

@@ -154,6 +154,7 @@ void save_auto(Global_t *m)
     if (m->current == 0 || m->current == 9) {
         if (seconds >= 600.0f) {
             save_game(m);
+            m->is_a_save = true;
             sfClock_restart(m->menu.save_auto_clk);
         }
     }
