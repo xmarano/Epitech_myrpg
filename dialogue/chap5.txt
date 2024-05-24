@@ -26,7 +26,7 @@ ennemy : None shall pass without proving
 3: He destroy our fields, we need 
 3: to talk to him we ca not go back now.
 2: We just want the peace in our country.
-4: Please let’s us talk.
+4: Please let us talk.
 5: We need to talk to him.
 
 ennemy : The king receives no one.
