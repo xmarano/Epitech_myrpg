@@ -6,11 +6,11 @@
 
 ennemy: It is the property of the Aixus king.
 
-1 : I thought it was the Edgar kingdoms.
+1 : I thought it was the Edgar kingdom.
 3 : This is not the Edgar kingdom ?
 2 : Where can we find Edgar ?
 4 : It is not the Edgar’s kingdom ?
-5 : Ttell me where is Edgar.
+5 : Tell me where is Edgar.
 
 ennemy : Edgar is not in this world anymore.
 
