@@ -77,16 +77,6 @@ void lifebar_animation(Perso_t *perso, fight_t *f, bool atk)
     }
 }
 
-void reset_test(float seconds, sfClock *clock, Global_t *m, fight_t *f)
-{
-    if (seconds > 4.3f) {
-        reset(m, f, clock);
-        sfClock_destroy(clock);
-        sfClock_destroy(f->lifebar_clock);
-        clock = NULL;
-    }
-}
-
 static void battle(Perso_t *atk, Perso_t *def, fight_t *f, float seconds)
 {
     if (f->is_fight == sfTrue)
