@@ -22,7 +22,6 @@ static void check_globalbounds(Global_t *m)
     m->o2.gb_b2 = sfRectangleShape_getGlobalBounds(m->o2.button2);
     m->o2.gb_b3 = sfRectangleShape_getGlobalBounds(m->o2.button3);
     m->o2.gb_b4 = sfRectangleShape_getGlobalBounds(m->o2.button4);
-    m->o2.gb_help = sfRectangleShape_getGlobalBounds(m->o2.help);
 }
 
 void init_menu_option_combat(Global_t *m)
@@ -31,13 +30,11 @@ void init_menu_option_combat(Global_t *m)
     m->o2.button1 = init_button(m, (sfVector2f){325, 100}, 295);
     m->o2.button2 = init_button(m, (sfVector2f){325, 100}, 445);
     m->o2.button3 = init_button(m, (sfVector2f){325, 100}, 595);
-    m->o2.button4 = init_button(m, (sfVector2f){400, 100}, 745);
-    m->o2.help = init_button(m, (sfVector2f){150, 75}, 100);
+    m->o2.button4 = init_button(m, (sfVector2f){550, 100}, 745);
     m->o2.text1 = init_text(m, "RESUME", 60, 300);
-    m->o2.text2 = init_text(m, "RESTART", 60, 450);
+    m->o2.text2 = init_text(m, "HELP", 60, 450);
     m->o2.text3 = init_text(m, "SETTINGS", 60, 600);
-    m->o2.text4 = init_text(m, "EXIT", 60, 750);
-    m->o2.text_help = init_text(m, "HELP", 50, 100);
+    m->o2.text4 = init_text(m, "RETURN TO LOBBY", 60, 750);
     check_globalbounds(m);
 }
 
@@ -73,12 +70,6 @@ static void check_hover2(Global_t *m)
             m->current = 0;
         }
     }
-    hover(m, m->o2.help, &m->o2.gb_help);
-    if (sfFloatRect_contains(&m->o2.gb_help, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            open_url("https://shorturl.at/Yrja3");
-        }
-    }
 }
 
 static void check_hover(Global_t *m, hub_t *h)
@@ -86,13 +77,12 @@ static void check_hover(Global_t *m, hub_t *h)
     hover(m, m->o2.button1, &m->o2.gb_b1);
     click(m, &m->o2.gb_b1, m->current_combat);
     hover(m, m->o2.button2, &m->o2.gb_b2);
-    if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y))
+    if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            load_game(m, h);
-            m->current_map = m->old_map;
-            m->univ.interface.limite_tour = 5;
-            m->current = m->old_current;
+            sfMusic_pause(m->setting.music);
+            open_url("https://shorturl.at/Yrja3");
         }
+    }
     check_hover2(m);
 }
 
@@ -110,8 +100,6 @@ void draw_menu_option_combat(Global_t *m, hub_t *h)
         sfRenderWindow_drawText(m->window, m->o2.text2, NULL);
         sfRenderWindow_drawText(m->window, m->o2.text3, NULL);
         sfRenderWindow_drawText(m->window, m->o2.text4, NULL);
-        sfRenderWindow_drawRectangleShape(m->window, m->o2.help, NULL);
-        sfRenderWindow_drawText(m->window, m->o2.text_help, NULL);
     }
 }
 
@@ -122,10 +110,8 @@ void destroy_menu_option_combat(Global_t *m)
     sfRectangleShape_destroy(m->o2.button2);
     sfRectangleShape_destroy(m->o2.button3);
     sfRectangleShape_destroy(m->o2.button4);
-    sfRectangleShape_destroy(m->o2.help);
     sfText_destroy(m->o2.text1);
     sfText_destroy(m->o2.text2);
     sfText_destroy(m->o2.text3);
     sfText_destroy(m->o2.text4);
-    sfText_destroy(m->o2.text_help);
 }

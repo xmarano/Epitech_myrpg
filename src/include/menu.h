@@ -120,17 +120,14 @@ typedef struct Option_combat {
     sfRectangleShape *button2;
     sfRectangleShape *button3;
     sfRectangleShape *button4;
-    sfRectangleShape *help;
     sfFloatRect gb_b1;
     sfFloatRect gb_b2;
     sfFloatRect gb_b3;
     sfFloatRect gb_b4;
-    sfFloatRect gb_help;
     sfText *text1;
     sfText *text2;
     sfText *text3;
     sfText *text4;
-    sfText *text_help;
 } Option_combat_t;
 
 #endif
