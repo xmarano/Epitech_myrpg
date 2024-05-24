@@ -166,6 +166,7 @@ void draw_mouse(Global_t *m)
     if (m->show_mouse == true && m->mouse.y > -1 &&
     m->mouse.x > -1 && m->current == 10 || m->current == 11 ||
     m->current == 13 || m->current == 20 || m->current == 21 ||
-    m->current == 22 || m->current == 23)
+    m->current == 22 || m->current == 23 || m->current == 24 ||
+    m->current == 25)
         sfRenderWindow_drawSprite(m->window, m->menu.cursor, NULL);
 }

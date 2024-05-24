@@ -138,6 +138,7 @@ typedef struct Glob {
     Option_hub_t o; /* Leo */
     Option_combat_t o2; /* Leo */
     Help_t help; /* Leo */
+    End_t end; /* Leo */
     Perso_t perso[23]; /* Yanis */
     Weapons_t weapons[30]; /* Yanis */
     Npc_t npc[20]; /* Yanis */
@@ -204,6 +205,9 @@ void draw_menu_option_combat(Global_t *m, hub_t *hub);
 void destroy_menu_option_hub(Global_t *m);
 void destroy_menu_option_combat(Global_t *m);
 void draw_stats_shop(Global_t *m);
+void init_end(Global_t *m);
+void draw_end(Global_t *m, hub_t *h);
+void destroy_end(Global_t *m);
 void init_menu(Global_t *m);
 void init_music(Global_t *m);
 void draw_menu(Global_t *m);

@@ -133,4 +133,16 @@ typedef struct Option_combat {
     sfText *text4;
 } Option_combat_t;
 
+typedef struct End {
+    sfSprite *fond;
+    sfRectangleShape *button1;
+    sfRectangleShape *button2;
+    sfFloatRect gb_b1;
+    sfFloatRect gb_b2;
+    sfText *text1;
+    sfText *text2;
+    sfText *win;
+    sfText *loose;
+} End_t;
+
 #endif

@@ -38,19 +38,6 @@ void init_menu_option_combat(Global_t *m)
     check_globalbounds(m);
 }
 
-static void open_url(const char *url)
-{
-    #if defined(__APPLE__)
-    char command[256];
-    snprintf(command, sizeof(command), "open %s", url);
-    system(command);
-    #elif defined(__linux__)
-    char command[256];
-    snprintf(command, sizeof(command), "xdg-open %s", url);
-    system(command);
-    #endif
-}
-
 static void check_hover2(Global_t *m)
 {
     hover(m, m->o2.button3, &m->o2.gb_b3);
@@ -77,12 +64,7 @@ static void check_hover(Global_t *m, hub_t *h)
     hover(m, m->o2.button1, &m->o2.gb_b1);
     click(m, &m->o2.gb_b1, m->current_combat);
     hover(m, m->o2.button2, &m->o2.gb_b2);
-    if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfMusic_pause(m->setting.music);
-            open_url("https://t.ly/JGmmJ");
-        }
-    }
+    click(m, &m->o2.gb_b2, 23);
     check_hover2(m);
 }
 
