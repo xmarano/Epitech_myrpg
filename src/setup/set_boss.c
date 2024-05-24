@@ -138,13 +138,13 @@ static void init_boss1(Perso_t *perso, char *name, Weapons_t weapon)
 
 int set_boss(Global_t *m)
 {
-    init_boss1(&m->perso[BOSS1], "BOSS1", m->weapons[BOSS1_SWORD]);
-    init_boss2(&m->perso[BOSS2], "BOSS2", m->weapons[BOSS2_STICK]);
-    init_boss3(&m->perso[BOSS3], "BOSS3", m->weapons[BOSS3_BOW]);
-    init_boss4(&m->perso[BOSS4], "BOSS4", m->weapons[BOSS4_SPEAR]);
-    init_boss5(&m->perso[BOSS5], "BOSS5", m->weapons[BOSS5_SWORD]);
-    init_boss6(&m->perso[BOSS6], "BOSS6", m->weapons[BOSS6_BOOK]);
-    init_boss7(&m->perso[BOSS7], "BOSS7", m->weapons[BOSS7_AXE]);
-    init_boss8(&m->perso[BOSS8], "BOSS8", m->weapons[BOSS8_SWORD]);
+    init_boss1(&m->perso[BOSS1], "Ethan", m->weapons[BOSS1_SWORD]);
+    init_boss2(&m->perso[BOSS2], "Godrick", m->weapons[BOSS2_STICK]);
+    init_boss3(&m->perso[BOSS3], "Morgot", m->weapons[BOSS3_BOW]);
+    init_boss4(&m->perso[BOSS4], "Melenia", m->weapons[BOSS4_SPEAR]);
+    init_boss5(&m->perso[BOSS5], "Rykard", m->weapons[BOSS5_SWORD]);
+    init_boss6(&m->perso[BOSS6], "Godfrey", m->weapons[BOSS6_BOOK]);
+    init_boss7(&m->perso[BOSS7], "Hoarah", m->weapons[BOSS7_AXE]);
+    init_boss8(&m->perso[BOSS8], "Radagon", m->weapons[BOSS8_SWORD]);
     return 0;
 }
