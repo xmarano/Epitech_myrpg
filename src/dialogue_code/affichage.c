@@ -37,8 +37,8 @@ void draw_dialogue(const char *str, int x, int y, RenderContext_t *context)
 
 void sentencept(char *phrase, RenderContext_t *context, int x, int y)
 {
-    sfTexture* texture = SET_TX("src/dialogue_code/wall.png", NULL);
-    sfSprite* sprite = sfSprite_create();
+    sfTexture *texture = SET_TX("dialogue/wall.png", NULL);
+    sfSprite *sprite = sfSprite_create();
     sfVector2f position = {x, y};
 
     sfSprite_setTexture(sprite, texture, sfTrue);
