@@ -119,6 +119,17 @@ static void initalisateur2sprite(Global_t *m, hub_t *h, fight_t *f)
     init_lifebars2(f, m);
 }
 
+static void set_incon(Global_t *m)
+{
+    const sfUint8 *iconPixels;
+    sfVector2u iconSize;
+
+    m->image = sfImage_createFromFile("assets/menu/r_w.png");
+    iconPixels = sfImage_getPixelsPtr(m->image);
+    iconSize = sfImage_getSize(m->image);
+    sfRenderWindow_setIcon(m->window, iconSize.x, iconSize.y, iconPixels);
+}
+
 int main(int argc, char **argv)
 {
     Global_t m = {0};
@@ -132,6 +143,7 @@ int main(int argc, char **argv)
     sfRenderWindow_setFramerateLimit(m.window, 60);
     initalisateur2sprite(&m, &h, &f);
     init_dev(argc, argv, &m, &h);
+    set_incon(&m);
     while (sfRenderWindow_isOpen(m.window)) {
         m.mouse = sfMouse_getPositionRenderWindow(m.window);
         rpg(&m, &h, &f);

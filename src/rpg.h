@@ -130,6 +130,7 @@ typedef struct Glob {
     int current_boss;
     int gold;
     bool load_game_called;
+    sfImage *image;
     sfVector2i mouse;
     sfEvent event;
     sfRenderWindow *window;
