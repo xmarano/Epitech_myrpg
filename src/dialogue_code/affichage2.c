@@ -15,7 +15,7 @@ int skip_ennemy(char *phrase, RenderContext_t *context)
     int y_pos = window_height * 0.97;
 
     if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
-        sentencept(phrase, context, x_pos, y_pos);
+        sentencept(phrase, context, x_pos, 950);
         sfSleep(sfSeconds(0.01));
         return 1;
     }
@@ -30,8 +30,8 @@ void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
     int dialogue_y_pos = window_height * 0.87;
     int text_y_pos = window_height * 0.97;
 
-    draw_dialogue(num, dialogue_x_pos, dialogue_y_pos, context);
-    sentencept(phrase, context, dialogue_x_pos, text_y_pos);
+    draw_dialogue(num, dialogue_x_pos, 950, context);
+    sentencept(phrase, context, dialogue_x_pos, 950);
 }
 
 int skip_hero(char *phrase, RenderContext_t *context)

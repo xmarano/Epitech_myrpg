@@ -13,7 +13,7 @@ ennemy : Who bothers me during my sleep ?!!
 4 : We’ve come to put a stop to your plans, King.
 5 : King, your rule ends today.
 
-ennemy: You dare to challenge me? I will conquer 
+ennemy: You dare to challenge me ? I will conquer 
 ennemy: the world and destroy Edgar’s kingdom.
 ennemy: I will shatter the peace and spread war!
 
