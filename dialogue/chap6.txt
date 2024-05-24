@@ -2,11 +2,11 @@
 3: Something’s not right here. 
 2: We need to hurry. There’s 
 4: The throne… it’s radiating a 
-5: The throne is the source of this
+5: The throne is the source of this.
 
 1 : aura emanating from the throne.
 2 : an evil presence around the throne. 
-3 : Can you feel it?  
+3 : Can you feel it ?  
 3 : It’s coming from the throne.
 4 : wicked energy. We must act quickly. 
 5 : dark aura. We need to move fast.

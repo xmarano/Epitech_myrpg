@@ -1,8 +1,8 @@
-1 : it more colder here
-3 : WHAAA there is a arena I want to go in 
-2 : What’s the big thing over there it seems to be an arena
-4 : The dock seems a little bit suspicious 
-5 : I hope he don’t lie to us 
+1 : it more colder here.
+3 : WHAAA there is a arena I want to go in.
+2 : What’s the big thing over there it seems to be an arena.
+4 : The dock seems a little bit suspicious.
+5 : I hope he don’t lie to us.
 
 1 : //met an ladie//
 3 : //met an ladie//
@@ -12,7 +12,7 @@
 
 1 : Hello do you have a boat so with my friends we can go to the Aixus kingdom
 3 : Hey , do you have boat for us ?
-2 : We need to go to the Aixus kingdom do you a boat for us 
+2 : We need to go to the Aixus kingdom do you a boat for us.
 4 : we need to travel the sea to go to the kingdom aixus do you sell anything?
 5 : Hi sir, I search a boat to go in the Aixus kingdom what are you selling ?
 
@@ -30,7 +30,7 @@ ennemy : YOU WANT TO DIE ????!!!!!!!!!!!!!
 
 ennemy : You make me mad now ... I’m the  
 ennemy : maritime chief for the Aixus king,
-ennemy : the new king of the world 
+ennemy : the new king of the world.
  
 1 : You’re a sbire of the Aixus kingdom, 
 1 : where are the villagers then ?
@@ -42,6 +42,6 @@ ennemy : the new king of the world
 
 ennemy : The villagers ? HAHAHA I kill them all there
 ennemy: is no survivors here now it’s the place of the 
-ennemy : Aixus kingdom and now it’s your time to die 
+ennemy : Aixus kingdom and now it’s your time to die.
 
 *

@@ -20,8 +20,8 @@ ennemy : the grounds without permission?!
 ennemy : None shall pass without proving 
 
 1: It is urgent.
-3: He destroy our fields we need to talk to him
-3: We ca not go back now.
+3: He destroy our fields, we need to talk to him
+3: we ca not go back now.
 2: We just want the peace in our country.
 4: Please let’s us talk.
 5: We need to talk to him.
@@ -35,6 +35,6 @@ ennemy : The king receives no one.
 4: I will destroy you.
 5 : It is the end for you.
 
-ennemy : bring yourself back
+ennemy : bring yourself back.
 
 *
