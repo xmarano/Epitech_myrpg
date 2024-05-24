@@ -1,0 +1,17 @@
+./src/all_word/draw_possible_cases.c:30: MINOR:C-F8
+./src/all_word/draw_possible_cases.c:31: MINOR:C-F8
+./src/all_word/init_all_pose.c:70: MAJOR:C-F4
+./src/all_word/init_all_pose.c:71: MAJOR:C-F4
+./src/all_word/init_all_pose.c:72: MAJOR:C-F4
+./src/all_word/init_all_pose.c:73: MAJOR:C-F4
+./src/all_word/monde7.c:18: MINOR:C-F8
+./src/all_word/monde8.c:18: MINOR:C-F8
+./src/all_word/reset_win_or_loose.c:38: MINOR:C-F8
+./src/all_word/reset_win_or_loose.c:59: MINOR:C-F8
+./src/inventaire/inventaire.c:44: MINOR:C-L3
+./src/rng/get_stats_fight.c:25: MINOR:C-F8
+./src/rng/get_stats_fight.c:37: MINOR:C-F8
+./src/rng/get_stats_fight.c:49: MINOR:C-F8
+./src/rng/put_damage.c:35: MINOR:C-F8
+./src/rng/put_damage.c:51: MINOR:C-F8
+./src/rng/rng.c:52: MINOR:C-F8

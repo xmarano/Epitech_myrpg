@@ -18,7 +18,7 @@ static void event(Global_t *m, int index)
         memcpy(&m->perso[who].current_weapon,
         &m->perso[who].inv_weapon[index], sizeof(Weapons_t));
     }
-    if (sfKeyboard_isKeyPressed(sfKeyS)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         if (strcmp(m->perso[who].current_weapon->name,
         m->perso[who].inv_weapon[index].name) == 0) {
             memset(m->perso[who].current_weapon, 0, sizeof(Weapons_t));

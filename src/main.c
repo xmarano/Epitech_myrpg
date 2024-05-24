@@ -31,7 +31,7 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
     }
     if (m->event.type == sfEvtClosed || m->current == -1)
         sfRenderWindow_close(m->window);
-    if (m->current == 0 || m->current == 1)
+    if (m->current >= 0 && m->current <= 8)
         inventory(m, m->event);
     if (m->current == 13)
         event_setting(m->event, m);

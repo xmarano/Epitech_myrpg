@@ -35,16 +35,16 @@ void move2(Global_t *m, int direction, sfClock *clock)
     int new_index = current_index;
 
     switch (direction) {
-        case sfKeyLeft:
+        case sfKeyQ:
             new_index--;
             break;
-        case sfKeyRight:
+        case sfKeyD:
             new_index++;
             break;
-        case sfKeyUp:
+        case sfKeyZ:
             new_index -= m->shop.num_columns;
             break;
-        case sfKeyDown:
+        case sfKeyS:
             new_index += m->shop.num_columns;
             break;
     }
