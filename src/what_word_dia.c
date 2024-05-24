@@ -14,7 +14,7 @@ static void what_world_dia3(Global_t *m, RenderContext_t context)
 {
     if (m->dialogue.start_dialogue == 7) {
         m->current_combat = 7;
-        m->current_boss = 5;
+        m->current_boss = 11;
         m->old_map = str_to_word_array(get_buff("maps/map7/map7.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map7/map7.txt"));
         parse_file("dialogue/chap7.txt", &context, m, 7);
@@ -78,7 +78,7 @@ void what_world_dia(Global_t *m)
 
     if (m->dialogue.start_dialogue == 1) {
         m->current_combat = 1;
-        m->current_boss = 11;
+        m->current_boss = 5;
         m->old_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         m->current_map = str_to_word_array(get_buff("maps/map1/map1.txt"));
         parse_file("dialogue/chap1.txt", &context, m, 1);

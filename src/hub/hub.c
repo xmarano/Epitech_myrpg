@@ -90,6 +90,8 @@ static void draw_night(Global_t *m, hub_t *h)
     time_t rawtime;
     struct tm *timeinfo;
 
+    sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
+    sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
     time(&rawtime);
     timeinfo = localtime(&rawtime);
     if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10)
@@ -108,8 +110,6 @@ void draw_hub(Global_t *m, hub_t *h)
             h->texture_perso = NULL;
         }
         h->texture_perso = SET_TX(perso, NULL);
-        sfSprite_setTexture(h->sprite_perso, h->texture_perso, sfTrue);
-        sfRenderWindow_drawSprite(m->window, h->sprite_hub, NULL);
         draw_night(m, h);
         if (!m->perso->is_visible)
             movecharacter(m, h);
