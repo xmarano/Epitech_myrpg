@@ -13,8 +13,8 @@ void raca_stats(Perso_t *perso)
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 15;
-    perso->stat_p.max_hp = 15;
+    perso->stat_p.current_hp = 17;
+    perso->stat_p.max_hp = 17;
     perso->stat_p.lck = 7;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 5;
@@ -39,7 +39,7 @@ void xmarano_stats(Perso_t *perso)
     perso->stat_p.res = 0;
     perso->stat_p.str = 7;
     perso->stat_p.spd = 3;
-    perso->stat_p.mov = 4;
+    perso->stat_p.mov = 5;
 }
 
 void pate_stats(Perso_t *perso)
@@ -47,16 +47,16 @@ void pate_stats(Perso_t *perso)
     perso->is_hero = true;
     perso->stat_p.level = 1;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 18;
-    perso->stat_p.max_hp = 18;
+    perso->stat_p.current_hp = 16;
+    perso->stat_p.max_hp = 16;
     perso->stat_p.lck = 3;
-    perso->stat_p.skl = 4;
+    perso->stat_p.skl = 6;
     perso->stat_p.mag = 1;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
-    perso->stat_p.str = 4;
+    perso->stat_p.str = 8;
     perso->stat_p.spd = 4;
-    perso->stat_p.mov = 5;
+    perso->stat_p.mov = 6;
 }
 
 void infe_stats(Perso_t *perso)
@@ -66,14 +66,14 @@ void infe_stats(Perso_t *perso)
     perso->stat_p.xp = 0;
     perso->stat_p.current_hp = 20;
     perso->stat_p.max_hp = 20;
-    perso->stat_p.lck = 10;
-    perso->stat_p.skl = 14;
-    perso->stat_p.mag = 25;
-    perso->stat_p.def = 9;
-    perso->stat_p.res = 8;
+    perso->stat_p.lck = 7;
+    perso->stat_p.skl = 4;
+    perso->stat_p.mag = 3;
+    perso->stat_p.def = 4;
+    perso->stat_p.res = 1;
     perso->stat_p.str = 1;
-    perso->stat_p.spd = 11;
-    perso->stat_p.mov = 9;
+    perso->stat_p.spd = 5;
+    perso->stat_p.mov = 7;
 }
 
 void roy_stats(Perso_t *perso)
