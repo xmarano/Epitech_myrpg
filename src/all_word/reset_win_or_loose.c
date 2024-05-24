@@ -15,6 +15,18 @@ static void win_gold(Global_t *m, int world)
 {
     if (world == 1)
         m->gold += 5000;
+    if (world == 2)
+        m->gold += 6000;
+    if (world == 3)
+        m->gold += 7000;
+    if (world == 4)
+        m->gold += 8000;
+    if (world == 5)
+        m->gold += 9000;
+    if (world == 6)
+        m->gold += 15000;
+    if (world == 7)
+        m->gold += 20000;
 }
 
 static void reset_stats_end(Global_t *m)

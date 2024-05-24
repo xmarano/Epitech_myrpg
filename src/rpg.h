@@ -207,6 +207,8 @@ void draw_stats_shop(Global_t *m);
 void init_menu(Global_t *m);
 void init_music(Global_t *m);
 void draw_menu(Global_t *m);
+void delet_from_map(Global_t *m, char c);
+void passif_mage(Global_t *m);
 void import_weapon_inv(Global_t *m, int w);
 void destroy_menu(Global_t *m);
 void check_hover_select(Global_t *m);

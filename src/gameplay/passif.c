@@ -14,7 +14,8 @@
 void passif_mage(Global_t *m)
 {
     for (int i = 13; i < 23; i++) {
-        m->perso[i].stat_p.current_hp += 10;
+        if (m->perso[i].stat_p.current_hp > 0)
+            m->perso[i].stat_p.current_hp += 10;
         if (m->perso[i].stat_p.current_hp > m->perso[i].stat_p.max_hp)
             m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
     }

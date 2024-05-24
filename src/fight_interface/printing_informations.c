@@ -79,7 +79,8 @@ void draw_weapon_advantage_def(Perso_t *atk, Perso_t *def,
 static void draw_current_weapon(Perso_t *atk, Global_t *m, sfVector2f pos)
 {
     atk->current_weapon->sprite = sfSprite_create();
-    sfSprite_setTexture(atk->current_weapon->sprite,
+    if (atk->current_weapon->attack > 0)
+        sfSprite_setTexture(atk->current_weapon->sprite,
     SET_TX(atk->current_weapon->link_texture, NULL), sfFalse);
     sfSprite_setPosition(atk->current_weapon->sprite, pos);
     sfSprite_setScale(atk->current_weapon->sprite, (sfVector2f){5, 5});

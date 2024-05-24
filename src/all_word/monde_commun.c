@@ -45,7 +45,7 @@ static void ridicule(Global_t *m, int i, int j, char c)
         m->current_map[i][j] = ' ';
 }
 
-static void delet_from_map(Global_t *m, char c)
+void delet_from_map(Global_t *m, char c)
 {
     for (int i = 0; m->current_map[i] != NULL; i++) {
         for (int j = 0; m->current_map[i][j] != '\0'; j++) {

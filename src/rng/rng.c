@@ -49,7 +49,6 @@ int is_hit(Perso_t *attack, Perso_t *defense, Weapons_t
     int accuracy = weapon_atk->accuracy + attack->stat_p.skl * 2 +
     attack->stat_p.lck * 2 + is_weapon_advantage(weapon_atk, weapon_def) * 10;
     int avoid = defense->stat_p.spd * 2 + defense->stat_p.lck;
-    //+ defense->current_case->esq_bonus;
 
     accuracy = accuracy - avoid;
     if (accuracy <= 0) {
