@@ -95,6 +95,7 @@ void destroy_other(Global_t *m)
 {
     sfRectangleShape_destroy(m->univ.barre_de_vie);
     sfRectangleShape_destroy(m->univ.barre_fond);
+    sfClock_destroy(m->univ.interface.emy_clock);
 }
 
 void destory_all_w_maps(Global_t *m)

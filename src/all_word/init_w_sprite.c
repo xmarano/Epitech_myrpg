@@ -80,4 +80,5 @@ void init_w_sprite(Global_t *m)
     m->univ.is_case_visible = 0;
     init_sp_perso_boss(m);
     init_other_sprites(m);
+    m->univ.interface.emy_clock = sfClock_create();
 }

@@ -117,6 +117,7 @@ typedef struct interface {
     int heal_capa;
     bool is_passif_apply;
     bool fake_save;
+    sfClock *emy_clock;
 }Interface_t;
 
 typedef struct {
