@@ -102,7 +102,7 @@ static void taget_emy2(Global_t *m, int i, int dx, int dy)
     nx = m->codi.pos.x + dx;
     ny = m->codi.pos.y + dy;
     if (abs(dx) + abs(dy) <= i && est_dans_grille(nx, ny)) {
-        if (ligne_sans_obstacle((sfVector2i){m->codi.pos.x + 1,
+        if (ligne_sans_obstacle2((sfVector2i){m->codi.pos.x + 1,
         m->codi.pos.y + 1}, (sfVector2i){nx + 1, ny + 1}, m->current_map, m) &&
         isdigit(m->current_map[ny + 1][nx + 1])) {
             move_ennemy(m, (sfVector2i){(int)m->codi.pos.x + 1,

@@ -12,40 +12,6 @@
 #include "../include/npc.h"
 #include <ctype.h>
 
-static int check2(char **map, int y, int x, Global_t *m)
-{
-    char *tab = "PQRSTUWYLM/GJKZDE*";
-
-    for (int i = 0; i < strlen(tab); i++) {
-        if (map[x][y] == tab[i])
-            return -1;
-    }
-    return 0;
-}
-
-static int the_while(Global_t *m, sfVector2i pos_0,
-    sfVector2i pos_1, char **map)
-{
-    while (1) {
-        //if (check2(map, pos_0.x, pos_0.y, m) == -1)
-            //return 0;
-        if (map[pos_0.y][pos_0.x] == 'X')
-            return 0;
-        if (pos_0.x == pos_1.x && pos_0.y == pos_1.y)
-            return 1;
-        m->codi2.e2 = 2 * m->codi2.err;
-        if (m->codi2.e2 >= m->codi2.dy) {
-            m->codi2.err += m->codi2.dy;
-            pos_0.x += m->codi2.sx;
-        }
-        if (m->codi2.e2 <= m->codi2.dx) {
-            m->codi2.err += m->codi2.dx;
-            pos_0.y += m->codi2.sy;
-        }
-    }
-    return 1;
-}
-
 int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
     char **map, Global_t *m)
 {
@@ -55,6 +21,19 @@ int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
     m->codi2.sy = pos_0.y < pos_1.y ? 1 : -1;
     m->codi2.err = m->codi2.dx + m->codi2.dy;
     if (the_while(m, pos_0, pos_1, map) == 1)
+        return 1;
+    return 0;
+}
+
+int ligne_sans_obstacle2(sfVector2i pos_0, sfVector2i pos_1,
+    char **map, Global_t *m)
+{
+    m->codi2.dx = abs(pos_1.x - pos_0.x);
+    m->codi2.sx = pos_0.x < pos_1.x ? 1 : -1;
+    m->codi2.dy = -abs(pos_1.y - pos_0.y);
+    m->codi2.sy = pos_0.y < pos_1.y ? 1 : -1;
+    m->codi2.err = m->codi2.dx + m->codi2.dy;
+    if (the_while2(m, pos_0, pos_1, map) == 1)
         return 1;
     return 0;
 }

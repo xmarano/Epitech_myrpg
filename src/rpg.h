@@ -350,6 +350,12 @@ void init_lifebars2(fight_t *fight, Global_t *m);
 void check_target_ennemy_turn(int i, Global_t *m, sfSprite *spr, char patern);
 int ligne_sans_obstacle(sfVector2i pos_0, sfVector2i pos_1,
     char **map, Global_t *m);
+int ligne_sans_obstacle2(sfVector2i pos_0, sfVector2i pos_1,
+    char **map, Global_t *m);
+int the_while2(Global_t *m, sfVector2i pos_0,
+    sfVector2i pos_1, char **map);
+int the_while(Global_t *m, sfVector2i pos_0,
+    sfVector2i pos_1, char **map);
 int est_dans_grille(int x, int y);
 void all_ennemy_movement(Global_t *m, char **tab);
 void initParticle(rain_t *particle);
