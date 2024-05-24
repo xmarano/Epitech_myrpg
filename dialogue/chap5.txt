@@ -1,7 +1,7 @@
-1: The earth beneath my feet has never 
-1: felt so comforting.
-3: Finally, we have arrived. This land… 
-3: it has a mystical aura.
+1: The earth beneath my feet has 
+1: never felt so comforting.
+3: Finally, we have arrived. This
+3: land… it has a mystical aura.
 2: It is a new world opening up to us.
 4: I sense a different energy here.
 5: We have ve crossed the sea, now 
@@ -10,18 +10,21 @@
 ennemy : Halt! Who dares to approach 
 ennemy : the grounds without permission?!
 
-1: We mean no harm. We seek an audience with the king.
-3: We have traveled far and faced many dangers. 
-3: We would not be stopped now.
-2: We have proven our worth time and again. Let us pass.
-4: Your king needs to hear what we have to say.
+1 : We mean no harm. We seek and
+1 :  audience with the king.
+3 : We have traveled far and faced many dangers. 
+3 : We would not be stopped now.
+2 : We have proven our worth time 
+2 : and again. Let us pass.
+4 : Your king needs to hear what 
+4 : we have to say.
 5 : We need to defeat the king.
 
 ennemy : None shall pass without proving 
 
 1: It is urgent.
-3: He destroy our fields, we need to talk to him
-3: we ca not go back now.
+3: He destroy our fields, we need 
+3: to talk to him we ca not go back now.
 2: We just want the peace in our country.
 4: Please let’s us talk.
 5: We need to talk to him.

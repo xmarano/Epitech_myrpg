@@ -8,7 +8,8 @@ ennemy : want from our king ?
 5 : We need need to talk at your king 
 
 1 : want to make the peace in our country/
-3 : soldier and chief we want to make the peace.
+3 : soldier and chief we want to 
+3 : make the peace.
 2 : to make the peace here.
 4 : us talk to your king.
 5 : about your attack.

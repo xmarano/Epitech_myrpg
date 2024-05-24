@@ -6,11 +6,12 @@
 
 ennemy : Who bothers me during my sleep ?!!
 
-1: We’ve come to end your reign of terror, King.
-3: Your time is up, King. We’re here to restore peace.
-2: King, your reign ends here and now.
-4: We’ve come to put a stop to your plans, King.
-5: King, your rule ends today.
+1 : We’ve come to end your reign of terror, King.
+3 : Your time is up, King. We’re here 
+3 : to restore peace.
+2 : King, your reign ends here and now.
+4 : We’ve come to put a stop to your plans, King.
+5 : King, your rule ends today.
 
 ennemy: You dare to challenge me? I will conquer 
 ennemy: the world and destroy Edgar’s kingdom.

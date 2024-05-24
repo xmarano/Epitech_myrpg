@@ -9,7 +9,7 @@ ennemy: It is the property of the Aixus king.
 1 : I thought this was the kingdoms of Edgar.
 3 : This is not the Edgar kingdom ?
 2 : Where can we find Edgar ?
-4 : It is not the Edgar's kingdom ?
+4 : It is not the Edgar’s kingdom ?
 5 : Can you tell me where is Edgar please.
 
 ennemy : Edgar is not in this world anymore.
@@ -47,6 +47,8 @@ ennemy : He is superior to all.
 ennemy : He is going to conquer this world !
 
 ennemy : He is the god of this world.
+
+ennemy : You will never find him.
 
 1 : He is just a fool.
 3 : He disgust me.

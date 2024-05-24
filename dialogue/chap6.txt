@@ -27,16 +27,20 @@ ennemy : But you will go no further!
 5 : W won’t let you or anyone else stop us.
 
 ennemy : You’re brave, I’ll give you 
-ennemy : that. But bravery alone won’t save you.
+ennemy : that. But bravery alone 
+ennemy : won’t save you.
 
 1 : We’ve got more than bravery on 
 3 : And we’ve got a reason to fight. 
 2 : We’re not just fighting for ourselves. 
-4 : And we won’t back down. Not now, not ever. 
-5 : So come on then. Let’s see what you’ve got.
+4 : And we won’t back down. not
+4 : now, not ever. 
+5 : So come on then. Let’s seek
+5 : what you’ve got.
 
 1 : our side. We’ve got each other. 
-2 : We’re fighting for everyone you’ve threatened. 
+2 : We’re fighting for everyone
+2 :  you’ve threatened. 
 3 : That’s more than you can say.
 
 *

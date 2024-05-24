@@ -10,11 +10,15 @@
 4 : //met an ladie//
 5 : //met an ladie//
 
-1 : Hello do you have a boat so with my friends we can go to the Aixus kingdom
+1 : Hello do you have a boat so within
+1 : my friends we can go to the Aixus kingdom
 3 : Hey , do you have boat for us ?
-2 : We need to go to the Aixus kingdom do you a boat for us.
-4 : we need to travel the sea to go to the kingdom aixus do you sell anything?
-5 : Hi sir, I search a boat to go in the Aixus kingdom what are you selling ?
+2 : We need to go to the Aixus kingdom 
+2 : do you a boat for us.
+4 : we need to travel the sea to go to the 
+4 : kingdom aixus do you sell anything?
+5 : Hi sir, I search a boat to go in the
+5 : Aixus kingdom what are you selling ?
 
 ennemy : ..... .... ..... ......
 ennemy : .... ..... .. .....  .
@@ -40,8 +44,11 @@ ennemy : the new king of the world.
 4 : where the inhabitant went ?
 5 : So what do you do of the villagers ?! 
 
-ennemy : The villagers ? HAHAHA I kill them all there
-ennemy: is no survivors here now it’s the place of the 
-ennemy : Aixus kingdom and now it’s your time to die.
+ennemy : The villagers ? HAHAHA 
+ennemy : I kill them all there
+ennemy : is no survivors here now 
+ennemy : it’s the place of the 
+ennemy : Aixus kingdom and now
+ennemy : it’s your time to die.
 
 *
