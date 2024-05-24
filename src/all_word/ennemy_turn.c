@@ -65,7 +65,6 @@ static int check_emy_alive(Global_t *m, char patern)
             break;
     }
     i += 5;
-    printf("%d\n", i);
     if (m->perso[i].stat_p.current_hp <= 0)
         return 1;
     return 0;

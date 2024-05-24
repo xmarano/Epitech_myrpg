@@ -8,7 +8,7 @@
 #include "../include/perso.h"
 #include "../rpg.h"
 
-static void print2(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
+static void print2(Perso_t *atk, Perso_t *def, fight_t *f)
 {
     if (def->stat_p.mag > def->stat_p.str && def->stat_p.current_hp > 0)
         f->dmg_atk_received = damage_magical(def, atk);
@@ -23,7 +23,7 @@ static void print2(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     get_fight_exp(atk, def);
 }
 
-static void print1(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
+static void print1(Perso_t *atk, Perso_t *def, fight_t *f)
 {
     if (atk->stat_p.mag > atk->stat_p.str)
         f->dmg_def_received = damage_magical(atk, def);
@@ -57,7 +57,7 @@ void draw_spr(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
         sfRenderWindow_drawSprite(m->window, f->dead_head2, NULL);
 }
 
-void lifebar_animation(Perso_t *perso, fight_t *f, Global_t *m, bool atk)
+void lifebar_animation(Perso_t *perso, fight_t *f, bool atk)
 {
     sfTime time;
     float seconds;
@@ -87,6 +87,18 @@ void reset_test(float seconds, sfClock *clock, Global_t *m, fight_t *f)
     }
 }
 
+static void battle(Perso_t *atk, Perso_t *def, fight_t *f, float seconds)
+{
+    if (f->is_fight == sfTrue)
+        print1(atk, def, f);
+    if (f->has_def_attacked == sfFalse)
+        print2(atk, def, f);
+    if (seconds > 1.3f && seconds < 3.0f)
+        lifebar_animation(def, f, false);
+    if (seconds > 3.0f && def->stat_p.current_hp > 0)
+        lifebar_animation(atk, f, true);
+}
+
 void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
 {
     static sfClock *clock = NULL;
@@ -100,13 +112,11 @@ void print_sprites(Perso_t *atk, Perso_t *def, Global_t *m, fight_t *f)
     draw_spr(atk, def, m, f);
     if (seconds > 1.3f && seconds < 1.6f)
         draw_slash(m, f);
-    if (f->is_fight == sfTrue)
-        print1(atk, def, m, f);
-    if (f->has_def_attacked == sfFalse)
-        print2(atk, def, m, f);
-    if (seconds > 1.3f && seconds < 3.0f)
-        lifebar_animation(def, f, m , false);
-    if (seconds > 3.0f && def->stat_p.current_hp > 0)
-        lifebar_animation(atk, f, m , true);
-    reset_test(seconds, clock, m, f);
+    battle(atk, def, f, seconds);
+    if (seconds > 4.3f) {
+        reset(m, f, clock);
+        sfClock_destroy(clock);
+        sfClock_destroy(f->lifebar_clock);
+        clock = NULL;
+    }
 }

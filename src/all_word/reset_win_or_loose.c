@@ -56,6 +56,6 @@ void look_loose(Global_t *m, Perso_t *boss, hub_t *h)
         sfMusic_play(m->hub.music);
         load_game(m, h);
         m->univ.interface.fake_save = true;
-        m->current = 0; // a deplacer chez leo, curr 25!
+        m->current = 1; // a deplacer chez leo, curr 25!
     }
 }

@@ -66,15 +66,19 @@ static void hover_continue(Global_t *m)
 {
     if (m->is_a_save == true) {
         if (sfFloatRect_contains(&m->menu.gb_b2, m->mouse.x, m->mouse.y))
-            sfRectangleShape_setFillColor(m->menu.button2, sfColor_fromRGB(186, 135, 36));
+            sfRectangleShape_setFillColor(m->menu.button2,
+            sfColor_fromRGB(186, 135, 36));
         else
-            sfRectangleShape_setFillColor( m->menu.button2, sfColor_fromRGB(245, 178, 49));
+            sfRectangleShape_setFillColor(m->menu.button2,
+            sfColor_fromRGB(245, 178, 49));
         return;
     }
     if (sfFloatRect_contains(&m->menu.gb_b2, m->mouse.x, m->mouse.y))
-        sfRectangleShape_setFillColor(m->menu.button2, sfColor_fromRGB(100, 100, 100));
+        sfRectangleShape_setFillColor(m->menu.button2,
+        sfColor_fromRGB(100, 100, 100));
     else
-        sfRectangleShape_setFillColor(m->menu.button2, sfColor_fromRGB(150, 150, 150));
+        sfRectangleShape_setFillColor(m->menu.button2,
+        sfColor_fromRGB(150, 150, 150));
 }
 
 static void check_hover(Global_t *m)
