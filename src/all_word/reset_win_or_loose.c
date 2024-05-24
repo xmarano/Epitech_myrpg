@@ -45,9 +45,7 @@ void look_win(Global_t *m, int world)
         m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
     win_gold(m, world);
     reset_stats_end(m);
-    sfMusic_pause(m->setting.music);
-    sfMusic_play(m->hub.music);
-    m->current = 0; // a deplacer chez leo, curr 24!
+    m->current = 24;
 }
 
 void look_loose(Global_t *m, Perso_t *boss, hub_t *h)
@@ -64,10 +62,8 @@ void look_loose(Global_t *m, Perso_t *boss, hub_t *h)
             m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
         boss->stat_p.current_hp = boss->stat_p.max_hp;
         reset_stats_end(m);
-        sfMusic_pause(m->setting.music);
-        sfMusic_play(m->hub.music);
         load_game(m, h);
         m->univ.interface.fake_save = true;
-        m->current = 1; // a deplacer chez leo, curr 25!
+        m->current = 25;
     }
 }
