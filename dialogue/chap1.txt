@@ -20,7 +20,7 @@ ennemy : Edgar is not in this world anymore.
 4 : No, I do not believe you.
 5 : Why ? It's not possible.
 
-ennemy : HAHAHA I kill him with my sword.
+ennemy : HAHAHA I killed him with my sword.
 
 1 : We will make you regret it.
 3 : How did you dare ???!
