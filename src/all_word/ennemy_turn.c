@@ -110,6 +110,7 @@ static void taget_emy2(Global_t *m, int i, int dx, int dy)
             m->codi.patern);
             m->univ.interface.current_emy = m->codi.patern;
             m->univ.interface.attack_gpy2 = true;
+            m->univ.interface.queue += 1;
             return;
         }
     }

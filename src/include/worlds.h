@@ -118,6 +118,7 @@ typedef struct interface {
     bool is_passif_apply;
     bool fake_save;
     sfClock *emy_clock;
+    int queue;
 }Interface_t;
 
 typedef struct {

@@ -79,7 +79,7 @@ void lifebar_animation(Perso_t *perso, fight_t *f, bool atk)
 
 void reset_test(float seconds, sfClock *clock, Global_t *m, fight_t *f)
 {
-    if (seconds > 5.0f) {
+    if (seconds > 4.3f) {
         reset(m, f, clock);
         sfClock_destroy(clock);
         sfClock_destroy(f->lifebar_clock);

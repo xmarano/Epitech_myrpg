@@ -97,12 +97,12 @@ void all_ennemy_movement(Global_t *m, char **tab)
     TAR_EM(m->perso[BOSS7].stat_p.mov, m, m->univ.spr_Boss7, 'W');
     TAR_EM(m->perso[BOSS8].stat_p.mov, m, m->univ.spr_Boss8, 'Y');
     TAR_EM(m->perso[ENEMY1_SWORD].stat_p.mov, m, m->univ.spr_emy1_sword, 'L');
+    TAR_EM(m->perso[ENEMY1_AXE].stat_p.mov, m, m->univ.spr_emy1_axe, 'Z');
     TAR_EM(m->perso[ENEMY2_SWORD].stat_p.mov, m, m->univ.spr_emy2_sword, 'M');
     TAR_EM(m->perso[ENEMY3_SWORD].stat_p.mov, m, m->univ.spr_emy3_sword, '/');
     TAR_EM(m->perso[ENEMY1_SPEAR].stat_p.mov, m, m->univ.spr_emy1_spear, 'G');
     TAR_EM(m->perso[ENEMY2_SPEAR].stat_p.mov, m, m->univ.spr_emy2_spear, 'J');
     TAR_EM(m->perso[ENEMY3_SPEAR].stat_p.mov, m, m->univ.spr_emy3_spear, 'K');
-    TAR_EM(m->perso[ENEMY1_AXE].stat_p.mov, m, m->univ.spr_emy1_axe, 'Z');
     TAR_EM(m->perso[ENEMY2_AXE].stat_p.mov, m, m->univ.spr_emy2_axe, 'D');
     TAR_EM(m->perso[ENEMY3_AXE].stat_p.mov, m, m->univ.spr_emy3_axe, 'E');
     TAR_EM(m->perso[ENEMY_MAGE].stat_p.mov, m, m->univ.spr_emy_mage, '*');
