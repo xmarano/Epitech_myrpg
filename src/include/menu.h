@@ -17,6 +17,8 @@
 typedef struct Help {
     sfSprite *hub;
     sfSprite *combat;
+    sfSprite *key_h;
+    sfSprite *key_c;
     sfRectangleShape *exit;
     sfFloatRect gb_exit;
     sfText *text_exit;
