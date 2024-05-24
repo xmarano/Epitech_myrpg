@@ -116,7 +116,8 @@ void draw_hub(Global_t *m, hub_t *h)
         h->pos_sprite = sfSprite_getPosition(h->sprite_perso);
         h->color = sfImage_getPixel(h->hitbox, (h->pos_sprite.x +
         h->movement.x + 20), (h->pos_sprite.y + h->movement.y + 37));
-        draw_rain(m);
+        if (m->is_night == true)
+            draw_rain(m);
     }
 }
 

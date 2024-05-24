@@ -121,6 +121,7 @@ typedef struct code {
 
 typedef struct Glob {
     bool is_a_save;
+    bool is_night;
     int current;
     int old_current;
     int current_combat;

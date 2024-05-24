@@ -32,11 +32,14 @@ static void set_fond_option(Global_t *m)
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10)
+    if (timeinfo->tm_hour >= 20 || timeinfo->tm_hour < 10) {
         m->o.fond = init_sprite("maps/hub_night_blurry.png",
         (sfVector2f){0, 0});
-    else
+        m->is_night = true;
+    } else {
         m->o.fond = init_sprite("assets/loading/back.png", (sfVector2f){0, 0});
+        m->is_night = false;
+    }
 }
 
 void init_menu_option_hub(Global_t *m)

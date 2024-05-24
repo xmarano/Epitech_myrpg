@@ -69,28 +69,28 @@ void level_up(stchar_t *stats)
         stats->level += 1;
         stats->xp -= 100;
         if (rng % 2 == 0)
-            stats->skl += 1;
+            stats->skl += rand() % 2;
         if (rng % 3 == 0)
-            stats->def += 1;
+            stats->def += rand() % 2;
         if (rng % 4 == 0)
-            stats->max_hp += 1;
+            stats->max_hp += rand() % 2;
         if (rng % 5 == 0)
-            stats->lck += 1;
+            stats->lck += rand() % 2;
         if (rng % 6 == 0)
-            stats->res += 1;
+            stats->res += rand() % 2;
         if (rng % 7 == 0)
-            stats->spd += 1;
+            stats->spd += rand() % 2;
     }
 }
 
 void get_fight_exp(Perso_t *atk, Perso_t *def)
 {
     if (atk->is_hero == true) {
-        atk->stat_p.xp += 31 + def->stat_p.level - atk->stat_p.level;
+        atk->stat_p.xp += 60 + def->stat_p.level - atk->stat_p.level;
         level_up(&atk->stat_p);
     }
     if (def->is_hero == true) {
-        def->stat_p.xp += 10 + atk->stat_p.level;
+        def->stat_p.xp += 30 + atk->stat_p.level;
         level_up(&def->stat_p);
     }
 }
