@@ -3,7 +3,7 @@
 2 : What is the big thing over there.
 2 : It seems to be an arena.
 4 : The dock seems a little bit suspicious.
-5 : I hope he don’t lie to us.
+5 : I hope he do not lie to us.
 
 1 : //met an ladie//
 3 : //met an ladie//
