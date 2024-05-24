@@ -30,11 +30,11 @@ void init_menu_option_combat(Global_t *m)
     m->o2.button1 = init_button(m, (sfVector2f){325, 100}, 295);
     m->o2.button2 = init_button(m, (sfVector2f){325, 100}, 445);
     m->o2.button3 = init_button(m, (sfVector2f){325, 100}, 595);
-    m->o2.button4 = init_button(m, (sfVector2f){550, 100}, 745);
+    m->o2.button4 = init_button(m, (sfVector2f){490, 100}, 745);
     m->o2.text1 = init_text(m, "RESUME", 60, 300);
     m->o2.text2 = init_text(m, "HELP", 60, 450);
     m->o2.text3 = init_text(m, "SETTINGS", 60, 600);
-    m->o2.text4 = init_text(m, "RETURN TO LOBBY", 60, 750);
+    m->o2.text4 = init_text(m, "RETURN LOBBY", 60, 750);
     check_globalbounds(m);
 }
 
@@ -80,7 +80,7 @@ static void check_hover(Global_t *m, hub_t *h)
     if (sfFloatRect_contains(&m->o2.gb_b2, m->mouse.x, m->mouse.y)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_pause(m->setting.music);
-            open_url("https://shorturl.at/Yrja3");
+            open_url("https://t.ly/JGmmJ");
         }
     }
     check_hover2(m);
