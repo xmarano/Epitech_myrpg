@@ -46,7 +46,6 @@ typedef struct fight_struct {
     sfTexture *texture_atk;
     sfTexture *texture_def;
     sfBool is_fight;
-    sfClock *clock_lifebar;
     sfBool has_def_attacked;
     sfSprite *dead_head;
     sfTexture *Dead_head;
@@ -54,6 +53,9 @@ typedef struct fight_struct {
     sfClock *slash_clock;
     slash_t s_particles[S_PARTICLES];
     int is_white;
+    sfClock *lifebar_clock;
+    int pv_atk;
+    int pv_def;
 } fight_t;
 
 void init_lifebars(fight_t *fight, Global_t *m);

@@ -22,4 +22,5 @@ void init_lifebars2(fight_t *fight, Global_t *m)
     fight->dead_head = sfSprite_create();
     fight->Dead_head = SET_TX("assets/fight/skull.png", NULL);
     fight->dead_head2 = sfSprite_create();
+    fight->lifebar_clock = sfClock_create();
 }

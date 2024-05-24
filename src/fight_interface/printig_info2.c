@@ -44,7 +44,6 @@ void init_lifebars(fight_t *fight, Global_t *m)
     fight->ennemy_bar_sprite = sfSprite_create();
     fight->font = sfFont_createFromFile("assets/fight.ttf");
     fight->is_fight = sfTrue;
-    fight->clock_lifebar = sfClock_create();
     sfSprite_setTexture(fight->combat_scene,
     SET_TX("assets/fight/battle_scene.png", NULL), sfFalse);
     reset_hp_barre(fight, m);
