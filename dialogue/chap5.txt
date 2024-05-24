@@ -12,7 +12,8 @@ ennemy : the grounds without permission?!
 
 1 : We mean no harm. We seek and
 1 :  audience with the king.
-3 : We have traveled far and faced many dangers. 
+3 : We have traveled far and 
+3 : faced many dangers.
 3 : We would not be stopped now.
 2 : We have proven our worth time 
 2 : and again. Let us pass.

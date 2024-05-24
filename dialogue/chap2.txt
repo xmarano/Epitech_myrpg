@@ -20,7 +20,7 @@ ennemy : WHY ARE YOU THERE ??!
 
 1 : We want to venge Edgar dead.
 3 : We are here to take a revenge.
-2 : We take a revenge for edag.
+2 : We take a revenge for Edgar.
 4 : We are going to kill Aixus king.
 5 : We are going to end the terror.
 

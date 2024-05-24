@@ -1,7 +1,7 @@
 1: This throne room… there is a malevolent
 3: Something is not right here. 
 2: We need to hurry. There is 
-4: The throne… it is radiating a 
+4: The throne... it is radiating a 
 5: The throne is the source of this.
 
 1 : aura emanating from the throne.
@@ -23,7 +23,8 @@ ennemy : But you will go no further!
 1 : stand in our way, we will fight. 
 2 : takes. We would not be stopped here. 
 3 : man. We have faced your kind before. 
-4 : something you do not have... determination. 
+4 : something you do not have... 
+4 : determination ! 
 5 : We would not let you or 
 5 : anyone else stop us.
 
@@ -33,7 +34,8 @@ ennemy : would not save you.
 
 1 : We have got more than bravery on 
 3 : And we have got a reason to fight. 
-2 : We do not just fighting for ourselves. 
+2 : We do not just fighting
+2 : for ourselves. 
 4 : And we would not back down. not
 4 : now, not ever. 
 5 : So come on then. Let us seek

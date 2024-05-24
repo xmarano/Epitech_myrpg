@@ -6,11 +6,11 @@
 
 ennemy: It is the property of the Aixus king.
 
-1 : I thought this was the kingdoms of Edgar.
+1 : I thought it was the Edgar kingdoms.
 3 : This is not the Edgar kingdom ?
 2 : Where can we find Edgar ?
 4 : It is not the Edgar’s kingdom ?
-5 : Can you tell me where is Edgar please.
+5 : Ttell me where is Edgar.
 
 ennemy : Edgar is not in this world anymore.
 
@@ -25,7 +25,7 @@ ennemy : HAHAHA I kill him with my sword.
 1 : We will make you regret it.
 3 : How did you dare ???!
 2 : We will make you pay that !!
-4 : It 's time for you to die now.
+4 : It is time for you to die now.
 5 : Arrrgh we hate people like you.
 
 1 : Why did you do that ?
@@ -36,8 +36,8 @@ ennemy : HAHAHA I kill him with my sword.
 
 ennemy : I do that for the Aixus king.
 
-1 : Where he is ? why he make you do that ?
-3 : Where can I find him and why he do that ?
+1 : Why he make you do that ?
+3 : Why he do that ?
 2 : Why he do all this carnage ?
 4 : Why he do that ?
 5 : Why is he so mean, where is he?
@@ -61,7 +61,7 @@ ennemy : I wait you come fight me.
 ennemy : At last if you not die before.
 
 1 : We come to end you madness.
-3 : You are just a stupid slave of a fool.
+3 : You are just a slave of a fool.
 2 : I come to kill now.
 4 : I will defeat you now.
 5 : It is the end for you.
