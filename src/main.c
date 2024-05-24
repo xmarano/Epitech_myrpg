@@ -40,6 +40,7 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
 
 static void draw_mondes(Global_t *m, fight_t *f, hub_t *h)
 {
+    apply_passif(m);
     draw_monde1(m, f, h);
     draw_monde2(m, f, h);
     draw_monde3(m, f, h);
