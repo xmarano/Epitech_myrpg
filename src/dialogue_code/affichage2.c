@@ -11,7 +11,7 @@ int skip_ennemy(char *phrase, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
-    int x_pos = window_width * 0.7;
+    int x_pos = window_width * 0.62;
     int y_pos = window_height * 0.97;
 
     if (sfKeyboard_isKeyPressed(sfKeyReturn)) {
@@ -26,7 +26,7 @@ void ennemy_speak(char *phrase, const char *num, RenderContext_t *context)
 {
     int window_width = sfRenderWindow_getSize(context->window).x;
     int window_height = sfRenderWindow_getSize(context->window).y;
-    int dialogue_x_pos = window_width * 0.7;
+    int dialogue_x_pos = window_width * 0.62;
     int dialogue_y_pos = window_height * 0.87;
     int text_y_pos = window_height * 0.97;
 
