@@ -134,7 +134,7 @@ int main(int argc, char **argv)
     set_dmg(&f, &m, &m.perso[ROY], &m.perso[ENEMY1_AXE]);
     init_dev(argc, argv, &m, &h);
     while (sfRenderWindow_isOpen(m.window)) {
-        m.mouse = sfMouse_getPositionRenderWindow(m->window);
+        m.mouse = sfMouse_getPositionRenderWindow(m.window);
         rpg(&m, &h, &f);
     }
     annihilateur2sprite(&m, &h, &f);
