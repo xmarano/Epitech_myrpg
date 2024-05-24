@@ -155,23 +155,23 @@ static void init_enemy1_sword(Perso_t *perso, char *name, Weapons_t weapon)
 void set_enemy(Global_t *m)
 {
     init_enemy1_sword(&m->perso[ENEMY1_SWORD],
-    "Enemy1_sword", m->weapons[COMMON_SWORD]);
+    "Swordman", m->weapons[COMMON_SWORD]);
     init_enemy2_sword(&m->perso[ENEMY2_SWORD],
-    "Enemy2_sword", m->weapons[RARE_SWORD]);
+    "Paladin", m->weapons[RARE_SWORD]);
     init_enemy3_sword(&m->perso[ENEMY3_SWORD],
-    "Enemy3_sword", m->weapons[LEGENDARY_SWORD]);
+    "Golden warrior", m->weapons[LEGENDARY_SWORD]);
     init_enemy1_spear(&m->perso[ENEMY1_SPEAR],
-    "Enemy1_spear", m->weapons[COMMON_SPEAR]);
+    "spearman", m->weapons[COMMON_SPEAR]);
     init_enemy2_spear(&m->perso[ENEMY2_SPEAR],
-    "Enemy2_spear", m->weapons[RARE_SPEAR]);
+    "Spear Swift", m->weapons[RARE_SPEAR]);
     init_enemy3_spear(&m->perso[ENEMY3_SPEAR],
-    "Enemy3_spear", m->weapons[LEGENDARY_SPEAR]);
+    "Ulimate spearman", m->weapons[LEGENDARY_SPEAR]);
     init_enemy1_axe(&m->perso[ENEMY1_AXE],
-    "Enemy1_axe", m->weapons[COMMON_AXE]);
+    "executer", m->weapons[COMMON_AXE]);
     init_enemy2_axe(&m->perso[ENEMY2_AXE],
-    "Enemy2_axe", m->weapons[RARE_AXE]);
+    "chopper", m->weapons[RARE_AXE]);
     init_enemy3_axe(&m->perso[ENEMY3_AXE],
-    "Enemy3_axe", m->weapons[LEGENDARY_AXE]);
+    "Berseker", m->weapons[LEGENDARY_AXE]);
     init_enemy_mage(&m->perso[ENEMY_MAGE],
-    "Enemy_mage", m->weapons[HEAL_STICK]);
+    "necromancer", m->weapons[HEAL_STICK]);
 }
