@@ -38,16 +38,16 @@ void event_click(Global_t *m, hub_t *h, fight_t *f)
     what_world_dia(m);
 }
 
-static void draw_mondes(Global_t *m, fight_t *f)
+static void draw_mondes(Global_t *m, fight_t *f, hub_t *h)
 {
-    draw_monde1(m, f);
-    draw_monde2(m, f);
-    draw_monde3(m, f);
-    draw_monde4(m, f);
-    draw_monde5(m, f);
-    draw_monde6(m, f);
-    draw_monde7(m, f);
-    draw_monde8(m, f);
+    draw_monde1(m, f, h);
+    draw_monde2(m, f, h);
+    draw_monde3(m, f, h);
+    draw_monde4(m, f, h);
+    draw_monde5(m, f, h);
+    draw_monde6(m, f, h);
+    draw_monde7(m, f, h);
+    draw_monde8(m, f, h);
     draw_player_interface(m);
     attack(m, f);
     attack_ally(m, f);
@@ -65,7 +65,7 @@ void rpg(Global_t *m, hub_t *h, fight_t *f)
     draw_menu_option_hub(m, h);
     draw_menu_option_combat(m, h);
     draw_setting(m);
-    draw_mondes(m, f);
+    draw_mondes(m, f, h);
     draw_shop(m);
     draw_hub(m, h);
     save_auto(m);

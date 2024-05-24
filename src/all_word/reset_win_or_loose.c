@@ -11,43 +11,51 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-void look_win(Global_t *m)
+static void win_gold(Global_t *m, int world)
 {
-    for (int i = 0; i < 5; i++) {
-        m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
-    }
-    for (int j = 13; j < 23; j++) {
-        m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
-    }
-    m->univ.interface.limite_tour = 5;
+    if (world == 1)
+        m->gold += 5000;
+}
+
+static void reset_stats_end(Global_t *m)
+{
     m->univ.interface.attack_gpy2 = false;
     m->univ.interface.attack_gpy = false;
     m->univ.interface.go_fight = false;
+    m->univ.interface.limite_tour = 5;
+}
+
+void look_win(Global_t *m, int world)
+{
+    for (int i = 0; i < 5; i++)
+        m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
+    for (int j = 13; j < 23; j++)
+        m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
+    win_gold(m, world);
+    reset_stats_end(m);
     sfMusic_pause(m->setting.music);
     sfMusic_play(m->hub.music);
     m->current = 0; // a deplacer chez leo, curr 24!
 }
 
-void look_loose(Global_t *m)
+void look_loose(Global_t *m, Perso_t *boss, hub_t *h)
 {
     int nbr = 0;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
         if (m->perso[i].stat_p.current_hp <= 0)
             nbr++;
-    }
     if (nbr == 5) {
         for (int i = 0; i < 5; i++)
             m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
-        for (int j = 13; j < 23; j++) {
+        for (int j = 13; j < 23; j++)
             m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
-        }
-        m->univ.interface.attack_gpy2 = false;
-        m->univ.interface.attack_gpy = false;
-        m->univ.interface.go_fight = false;
-        m->univ.interface.limite_tour = 5;
+        boss->stat_p.current_hp = boss->stat_p.max_hp;
+        reset_stats_end(m);
         sfMusic_pause(m->setting.music);
         sfMusic_play(m->hub.music);
+        load_game(m, h);
+        m->univ.interface.fake_save = true;
         m->current = 0; // a deplacer chez leo, curr 25!
     }
 }

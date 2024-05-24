@@ -55,9 +55,27 @@ static void moove_emy2(Global_t *m, sfVector2i previous_pos,
     }
 }
 
+static int check_emy_alive(Global_t *m, char patern)
+{
+    char *liste = ENNEMY_CODE;
+    int i = 0;
+
+    for (i; liste[i] != '\0'; i++) {
+        if (liste[i] == patern)
+            break;
+    }
+    i += 5;
+    printf("%d\n", i);
+    if (m->perso[i].stat_p.current_hp <= 0)
+        return 1;
+    return 0;
+}
+
 void move_ennemy(Global_t *m, sfVector2i previous_pos,
     sfVector2i pos_target, char patern)
 {
+    if (check_emy_alive(m, patern) == 1)
+        return;
     if (m->current_map[pos_target.y][pos_target.x + 1] != 'X' &&
     !isdigit(m->current_map[pos_target.y][pos_target.x + 1]) &&
     !ennemy_on_case(m, pos_target.y, pos_target.x + 1)) {

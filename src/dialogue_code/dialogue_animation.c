@@ -13,10 +13,8 @@
 
 static void change_bool(Global_t *m, hub_t *hub, int word)
 {
-    if (word == 0) {
+    if (word == 0)
         m->hub.prologue_ok = true;
-        return;
-    }
     if (word == 1)
         m->dialogue.start_dialogue = 1;
     if (word == 2)
@@ -33,6 +31,7 @@ static void change_bool(Global_t *m, hub_t *hub, int word)
         m->dialogue.start_dialogue = 7;
     if (word == 8)
         m->dialogue.start_dialogue = 8;
+    save_game(m);
 }
 
 void readdialoguefromfile(Global_t *m, char *filename,
@@ -107,6 +106,7 @@ void displaydialogue(Global_t *m, hub_t *hub, int word,
         clock = NULL;
         hub->is_talking = false;
         m->dialogue.currentLine = 0;
+        m->univ.interface.fake_save = true;
         change_bool(m, hub, word);
     }
 }

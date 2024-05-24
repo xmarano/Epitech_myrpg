@@ -115,6 +115,8 @@ typedef struct interface {
     int defender;
     char current_emy;
     int heal_capa;
+    bool is_passif_apply;
+    bool fake_save;
 }Interface_t;
 
 typedef struct {

@@ -35,6 +35,8 @@ void hp_up(Global_t *m)
 void import_emy_in_battle(Global_t *m, int k, fight_t *f)
 {
     k += 5;
+    if (m->perso[k].stat_p.current_hp <= 0)
+        return;
     init_fight_sprites(&m->perso[m->univ.interface.who], &m->perso[k], f, m);
     set_dmg(f, m, &m->perso[m->univ.interface.who], &m->perso[k]);
     m->univ.interface.attacker = m->univ.interface.who;

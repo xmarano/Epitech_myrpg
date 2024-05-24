@@ -35,7 +35,7 @@ void xmarano_stats(Perso_t *perso)
     perso->stat_p.lck = 2;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 4;
-    perso->stat_p.def = 11;
+    perso->stat_p.def = 3;
     perso->stat_p.res = 0;
     perso->stat_p.str = 7;
     perso->stat_p.spd = 3;
@@ -72,7 +72,7 @@ void infe_stats(Perso_t *perso)
     perso->stat_p.def = 9;
     perso->stat_p.res = 8;
     perso->stat_p.str = 1;
-    perso->stat_p.spd = 6;
+    perso->stat_p.spd = 11;
     perso->stat_p.mov = 9;
 }
 

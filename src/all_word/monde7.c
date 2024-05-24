@@ -11,7 +11,7 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-static void part2(Global_t *m)
+static void part2(Global_t *m, hub_t *h)
 {
     if (m->perso[ENEMY_MAGE].stat_p.current_hp > 0
     && m->univ.interface.limite_tour == 0) {
@@ -20,12 +20,12 @@ static void part2(Global_t *m)
     if (m->perso[BOSS7].stat_p.current_hp <= 0 &&
     !m->univ.interface.go_fight) {
         m->zone7.is_w7_clear = true;
-        look_win(m);
+        look_win(m, 7);
     }
-    look_loose(m);
+    look_loose(m, &m->perso[BOSS7], h);
 }
 
-void draw_monde7(Global_t *m, fight_t *f)
+void draw_monde7(Global_t *m, fight_t *f, hub_t *h)
 {
     if (m->current == 7) {
         sfRenderWindow_setView(m->window, m->zone7.view_w7);
@@ -40,7 +40,7 @@ void draw_monde7(Global_t *m, fight_t *f)
         print_mini_barre(m, f, 7);
         if (m->perso[BOSS7].stat_p.current_hp > 0)
             print_boss_barre(m, BOSS7, m->univ.spr_Boss7);
-        part2(m);
+        part2(m, h);
         return_and_old_current2(m, 7);
     }
 }

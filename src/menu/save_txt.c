@@ -8,17 +8,23 @@
 #include "../rpg.h"
 #include "../include/menu.h"
 
+static void coco(Global_t *m)
+{
+    if (m->current == 0 || m->current == 9)
+        sfText_setString(m->menu.save_txt, "Auto saving game...");
+    else
+        sfText_setString(m->menu.save_txt, "Saving game...");
+    if (m->univ.interface.fake_save == false)
+    sfRenderWindow_drawText(m->window, m->menu.save_txt, NULL);
+}
+
 void suite_ptr_saving(Global_t *m, sfTime elapsed, float seconds)
 {
     elapsed = sfClock_getElapsedTime(m->o.txt_clock);
     seconds = sfTime_asSeconds(elapsed);
     if (seconds < 2.0f) {
         sfText_setFillColor(m->menu.save_txt, sfBlack);
-        if (m->current == 0 || m->current == 9)
-            sfText_setString(m->menu.save_txt, "Auto saving game...");
-        else
-            sfText_setString(m->menu.save_txt, "Saving game...");
-        sfRenderWindow_drawText(m->window, m->menu.save_txt, NULL);
+        coco(m);
     } else {
         m->o.is_saved = 2;
         sfClock_restart(m->o.txt_clock);
@@ -29,7 +35,7 @@ void suite_ptr(Global_t *m, sfTime elapsed, float seconds)
 {
     elapsed = sfClock_getElapsedTime(m->o.txt_clock);
     seconds = sfTime_asSeconds(elapsed);
-    if (seconds < 1.0f) {
+    if (seconds < 1.0f && m->univ.interface.fake_save == false) {
         sfText_setString(m->menu.save_txt, "\t\t\tGame saved !");
         sfRenderWindow_drawText(m->window, m->menu.save_txt, NULL);
     } else {
@@ -53,5 +59,6 @@ void print_save_txt(Global_t *m)
         suite_ptr_saving(m, elapsed, seconds);
     } else if (m->o.is_saved == 2) {
         suite_ptr(m, elapsed, seconds);
+        m->univ.interface.fake_save = false;
     }
 }

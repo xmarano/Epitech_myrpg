@@ -11,17 +11,17 @@
 #include "../include/worlds.h"
 #include "../include/npc.h"
 
-static void part2(Global_t *m)
+static void part2(Global_t *m, hub_t *h)
 {
     if (m->perso[BOSS2].stat_p.current_hp <= 0 &&
     !m->univ.interface.go_fight) {
         m->zone2.is_w2_clear = true;
-        look_win(m);
+        look_win(m, 2);
     }
-    look_loose(m);
+    look_loose(m, &m->perso[BOSS2], h);
 }
 
-void draw_monde2(Global_t *m, fight_t *f)
+void draw_monde2(Global_t *m, fight_t *f, hub_t *h)
 {
     if (m->current == 2) {
         sfRenderWindow_setView(m->window, m->zone2.view_w2);
@@ -36,7 +36,7 @@ void draw_monde2(Global_t *m, fight_t *f)
         print_mini_barre(m, f, 2);
         if (m->perso[BOSS2].stat_p.current_hp > 0)
             print_boss_barre(m, BOSS2, m->univ.spr_Boss2);
-        part2(m);
+        part2(m, h);
         return_and_old_current2(m, 2);
     }
 }
