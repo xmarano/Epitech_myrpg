@@ -192,6 +192,7 @@ void passif_pate(Global_t *m);
 void passif_xmara(Global_t *m);
 void passif_roy(Global_t *m);
 void passif_raca(Global_t *m);
+void reset_stats_end(Global_t *m);
 void apply_passif(Global_t *m);
 int setup_stat(Global_t *m);
 sfText *init_t_s(Global_t *m, char *str, int size, sfVector2f pos);

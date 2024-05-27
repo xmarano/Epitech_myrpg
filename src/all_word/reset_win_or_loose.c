@@ -29,8 +29,12 @@ static void win_gold(Global_t *m, int world)
         m->gold += 20000;
 }
 
-static void reset_stats_end(Global_t *m)
+void reset_stats_end(Global_t *m)
 {
+    for (int i = 0; i < 5; i++)
+        m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
+    for (int j = 13; j < 23; j++)
+        m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
     m->univ.interface.attack_gpy2 = false;
     m->univ.interface.attack_gpy = false;
     m->univ.interface.go_fight = false;
@@ -39,10 +43,6 @@ static void reset_stats_end(Global_t *m)
 
 void look_win(Global_t *m, int world)
 {
-    for (int i = 0; i < 5; i++)
-        m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
-    for (int j = 13; j < 23; j++)
-        m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
     win_gold(m, world);
     reset_stats_end(m);
     m->current = 24;
@@ -56,10 +56,6 @@ void look_loose(Global_t *m, Perso_t *boss, hub_t *h)
         if (m->perso[i].stat_p.current_hp <= 0)
             nbr++;
     if (nbr == 5) {
-        for (int i = 0; i < 5; i++)
-            m->perso[i].stat_p.current_hp = m->perso[i].stat_p.max_hp;
-        for (int j = 13; j < 23; j++)
-            m->perso[j].stat_p.current_hp = m->perso[j].stat_p.max_hp;
         boss->stat_p.current_hp = boss->stat_p.max_hp;
         reset_stats_end(m);
         load_game(m, h);
