@@ -29,7 +29,7 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.res = 2;
     perso->stat_p.str = 2;
     perso->stat_p.spd = 8;
-    perso->stat_p.mov = 1;
+    perso->stat_p.mov = 0;
 }
 
 void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
