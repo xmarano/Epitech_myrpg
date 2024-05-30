@@ -139,6 +139,7 @@ void draw_menu(Global_t *m)
 
 void destroy_menu(Global_t *m)
 {
+    sfImage_destroy(m->image);
     sfMusic_destroy(m->menu.music);
     sfMusic_destroy(m->hub.music);
     sfMusic_destroy(m->setting.music);

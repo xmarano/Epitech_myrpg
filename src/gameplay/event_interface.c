@@ -16,13 +16,14 @@ static void add_hp(Global_t *m, int who)
     m->perso[who].stat_p.current_hp += 10;
     if (m->perso[who].stat_p.current_hp > m->perso[who].stat_p.max_hp)
         m->perso[who].stat_p.current_hp = m->perso[who].stat_p.max_hp;
-    printf("potion used!\n");
 }
 
 void hp_up(Global_t *m)
 {
     int who = m->univ.interface.who;
 
+    if (who == 5)
+        who = 0;
     for (int j = 0; j < 5; j++) {
         if (strcmp(m->perso[who].inv_weapon[j].name, "Potion") == 0) {
             add_hp(m, who);

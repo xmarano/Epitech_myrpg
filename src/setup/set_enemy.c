@@ -20,8 +20,8 @@ static void init_enemy3_spear(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->texture_battle, link);
     perso->stat_p.level = 7;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 30;
-    perso->stat_p.max_hp = 30;
+    perso->stat_p.current_hp = 28;
+    perso->stat_p.max_hp = 28;
     perso->stat_p.lck = 7;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
@@ -44,14 +44,14 @@ static void init_enemy2_spear(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->texture_battle, link);
     perso->stat_p.level = 3;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 22;
-    perso->stat_p.max_hp = 22;
+    perso->stat_p.current_hp = 20;
+    perso->stat_p.max_hp = 20;
     perso->stat_p.lck = 7;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
-    perso->stat_p.str = 8;
+    perso->stat_p.str = 6;
     perso->stat_p.spd = 5;
     perso->stat_p.mov = 5;
 }
@@ -123,7 +123,7 @@ static void init_enemy2_sword(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 0;
-    perso->stat_p.str = 8;
+    perso->stat_p.str = 5;
     perso->stat_p.spd = 5;
     perso->stat_p.mov = 5;
 }

@@ -54,6 +54,7 @@ static void check_hover2(Global_t *m)
             usleep(1000000);
             sfMusic_pause(m->setting.music);
             sfMusic_play(m->hub.music);
+            reset_stats_end(m);
             m->current = 0;
         }
     }

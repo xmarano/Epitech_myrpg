@@ -11,10 +11,11 @@
 void init_end(Global_t *m)
 {
     m->end.fond = init_sprite("assets/menu/end.png", (sfVector2f){0, 0});
-    m->end.button1 = init_button(m, (sfVector2f){490, 100}, 300);
+    m->end.button1 = init_b_s(m, (sfVector2f){450, 75},
+    (sfVector2f){-200, -100});
     m->end.button2 = init_b_s(m, (sfVector2f){450, 75},
     (sfVector2f){-200, 100});
-    m->end.text1 = init_text(m, "RETRY", 60, 300);
+    m->end.text1 = init_t_s(m, "RETRY", 60, (sfVector2f){-205, -133});
     m->end.text2 = init_t_s(m, "RETURN LOBBY", 60, (sfVector2f){-205, 67});
     m->end.gb_b1 = sfRectangleShape_getGlobalBounds(m->end.button1);
     m->end.gb_b2 = sfRectangleShape_getGlobalBounds(m->end.button2);
@@ -34,6 +35,8 @@ static void check_hover(Global_t *m)
     if (m->current == 25) {
         hover(m, m->end.button1, &m->end.gb_b1);
         click(m, &m->end.gb_b1, m->current_combat);
+        reset_stats_end(m);
+        m->current_map = m->old_map;
     }
 }
 

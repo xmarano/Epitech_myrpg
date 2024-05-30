@@ -71,8 +71,6 @@ static void destory_perso_sprites(Global_t *m)
 
 static void free_all_maptxt_and_view(Global_t *m)
 {
-    free(m->current_map);
-    free(m->old_map);
     free(m->zone1.tab_map);
     free(m->zone2.tab_map);
     free(m->zone3.tab_map);

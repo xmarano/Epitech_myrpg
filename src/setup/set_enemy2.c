@@ -23,13 +23,13 @@ void init_enemy_mage(Perso_t *perso, char *name, Weapons_t weapon)
     perso->stat_p.current_hp = 25;
     perso->stat_p.max_hp = 25;
     perso->stat_p.lck = 7;
-    perso->stat_p.mag = 13;
+    perso->stat_p.mag = 7;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 2;
     perso->stat_p.str = 2;
     perso->stat_p.spd = 8;
-    perso->stat_p.mov = 5;
+    perso->stat_p.mov = 0;
 }
 
 void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
@@ -43,8 +43,8 @@ void init_enemy3_axe(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy3_axe.png");
     perso->stat_p.level = 7;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 31;
-    perso->stat_p.max_hp = 31;
+    perso->stat_p.current_hp = 28;
+    perso->stat_p.max_hp = 28;
     perso->stat_p.lck = 7;
     perso->stat_p.mag = 1;
     perso->stat_p.skl = 7;
@@ -66,14 +66,14 @@ void init_enemy2_axe(Perso_t *perso, char *name, Weapons_t weapon)
     strcpy(perso->texture_battle, "assets/perso/battle/enemy/enemy2_axe.png");
     perso->stat_p.level = 3;
     perso->stat_p.xp = 0;
-    perso->stat_p.current_hp = 27;
-    perso->stat_p.max_hp = 27;
+    perso->stat_p.current_hp = 23;
+    perso->stat_p.max_hp = 23;
     perso->stat_p.mag = 1;
     perso->stat_p.lck = 7;
     perso->stat_p.skl = 7;
     perso->stat_p.def = 4;
     perso->stat_p.res = 2;
-    perso->stat_p.str = 8;
+    perso->stat_p.str = 6;
     perso->stat_p.spd = 5;
     perso->stat_p.mov = 5;
 }
