@@ -36,7 +36,6 @@ void move_game_cursor(Global_t *m)
     sfVector2f pos_cursor = sfSprite_getPosition(m->univ.map_cursor_sprite);
     sfTime time = sfClock_getElapsedTime(m->univ.clock_cursor);
     float seconds = sfTime_asMilliseconds(time) / 1000.0;
-
     if (seconds > 0.05) {
         if (!m->univ.interface.select_inteface)
             update_move_cursor(pos_cursor, m);
